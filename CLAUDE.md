@@ -9,8 +9,11 @@ Read `README.md` first (workflow, who does what, what goes where), then `DESIGN.
 - The WordPress site is reached through the Novamira MCP connector (`novamira-test-delicja-dk`).
 
 ## Two places, two tools
-- **Elementor (database), via Novamira:** layout, sections, texts, images, menus, Theme Builder templates,
-  global colours and fonts. Back up before every write, check `_edit_lock`, clear caches (see `docs/novamira.md`).
+- **Elementor (database), via Novamira:** layout, sections, texts, images, Theme Builder templates (header, footer,
+  shop, category and product pages, with display conditions), global colours and fonts. Back up before every
+  write, check `_edit_lock`, clear caches (see `docs/novamira.md`).
+- **Menus are WordPress menus** (Appearance → Menus), created and edited with the WordPress menu API; the header
+  and footer show them with Elementor's Nav Menu widget. Never hardcode menu links in templates.
 - **Files in this repo, via git:** all CSS, JS and PHP. Commit and push; the deploy does the rest.
 - Never write CSS into Elementor's Custom CSS fields (kit, page, element) or into WPCode.
 - Never write theme files on the server directly (no `write-file` into the theme folder). Change the repo and push.

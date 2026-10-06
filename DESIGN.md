@@ -106,7 +106,7 @@ v1 = build now, v2 = later.
 1. Announcement bar (v1, static): one line, e.g. "Bestil online, hent i butikken i Herning" [TODO].
 2. Header (v1, Theme Builder): wordmark logo, product search, address link "Bethaniagade 5, Herning"
    (Google Maps), mini cart, account icon. Menu: Butik, Kategorier (submenu with all categories), Tilbud,
-   Om os, Kontakt. Mobile: hamburger menu. Red folk edge underneath.
+   Om os, Kontakt (WordPress menu "Hovedmenu" in the Nav Menu widget). Mobile: hamburger menu. Red folk edge underneath.
 3. Hero (v1): cobalt rounded panel, eyebrow, headline "Polske delikatesser i hjertet af Danmark", one line of
    text, two buttons (Butik, Om os), basket illustration [TODO final copy].
 4. Category tiles (v1): round linen tiles with icon + name for Kød, Mejeri, Bageri, Slik, Snacks, Grøntsager

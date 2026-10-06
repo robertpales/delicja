@@ -115,6 +115,24 @@ $cm->save_conditions( $tpl_id, [ [ 'type' => 'include', 'name' => 'singular', 's
 - Preview a template without conditions: `?elementor_library=<slug>` (with `preview_id` in its settings).
 - The WooCommerce shop page is rendered by the archive template: to redesign the shop, edit the template, not the page.
 
+### Menus
+Menus live in WordPress (*Appearance → Menus*), not in Elementor. Templates only show them with the Nav Menu widget.
+```php
+$menu_id = wp_create_nav_menu( 'Hovedmenu' );
+wp_update_nav_menu_item( $menu_id, 0, [
+	'menu-item-title'     => 'Butik',
+	'menu-item-object'    => 'page',
+	'menu-item-object-id' => wc_get_page_id( 'shop' ),
+	'menu-item-type'      => 'post_type',
+	'menu-item-status'    => 'publish',
+] );
+// Category item: 'menu-item-type' => 'taxonomy', 'menu-item-object' => 'product_cat', 'menu-item-object-id' => $term_id.
+// Sub item: add 'menu-item-parent-id' => $parent_item_id.
+```
+- The Nav Menu widget stores the menu **slug** in its `menu` setting. If the slug does not exist, the widget silently
+  falls back to another menu, so check the slug after creating or renaming a menu.
+- Hello Elementor's menu locations are not used; the widget picks the menu directly.
+
 ### Loop Grid and dynamic data
 - A Loop Item template can be used in many places. Check where before editing; copy it if in doubt.
 - Query controls such as `product_query_include_term_ids` take **term_taxonomy_id**, not term_id.

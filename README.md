@@ -21,8 +21,9 @@ shop pages. Check the site while logged in.
 
 | What | Where | History |
 |---|---|---|
-| Layout, sections, texts, images, menus | Elementor (via the Novamira connector or the editor) | Backups in the database (see `docs/novamira.md`) |
-| Header, footer, shop, product page | Elementor → Theme Builder templates | same |
+| Layout, sections, texts, images | Elementor (via the Novamira connector or the editor) | Backups in the database (see `docs/novamira.md`) |
+| Header, footer, shop, category page, product page | Elementor → Theme Builder templates (with display conditions) | same |
+| Menus (items and their order) | WordPress → Appearance → Menus; shown in the header/footer by Elementor's Nav Menu widget | same |
 | Colours and fonts | Elementor → Site Settings → Global Colors / Global Fonts | same |
 | Global CSS (buttons, cards, header, footer, shop) | `assets/css/site.css` | git |
 | CSS for one page | `assets/css/pages/<page-slug>.css` | git |
@@ -43,6 +44,14 @@ element) and the WPCode plugin are not used, otherwise the change has no history
 Production (delicja.dk) is deployed by Robo, not automatically.
 
 Never edit theme files on the server. The next deploy overwrites them.
+
+## Header, footer and menus
+- **Header and footer** are Elementor **Theme Builder** templates (*Templates → Theme Builder*) with the display
+  condition *Entire Site*. They are not built on each page, and Hello Elementor's own header/footer is not used.
+- **Shop, category and product pages** are Theme Builder templates too (Products Archive, Single Product).
+- **Menus** are WordPress menus in *Appearance → Menus* (main menu, footer menus). The header and footer only show
+  them with Elementor's **Nav Menu** widget. To add, remove or reorder a menu item, edit the menu, not the template,
+  so the owner can change it without Elementor.
 
 ## CSS
 - **Global CSS** = anything used on more than one page. Add rules to the right block in `site.css`
