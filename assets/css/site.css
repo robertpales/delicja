@@ -661,6 +661,22 @@
     }
 }
 
+@media (max-width: 767px) {
+    .dl-grid .elementor-loop-container {
+        grid-template-columns: none;
+        grid-auto-columns: 72%;
+        grid-auto-flow: column;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+    }
+
+    .dl-grid .e-loop-item {
+        scroll-snap-align: start;
+    }
+}
+
 /* === Footer === */
 .dl-footer-wrap {
     --padding-top: 0px;
