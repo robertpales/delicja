@@ -337,3 +337,156 @@
 /* === Shop === */
 
 /* === Footer === */
+.dl-footer-wrap {
+    --padding-top: 0px;
+    --padding-right: 0px;
+    --padding-bottom: 0px;
+    --padding-left: 0px;
+    --gap: 0px;
+    --row-gap: 0px;
+}
+
+.dl-footer-band {
+    --min-height: 28px;
+    height: 28px;
+    margin: 48px 0 16px;
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: url("../images/folk/folk-band.svg") repeat-x center / auto 100%;
+    mask: url("../images/folk/folk-band.svg") repeat-x center / auto 100%;
+}
+
+.dl-footer {
+    --padding-top: 72px;
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: 40px;
+    --padding-left: var(--dl-gutter);
+    --gap: 48px;
+    --row-gap: 48px;
+}
+
+.dl-footer-columns {
+    --padding-top: 0px;
+    --padding-right: 0px;
+    --padding-bottom: 0px;
+    --padding-left: 0px;
+}
+
+.dl-footer-columns > .e-con-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+}
+
+.dl-footer-col {
+    --padding-top: 0px;
+    --padding-right: 0px;
+    --padding-bottom: 0px;
+    --padding-left: 0px;
+    --gap: 16px;
+    --row-gap: 16px;
+}
+
+.dl-footer-title .elementor-heading-title {
+    margin: 0;
+}
+
+.dl-footer .dl-footer-logo.elementor-widget a img {
+    display: block;
+    width: 128px;
+    height: auto;
+}
+
+.dl-footer-about p {
+    margin: 0;
+}
+
+.dl-payment {
+    --padding-top: 0px;
+    --padding-right: 0px;
+    --padding-bottom: 0px;
+    --padding-left: 0px;
+    --gap: 8px;
+    --column-gap: 8px;
+    flex-wrap: wrap;
+}
+
+.elementor.elementor .dl-payment > .elementor-widget {
+    width: 56px;
+}
+
+.dl-footer .dl-payment-icon img {
+    display: block;
+    width: 56px;
+    height: auto;
+    border-radius: var(--dl-radius-sm);
+}
+
+.dl-footer .dl-footer-nav .elementor-nav-menu--main .elementor-item,
+.dl-footer .dl-footer-nav .elementor-nav-menu--main .elementor-item:hover,
+.dl-footer .dl-footer-nav .elementor-nav-menu--main .elementor-item:focus {
+    padding: 4px 0;
+}
+
+.dl-footer .dl-footer-nav .elementor-nav-menu--main .elementor-item:hover,
+.dl-footer .dl-footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.dl-footer .dl-footer-contact .elementor-icon-list-item {
+    padding-block: 4px;
+}
+
+.dl-footer .dl-footer-contact .elementor-icon-list-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.dl-footer-bottom {
+    --padding-top: 0px;
+    --padding-right: 0px;
+    --padding-bottom: 0px;
+    --padding-left: 0px;
+}
+
+.dl-footer-bottom > .e-con-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--e-global-color-dlcreme) 25%, transparent);
+}
+
+.dl-footer-legal p {
+    margin: 0;
+}
+
+.elementor.elementor .dl-footer-bottom .elementor-widget {
+    width: auto;
+}
+
+.dl-footer .dl-footer-social .elementor-social-icon {
+    --icon-size: 18px;
+    --icon-padding: 0.4em;
+}
+
+@media (min-width: 768px) {
+    .dl-footer-columns > .e-con-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dl-footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1025px) {
+    .dl-footer-columns > .e-con-inner {
+        grid-template-columns: 34fr 22fr 22fr 22fr;
+        gap: 48px;
+    }
+
+    .dl-footer-brand {
+        grid-column: auto;
+    }
+}
