@@ -526,7 +526,7 @@
     margin: 0;
 }
 
-.elementor .dl-card .dl-card-button form.cart .single_add_to_cart_button.button {
+.elementor .dl-card .dl-card-button form.cart .button {
     width: 100%;
     margin: 0;
     padding: 12px 16px;
@@ -538,10 +538,28 @@
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlbtn01-font-weight);
     line-height: 1.2;
+    text-align: center;
     transition: background-color var(--dl-transition);
 }
 
-.elementor .dl-card .dl-card-button form.cart .single_add_to_cart_button.button:hover {
+.elementor .dl-card .dl-card-button form.cart .button.added {
+    display: none;
+}
+
+.dl-card .dl-card-button .added_to_cart {
+    display: block;
+    padding: 12px 16px;
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-secondary);
+    color: var(--e-global-color-dlwhite);
+    font-family: var(--e-global-typography-dlbtn01-font-family);
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    font-weight: var(--e-global-typography-dlbtn01-font-weight);
+    line-height: 1.2;
+    text-align: center;
+}
+
+.elementor .dl-card .dl-card-button form.cart .button:hover {
     background-color: var(--e-global-color-dlred02);
 }
 
@@ -560,6 +578,24 @@
 
 .dl-carousel .swiper {
     overflow: hidden;
+}
+
+.dl-carousel .swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+@media (max-width: 1024px) {
+    .dl-carousel .swiper:not(.swiper-initialized) .swiper-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .dl-carousel .swiper:not(.swiper-initialized) .swiper-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 .dl-carousel .elementor-swiper-button {
