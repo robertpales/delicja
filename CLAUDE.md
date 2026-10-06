@@ -6,7 +6,10 @@ Read `README.md` first (workflow, who does what, what goes where), then `DESIGN.
 ## Stack
 - WordPress + Hello Elementor + Elementor / PRO Elements + WooCommerce. Site language Danish; product names may stay Polish.
 - This repo is only the child theme `delicja-child`. It is deployed to test.delicja.dk automatically on every push to `main`.
-- The WordPress site is reached through the Novamira MCP connector (`novamira-test-delicja-dk`).
+- The WordPress site is reached through the Novamira MCP connector for test.delicja.dk (its name depends on the
+  user's claude.ai account). If no such connector is available, stop and point the user to README → Getting started.
+- When the user asks what to do, follow the build order in `DESIGN.md` and propose the next unfinished step;
+  check the site first to see what already exists.
 
 ## Two places, two tools
 - **Elementor (database), via Novamira:** layout, sections, texts, images, Theme Builder templates (header, footer,

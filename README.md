@@ -4,6 +4,16 @@ delicja.dk runs on WordPress with Elementor (Hello Elementor theme, PRO Elements
 This repo is the **child theme `delicja-child`**. It holds only our own code and brand files: CSS, JS,
 PHP, fonts, logo and illustrations. Everything else is built in Elementor.
 
+## Getting started (Matej)
+1. Accept the GitHub invitation and clone the repo: `git clone git@github.com:robertpales/delicja.git`.
+2. In claude.ai → Settings → Connectors, add the **Novamira** connector for test.delicja.dk and log in with your
+   WordPress account (`adminMato`). The connector URL is in WordPress → Novamira.
+3. Open **Claude Code in the cloned folder** (terminal or desktop app) and start a new session, so it loads
+   `CLAUDE.md` and the connector. Then ask Claude what to do next.
+
+Work in a local Claude Code session on `main`: only a push to `main` deploys. Cloud sessions (claude.ai/code) push
+to their own `claude/...` branch, which does not deploy until it is merged into `main`.
+
 ## Who does what
 - **Matej:** design. His Claude builds the site in Elementor and writes the code in this repo; Matej reviews.
 - **Robo:** hosting, WooCommerce, payments, shipping, VAT, email, backups, production deploys.
