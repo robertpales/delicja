@@ -521,8 +521,9 @@
     margin-top: auto;
 }
 
-.dl-card .dl-card-button form.cart {
-    display: block;
+.elementor .dl-card .dl-card-button .e-loop-add-to-cart-form {
+    flex: 1;
+    width: 100%;
     margin: 0;
 }
 
