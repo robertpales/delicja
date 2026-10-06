@@ -7,7 +7,7 @@ PHP, fonts, logo and illustrations. Everything else is built in Elementor.
 ## Getting started (Matej)
 1. Accept the GitHub invitation and clone the repo: `git clone git@github.com:robertpales/delicja.git`.
 2. In claude.ai → Settings → Connectors, add the **Novamira** connector for test.delicja.dk and log in with your
-   WordPress account (`adminMato`). The connector URL is in WordPress → Novamira.
+   WordPress account (`adminMato`). The connector URL is in wp-admin → Novamira (Connect page).
 3. Open **Claude Code in the cloned folder** (terminal or desktop app) and start a new session, so it loads
    `CLAUDE.md` and the connector. Then ask Claude what to do next.
 
