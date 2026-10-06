@@ -24,45 +24,59 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Check the target path
+      - name: Read the settings
         env:
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          RAW_HOST: ${{ secrets.DEPLOY_HOST }}
+          RAW_PORT: ${{ secrets.DEPLOY_PORT }}
+          RAW_USER: ${{ secrets.DEPLOY_USER }}
+          RAW_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          # Trim whitespace and a trailing slash, then pass the clean path to the next steps.
-          DEPLOY_PATH="$(printf '%s' "$DEPLOY_PATH" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's#/*$##')"
-          if [ -z "$DEPLOY_PATH" ]; then
-            echo "The DEPLOY_PATH secret is missing or empty" >&2
-            exit 1
-          fi
+          # Secrets pasted from a browser often carry spaces or line breaks; strip them.
+          clean() { printf '%s' "$1" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'; }
+          DEPLOY_HOST="$(clean "$RAW_HOST" | sed -e 's#^[a-z]*://##' -e 's#/.*$##')"
+          DEPLOY_PORT="$(clean "$RAW_PORT")"
+          DEPLOY_USER="$(clean "$RAW_USER")"
+          DEPLOY_PATH="$(clean "$RAW_PATH" | sed -e 's#/*$##')"
+          [ -n "$DEPLOY_PORT" ] || DEPLOY_PORT=22
+
+          for name in DEPLOY_HOST DEPLOY_USER DEPLOY_PATH; do
+            if [ -z "${!name}" ]; then
+              echo "The $name secret is missing or empty" >&2
+              exit 1
+            fi
+          done
+
           # rsync --delete runs against this folder, so refuse anything that is not the theme folder.
           case "$DEPLOY_PATH" in
             */wp-content/themes/delicja-child) ;;
             *) echo "DEPLOY_PATH must end with /wp-content/themes/delicja-child" >&2; exit 1 ;;
           esac
-          echo "DEPLOY_PATH=$DEPLOY_PATH" >> "$GITHUB_ENV"
+
+          {
+            echo "DEPLOY_HOST=$DEPLOY_HOST"
+            echo "DEPLOY_PORT=$DEPLOY_PORT"
+            echo "DEPLOY_USER=$DEPLOY_USER"
+            echo "DEPLOY_PATH=$DEPLOY_PATH"
+          } >> "$GITHUB_ENV"
 
       - name: Set up SSH
         env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh
-          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          printf '%s\n' "$DEPLOY_SSH_KEY" | tr -d '\r' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          echo "SSH_CMD=ssh -i $HOME/.ssh/deploy_key -p $DEPLOY_PORT -l $DEPLOY_USER" >> "$GITHUB_ENV"
 
       - name: Check the server
-        env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         run: |
           # Fail early, with a hint, if rsync is missing or the themes folder is not where we expect it.
-          ssh -i ~/.ssh/deploy_key -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "
+          THEMES_DIR="$(dirname "$DEPLOY_PATH")"
+          $SSH_CMD "$DEPLOY_HOST" "
             command -v rsync > /dev/null || { echo 'rsync is not installed on the server' >&2; exit 1; }
-            if [ ! -d '$(dirname "$DEPLOY_PATH")' ]; then
-              echo 'Themes folder not found: $(dirname "$DEPLOY_PATH")' >&2
+            if [ ! -d '$THEMES_DIR' ]; then
+              echo 'Themes folder not found: $THEMES_DIR' >&2
               echo \"Home: \$(pwd)\" >&2
               ls -la >&2
               exit 1
@@ -70,14 +84,10 @@ jobs:
           "
 
       - name: Upload the theme
-        env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         run: |
           # The theme clears the page cache once when this SHA changes (inc/deploy.php).
           echo "$GITHUB_SHA" > .deployed
           rsync -rlz --delete --chmod=D755,F644 \
             --exclude-from=.deployignore \
-            -e "ssh -i ~/.ssh/deploy_key -p $DEPLOY_PORT" \
-            ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+            -e "$SSH_CMD" \
+            ./ "$DEPLOY_HOST:$DEPLOY_PATH/"
