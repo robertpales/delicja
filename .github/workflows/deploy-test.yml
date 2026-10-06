@@ -45,6 +45,24 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
 
+      - name: Check the server
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          # Fail early, with a hint, if rsync is missing or the themes folder is not where we expect it.
+          ssh -i ~/.ssh/deploy_key -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "
+            command -v rsync > /dev/null || { echo 'rsync is not installed on the server' >&2; exit 1; }
+            if [ ! -d '$(dirname "$DEPLOY_PATH")' ]; then
+              echo 'Themes folder not found: $(dirname "$DEPLOY_PATH")' >&2
+              echo \"Home: \$(pwd)\" >&2
+              ls -la >&2
+              exit 1
+            fi
+          "
+
       - name: Upload the theme
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
