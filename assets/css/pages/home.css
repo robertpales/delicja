@@ -270,10 +270,6 @@
     background-color: var(--e-global-color-dlwhite);
 }
 
-.dl-feature .elementor-icon-box-wrapper {
-    text-align: left;
-}
-
 .dl-feature .elementor-icon-box-icon {
     margin-bottom: 12px;
 }
@@ -334,7 +330,7 @@
     padding: 16px 0;
 }
 
-.dl-accordion .elementor-accordion-icon {
+.dl-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-right {
     display: grid;
     flex: none;
     place-items: center;
@@ -343,6 +339,11 @@
     border-radius: 50%;
     background-color: var(--e-global-color-dlhor00);
     font-size: 12px;
+}
+
+.dl-accordion .elementor-accordion-icon > span {
+    display: inline-flex;
+    justify-content: center;
 }
 
 .dl-accordion .elementor-accordion-icon svg {

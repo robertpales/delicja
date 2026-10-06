@@ -507,7 +507,6 @@
 }
 
 .dl-card .dl-card-price .price ins {
-    color: var(--e-global-color-primary);
     text-decoration: none;
 }
 
@@ -527,12 +526,23 @@
     margin: 0;
 }
 
-.dl-card .dl-card-button .single_add_to_cart_button {
+.elementor .dl-card .dl-card-button form.cart .single_add_to_cart_button.button {
     width: 100%;
     margin: 0;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-primary);
+    color: var(--e-global-color-dlwhite);
     font-family: var(--e-global-typography-dlbtn01-font-family);
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlbtn01-font-weight);
+    line-height: 1.2;
+    transition: background-color var(--dl-transition);
+}
+
+.elementor .dl-card .dl-card-button form.cart .single_add_to_cart_button.button:hover {
+    background-color: var(--e-global-color-dlred02);
 }
 
 .dl-card .dl-card-button .stock.out-of-stock {
