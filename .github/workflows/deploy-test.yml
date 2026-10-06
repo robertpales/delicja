@@ -1,0 +1,60 @@
+# Deploys the child theme to test.delicja.dk on every push to main.
+#
+# Repository secrets (Settings → Secrets and variables → Actions):
+#   DEPLOY_HOST      server hostname or IP
+#   DEPLOY_PORT      SSH port (optional, default 22)
+#   DEPLOY_USER      SSH user that owns the WordPress files
+#   DEPLOY_SSH_KEY   private key whose public half is in the user's ~/.ssh/authorized_keys
+#   DEPLOY_PATH      absolute path of the theme folder, must end with /wp-content/themes/delicja-child
+
+name: Deploy to test
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-test
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the target path
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          # rsync --delete runs against this folder, so refuse anything that is not the theme folder.
+          case "$DEPLOY_PATH" in
+            */wp-content/themes/delicja-child) ;;
+            *) echo "DEPLOY_PATH must end with /wp-content/themes/delicja-child" >&2; exit 1 ;;
+          esac
+
+      - name: Set up SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Upload the theme
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          # The theme clears the page cache once when this SHA changes (inc/deploy.php).
+          echo "$GITHUB_SHA" > .deployed
+          rsync -rlz --delete --chmod=D755,F644 \
+            --exclude-from=.deployignore \
+            -e "ssh -i ~/.ssh/deploy_key -p $DEPLOY_PORT" \
+            ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"

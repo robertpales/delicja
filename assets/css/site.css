@@ -1,0 +1,23 @@
+/* Global CSS: everything used on more than one page (buttons, cards, header, footer, shop).
+   CSS for a single page goes to assets/css/pages/<page-slug>.css.
+   Colours and fonts come from Elementor globals: var(--e-global-color-…), var(--e-global-typography-…). */
+
+/* === Base === */
+:root {
+    --dl-radius: 8px;
+    --dl-section-padding: 80px;
+}
+
+@media (max-width: 767px) {
+    :root {
+        --dl-section-padding: 48px;
+    }
+}
+
+/* === Components === */
+
+/* === Header === */
+
+/* === Shop === */
+
+/* === Footer === */

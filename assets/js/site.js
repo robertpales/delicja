@@ -1,0 +1,1 @@
+/* Delicja custom scripts. No jQuery. */

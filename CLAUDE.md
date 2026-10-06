@@ -1,0 +1,31 @@
+# Delicja – instructions for Claude
+
+Read `README.md` first (workflow, who does what, what goes where), then `DESIGN.md` (brand) and
+`docs/novamira.md` (how to work on the WordPress site safely).
+
+## Stack
+- WordPress + Hello Elementor + Elementor / PRO Elements + WooCommerce. Site language Danish; product names may stay Polish.
+- This repo is only the child theme `delicja-child`. It is deployed to test.delicja.dk automatically on every push to `main`.
+- The WordPress site is reached through the Novamira MCP connector (`novamira-test-delicja-dk`).
+
+## Two places, two tools
+- **Elementor (database), via Novamira:** layout, sections, texts, images, menus, Theme Builder templates,
+  global colours and fonts. Back up before every write, check `_edit_lock`, clear caches (see `docs/novamira.md`).
+- **Files in this repo, via git:** all CSS, JS and PHP. Commit and push; the deploy does the rest.
+- Never write CSS into Elementor's Custom CSS fields (kit, page, element) or into WPCode.
+- Never write theme files on the server directly (no `write-file` into the theme folder). Change the repo and push.
+
+## Conventions
+- Colours and fonts are Elementor globals. In CSS use `var(--e-global-color-…)` / `var(--e-global-typography-…)`,
+  never hex values or font names. Every global font has an explicit line height and letter spacing.
+- Global CSS → `assets/css/site.css` (into the matching block). Page CSS → `assets/css/pages/<slug>.css`.
+- Class prefix `dl-`. One declaration per line, comments only as block headers (`/* === Header === */`).
+- Use Elementor widgets for normal content (texts, images, buttons, products) so the owner can edit them.
+  Code (HTML widget) only for things Elementor cannot do.
+- Product sections are live (Loop Grid / WooCommerce widgets from the database). Never hardcode products, prices or stock.
+- PHP goes to `inc/<area>.php` (auto-loaded). `functions.php` only loads files.
+- JS without jQuery, only when a feature needs it.
+- Fonts are self-hosted (`assets/fonts/`). No Google Fonts or other third-party requests (GDPR, Denmark).
+- Do not update Elementor or PRO Elements.
+- Never invent prices, opening hours, CVR, legal texts or reviews. Mark unknowns as `[TODO]`.
+- One commit per change with a clear message. Code comments in English.

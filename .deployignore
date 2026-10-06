@@ -1,0 +1,8 @@
+.git/
+.github/
+docs/
+.gitignore
+.deployignore
+README.md
+CLAUDE.md
+DESIGN.md
