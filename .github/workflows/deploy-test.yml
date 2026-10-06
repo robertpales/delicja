@@ -22,17 +22,24 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check the target path
         env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
+          # Trim whitespace and a trailing slash, then pass the clean path to the next steps.
+          DEPLOY_PATH="$(printf '%s' "$DEPLOY_PATH" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's#/*$##')"
+          if [ -z "$DEPLOY_PATH" ]; then
+            echo "The DEPLOY_PATH secret is missing or empty" >&2
+            exit 1
+          fi
           # rsync --delete runs against this folder, so refuse anything that is not the theme folder.
           case "$DEPLOY_PATH" in
             */wp-content/themes/delicja-child) ;;
             *) echo "DEPLOY_PATH must end with /wp-content/themes/delicja-child" >&2; exit 1 ;;
           esac
+          echo "DEPLOY_PATH=$DEPLOY_PATH" >> "$GITHUB_ENV"
 
       - name: Set up SSH
         env:
@@ -50,7 +57,6 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           # Fail early, with a hint, if rsync is missing or the themes folder is not where we expect it.
           ssh -i ~/.ssh/deploy_key -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "
@@ -68,7 +74,6 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           # The theme clears the page cache once when this SHA changes (inc/deploy.php).
           echo "$GITHUB_SHA" > .deployed
