@@ -390,6 +390,10 @@
     margin: 0;
 }
 
+.dl-footer .dl-footer-logo.elementor-widget {
+    text-align: left;
+}
+
 .dl-footer .dl-footer-logo.elementor-widget a img {
     display: block;
     width: 128px;
@@ -446,13 +450,14 @@
     --padding-right: 0px;
     --padding-bottom: 0px;
     --padding-left: 0px;
+    --flex-wrap: wrap;
+    --justify-content: space-between;
+    --align-items: center;
+    --gap: 16px;
+    --column-gap: 16px;
 }
 
 .dl-footer-bottom > .e-con-inner {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
     padding-top: 24px;
     border-top: 1px solid color-mix(in srgb, var(--e-global-color-dlcreme) 25%, transparent);
 }
