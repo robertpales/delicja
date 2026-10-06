@@ -92,7 +92,7 @@
     width: 120px;
 }
 
-.dl-header-brand img {
+.dl-header .dl-header-brand.elementor-widget a img {
     display: block;
     width: 100%;
     height: auto;
@@ -271,7 +271,7 @@
     color: var(--e-global-color-dlwhite);
 }
 
-.dl-header .dl-header-cart .elementor-button-icon-qty[data-counter="0"] {
+.dl-header .dl-header-cart.elementor-menu-cart--items-indicator-bubble .elementor-menu-cart__toggle .elementor-button-icon-qty[data-counter="0"] {
     display: none;
 }
 
