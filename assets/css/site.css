@@ -14,11 +14,6 @@
     }
 }
 
-body {
-    outline: 8px solid red;
-    outline-offset: -8px;
-}
-
 /* === Components === */
 
 /* === Header === */
