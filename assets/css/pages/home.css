@@ -1,3 +1,437 @@
 /* CSS for the page with the slug "home" (front page). Rename the file if the slug changes. */
 
+/* === Base === */
+.dl-front {
+    --padding-top: 24px;
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: 24px;
+    --padding-left: var(--dl-gutter);
+    --gap: 72px;
+    --row-gap: 72px;
+}
+
+@media (max-width: 767px) {
+    .dl-front {
+        --gap: 48px;
+        --row-gap: 48px;
+    }
+}
+
 /* === Hero === */
+.dl-hero {
+    --padding-top: 32px;
+    --padding-right: 24px;
+    --padding-bottom: 32px;
+    --padding-left: 24px;
+    --flex-direction: column;
+    --align-items: center;
+    --gap: 32px;
+    --row-gap: 32px;
+    overflow: hidden;
+    border-radius: var(--dl-radius-xl);
+}
+
+.dl-hero-text {
+    --gap: 16px;
+    --row-gap: 16px;
+}
+
+.dl-hero-title .elementor-heading-title {
+    margin: 0;
+    text-wrap: balance;
+}
+
+.dl-hero-lead p {
+    max-width: 32em;
+    margin: 0;
+}
+
+.dl-hero-text .dl-buttons {
+    margin-top: 16px;
+}
+
+.dl-hero-image img {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .dl-hero {
+        --padding-top: 56px;
+        --padding-right: 48px;
+        --padding-bottom: 56px;
+        --padding-left: 48px;
+        --flex-direction: row;
+        --gap: 48px;
+    }
+
+    .dl-hero-text {
+        --width: 54%;
+    }
+
+    .dl-hero-art {
+        --width: 46%;
+    }
+
+    .dl-hero-image img {
+        max-width: 544px;
+    }
+}
+
+/* === Categories === */
+.dl-cats {
+    --gap: 12px;
+    --column-gap: 12px;
+    display: grid;
+    grid-auto-columns: 108px;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+}
+
+@media (min-width: 1025px) {
+    .dl-cats {
+        grid-template-columns: repeat(9, minmax(0, 1fr));
+        grid-auto-flow: row;
+        overflow: visible;
+    }
+}
+
+.dl-cat {
+    --gap: 8px;
+    --row-gap: 8px;
+    --align-items: center;
+    position: relative;
+    scroll-snap-align: start;
+    text-align: center;
+}
+
+.dl-cat .dl-cat-image {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--e-global-color-dlhor00);
+    transition:
+        background-color var(--dl-transition),
+        transform var(--dl-transition);
+}
+
+.dl-cat .dl-cat-image img {
+    width: 80%;
+    height: auto;
+}
+
+.dl-cat-label .elementor-heading-title {
+    margin: 0;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    line-height: 1.3;
+}
+
+.dl-cat-label .elementor-heading-title a {
+    color: inherit;
+}
+
+.dl-cat-label .elementor-heading-title a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--dl-radius-md);
+}
+
+.dl-cat:hover .dl-cat-image {
+    background-color: var(--e-global-color-dlgold2);
+    transform: translateY(-3px);
+}
+
+.dl-cat:hover .dl-cat-label .elementor-heading-title {
+    color: var(--e-global-color-primary);
+}
+
+/* === Promo banners === */
+.dl-promos {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.dl-promo {
+    --padding-top: 24px;
+    --padding-right: 24px;
+    --padding-bottom: 24px;
+    --padding-left: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+    border-radius: var(--dl-radius-lg);
+}
+
+.dl-promo-text {
+    --gap: 8px;
+    --row-gap: 8px;
+    --align-items: flex-start;
+}
+
+.dl-promo-title .elementor-heading-title,
+.dl-promo-body p {
+    margin: 0;
+}
+
+.dl-promo-text .dl-btn {
+    margin-top: 8px;
+}
+
+.dl-promo-image img {
+    display: block;
+    width: 100%;
+    max-width: 352px;
+    height: auto;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .dl-promos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1100px) {
+    .dl-promo {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+}
+
+/* === Nyheder === */
+.dl-new {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.dl-new-tile {
+    --padding-top: 24px;
+    --padding-right: 24px;
+    --padding-bottom: 24px;
+    --padding-left: 24px;
+    --gap: 12px;
+    --row-gap: 12px;
+    --align-items: flex-start;
+    overflow: hidden;
+    border-radius: var(--dl-radius-lg);
+}
+
+.dl-new-title .elementor-heading-title,
+.dl-new-body p {
+    margin: 0;
+}
+
+.elementor.elementor .dl-new-tile > .dl-new-image {
+    width: 100%;
+    margin-top: auto;
+}
+
+.dl-new-image img {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin-inline: auto;
+}
+
+@media (min-width: 1025px) {
+    .dl-new {
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 3fr);
+    }
+}
+
+/* === Features === */
+.dl-features {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.elementor.elementor .dl-features > .dl-feature {
+    width: 100%;
+}
+
+.dl-feature {
+    padding: 16px;
+    border: 1px solid var(--e-global-color-dlkant0);
+    border-radius: var(--dl-radius-lg);
+    background-color: var(--e-global-color-dlwhite);
+}
+
+.dl-feature .elementor-icon-box-wrapper {
+    text-align: left;
+}
+
+.dl-feature .elementor-icon-box-icon {
+    margin-bottom: 12px;
+}
+
+.dl-feature .elementor-icon {
+    padding: 12px;
+    font-size: 24px;
+}
+
+.dl-feature .elementor-icon-box-title {
+    margin: 0 0 4px;
+}
+
+.dl-feature .elementor-icon-box-description {
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .dl-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1025px) {
+    .dl-features {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* === FAQ === */
+.dl-faq {
+    --align-items: stretch;
+    width: 100%;
+    max-width: 832px;
+    margin-inline: auto;
+}
+
+.dl-faq-head {
+    --align-items: center;
+    text-align: center;
+}
+
+.dl-accordion .elementor-accordion-item {
+    border: 0;
+    border-bottom: 1px solid var(--e-global-color-dlkant0);
+}
+
+.dl-accordion .elementor-accordion-item:first-child {
+    border-top: 1px solid var(--e-global-color-dlkant0);
+}
+
+.dl-accordion .elementor-tab-title {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.dl-accordion .elementor-accordion-icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--e-global-color-dlhor00);
+    font-size: 12px;
+}
+
+.dl-accordion .elementor-accordion-icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.dl-accordion .elementor-tab-content {
+    padding: 0 0 16px;
+    border: 0;
+}
+
+.dl-accordion .elementor-tab-content p {
+    margin: 0;
+}
+
+.dl-faq-contact {
+    --padding-top: 24px;
+    --padding-right: 24px;
+    --padding-bottom: 24px;
+    --padding-left: 24px;
+    --flex-wrap: wrap;
+    --justify-content: space-between;
+    --align-items: center;
+    --gap: 16px;
+    --column-gap: 16px;
+    border-radius: var(--dl-radius-lg);
+}
+
+.dl-faq-contact-text {
+    --width: auto;
+    --gap: 4px;
+    --row-gap: 4px;
+}
+
+.dl-faq-contact-title .elementor-heading-title,
+.dl-faq-contact-body p {
+    margin: 0;
+}
+
+.elementor.elementor .dl-faq-contact > .elementor-widget {
+    width: auto;
+}
+
+/* === Follow us === */
+.dl-follow {
+    --padding-top: 48px;
+    --padding-right: 24px;
+    --padding-bottom: 48px;
+    --padding-left: 24px;
+    --justify-content: center;
+    --align-items: center;
+    --gap: 32px;
+    --column-gap: 32px;
+    border-radius: var(--dl-radius-xl);
+}
+
+.dl-follow-text {
+    --width: auto;
+    --align-items: center;
+    --gap: 12px;
+    --row-gap: 12px;
+    max-width: 544px;
+    text-align: center;
+}
+
+.dl-follow-body p {
+    margin: 0;
+}
+
+.elementor.elementor .dl-follow > .dl-follow-art {
+    display: none;
+    width: 144px;
+    flex: none;
+}
+
+.dl-follow-art img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.dl-follow-social .elementor-social-icon {
+    --icon-size: 18px;
+    --icon-padding: 0.6em;
+}
+
+@media (min-width: 768px) {
+    .elementor.elementor .dl-follow > .dl-follow-art {
+        display: block;
+    }
+}
