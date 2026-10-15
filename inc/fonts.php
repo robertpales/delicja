@@ -8,8 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 add_filter( 'elementor/fonts/additional_fonts', function ( $fonts ) {
-	$fonts['Poltawski Nowy'] = 'system';
-	$fonts['Lato']           = 'system';
+	$fonts['Plus Jakarta Sans'] = 'system';
 
 	return $fonts;
 } );
