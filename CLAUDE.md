@@ -6,6 +6,8 @@ Read `README.md` first (workflow, who does what, what goes where), then `DESIGN.
 ## Stack
 - WordPress + Hello Elementor + Elementor / PRO Elements + WooCommerce. Site language Danish; product names may stay Polish.
 - This repo is only the child theme `delicja-child`. It is deployed to test.delicja.dk automatically on every push to `main`.
+  A push to a `claude/...` branch is merged into `main` automatically and then deployed, so `main` is always what runs on
+  the test site. Start new work from the latest `main`; if the auto-merge fails on a conflict, tell the user.
 - The WordPress site is reached through the Novamira MCP connector for test.delicja.dk (its name depends on the
   user's claude.ai account). If no such connector is available, stop and point the user to README → Getting started.
 - When the user asks what to do, follow the build order in `DESIGN.md` and propose the next unfinished step;
