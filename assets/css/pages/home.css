@@ -444,12 +444,15 @@
 
 .dl-faq-list .e-n-accordion-item {
     margin: 0;
-    padding-block: var(--dl-space-40);
-    border-bottom: 1px solid var(--e-global-color-dlborder);
+    padding: 0;
+    border: 0;
+    box-shadow: inset 0 -1px 0 var(--e-global-color-dlborder);
 }
 
 .dl-faq-list .e-n-accordion-item:first-child {
-    border-top: 1px solid var(--e-global-color-dlborder);
+    box-shadow:
+        inset 0 1px 0 var(--e-global-color-dlborder),
+        inset 0 -1px 0 var(--e-global-color-dlborder);
 }
 
 .dl-faq-list .e-n-accordion-item-title {
@@ -457,7 +460,7 @@
     justify-content: space-between;
     align-items: center;
     gap: var(--dl-space-40);
-    padding: 0;
+    padding: var(--dl-space-40) 0;
     border: 0;
     background: none;
     color: var(--e-global-color-text);
@@ -474,28 +477,31 @@
 }
 
 .dl-faq-list .e-n-accordion-item-title::after {
-    content: "+";
+    content: "";
     flex: none;
-    display: grid;
-    place-items: center;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
     background-color: var(--e-global-color-dltint);
-    color: var(--e-global-color-primary);
-    font-weight: 700;
+    background-image:
+        linear-gradient(var(--e-global-color-primary), var(--e-global-color-primary)),
+        linear-gradient(var(--e-global-color-primary), var(--e-global-color-primary));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0.75rem 2px, 2px 0.75rem;
+    transition: background-size var(--dl-transition);
 }
 
 .dl-faq-list .e-n-accordion-item[open] > .e-n-accordion-item-title::after {
-    content: "−";
+    background-size: 0.75rem 2px, 2px 0;
 }
 
 .dl-faq-list .e-n-accordion-item > .e-con {
     --padding-top: 0px;
     --padding-right: 0px;
-    --padding-bottom: 0px;
+    --padding-bottom: var(--dl-space-40);
     --padding-left: 0px;
-    margin-block-start: var(--dl-space-30);
+    margin: 0;
     border: 0;
 }
 
