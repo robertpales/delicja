@@ -124,15 +124,17 @@ add_shortcode( 'dl_store_notices', function () {
 } );
 
 // WooCommerce's styles for block themes (forms, account pages, order details). The block theme version of the
-// site had them; WooCommerce loads them only in block themes. A dependency of site.css, so our rules come after.
+// site had them; WooCommerce loads them only in block themes. Printed before WooCommerce's own stylesheets, as
+// in a block theme (WooCommerce's rules win ties), or else before site.css.
 add_action( 'wp_enqueue_scripts', function () {
 	if ( ! wp_style_is( 'woocommerce-blocktheme', 'registered' ) ) {
 		wp_register_style( 'woocommerce-blocktheme', WC()->plugin_url() . '/assets/css/woocommerce-blocktheme.css', [], WC_VERSION );
 	}
 
-	$site = wp_styles()->query( 'delicja', 'registered' );
-	if ( $site ) {
-		$site->deps[] = 'woocommerce-blocktheme';
+	$before = wp_style_is( 'woocommerce-layout' ) ? 'woocommerce-layout' : 'delicja';
+	$style  = wp_styles()->query( $before, 'registered' );
+	if ( $style ) {
+		$style->deps[] = 'woocommerce-blocktheme';
 	}
 }, 20 );
 
