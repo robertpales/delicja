@@ -1194,6 +1194,7 @@ table.wc-block-cart-items td {
 
 .dl-search .dl-search-grid .dl-mini-card .dl-mini-card-title .elementor-heading-title {
     line-height: 1.4;
+    letter-spacing: var(--e-global-typography-primary-letter-spacing);
 }
 
 .dl-search .dl-mini-card > .dl-mini-card-button {
@@ -1202,6 +1203,13 @@ table.wc-block-cart-items td {
 
 .dl-search-empty p {
     margin: 0 0 var(--dl-space-40);
+}
+
+.dl-search-empty .wp-block-search__input {
+    padding: var(--dl-space-20);
+    border: 1px solid color-mix(in srgb, var(--e-global-color-text) 47%, transparent);
+    border-radius: 0;
+    line-height: inherit;
 }
 
 /* === Product page === */
