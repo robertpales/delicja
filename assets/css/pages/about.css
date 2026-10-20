@@ -1,0 +1,443 @@
+/* CSS for the page with the slug "about" (About us). Rename the file if the slug changes. */
+
+/* === Layout === */
+.dl-about {
+    --padding-top: var(--dl-space-60);
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: var(--dl-space-80);
+    --padding-left: var(--dl-gutter);
+    --content-width: var(--dl-wide);
+    --gap: var(--dl-space-80);
+    --row-gap: var(--dl-space-80);
+    --column-gap: var(--dl-space-80);
+}
+
+.dl-about-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--dl-radius-xl);
+}
+
+.dl-about-photo.dl-about-photo--square img {
+    aspect-ratio: 1;
+}
+
+/* === Opening === */
+.dl-about-hero {
+    --align-items: center;
+    --gap: var(--dl-space-70);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-70);
+}
+
+.dl-about-hero > .dl-about-hero-text {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 0 1 52%;
+    min-width: 0;
+}
+
+.dl-about-hero > .dl-about-hero-art {
+    flex: 0 1 48%;
+    min-width: 0;
+}
+
+.dl-about .dl-about-hero-text > .dl-about-title {
+    margin-block: var(--dl-space-30) var(--dl-space-40);
+}
+
+.dl-about-title .elementor-heading-title {
+    text-wrap: balance;
+}
+
+.dl-about .dl-about-hero > .dl-about-hero-text > .dl-about-lead {
+    max-width: 32em;
+}
+
+.dl-about-hero-text > .dl-buttons {
+    margin-block-start: var(--dl-space-50);
+}
+
+/* === How it started === */
+.dl-begin {
+    --align-items: center;
+    --gap: var(--dl-space-70);
+    --row-gap: var(--dl-space-60);
+    --column-gap: var(--dl-space-70);
+}
+
+.dl-begin > .dl-begin-text {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 0 1 58%;
+    min-width: 0;
+}
+
+.dl-begin > .dl-begin-reel {
+    --gap: var(--dl-space-30);
+    --row-gap: var(--dl-space-30);
+    flex: 0 1 42%;
+    min-width: 0;
+}
+
+.dl-about .dl-begin-text > .dl-begin-title {
+    margin-block: var(--dl-space-20) var(--dl-space-40);
+}
+
+.dl-begin-title .elementor-heading-title {
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+
+.dl-about .dl-begin > .dl-begin-text > .dl-begin-story {
+    max-width: 32em;
+    margin-block-end: var(--dl-space-30);
+}
+
+.dl-begin-text > .dl-moments {
+    --padding-top: var(--dl-space-40);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--dl-space-40);
+    margin-block: calc(var(--dl-space-50) - var(--dl-space-30)) var(--dl-space-50);
+    border-top: 1px solid var(--e-global-color-dlborder);
+}
+
+.dl-moments > .dl-moment {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    column-gap: var(--dl-space-30);
+    row-gap: 0;
+    align-items: start;
+    align-content: start;
+}
+
+.dl-moment > .dl-moment-icon {
+    grid-row: span 2;
+}
+
+.dl-moment .dl-moment-icon img {
+    display: block;
+    width: 3.5rem;
+    max-width: none;
+    height: 4rem;
+}
+
+.dl-moment-title .elementor-heading-title {
+    letter-spacing: -0.01em;
+}
+
+@media (min-width: 600px) {
+    .dl-begin-text > .dl-moments {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .dl-moments > .dl-moment {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--dl-space-10);
+    }
+
+    .dl-moments .dl-moment > .dl-moment-icon {
+        grid-row: auto;
+        margin-block-end: var(--dl-space-10);
+    }
+
+    .dl-moment .dl-moment-icon img {
+        width: 4rem;
+    }
+}
+
+.dl-btn-instagram .elementor-button-content-wrapper {
+    align-items: center;
+}
+
+.dl-btn-instagram .elementor-button-icon svg {
+    width: 1.125em;
+    height: 1.125em;
+}
+
+.dl-about .dl-begin > .dl-begin-reel > .dl-reel,
+.dl-about .dl-begin > .dl-begin-reel > .dl-reel-caption {
+    width: 100%;
+    max-width: 21rem;
+    margin-inline: auto;
+}
+
+.dl-about .dl-begin > .dl-begin-reel > .dl-reel-caption {
+    margin-block-end: 1em;
+}
+
+.dl-reel .elementor-wrapper {
+    overflow: hidden;
+    border-radius: var(--dl-radius-xl);
+    background-color: var(--e-global-color-text);
+    box-shadow: var(--dl-shadow-pop);
+}
+
+.dl-reel video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 781px) {
+    .dl-about-hero,
+    .dl-begin {
+        --align-items: stretch;
+    }
+
+    .dl-about-hero > .dl-about-hero-text,
+    .dl-about-hero > .dl-about-hero-art,
+    .dl-begin > .dl-begin-text,
+    .dl-begin > .dl-begin-reel {
+        flex-basis: auto;
+    }
+}
+
+/* === Story === */
+.dl-about-story {
+    --gap: var(--dl-space-60);
+    --row-gap: var(--dl-space-60);
+}
+
+.dl-about-story > .dl-about-story-head {
+    --gap: var(--dl-space-20);
+    --row-gap: var(--dl-space-20);
+    max-width: 40rem;
+    margin-inline: auto;
+}
+
+.dl-about-story-head::before,
+.dl-about-quote::before,
+.dl-about-quote::after {
+    content: "";
+    display: block;
+    height: 2.25rem;
+    -webkit-mask: url("../../images/folk/band.svg") center / auto 100% repeat-x;
+    mask: url("../../images/folk/band.svg") center / auto 100% repeat-x;
+}
+
+.dl-about-story-head::before {
+    position: relative;
+    top: 0;
+    width: min(15rem, 60%);
+    opacity: 1;
+    mix-blend-mode: normal;
+    margin: 0 auto calc(var(--dl-space-40) - var(--dl-space-20));
+    background-color: var(--e-global-color-primary);
+}
+
+.dl-chapter {
+    --align-items: center;
+    --gap: var(--dl-space-70);
+    --row-gap: var(--dl-space-40);
+    --column-gap: var(--dl-space-70);
+}
+
+.dl-chapter > .dl-chapter-photo {
+    flex: 0 1 46%;
+    min-width: 0;
+}
+
+.dl-chapter > .dl-chapter-text {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 0 1 54%;
+    min-width: 0;
+}
+
+.dl-about .dl-chapter > .dl-chapter-photo > .dl-about-photo {
+    width: 100%;
+    max-width: 28rem;
+    margin-inline: auto;
+}
+
+.dl-chapter-number p {
+    font-weight: 800;
+    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+}
+
+.dl-about .dl-chapter-text > .dl-chapter-title {
+    margin-block: var(--dl-space-20) var(--dl-space-30);
+}
+
+.dl-chapter-title .elementor-heading-title {
+    letter-spacing: -0.025em;
+}
+
+.dl-about .dl-chapter > .dl-chapter-text > .dl-chapter-body {
+    max-width: 30em;
+}
+
+@media (max-width: 781px) {
+    .dl-chapter {
+        --align-items: stretch;
+    }
+
+    .dl-chapter > .dl-chapter-photo,
+    .dl-chapter > .dl-chapter-text {
+        flex-basis: auto;
+    }
+}
+
+/* === Quote === */
+.dl-about .dl-about-quote {
+    --padding-top: var(--dl-space-80);
+    --padding-right: var(--dl-space-60);
+    --padding-bottom: var(--dl-space-80);
+    --padding-left: var(--dl-space-60);
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--dl-radius-xl);
+    background-image: url("../../images/folk/grain.svg");
+    background-size: 220px 220px;
+    background-blend-mode: soft-light;
+}
+
+.dl-about-quote::before,
+.dl-about-quote::after {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: auto;
+    mix-blend-mode: normal;
+    background-color: var(--e-global-color-dlwhite);
+    opacity: 0.9;
+}
+
+.dl-about-quote::before {
+    top: var(--dl-space-40);
+}
+
+.dl-about-quote::after {
+    bottom: var(--dl-space-40);
+}
+
+.dl-about .dl-about-quote > .dl-about-quote-text.elementor-widget {
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
+}
+
+.dl-about-quote-text blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.dl-about-quote-text blockquote p {
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+
+.dl-about-quote-text cite {
+    display: block;
+    margin-block-start: var(--dl-space-40);
+    font-family: var(--e-global-typography-dleyeb-font-family);
+    font-size: var(--e-global-typography-dleyeb-font-size);
+    font-style: normal;
+    font-weight: var(--e-global-typography-dleyeb-font-weight);
+    line-height: var(--e-global-typography-dleyeb-line-height);
+    letter-spacing: var(--e-global-typography-dleyeb-letter-spacing);
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/* === Range === */
+.dl-about-range {
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+}
+
+.dl-about-range > .dl-about-range-head {
+    --gap: var(--dl-space-20);
+    --row-gap: var(--dl-space-20);
+    max-width: 44rem;
+    margin-inline: auto;
+}
+
+/* === Visit us === */
+.dl-about-visit {
+    --gap: var(--dl-space-60);
+    --row-gap: var(--dl-space-60);
+}
+
+.dl-visit-columns {
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-50);
+    --align-items: stretch;
+}
+
+.dl-visit-columns > .dl-visit-shop {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 0 1 58%;
+    min-width: 0;
+}
+
+.dl-visit-columns > .dl-visit-side {
+    --gap: var(--dl-space-40);
+    --row-gap: var(--dl-space-40);
+    flex: 0 1 42%;
+    min-width: 0;
+}
+
+.dl-about .dl-visit-shop > .dl-visit-title {
+    margin-block: var(--dl-space-20) var(--dl-space-50);
+}
+
+.dl-about .dl-visit-columns > .dl-visit-shop > .dl-visit-lead {
+    max-width: 30em;
+}
+
+.dl-visit-shop > .dl-visit-facts {
+    --gap: var(--dl-space-20);
+    --row-gap: var(--dl-space-20);
+    margin-block: var(--dl-space-40) var(--dl-space-50);
+}
+
+.dl-visit-side > .dl-about-photo {
+    flex: none;
+    width: 100%;
+}
+
+.dl-visit-side > .dl-visit-online {
+    margin-block-start: var(--dl-space-50);
+    --gap: var(--dl-space-30);
+    --row-gap: var(--dl-space-30);
+    --padding-top: var(--dl-space-60);
+    --padding-right: var(--dl-space-50);
+    --padding-bottom: var(--dl-space-60);
+    --padding-left: var(--dl-space-50);
+    border-radius: var(--dl-radius-xl);
+}
+
+.dl-visit-thanks p {
+    line-height: 1.6;
+}
+
+.dl-visit-thanks p::before {
+    content: "";
+    display: block;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0 auto var(--dl-space-30);
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2 0 3.4 1.1 4.4 2.5C12 6.1 13.4 5 15.4 5 19 5 21 8.6 19.6 11.8 17.5 16.4 12 21 12 21z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2 0 3.4 1.1 4.4 2.5C12 6.1 13.4 5 15.4 5 19 5 21 8.6 19.6 11.8 17.5 16.4 12 21 12 21z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (max-width: 781px) {
+    .dl-visit-columns > .dl-visit-shop,
+    .dl-visit-columns > .dl-visit-side {
+        flex-basis: auto;
+    }
+}
