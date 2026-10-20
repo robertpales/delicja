@@ -1,7 +1,7 @@
 <?php
 /**
  * Header pieces rendered from WordPress / WooCommerce blocks, so they look and work exactly like the
- * approved block theme: product search, account link and mini cart (with its drawer).
+ * approved block theme: product search, account link, mini cart (with its drawer) and the checkout cart link.
  * The Theme Builder header places them with Shortcode widgets. Styles are in site.css (=== Header ===).
  */
 
@@ -22,6 +22,11 @@ add_shortcode( 'dl_mini_cart', function () {
 	return do_blocks( '<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag"} /-->' );
 } );
 
+// Cart icon linking to the cart, for the checkout header (as in WooCommerce's checkout header).
+add_shortcode( 'dl_cart_link', function () {
+	return do_blocks( '<!-- wp:woocommerce/cart-link {"content":""} /-->' );
+} );
+
 // The blocks above render inside the page body, and Elementor dequeues block styles. Make their styles
 // dependencies of site.css, so they always print in <head> and before our own rules.
 add_action( 'wp_enqueue_scripts', function () {
@@ -33,6 +38,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		'wc-blocks-style'                    => $blocks . 'wc-blocks.css',
 		'wc-blocks-packages-style'           => $blocks . 'packages-style.css',
 		'wc-blocks-style-mini-cart-contents' => $blocks . 'mini-cart-contents.css',
+		'wc-blocks-style-cart-link'          => $blocks . 'cart-link.css',
 	];
 	foreach ( $styles as $handle => $src ) {
 		if ( ! wp_style_is( $handle, 'registered' ) ) {

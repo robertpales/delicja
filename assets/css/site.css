@@ -1516,6 +1516,30 @@ table.wc-block-cart-items td {
     margin-inline: auto;
 }
 
+/* === Checkout === */
+.dl-checkout-header {
+    --padding-top: var(--dl-space-20);
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: var(--dl-space-20);
+    --padding-left: var(--dl-gutter);
+    --content-width: var(--dl-wide);
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-50);
+}
+
+.dl-checkout-title .elementor-heading-title a {
+    color: inherit;
+}
+
+.dl-checkout-cart .wc-block-cart-link {
+    color: var(--e-global-color-primary);
+}
+
+.elementor-location-footer:not(:has(*)) {
+    display: none;
+}
+
 /* === Footer === */
 .dl-footer {
     --padding-top: var(--dl-space-70);
