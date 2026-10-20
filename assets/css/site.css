@@ -221,7 +221,7 @@ body {
     display: inline-block;
 }
 
-.dl-header-brand img {
+.dl-header-bar .dl-header-brand img {
     display: block;
     width: 7.5rem;
     height: auto;
@@ -536,7 +536,7 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
         background-color: var(--e-global-color-dlborder);
     }
 
-    .dl-header-brand img {
+    .dl-header-bar .dl-header-brand img {
         width: 9rem;
     }
 
@@ -864,7 +864,7 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     display: inline-block;
 }
 
-.dl-footer-logo img {
+.dl-footer .dl-footer-logo img {
     display: block;
     width: 112px;
     height: auto;
@@ -889,7 +889,7 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     width: auto;
 }
 
-.dl-payment-icon img {
+.dl-payment .dl-payment-icon img {
     display: block;
     width: 64px;
     height: auto;

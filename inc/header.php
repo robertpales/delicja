@@ -22,11 +22,26 @@ add_shortcode( 'dl_mini_cart', function () {
 	return do_blocks( '<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag"} /-->' );
 } );
 
-// The blocks above render inside the page body; load their styles in <head> so nothing flashes unstyled.
+// The blocks above render inside the page body, and Elementor dequeues block styles. Make their styles
+// dependencies of site.css, so they always print in <head> and before our own rules.
 add_action( 'wp_enqueue_scripts', function () {
-	foreach ( [ 'wp-block-search', 'woocommerce-customer-account-style', 'woocommerce-mini-cart-style', 'wc-blocks-style', 'wc-blocks-style-mini-cart-contents', 'wc-blocks-packages-style' ] as $handle ) {
-		if ( wp_style_is( $handle, 'registered' ) ) {
-			wp_enqueue_style( $handle );
+	$blocks = plugins_url( 'woocommerce/assets/client/blocks/' );
+	$styles = [
+		'wp-block-search'                    => includes_url( 'blocks/search/style.min.css' ),
+		'woocommerce-customer-account-style' => $blocks . 'woocommerce/customer-account-style.css',
+		'woocommerce-mini-cart-style'        => $blocks . 'woocommerce/mini-cart-style.css',
+		'wc-blocks-style'                    => $blocks . 'wc-blocks.css',
+		'wc-blocks-packages-style'           => $blocks . 'packages-style.css',
+		'wc-blocks-style-mini-cart-contents' => $blocks . 'mini-cart-contents.css',
+	];
+	foreach ( $styles as $handle => $src ) {
+		if ( ! wp_style_is( $handle, 'registered' ) ) {
+			wp_register_style( $handle, $src );
 		}
 	}
-}, 15 );
+
+	$site = wp_styles()->query( 'delicja', 'registered' );
+	if ( $site ) {
+		$site->deps = array_unique( array_merge( $site->deps, array_keys( $styles ) ) );
+	}
+}, 20 );
