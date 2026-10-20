@@ -38,6 +38,11 @@ body {
     margin-block-start: var(--dl-space-50);
 }
 
+.elementor-location-header + .wp-site-blocks,
+.wp-site-blocks + .elementor-location-footer {
+    margin-block-start: 0;
+}
+
 input[type="checkbox"],
 input[type="radio"] {
     margin: revert;
