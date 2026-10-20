@@ -1,7 +1,7 @@
 <?php
 /**
  * WooCommerce tweaks: product card pieces (badges, add-to-cart button), sale badge text, "Sold out" button,
- * empty "Weekly deals" message.
+ * empty "Weekly deals" message, shop bar, related products order, block-style notices.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -111,6 +111,36 @@ add_shortcode( 'dl_shop_bar', function () {
 	woocommerce_catalog_ordering();
 
 	return '<div class="dl-shop-bar">' . ob_get_clean() . '</div>';
+} );
+
+// Notices ("added to your cart", errors) use WooCommerce's block notice banners, as in a block theme.
+// The Elementor Notices widget moves them into place.
+add_filter( 'woocommerce_use_block_notices_in_classic_theme', '__return_true' );
+
+// Related products on the product page: the first in-stock products by name instead of a random pick,
+// like the block theme's related products.
+add_filter( 'woocommerce_product_related_posts_shuffle', '__return_false' );
+
+add_filter( 'woocommerce_related_products', function ( $ids ) {
+	if ( ! $ids ) {
+		return $ids;
+	}
+
+	return get_posts( [
+		'post_type'      => 'product',
+		'post__in'       => $ids,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+		'meta_query'     => [
+			[
+				'key'     => '_stock_status',
+				'value'   => [ 'instock', 'onbackorder' ],
+				'compare' => 'IN',
+			],
+		],
+	] );
 } );
 
 // Empty shop, category or tag page: a short note and a way back to all products.
