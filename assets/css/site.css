@@ -189,7 +189,8 @@ body {
 }
 
 .dl-announcement p {
-    margin: 0;
+    max-width: var(--dl-content);
+    margin: 0 auto;
 }
 
 .dl-header-bar {
@@ -198,6 +199,7 @@ body {
     --padding-bottom: var(--dl-space-30);
     --padding-left: var(--dl-gutter);
     --content-width: var(--dl-wide);
+    --align-items: center;
 }
 
 .dl-header-bar > .e-con-inner {
@@ -221,7 +223,7 @@ body {
     display: inline-block;
 }
 
-.dl-header-bar .dl-header-brand img {
+.dl-header .dl-header-bar .dl-header-brand img {
     display: block;
     width: 7.5rem;
     height: auto;
@@ -271,6 +273,7 @@ body {
 .dl-header-search .wp-block-search__button,
 .dl-header-search .wp-block-search__button:focus {
     display: inline-flex;
+    flex: none;
     align-items: center;
     justify-content: center;
     width: 2.25rem;
@@ -311,6 +314,12 @@ body {
     flex-wrap: nowrap;
 }
 
+.dl-header-actions .elementor-shortcode,
+.dl-header-actions .wp-block-woocommerce-customer-account,
+.dl-header-actions .wc-block-mini-cart {
+    display: flex;
+}
+
 .dl-header .wc-block-mini-cart {
     font-size: var(--e-global-typography-dlsmall-font-size);
 }
@@ -329,6 +338,7 @@ body {
     background-color: transparent;
     color: var(--e-global-color-text);
     font: inherit;
+    line-height: 1;
     transition: background-color var(--dl-transition);
 }
 
@@ -441,6 +451,10 @@ body {
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 5v1.5h14V5H5z'%3E%3C/path%3E%3Cpath d='M5 12.8h14v-1.5H5v1.5z'%3E%3C/path%3E%3Cpath d='M5 19h14v-1.5H5V19z'%3E%3C/path%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+.dl-header-nav .elementor-menu-toggle:not(.elementor-active) + .elementor-nav-menu--dropdown {
+    display: none;
+}
+
 .dl-header-nav .elementor-menu-toggle.elementor-active {
     position: fixed;
     top: var(--dl-space-60);
@@ -472,10 +486,8 @@ body {
     gap: var(--dl-space-50);
 }
 
-.dl-header-nav .elementor-nav-menu--dropdown .elementor-item,
-.dl-header-nav .elementor-nav-menu--dropdown .elementor-item:hover,
-.dl-header-nav .elementor-nav-menu--dropdown .elementor-item:focus,
-.dl-header-nav .elementor-nav-menu--dropdown .elementor-item.highlighted {
+.dl-header .dl-header-bar .dl-header-nav nav.elementor-nav-menu--dropdown > .elementor-nav-menu > li > .elementor-item {
+    width: fit-content;
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -500,12 +512,14 @@ body {
     box-shadow: none;
 }
 
-.dl-header-nav .elementor-nav-menu--dropdown .sub-menu .elementor-sub-item,
-.dl-header-nav .elementor-nav-menu--dropdown .sub-menu .elementor-sub-item:hover,
-.dl-header-nav .elementor-nav-menu--dropdown .sub-menu .elementor-sub-item:focus {
-    padding: var(--dl-space-20) 0;
+.dl-header-nav nav.elementor-nav-menu--dropdown .sub-menu .elementor-sub-item,
+.dl-header-nav nav.elementor-nav-menu--dropdown .sub-menu .elementor-sub-item:hover,
+.dl-header-nav nav.elementor-nav-menu--dropdown .sub-menu .elementor-sub-item:focus {
+    width: fit-content;
+    padding: var(--dl-space-20) var(--dl-space-40);
     border: 0;
     background-color: transparent;
+    line-height: var(--e-global-typography-dlsubmenu-line-height);
 }
 
 html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
@@ -536,11 +550,11 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
         background-color: var(--e-global-color-dlborder);
     }
 
-    .dl-header-bar .dl-header-brand img {
+    .dl-header .dl-header-bar .dl-header-brand img {
         width: 9rem;
     }
 
-    .dl-header-bar .dl-header-search {
+    .dl-header .dl-header-bar > .e-con-inner > .dl-header-search {
         width: 100%;
         max-width: 38rem;
         justify-self: center;
@@ -864,7 +878,7 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     display: inline-block;
 }
 
-.dl-footer .dl-footer-logo img {
+.dl-footer .dl-footer-columns .dl-footer-logo img {
     display: block;
     width: 112px;
     height: auto;
@@ -889,7 +903,7 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     width: auto;
 }
 
-.dl-payment .dl-payment-icon img {
+.dl-footer .dl-payment .dl-payment-icon img {
     display: block;
     width: 64px;
     height: auto;
