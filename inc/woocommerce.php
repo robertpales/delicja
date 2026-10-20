@@ -101,3 +101,24 @@ add_filter( 'body_class', function ( $classes ) {
 
 	return $classes;
 } );
+
+// Result count and sorting above the product grid on shop, category and tag pages (Products Archive template).
+add_shortcode( 'dl_shop_bar', function () {
+	wc_setup_loop();
+
+	ob_start();
+	woocommerce_result_count();
+	woocommerce_catalog_ordering();
+
+	return '<div class="dl-shop-bar">' . ob_get_clean() . '</div>';
+} );
+
+// Empty shop, category or tag page: a short note and a way back to all products.
+add_shortcode( 'dl_shop_empty', function () {
+	if ( ! empty( $GLOBALS['wp_query']->posts ) ) {
+		return '';
+	}
+
+	return '<div class="dl-empty dl-shop-empty"><p>Nothing here yet. Have a look at everything else we have.</p>'
+		. '<a class="dl-shop-empty-button" href="' . esc_url( wc_get_page_permalink( 'shop' ) ) . '">See the whole shop</a></div>';
+} );
