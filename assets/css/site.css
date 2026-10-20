@@ -38,6 +38,11 @@ body {
     margin-block-start: var(--dl-space-50);
 }
 
+input[type="checkbox"],
+input[type="radio"] {
+    margin: revert;
+}
+
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
     outline: 2px solid var(--e-global-color-text);
     outline-offset: 2px;
