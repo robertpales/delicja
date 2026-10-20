@@ -32,10 +32,10 @@ shop pages. Check the site while logged in.
 | What | Where | History |
 |---|---|---|
 | Layout, sections, texts, images | Elementor (via the Novamira connector or the editor) | Backups in the database (see `docs/novamira.md`) |
-| Header, footer, shop, category page, product page | Elementor → Theme Builder templates (with display conditions) | same |
+| Header, footer, shop, category, product, cart, checkout, page, search and 404 templates | Elementor → Theme Builder templates (with display conditions), list in `DESIGN.md` | same |
 | Menus (items and their order) | WordPress → Appearance → Menus; shown in the header/footer by Elementor's Nav Menu widget | same |
 | Colours and fonts | Elementor → Site Settings → Global Colors / Global Fonts | same |
-| Global CSS (buttons, cards, header, footer, shop) | `assets/css/site.css` | git |
+| Global CSS (buttons, cards, header, footer, shop, product page, pages) | `assets/css/site.css` | git |
 | CSS for one page | `assets/css/pages/<page-slug>.css` | git |
 | Scripts | `assets/js/site.js` | git |
 | PHP (WooCommerce tweaks etc.) | `inc/*.php` (loaded automatically) | git |
@@ -60,7 +60,11 @@ Never edit theme files on the server. The next deploy overwrites them.
 ## Header, footer and menus
 - **Header and footer** are Elementor **Theme Builder** templates (*Templates → Theme Builder*) with the display
   condition *Entire Site*. They are not built on each page, and Hello Elementor's own header/footer is not used.
-- **Shop, category and product pages** are Theme Builder templates too (Products Archive, Single Product).
+- **Shop, category, product, search, cart, checkout and normal pages, and the 404 page** are Theme Builder
+  templates too (list in `DESIGN.md`). The front page and About us are pages built in Elementor.
+- WooCommerce pieces that must look exactly like WooCommerce's blocks (product search, mini cart, account icon,
+  checkout cart icon, store notices) are blocks rendered by shortcodes from `inc/header.php` and
+  `inc/woocommerce.php`, placed with Shortcode widgets.
 - **Menus** are WordPress menus in *Appearance → Menus* (main menu, footer menus). The header and footer only show
   them with Elementor's **Nav Menu** widget. To add, remove or reorder a menu item, edit the menu, not the template,
   so the owner can change it without Elementor.
@@ -69,10 +73,10 @@ Never edit theme files on the server. The next deploy overwrites them.
 - **Global CSS** = anything used on more than one page. Add rules to the right block in `site.css`
   (`/* === Header === */`, `/* === Shop === */`…), not at the end of the file.
 - **Page CSS** = a file named after the page slug (the part of the URL). The front page has the slug `home` →
-  `assets/css/pages/home.css`; `delicja.dk/om-os/` → `om-os.css`. It loads only on that page. Rename the file
+  `assets/css/pages/home.css`; `delicja.dk/about/` → `about.css`. It loads only on that page. Rename the file
   if the slug changes.
-- Theme Builder templates (header, footer, product card, product page) have no URL of their own, so their CSS
-  goes to `site.css`.
+- Theme Builder templates (header, footer, product card, product page, cart, checkout…) have no URL of their
+  own, so their CSS goes to `site.css`.
 - Class prefix `dl-` (e.g. `dl-btn`, `dl-card`, `dl-hero`). In Elementor: *Advanced → CSS Classes*.
 - Colours and fonts only through Elementor variables, e.g. `var(--e-global-color-primary)`,
   `var(--e-global-typography-<id>-font-size)`. No hardcoded hex colours or font names.
@@ -80,7 +84,7 @@ Never edit theme files on the server. The next deploy overwrites them.
 
 ## Colours and fonts
 See `DESIGN.md` for the brand (palette, fonts, ornament, logo) and how it maps to Elementor globals.
-Fonts are self-hosted (GDPR): Poltawski Nowy and Lato are in the theme and appear in Elementor's font list.
+Fonts are self-hosted (GDPR): Plus Jakarta Sans is in the theme and appears in Elementor's font list.
 In *Elementor → Settings → Advanced* set **Google Fonts: Disable**.
 
 ## Careful
