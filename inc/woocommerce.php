@@ -67,3 +67,11 @@ add_filter( 'woocommerce_product_add_to_cart_text', function ( $text, $product )
 
 	return $text;
 }, 10, 2 );
+
+// WooCommerce block buttons are styled in site.css (=== Buttons ===), as a block theme would, so WooCommerce
+// leaves out its fallback button sizing (min-height: 3em).
+add_filter( 'body_class', function ( $classes ) {
+	$classes[] = 'woocommerce-block-theme-has-button-styles';
+
+	return $classes;
+} );

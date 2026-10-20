@@ -28,6 +28,8 @@ body {
         0 1px 2px color-mix(in srgb, var(--e-global-color-text) 4%, transparent),
         0 8px 24px color-mix(in srgb, var(--e-global-color-text) 7%, transparent);
     --dl-shadow-pop: 0 12px 40px color-mix(in srgb, var(--e-global-color-text) 14%, transparent);
+    --wp--preset--font-size--small: var(--e-global-typography-dlsmall-font-size);
+    --wp--preset--font-size--medium: var(--e-global-typography-text-font-size);
 }
 
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
@@ -78,6 +80,29 @@ body {
 .elementor-widget.dl-btn-light .elementor-button:focus {
     background-color: var(--e-global-color-dlwhite);
     color: var(--e-global-color-primary);
+}
+
+body .wp-element-button,
+body .wp-block-button__link {
+    padding: var(--dl-space-30) var(--dl-space-50);
+    border: 0;
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-primary);
+    color: var(--e-global-color-dlwhite);
+    font-family: var(--e-global-typography-accent-font-family);
+    font-size: var(--e-global-typography-accent-font-size);
+    font-weight: var(--e-global-typography-accent-font-weight);
+    line-height: var(--e-global-typography-accent-line-height);
+    letter-spacing: var(--e-global-typography-accent-letter-spacing);
+    text-decoration: none;
+}
+
+body .wp-element-button:hover,
+body .wp-element-button:focus,
+body .wp-block-button__link:hover,
+body .wp-block-button__link:focus {
+    background-color: var(--e-global-color-secondary);
+    color: var(--e-global-color-dlwhite);
 }
 
 /* === Components === */
@@ -565,6 +590,38 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     .dl-header-bar .dl-header-address {
         display: block;
     }
+}
+
+/* === WooCommerce blocks === */
+.wc-block-mini-cart__drawer p {
+    margin: 1em 0;
+}
+
+.wc-block-mini-cart__drawer .has-text-align-center {
+    text-align: center;
+}
+
+a.wc-block-components-product-name {
+    text-decoration: underline;
+}
+
+table.wc-block-cart-items {
+    border-collapse: separate;
+    border-spacing: 2px;
+    font-size: inherit;
+}
+
+table.wc-block-cart-items td {
+    line-height: inherit;
+}
+
+.wc-block-components-quantity-selector .wc-block-components-quantity-selector__input {
+    padding: calc(0.4em - 1px) 0;
+    border-radius: 0;
+}
+
+.wc-block-components-quantity-selector .wc-block-components-quantity-selector__button {
+    line-height: normal;
 }
 
 /* === Shop === */

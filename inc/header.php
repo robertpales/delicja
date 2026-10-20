@@ -40,6 +40,10 @@ add_action( 'wp_enqueue_scripts', function () {
 		}
 	}
 
+	// WooCommerce adds the drawer width while rendering the mini cart contents, which here happens after
+	// <head> is printed. Same value as the block's default width (480px).
+	wp_add_inline_style( 'wc-blocks-style', ':root { --drawer-width: 480px; --neg-drawer-width: calc(var(--drawer-width) * -1); }' );
+
 	$site = wp_styles()->query( 'delicja', 'registered' );
 	if ( $site ) {
 		$site->deps = array_unique( array_merge( $site->deps, array_keys( $styles ) ) );
