@@ -1,7 +1,7 @@
 <?php
 /**
  * WooCommerce tweaks: product card pieces (badges, add-to-cart button), sale badge text, "Sold out" button,
- * empty "Weekly deals" message, shop bar, related products order, block-style notices and styles.
+ * empty "Weekly deals" message, shop bar, search results, related products order, block-style notices and styles.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -154,6 +154,25 @@ add_filter( 'woocommerce_related_products', function ( $ids ) {
 			],
 		],
 	] );
+} );
+
+// Product search results: the title and the empty result as in the block theme (WooCommerce's search template).
+add_filter( 'elementor/utils/get_the_archive_title', function ( $title ) {
+	if ( is_search() ) {
+		return sprintf( 'Search results for: &#8220;%s&#8221;', get_search_query() );
+	}
+
+	return $title;
+} );
+
+add_shortcode( 'dl_search_empty', function () {
+	if ( ! empty( $GLOBALS['wp_query']->posts ) ) {
+		return '';
+	}
+
+	return '<div class="dl-search-empty"><p>No products were found matching your selection.</p>'
+		. do_blocks( '<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","buttonText":"Search","query":{"post_type":"product"}} /-->' )
+		. '</div>';
 } );
 
 // Empty shop, category or tag page: a short note and a way back to all products.

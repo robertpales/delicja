@@ -1024,12 +1024,14 @@ table.wc-block-cart-items td {
 }
 
 .dl-shop .woocommerce-breadcrumb,
-.dl-product .woocommerce-breadcrumb {
+.dl-product .woocommerce-breadcrumb,
+.dl-search .woocommerce-breadcrumb {
     margin: 0;
 }
 
 .dl-shop .woocommerce-breadcrumb a,
-.dl-product .woocommerce-breadcrumb a {
+.dl-product .woocommerce-breadcrumb a,
+.dl-search .woocommerce-breadcrumb a {
     text-decoration: underline;
 }
 
@@ -1146,6 +1148,57 @@ table.wc-block-cart-items td {
 .dl-shop-empty .dl-shop-empty-button:focus {
     background-color: var(--e-global-color-primary);
     color: var(--e-global-color-dlwhite);
+}
+
+/* === Search === */
+.dl-search {
+    --padding-top: 0px;
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: 0px;
+    --padding-left: var(--dl-gutter);
+    --content-width: var(--dl-wide);
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-50);
+}
+
+.dl-search > .e-con-inner > .dl-search-empty-widget:not(:has(.dl-search-empty)),
+.dl-search > .e-con-inner > .dl-search-grid:not(:has(.e-loop-item)) {
+    display: none;
+}
+
+.dl-search .dl-shop-bar {
+    flex-wrap: nowrap;
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family);
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+}
+
+.dl-search .dl-shop-bar .woocommerce-ordering {
+    margin: 0 0 1em;
+}
+
+.dl-search .dl-shop-bar select {
+    all: revert;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+}
+
+.dl-search .dl-search-grid .elementor-loop-container {
+    grid-template-columns: repeat(auto-fill, minmax(max(150px, 33.3333% - 0.83333em), 1fr));
+}
+
+.dl-search .dl-search-grid .dl-mini-card .dl-mini-card-title .elementor-heading-title {
+    line-height: 1.4;
+}
+
+.dl-search .dl-mini-card > .dl-mini-card-button {
+    margin-block: var(--dl-space-10) var(--dl-space-40);
+}
+
+.dl-search-empty p {
+    margin: 0 0 var(--dl-space-40);
 }
 
 /* === Product page === */
@@ -1507,6 +1560,10 @@ table.wc-block-cart-items td {
 
 .dl-page-content .wp-block-separator {
     color: var(--e-global-color-dlborder);
+}
+
+.dl-404 .dl-404-text p {
+    margin-block: 1em;
 }
 
 .woocommerce-account .dl-page > .e-con-inner > .dl-page-title,
