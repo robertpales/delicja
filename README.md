@@ -46,8 +46,10 @@ element) and the WPCode plugin are not used, otherwise the change has no history
 
 ## How a code change reaches the site
 1. Edit the file locally.
-2. Commit with a clear message, e.g. `Product card: sale badge`, and push to `main`.
-3. GitHub deploys the theme to **test.delicja.dk automatically** (Actions → "Deploy to test", about a minute).
+2. Commit with a clear message, e.g. `Product card: sale badge`, and push to `main` or to a `claude/...` branch.
+   A push to a `claude/...` branch (e.g. from Claude Code on the web) is **merged into `main` automatically**
+   (Actions → "Auto-merge Claude branches"). On a merge conflict the job fails and the branch has to be merged by hand.
+3. GitHub deploys `main` to **test.delicja.dk automatically** (Actions → "Deploy to test", about a minute).
    The page cache is cleared after each deploy.
 4. Reload the page (or the Elementor preview) and check the result.
 

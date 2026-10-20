@@ -1,0 +1,39 @@
+# Merges every push to a claude/** branch into main, then deploys main to test.delicja.dk.
+# A push made with GITHUB_TOKEN does not trigger other workflows, so the deploy is started explicitly.
+# On a merge conflict the job fails and main stays untouched; merge that branch by hand.
+
+name: Auto-merge Claude branches
+
+on:
+  push:
+    branches: ['claude/**']
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: auto-merge-claude
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Merge the branch into main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git fetch origin "$GITHUB_REF_NAME"
+          git merge --no-edit -m "Merge $GITHUB_REF_NAME" FETCH_HEAD
+          git push origin main
+
+      - name: Deploy to test
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-test.yml --ref main
