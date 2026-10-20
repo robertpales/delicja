@@ -609,17 +609,20 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
 }
 
 /* === WooCommerce blocks === */
-.elementor-widget-woocommerce-notices:not(:has(.wc-block-components-notice-banner, .woocommerce-NoticeGroup, .woocommerce-message, .woocommerce-error, .woocommerce-info)) {
+.elementor-widget-woocommerce-notices:not(:has(.wc-block-components-notice-banner, .woocommerce-NoticeGroup, .woocommerce-message, .woocommerce-error, .woocommerce-info)),
+.dl-store-notices:not(:has(.wc-block-components-notice-banner, .woocommerce-message, .woocommerce-error, .woocommerce-info)) {
     display: none;
 }
 
-.elementor-widget-woocommerce-notices .e-woocommerce-notices-wrapper {
+.elementor-widget-woocommerce-notices .e-woocommerce-notices-wrapper,
+.dl-store-notices .woocommerce-notices-wrapper {
     display: flex;
     flex-direction: column;
     gap: var(--dl-space-40);
 }
 
-.elementor-widget-woocommerce-notices .wc-block-components-notice-banner {
+.elementor-widget-woocommerce-notices .wc-block-components-notice-banner,
+.dl-store-notices .wc-block-components-notice-banner {
     margin: 0;
 }
 

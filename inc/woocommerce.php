@@ -117,6 +117,12 @@ add_shortcode( 'dl_shop_bar', function () {
 // The Elementor Notices widget moves them into place.
 add_filter( 'woocommerce_use_block_notices_in_classic_theme', '__return_true' );
 
+// WooCommerce's store notices block for the cart and checkout pages, as in WooCommerce's page templates.
+// The Elementor Notices widget would move the cart's and checkout's own messages out of them.
+add_shortcode( 'dl_store_notices', function () {
+	return do_blocks( '<!-- wp:woocommerce/store-notices /-->' );
+} );
+
 // WooCommerce's styles for block themes (forms, account pages, order details). The block theme version of the
 // site had them; WooCommerce loads them only in block themes. A dependency of site.css, so our rules come after.
 add_action( 'wp_enqueue_scripts', function () {
