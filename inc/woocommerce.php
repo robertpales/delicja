@@ -1,7 +1,7 @@
 <?php
 /**
  * WooCommerce tweaks: product card pieces (badges, add-to-cart button), sale badge text, "Sold out" button,
- * empty "Weekly deals" message, shop bar, related products order, block-style notices.
+ * empty "Weekly deals" message, shop bar, related products order, block-style notices and styles.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -116,6 +116,19 @@ add_shortcode( 'dl_shop_bar', function () {
 // Notices ("added to your cart", errors) use WooCommerce's block notice banners, as in a block theme.
 // The Elementor Notices widget moves them into place.
 add_filter( 'woocommerce_use_block_notices_in_classic_theme', '__return_true' );
+
+// WooCommerce's styles for block themes (forms, account pages, order details). The block theme version of the
+// site had them; WooCommerce loads them only in block themes. A dependency of site.css, so our rules come after.
+add_action( 'wp_enqueue_scripts', function () {
+	if ( ! wp_style_is( 'woocommerce-blocktheme', 'registered' ) ) {
+		wp_register_style( 'woocommerce-blocktheme', WC()->plugin_url() . '/assets/css/woocommerce-blocktheme.css', [], WC_VERSION );
+	}
+
+	$site = wp_styles()->query( 'delicja', 'registered' );
+	if ( $site ) {
+		$site->deps[] = 'woocommerce-blocktheme';
+	}
+}, 20 );
 
 // Related products on the product page: the first in-stock products by name instead of a random pick,
 // like the block theme's related products.
