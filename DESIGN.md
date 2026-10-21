@@ -56,8 +56,7 @@ One family, **Plus Jakarta Sans**, self-hosted in `assets/fonts/` (OFL) and regi
 
 ### Ornament (`assets/images/folk/`)
 Single-colour SVGs used from CSS only: `grain.svg` (paper grain on red panels), `cloth.svg` and `stitch.svg`
-(hero image mask and stitching), `band.svg` (folk band on the about page). `folk-band.svg` and
-`folk-teeth.svg` are not used.
+(hero image mask and stitching), `band.svg` (folk band on the about page).
 
 ### Buttons
 Red, rounded (12 px), white text; hover darker red. Outline variant: red border (`dl-btn-secondary`).
