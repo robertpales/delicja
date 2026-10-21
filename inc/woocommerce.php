@@ -69,6 +69,23 @@ add_shortcode( 'dl_add_to_cart', function () {
 	return ob_get_clean();
 } );
 
+// Product count under the name on the category tile ("6 products"). Elementor's taxonomy Loop Grid keeps the
+// current category in $wp_query->loop_term. Empty categories show nothing.
+add_shortcode( 'dl_cat_count', function () {
+	global $wp_query;
+
+	$term  = $wp_query->loop_term ?? null;
+	$count = $term instanceof WP_Term ? (int) $term->count : 0;
+	if ( ! $count ) {
+		return '';
+	}
+
+	/* translators: %s: number of products in the category */
+	$text = sprintf( _n( '%s product', '%s products', $count, 'delicja' ), number_format_i18n( $count ) );
+
+	return '<p class="dl-cat-count">' . esc_html( $text ) . '</p>';
+} );
+
 // "Weekly deals" message when no product is on sale (the Loop Carousel shows nothing then).
 add_shortcode( 'dl_no_deals', function () {
 	if ( wc_get_product_ids_on_sale() ) {
