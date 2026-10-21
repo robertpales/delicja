@@ -33,12 +33,14 @@ Built from the shop's original wordmark SVG; do not redraw the lettering.
 Text must meet WCAG AA contrast.
 
 ### Fonts → Elementor Global Fonts (*Site Settings → Global Fonts*)
-One family, **Plus Jakarta Sans**, self-hosted in `assets/fonts/` (OFL) and registered in Elementor by
-`inc/fonts.php`. Every global font has an explicit line height and letter spacing. Fluid sizes are `clamp()`.
+**Plus Jakarta Sans** for everything, **Anton** only for the homepage hero headline. Both are self-hosted in
+`assets/fonts/` (OFL) and registered in Elementor by `inc/fonts.php`. Every global font has an explicit line height
+and letter spacing. Fluid sizes are `clamp()`.
 
 | Global font (id) | Size | Weight / line height | Use |
 |---|---|---|---|
-| Hero headline (`dlhero`) | 40–76 px | 700 / 1 | hero title |
+| Display headline (`dldisplay`) | 48–80 px | Anton 400, uppercase / 1.02 | homepage hero title |
+| Hero headline (`dlhero`) | 40–76 px | 700 / 1 | About us title |
 | H1 (`dlh1`) | 34–52 px | 700 / 1.15 | shop, category and search titles, about page |
 | H2 (`primary`) | 28–36 px | 700 / 1.15 | section titles, product name on the product page, page titles |
 | H3 (`dlh3`) | 24–30 px | 700 / 1.15 | sub-sections |
@@ -55,12 +57,13 @@ One family, **Plus Jakarta Sans**, self-hosted in `assets/fonts/` (OFL) and regi
 | Menu, Submenu, Mobile menu, FAQ question | | | header menus, FAQ |
 
 ### Ornament (`assets/images/folk/`)
-Single-colour SVGs used from CSS only: `grain.svg` (paper grain on red panels), `cloth.svg` and `stitch.svg`
-(hero image mask and stitching), `band.svg` (folk band on the about page).
+Single-colour SVGs used from CSS only: `grain.svg` (paper grain on red panels), `band.svg` (folk band on the
+about page).
 
 ### Buttons
 Red, rounded (12 px), white text; hover darker red. Outline variant: red border (`dl-btn-secondary`).
-White on red panels (`dl-btn-white`), white outline on red (`dl-btn-light`). WooCommerce's own buttons look the
+White on red panels (`dl-btn-white`), white outline on red (`dl-btn-light`), light pink pill on red
+(`dl-btn-tint`, homepage hero) and an underlined white text link on red (`dl-btn-link`). WooCommerce's own buttons look the
 same (`site.css`, `=== Buttons ===`).
 
 ## The one rule
@@ -110,7 +113,8 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
 1. Announcement bar and header (Theme Builder): wordmark, product search, account and mini cart, menu
    Shop · Categories (all categories) · Deals · About us · Contact, address link. Mobile: hamburger menu.
-2. Hero on a red panel: "Polish delicacies in the heart of Denmark", two buttons, photo with cloth mask.
+2. Hero on a red panel with paper grain: "Polish delicacies in the heart of Denmark" in Anton, a "Browse the shop"
+   pill, a "Visit us in Herning" link (About us → Visit us) and the basket photo.
 3. Category tiles (live, category order and images from WooCommerce). Horizontal scroll on mobile.
 4. "Weekly deals" (live, products on sale, carousel). Message when nothing is on sale.
 5. Two promo panels ("The taste of a Polish Sunday", "Sweets like at babcia's").

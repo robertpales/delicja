@@ -98,6 +98,45 @@ input[type="radio"] {
     color: var(--e-global-color-primary);
 }
 
+.elementor-widget.dl-btn-tint .elementor-button {
+    padding: 1.25rem 2.125rem;
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-dltint);
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-dlh4-font-family);
+    font-size: var(--e-global-typography-dlh4-font-size);
+    font-weight: var(--e-global-typography-dlh4-font-weight);
+    line-height: var(--e-global-typography-dlh4-line-height);
+    letter-spacing: var(--e-global-typography-dlh4-letter-spacing);
+}
+
+.elementor-widget.dl-btn-tint .elementor-button:hover,
+.elementor-widget.dl-btn-tint .elementor-button:focus {
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-primary);
+}
+
+@media (max-width: 781px) {
+    .elementor-widget.dl-btn-tint .elementor-button {
+        padding: 1rem 1.625rem;
+    }
+}
+
+.elementor-widget.dl-btn-link .elementor-button {
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--e-global-color-dlwhite);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.elementor-widget.dl-btn-link .elementor-button:hover,
+.elementor-widget.dl-btn-link .elementor-button:focus {
+    color: var(--e-global-color-dltint);
+    text-decoration-thickness: 2px;
+}
+
 body .wp-element-button,
 body .wp-block-button__link,
 .woocommerce a.button,
