@@ -63,7 +63,7 @@ about page).
 ### Buttons
 Red, rounded (12 px), white text; hover darker red. Outline variant: red border (`dl-btn-secondary`).
 White on red panels (`dl-btn-white`), white outline on red (`dl-btn-light`), light pink pill on red
-(`dl-btn-tint`, homepage hero) and an underlined white text link on red (`dl-btn-link`). WooCommerce's own buttons look the
+(`dl-btn-tint`, homepage hero). Underlined text links: dark (`dl-btn-link`), white on red (`dl-btn-link-light`). WooCommerce's own buttons look the
 same (`site.css`, `=== Buttons ===`).
 
 ## The one rule
@@ -99,7 +99,9 @@ matches. Delete it and it must disappear.
 | 404 page (346) | 404 | not found |
 
 Loop items (*Templates → Loop Items*): **Product card** (105, homepage and shop), **Related product card** (338,
-WooCommerce's default card: related products and search results), **Category tile** (333).
+WooCommerce's default card: related products and search results), **Category tile** (333: tall light tile with the
+category name in red, the product count (`[dl_cat_count]`, nothing when empty) and the category image at the
+bottom; the first tile is red, and the red moves to the tile under the mouse).
 The front page (11) and About us (118) are pages built in Elementor (template *Elementor Full Width*).
 
 ## Product card (homepage and shop)
@@ -115,7 +117,8 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
    Shop · Categories (all categories) · Deals · About us · Contact, address link. Mobile: hamburger menu.
 2. Hero on a red panel with paper grain: "Polish delicacies in the heart of Denmark" in Anton, a "Browse the shop"
    pill, a "Visit us in Herning" link (About us → Visit us) and the basket photo.
-3. Category tiles (live, category order and images from WooCommerce). Horizontal scroll on mobile.
+3. "Shop by category" with a "See all" link to the shop, then the category tiles (live, category order, images
+   and product counts from WooCommerce), 6 per row on desktop, horizontal scroll below 1024 px.
 4. "Weekly deals" (live, products on sale, carousel). Message when nothing is on sale.
 5. Two promo panels ("The taste of a Polish Sunday", "Sweets like at babcia's").
 6. "Our favourites" (live, featured products) with category chips.
