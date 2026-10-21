@@ -1791,6 +1791,376 @@ table.wc-block-cart-items td {
     margin-inline: auto;
 }
 
+/* === Cart and checkout widgets === */
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) {
+    --sections-background-color: var(--e-global-color-dlwhite);
+    --sections-border-color: var(--e-global-color-dlborder);
+    --sections-border-type: solid;
+    --sections-border-radius: var(--dl-radius-lg);
+    --sections-padding: var(--dl-space-50);
+    --sections-margin: 0 0 var(--dl-space-50) 0;
+    --sections-title-color: var(--e-global-color-text);
+    --sections-title-spacing: var(--dl-space-40);
+    --sections-secondary-title-color: var(--e-global-color-text);
+    --sections-descriptions-color: var(--e-global-color-accent);
+    --sections-messages-color: var(--e-global-color-accent);
+    --sections-radio-buttons-color: var(--e-global-color-text);
+    --sections-checkboxes-color: var(--e-global-color-text);
+    --forms-labels-color: var(--e-global-color-text);
+    --forms-label-spacing: var(--dl-space-10);
+    --forms-rows-gap: var(--dl-space-40);
+    --forms-fields-normal-color: var(--e-global-color-text);
+    --forms-fields-focus-color: var(--e-global-color-text);
+    --forms-fields-focus-border-color: var(--e-global-color-text);
+    --forms-fields-border-radius: var(--dl-radius-md);
+    --forms-fields-padding: 0.75rem 1rem;
+    --forms-buttons-border-type: solid;
+    --forms-buttons-border-color: var(--e-global-color-text);
+    --forms-buttons-border-radius: var(--dl-radius-md);
+    --forms-buttons-normal-text-color: var(--e-global-color-text);
+    --forms-buttons-hover-text-color: var(--e-global-color-dlwhite);
+    --forms-buttons-hover-border-color: var(--e-global-color-text);
+    --forms-buttons-hover-background-color: var(--e-global-color-text);
+    --forms-buttons-padding: var(--dl-space-30) var(--dl-space-50);
+    --links-normal-color: var(--e-global-color-primary);
+    --links-hover-color: var(--e-global-color-secondary);
+    --product-link-normal-color: var(--e-global-color-primary);
+    --product-link-hover-color: var(--e-global-color-secondary);
+    --totals-color: var(--e-global-color-text);
+    --totals-divider-color: var(--e-global-color-dlborder);
+    --totals-divider-weight: 1px;
+    --order-summary-color: var(--e-global-color-text);
+    --order-summary-items-color: var(--e-global-color-text);
+    --order-summary-totals-color: var(--e-global-color-text);
+    --order-summary-variations-color: var(--e-global-color-accent);
+    --order-summary-items-divider-color: var(--e-global-color-dlborder);
+    --order-summary-items-divider-weight: 1px;
+    --order-summary-totals-divider-color: var(--e-global-color-dlborder);
+    --order-summary-totals-divider-weight: 1px;
+    --order-summary-quantity-border-color: var(--e-global-color-dlborder);
+    --order-summary-quantity-border-weight: 1px;
+    --order-summary-remove-icon-normal-color: var(--e-global-color-accent);
+    --order-summary-remove-icon-hover-color: var(--e-global-color-primary);
+    --checkout-button-normal-text-color: var(--e-global-color-dlwhite);
+    --checkout-button-hover-text-color: var(--e-global-color-dlwhite);
+    --checkout-button-border-radius: var(--dl-radius-md);
+    --checkout-button-padding: var(--dl-space-40) var(--dl-space-50);
+    --purchase-button-normal-text-color: var(--e-global-color-dlwhite);
+    --purchase-button-hover-text-color: var(--e-global-color-dlwhite);
+    --purchase-button-border-radius: var(--dl-radius-md);
+    --purchase-button-padding: var(--dl-space-40) var(--dl-space-50);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family);
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+    letter-spacing: var(--e-global-typography-text-letter-spacing);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) > .elementor-widget-container > .woocommerce,
+.dl-store-notices .wc-block-store-notices.alignwide {
+    width: auto;
+    max-width: none;
+    margin-inline: 0;
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.cart_totals > h2, .woocommerce-billing-fields > h3, #ship-to-different-address, #order_review_heading) {
+    margin-block: 0 var(--dl-space-40);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh4-font-family);
+    font-size: var(--e-global-typography-dlh4-font-size);
+    font-weight: var(--e-global-typography-dlh4-font-weight);
+    line-height: var(--e-global-typography-dlh4-line-height);
+    letter-spacing: var(--e-global-typography-dlh4-letter-spacing);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(th, label, .e-checkout-secondary-title) {
+    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: var(--e-global-typography-dlsmallb-line-height);
+    letter-spacing: var(--e-global-typography-dlsmallb-letter-spacing);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) thead th {
+    color: var(--e-global-color-accent);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(input.input-text, select, textarea, .select2-selection) {
+    min-height: 2.875rem;
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family);
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+    transition: border-color var(--dl-transition);
+}
+
+.elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce :is(#customer_details .form-row, .e-coupon-box) :is(.input-text, select) {
+    border: 1px solid var(--e-global-color-dlborder);
+    background-color: var(--e-global-color-dlwhite);
+    font-size: var(--e-global-typography-text-font-size);
+}
+
+.elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce :is(#customer_details .form-row, .e-coupon-box) :is(.input-text, select):focus {
+    border-color: var(--e-global-color-text);
+    background-color: var(--e-global-color-dlwhite);
+}
+
+.elementor-element.elementor-widget-woocommerce-cart .woocommerce :is(.input-text, select):focus,
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(input.input-text, select, textarea):focus {
+    border-color: var(--e-global-color-text);
+    outline: none;
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(input.input-text, textarea)::placeholder {
+    color: var(--e-global-color-accent);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .required {
+    color: var(--e-global-color-primary);
+    text-decoration: none;
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(input[type="radio"], input[type="checkbox"]) {
+    accent-color: var(--e-global-color-primary);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .woocommerce :is(button.button, a.button):not(.checkout-button, #place_order) {
+    padding: calc(var(--dl-space-30) - 1px) calc(var(--dl-space-50) - 1px);
+    border: 1px solid var(--e-global-color-text);
+    border-radius: var(--dl-radius-md);
+    background-color: transparent;
+    color: var(--e-global-color-text);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .woocommerce :is(button.button, a.button):not(.checkout-button, #place_order):hover,
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .woocommerce :is(button.button, a.button):not(.checkout-button, #place_order):focus-visible {
+    background-color: var(--e-global-color-text);
+    color: var(--e-global-color-dlwhite);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .woocommerce :is(button.button, a.button):disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .woocommerce :is(a.checkout-button, #place_order) {
+    width: 100%;
+    border: 0;
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-primary);
+    color: var(--e-global-color-dlwhite);
+    font-family: var(--e-global-typography-accent-font-family);
+    font-size: var(--e-global-typography-accent-font-size);
+    font-weight: var(--e-global-typography-accent-font-weight);
+    line-height: var(--e-global-typography-accent-line-height);
+    letter-spacing: var(--e-global-typography-accent-letter-spacing);
+    text-align: center;
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .woocommerce :is(a.checkout-button, #place_order):hover,
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) .woocommerce :is(a.checkout-button, #place_order):focus-visible {
+    background-color: var(--e-global-color-secondary);
+}
+
+.elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment #place_order {
+    background-color: var(--e-global-color-primary);
+}
+
+.elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment #place_order:hover,
+.elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment #place_order:focus-visible {
+    background-color: var(--e-global-color-secondary);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.order-total th, .order-total td, .order-total .amount) {
+    font-family: var(--e-global-typography-dlprice-font-family);
+    font-size: var(--e-global-typography-dlprice-font-size);
+    font-weight: var(--e-global-typography-dlprice-font-weight);
+    line-height: var(--e-global-typography-dlprice-line-height);
+    letter-spacing: var(--e-global-typography-dlprice-letter-spacing);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.cart-subtotal th, .shipping th) {
+    color: var(--e-global-color-accent);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.cart-subtotal td, .shipping td, .woocommerce-shipping-methods label) {
+    font-family: var(--e-global-typography-text-font-family);
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+}
+
+.elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.woocommerce-shipping-destination, .e-checkout-message, .woocommerce-privacy-policy-text) {
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+}
+
+.elementor-widget-woocommerce-cart .product-name a {
+    font-family: var(--e-global-typography-dlpname-font-family);
+    font-size: var(--e-global-typography-dlpname-font-size);
+    font-weight: var(--e-global-typography-dlpname-font-weight);
+    line-height: var(--e-global-typography-dlpname-line-height);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.elementor-widget-woocommerce-cart .woocommerce table.cart .product-thumbnail img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--dl-radius-sm);
+    background-color: var(--e-global-color-dlsurface);
+    object-fit: contain;
+}
+
+.elementor-widget-woocommerce-cart .product-remove a.remove {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.elementor-widget-woocommerce-cart .product-remove a.remove:hover {
+    background-color: var(--e-global-color-dltint);
+}
+
+.elementor-element.elementor-widget-woocommerce-cart .woocommerce .quantity input.input-text.qty {
+    width: 4.5rem;
+    min-height: 2.5rem;
+    padding: var(--dl-space-20);
+    border-radius: var(--dl-radius-sm);
+    background-color: var(--e-global-color-dlwhite);
+    text-align: center;
+}
+
+.elementor-widget-woocommerce-cart :is(.product-price, .product-subtotal) {
+    white-space: nowrap;
+}
+
+.elementor-widget-woocommerce-cart .product-subtotal {
+    font-weight: 700;
+}
+
+.elementor-widget-woocommerce-checkout-page .woocommerce-checkout-review-order-table .product-quantity {
+    color: var(--e-global-color-accent);
+    font-weight: 400;
+}
+
+.elementor-widget-woocommerce-checkout-page #payment {
+    background: none;
+}
+
+.elementor-widget-woocommerce-checkout-page #payment .wc_payment_methods {
+    margin: 0 0 var(--dl-space-40);
+    padding: 0;
+    border: 0;
+}
+
+.elementor-widget-woocommerce-checkout-page #payment .wc_payment_method > label {
+    font-family: var(--e-global-typography-dlh5-font-family);
+    font-size: var(--e-global-typography-dlh5-font-size);
+    font-weight: var(--e-global-typography-dlh5-font-weight);
+}
+
+.elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment .payment_methods .payment_box {
+    margin: var(--dl-space-20) 0 0;
+    padding: var(--dl-space-30) var(--dl-space-40);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-dlsurface);
+    color: var(--e-global-color-accent);
+    font-size: var(--e-global-typography-dlsmall-font-size);
+}
+
+.elementor-widget-woocommerce-checkout-page #payment .payment_box::before {
+    display: none;
+}
+
+.elementor-widget-woocommerce-checkout-page #payment .place-order {
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    .elementor-widget-woocommerce-cart .e-cart__column {
+        min-width: 0;
+    }
+
+    .elementor-widget-woocommerce-cart table.shop_table_responsive thead {
+        display: none;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item {
+        display: grid;
+        grid-template-columns: 4rem 1fr auto;
+        grid-template-areas:
+            "thumb name remove"
+            "thumb price price"
+            "thumb qty subtotal";
+        align-items: center;
+        column-gap: var(--dl-space-40);
+        row-gap: var(--dl-space-20);
+        padding: var(--dl-space-40) 0;
+        border-bottom: 1px solid var(--e-global-color-dlborder);
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item td {
+        display: block;
+        padding: 0;
+        border: 0;
+        text-align: left !important;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item td::before {
+        display: none;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item .product-thumbnail {
+        display: block !important;
+        width: auto;
+        min-width: 0;
+        grid-area: thumb;
+        align-self: start;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item .product-name {
+        grid-area: name;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item .product-remove {
+        grid-area: remove;
+        justify-self: end;
+        align-self: start;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item .product-price {
+        grid-area: price;
+        color: var(--e-global-color-accent);
+        font-size: var(--e-global-typography-dlsmall-font-size);
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item .product-quantity {
+        grid-area: qty;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart tr.cart_item .product-subtotal {
+        grid-area: subtotal;
+        justify-self: end;
+    }
+
+    .elementor-widget-woocommerce-cart table.cart td.actions {
+        padding-block: var(--dl-space-40) 0;
+    }
+}
+
 /* === Checkout === */
 .dl-checkout-header {
     --padding-top: var(--dl-space-20);
