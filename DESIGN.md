@@ -102,9 +102,10 @@ The front page (11) and About us (118) are pages built in Elementor (template *E
 ## Product card (homepage and shop)
 Loop Item 105. Square image on a light rounded tile, badges top-left (sale as "-20%", product tags as pills),
 product name (weight is part of the name, e.g. "Kabanosy 250 g"), price (on sale: new price + struck-through
-old price), full-width "Add to cart" button that turns into "1 in cart" after adding. Pieces from
+old price), full-width "Add to cart" button. After adding it turns into a stepper (− "2 in cart" +) with a
+"View cart" link; products already in the cart show the stepper right away. Pieces from
 `inc/woocommerce.php` (shortcodes `[dl_product_badges]`, `[dl_add_to_cart]`), styles in `site.css`
-(`=== Product card ===`), the "in cart" text in `assets/js/site.js`.
+(`=== Product card ===`), the stepper in `assets/js/site.js` (WooCommerce Store API).
 
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
 1. Announcement bar and header (Theme Builder): wordmark, product search, account and mini cart, menu
