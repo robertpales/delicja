@@ -849,14 +849,119 @@ table.wc-block-cart-items td {
     pointer-events: none;
 }
 
-.dl-card-button .added_to_cart {
-    display: block;
-    text-decoration: underline;
-    margin-block-start: var(--dl-space-10);
+.dl-card-button {
+    width: 100%;
+    container-type: inline-size;
+}
+
+.dl-card-button .button.ajax_add_to_cart[hidden] {
+    display: none;
+}
+
+.dl-card-button .dl-stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--dl-space-20);
+    min-height: calc(var(--dl-space-30) * 2 + var(--e-global-typography-dlsmallb-line-height) * 1em);
+    padding: 0 var(--dl-space-20);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-primary);
+    color: var(--e-global-color-dlwhite);
     font-family: var(--e-global-typography-dlsmallb-font-family);
     font-size: var(--e-global-typography-dlsmallb-font-size);
     font-weight: var(--e-global-typography-dlsmallb-font-weight);
-    text-align: center;
+    line-height: var(--e-global-typography-dlsmallb-line-height);
+    letter-spacing: var(--e-global-typography-dlsmallb-letter-spacing);
+}
+
+.dl-card-button .dl-stepper button {
+    position: relative;
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: var(--dl-radius-sm);
+    background-color: color-mix(in srgb, var(--e-global-color-dlwhite) 18%, transparent);
+    color: inherit;
+    cursor: pointer;
+}
+
+.dl-card-button .dl-stepper button:hover,
+.dl-card-button .dl-stepper button:focus {
+    background-color: color-mix(in srgb, var(--e-global-color-dlwhite) 32%, transparent);
+    color: inherit;
+}
+
+.dl-card-button .dl-stepper button:focus-visible {
+    outline-color: var(--e-global-color-dlwhite);
+}
+
+.dl-card-button .dl-stepper button::before,
+.dl-card-button .dl-stepper .dl-stepper-plus::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.75rem;
+    height: 2px;
+    border-radius: 1px;
+    background-color: currentColor;
+    transform: translate(-50%, -50%);
+}
+
+.dl-card-button .dl-stepper .dl-stepper-plus::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.dl-card-button .dl-stepper-count {
+    white-space: nowrap;
+}
+
+@container (max-width: 10rem) {
+    .dl-card-button .dl-stepper {
+        gap: var(--dl-space-10);
+        padding: 0 var(--dl-space-10);
+    }
+
+    .dl-card-button .dl-stepper button {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
+
+.dl-card-button.is-busy .dl-stepper {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.dl-card-button a.added_to_cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--dl-space-10);
+    margin-block-start: var(--dl-space-20);
+    padding: var(--dl-space-20) var(--dl-space-40);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-dltint);
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: var(--e-global-typography-dlsmallb-line-height);
+    letter-spacing: var(--e-global-typography-dlsmallb-letter-spacing);
+    text-decoration: none;
+}
+
+.dl-card-button a.added_to_cart::after {
+    content: "→" / "";
+}
+
+.dl-card-button a.added_to_cart:hover,
+.dl-card-button a.added_to_cart:focus {
+    background-color: color-mix(in srgb, var(--e-global-color-primary) 14%, var(--e-global-color-dlwhite));
+    color: var(--e-global-color-secondary);
 }
 
 .dl-products .e-loop-item {
@@ -1521,6 +1626,12 @@ table.wc-block-cart-items td {
 .dl-mini-card .dl-mini-card-button .button:focus {
     background-color: var(--e-global-color-secondary);
     color: var(--e-global-color-dlwhite);
+}
+
+.dl-mini-card .dl-card-button .dl-stepper,
+.dl-mini-card .dl-card-button a.added_to_cart {
+    width: fit-content;
+    margin-inline: auto;
 }
 
 .outofstock .dl-mini-card .dl-mini-card-button .button {
