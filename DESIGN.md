@@ -3,10 +3,10 @@
 Read this before any design work. All rules in `CLAUDE.md` still apply.
 
 ## Visual reference
-The approved look is Matej's block theme version of the site (theme `delicja` 0.5.6, still installed on
-test.delicja.dk but not active; preview: https://claude.ai/artifact/HehG4vRV6szsbi4gs12PuJ). The Elementor site
-rebuilds it 1:1: same layout, spacing, sizes and texts at 360, 768, 1024 and 1440 px. Copy is English for now.
-When something changes, change it in Elementor or in this repo, not in the block theme.
+The approved look is Matej's block theme version of the site (theme `delicja` 0.5.6; preview:
+https://claude.ai/artifact/HehG4vRV6szsbi4gs12PuJ). The Elementor site rebuilds it 1:1: same layout, spacing,
+sizes and texts at 360, 768, 1024 and 1440 px. Copy is English for now. The block theme was removed from
+test.delicja.dk after the rebuild; the Elementor site is now the reference.
 
 ## Brand: Polish tradition, warm and honest
 A family deli that respects Polish tradition: home cooking, holidays, quality. Red and white like the Polish
