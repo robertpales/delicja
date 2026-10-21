@@ -1450,10 +1450,6 @@ table.wc-block-cart-items td {
     font-weight: inherit;
 }
 
-.dl-product-meta .product_meta .tagged_as {
-    display: none;
-}
-
 .dl-product-meta .product_meta a {
     text-decoration: underline;
 }
