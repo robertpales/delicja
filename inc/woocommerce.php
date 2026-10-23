@@ -111,6 +111,22 @@ add_filter( 'woocommerce_coming_soon_exclude', function ( $excluded ) {
 	return $excluded || is_product();
 } );
 
+// The screen WooCommerce shows instead of the shop, category, cart and checkout pages while the store is in
+// "Coming soon" mode: the Elementor template "Coming soon (shop)" (Templates → Saved Templates, slug
+// delicja-coming-soon), so the owner can edit it. Styles in site.css (=== Coming soon ===).
+add_filter( 'render_block', function ( $html, $block ) {
+	if ( 'core/pattern' !== $block['blockName'] || 'woocommerce/coming-soon' !== ( $block['attrs']['slug'] ?? '' ) ) {
+		return $html;
+	}
+
+	$template = get_page_by_path( 'delicja-coming-soon', OBJECT, 'elementor_library' );
+	if ( ! $template || ! class_exists( '\Elementor\Plugin' ) ) {
+		return $html;
+	}
+
+	return \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $template->ID, true );
+}, 10, 2 );
+
 // WooCommerce's own sale flash reads "-20%" instead of "Sale!".
 add_filter( 'woocommerce_sale_flash', function ( $html, $post, $product ) {
 	$percent = $product instanceof WC_Product ? delicja_discount_percent( $product ) : 0;

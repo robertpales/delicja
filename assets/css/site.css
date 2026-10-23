@@ -2383,6 +2383,190 @@ table.wc-block-cart-items td {
     }
 }
 
+/* === Coming soon === */
+.dl-soon {
+    --padding-top: var(--dl-space-50);
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: var(--dl-space-80);
+    --padding-left: var(--dl-gutter);
+    --content-width: var(--dl-wide);
+}
+
+.dl-soon .dl-soon-panel {
+    --align-items: center;
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-50);
+    --padding-top: var(--dl-space-70);
+    --padding-right: var(--dl-space-70);
+    --padding-bottom: var(--dl-space-70);
+    --padding-left: var(--dl-space-70);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: var(--dl-radius-xl);
+}
+
+.dl-soon-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("../images/folk/grain.svg") 0 0 / 220px 220px repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.dl-soon-panel > .dl-soon-text {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 0 1 54%;
+    min-width: 0;
+}
+
+.dl-soon-panel > .dl-soon-art {
+    position: relative;
+    flex: 0 1 46%;
+    align-self: flex-end;
+    min-width: 0;
+    min-height: 18rem;
+}
+
+.dl-soon-text > .elementor-widget.dl-soon-title {
+    margin-block: var(--dl-space-20) var(--dl-space-50);
+}
+
+.dl-soon-title .elementor-heading-title {
+    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.85);
+    text-transform: uppercase;
+}
+
+.dl-soon-title .dl-soon-big {
+    display: block;
+}
+
+.dl-soon-title .dl-soon-hand {
+    display: block;
+    width: fit-content;
+    margin-block-start: 0.1em;
+    margin-inline-start: 0.15em;
+    color: var(--e-global-color-dltint);
+    font-family: var(--e-global-typography-dlhand-font-family), cursive;
+    font-size: 0.42em;
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    rotate: -3deg;
+}
+
+.dl-soon-text > .elementor-widget.dl-soon-lead {
+    max-width: 30rem;
+    margin-block-end: var(--dl-space-50);
+}
+
+.dl-soon-text .dl-buttons {
+    --align-items: center;
+    --row-gap: var(--dl-space-40);
+    --column-gap: var(--dl-space-50);
+}
+
+.dl-soon .dl-soon-art > .elementor-widget.dl-soon-box {
+    position: absolute;
+    right: -10%;
+    bottom: calc(-1 * var(--dl-space-70));
+    width: 112%;
+    max-width: none;
+    margin: 0;
+    transform-origin: 50% 100%;
+    animation: dl-soon-pack 5s ease-in-out infinite;
+}
+
+.dl-soon-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1rem 1.25rem color-mix(in srgb, var(--e-global-color-text) 35%, transparent));
+}
+
+.dl-soon-art > .elementor-widget.dl-soon-note {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    rotate: -6deg;
+}
+
+.dl-soon-note p {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--dl-space-10);
+}
+
+.dl-soon-note p::after {
+    content: "";
+    width: 3.5rem;
+    height: 2.6rem;
+    margin-inline-end: -2.5rem;
+    background-color: currentColor;
+    -webkit-mask: url("../images/hand/arrow.svg") center / contain no-repeat;
+    mask: url("../images/hand/arrow.svg") center / contain no-repeat;
+    rotate: 70deg;
+}
+
+@keyframes dl-soon-pack {
+    0%,
+    70%,
+    100% {
+        rotate: 0deg;
+    }
+
+    76% {
+        rotate: -2.5deg;
+    }
+
+    82% {
+        rotate: 2deg;
+    }
+
+    88% {
+        rotate: -1deg;
+    }
+}
+
+@media (max-width: 781px) {
+    .dl-soon .dl-soon-panel {
+        --align-items: stretch;
+        --padding-right: var(--dl-space-50);
+        --padding-bottom: var(--dl-space-50);
+        --padding-left: var(--dl-space-50);
+        border-radius: var(--dl-radius-lg);
+    }
+
+    .dl-soon-panel > .dl-soon-text,
+    .dl-soon-panel > .dl-soon-art {
+        flex-basis: auto;
+    }
+
+    .dl-soon-panel > .dl-soon-art {
+        min-height: 14rem;
+    }
+
+    .dl-soon .dl-soon-art > .elementor-widget.dl-soon-box {
+        right: -4%;
+        bottom: calc(-1 * var(--dl-space-50));
+        width: min(24rem, 90%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-soon .dl-soon-art > .elementor-widget.dl-soon-box {
+        animation: none;
+    }
+}
+
 /* === Pages === */
 .dl-page {
     --padding-top: var(--dl-space-60);
