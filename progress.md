@@ -13,6 +13,9 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Product pages open for everyone even while the shop is in WooCommerce "Coming soon" mode (shop, categories,
+  cart and checkout stay hidden until the mode is switched off).
+- Homepage "Weekly deals" only shows while at least one product has a sale price; it appears by itself.
 - Category images: 12 new cut-outs that look like real photos (natural light and textures, no glossy AI look) with
   alt texts; the category tiles keep their design, and the products are shown whole (no longer cut off at the
   bottom). Older images stay in the media library. *(database)*

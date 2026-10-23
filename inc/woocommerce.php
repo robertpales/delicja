@@ -95,6 +95,22 @@ add_shortcode( 'dl_no_deals', function () {
 	return '<p class="dl-empty">No deals right now. Check back soon.</p>';
 } );
 
+// The homepage "Weekly deals" section only shows while at least one product is on sale (home.css hides it on
+// pages with the body class dl-no-deals). It appears by itself when the owner sets a sale price in wp-admin.
+add_filter( 'body_class', function ( $classes ) {
+	if ( is_front_page() && ! wc_get_product_ids_on_sale() ) {
+		$classes[] = 'dl-no-deals';
+	}
+
+	return $classes;
+} );
+
+// Product pages stay visible while the store is in WooCommerce's "Coming soon" mode, so a click on a product
+// anywhere on the site shows the product. Shop, category, cart and checkout pages stay hidden until the mode is off.
+add_filter( 'woocommerce_coming_soon_exclude', function ( $excluded ) {
+	return $excluded || is_product();
+} );
+
 // WooCommerce's own sale flash reads "-20%" instead of "Sale!".
 add_filter( 'woocommerce_sale_flash', function ( $html, $post, $product ) {
 	$percent = $product instanceof WC_Product ? delicja_discount_percent( $product ) : 0;

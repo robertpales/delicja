@@ -218,6 +218,10 @@
     position: relative;
 }
 
+.dl-no-deals .dl-front .dl-section--offers {
+    display: none;
+}
+
 .dl-section--offers .dl-section-head {
     min-height: 2.75rem;
     margin-block-end: var(--dl-space-50);
