@@ -17,6 +17,8 @@ through Novamira, so they are not in git.
   pierogi, dill) that pop in one by one, float slowly and follow the mouse a little. The bag stays in the New
   arrivals tile and on the contact page. *(partly database)*
 - Small delivery van icon in the red bar "Order online, we deliver to your door".
+- While the fonts load, text no longer flashes in a serif font (buttons, handwritten lines); the handwriting font is
+  preloaded on the homepage like Anton.
 - Contact page (`/kontakt/`): "Come say hi" with a hand-drawn picture of the shop front, buttons for directions and
   calling, cards for address, phone, e-mail, opening hours (Google Maps), Instagram and company details, and a red
   "Not in Herning? Order online" panel with the Delicja bag. The Page template no longer applies to it. *(database)*
