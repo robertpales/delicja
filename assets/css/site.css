@@ -424,9 +424,22 @@ body .wp-block-button__link:focus,
     --gap: var(--dl-space-50);
     --row-gap: var(--dl-space-50);
     --column-gap: var(--dl-space-50);
+    --padding-bottom: var(--dl-header-band);
+    --dl-header-band: 2.25rem;
     position: relative;
     z-index: 10;
-    border-bottom: 1px solid var(--e-global-color-dlborder);
+}
+
+.dl-header::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: var(--dl-header-band);
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: url("../images/folk/band.svg") left center / auto 100% repeat-x;
+    mask: url("../images/folk/band.svg") left center / auto 100% repeat-x;
 }
 
 .dl-announcement {
@@ -500,9 +513,9 @@ body .wp-block-button__link:focus,
 .dl-header-search .wp-block-search__inside-wrapper {
     align-items: center;
     padding: 0.25rem 0.25rem 0.25rem 1.125rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--e-global-color-dlborder);
     border-radius: var(--dl-radius-pill);
-    background-color: var(--e-global-color-dlsurface);
+    background-color: var(--e-global-color-dlwhite);
     transition:
         border-color var(--dl-transition),
         background-color var(--dl-transition);
@@ -607,7 +620,7 @@ body .wp-block-button__link:focus,
 
 .dl-header .wc-block-customer-account__link:hover,
 .dl-header .wc-block-mini-cart__button:hover {
-    background-color: var(--e-global-color-dlsurface);
+    background-color: var(--e-global-color-dlwhite);
     color: var(--e-global-color-text);
     text-decoration: none;
 }
@@ -636,6 +649,30 @@ body .wp-block-button__link:focus,
 .dl-header-nav .elementor-nav-menu--main .elementor-item.highlighted {
     padding: var(--dl-space-20) 0;
     transition: color var(--dl-transition);
+}
+
+.dl-header-nav .elementor-nav-menu--main > .elementor-nav-menu > li > .elementor-item {
+    position: relative;
+}
+
+.dl-header-nav .elementor-nav-menu--main > .elementor-nav-menu > li > .elementor-item::after {
+    content: "";
+    position: absolute;
+    right: -0.15em;
+    bottom: -0.05em;
+    left: -0.15em;
+    height: 0.4em;
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: url("../images/hand/underline.svg") center / 100% 100% no-repeat;
+    mask: url("../images/hand/underline.svg") center / 100% 100% no-repeat;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dl-header-nav .elementor-nav-menu--main > .elementor-nav-menu > li > .elementor-item:hover::after,
+.dl-header-nav .elementor-nav-menu--main > .elementor-nav-menu > li > .elementor-item.highlighted::after,
+.dl-header-nav .elementor-nav-menu--main > .elementor-nav-menu > li > .elementor-item.elementor-item-active::after {
+    clip-path: inset(0 0 0 0);
 }
 
 .dl-header-nav .elementor-nav-menu--main .sub-arrow {
@@ -668,11 +705,13 @@ body .wp-block-button__link:focus,
 
 .dl-header-nav .elementor-nav-menu--main .menu-item-has-children:hover > .sub-menu,
 .dl-header-nav .elementor-nav-menu--main .menu-item-has-children:focus-within > .sub-menu {
-    display: block;
+    display: grid;
 }
 
 .dl-header-nav .elementor-nav-menu--main .sub-menu {
     box-sizing: content-box;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--dl-space-10);
     width: auto;
     min-width: 14rem;
     padding: var(--dl-space-20);
@@ -681,11 +720,43 @@ body .wp-block-button__link:focus,
     box-shadow: var(--dl-shadow-pop);
 }
 
+.dl-header-nav .elementor-nav-menu--main .sub-menu:has(.dl-menu-thumb) {
+    width: 36rem;
+}
+
 .dl-header-nav .elementor-nav-menu--main .sub-menu .elementor-sub-item,
 .dl-header-nav .elementor-nav-menu--main .sub-menu .elementor-sub-item:hover,
 .dl-header-nav .elementor-nav-menu--main .sub-menu .elementor-sub-item:focus {
     padding: var(--dl-space-20) var(--dl-space-30);
     border-radius: var(--dl-radius-sm);
+}
+
+.dl-header-nav .elementor-sub-item:has(.dl-menu-thumb) {
+    display: flex;
+    align-items: center;
+    gap: var(--dl-space-30);
+}
+
+.dl-header-nav .dl-menu-thumb {
+    flex: none;
+    width: 2.75rem;
+    height: 2.75rem;
+    object-fit: contain;
+    transition:
+        translate 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        rotate 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dl-header-nav .elementor-sub-item:hover .dl-menu-thumb {
+    translate: 0 -0.15rem;
+    rotate: -4deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-header-nav .elementor-sub-item:hover .dl-menu-thumb {
+        translate: none;
+        rotate: none;
+    }
 }
 
 .dl-header-nav .elementor-menu-toggle {
@@ -767,10 +838,12 @@ body .wp-block-button__link:focus,
 
 .dl-header-nav .elementor-nav-menu--dropdown .sub-menu {
     position: static;
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--dl-space-20);
     width: auto !important;
     margin: 0 !important;
-    padding: var(--dl-space-50) var(--dl-space-60) 0;
+    padding: var(--dl-space-50) 0 0;
     border: 0;
     box-shadow: none;
 }
@@ -796,6 +869,17 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     width: auto;
 }
 
+.dl-header-address .dl-header-hello {
+    order: -1;
+    margin-inline-end: var(--dl-space-20);
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dlhand-font-family), cursive;
+    font-size: calc(var(--e-global-typography-dlhand-font-size) * 0.8);
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: 1;
+    rotate: -3deg;
+}
+
 @media (min-width: 600px) {
     .dl-header-bar > .e-con-inner {
         grid-template-areas:
@@ -809,12 +893,12 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     .dl-header-bar > .e-con-inner::after {
         content: "";
         grid-area: rule;
-        height: 1px;
-        background-color: var(--e-global-color-dlborder);
+        height: 1.5px;
+        background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--e-global-color-primary) 30%, transparent) 0 0.5rem, transparent 0.5rem 0.875rem);
     }
 
     .dl-header .dl-header-bar .dl-header-brand img {
-        width: 9rem;
+        width: 10rem;
     }
 
     .dl-header .dl-header-bar > .e-con-inner > .dl-header-search {

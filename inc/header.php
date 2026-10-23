@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Product search: the core search block in WooCommerce's product-search variation (adds post_type=product).
 add_shortcode( 'dl_product_search', function () {
-	return do_blocks( '<!-- wp:search {"label":"Search products","showLabel":false,"placeholder":"Search products…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"product"},"namespace":"woocommerce/product-search"} /-->' );
+	return do_blocks( '<!-- wp:search {"label":"Search products","showLabel":false,"placeholder":"Search for sausages, cheese, sweets…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"product"},"namespace":"woocommerce/product-search"} /-->' );
 } );
 
 // Account icon linking to My account.
@@ -55,3 +55,25 @@ add_action( 'wp_enqueue_scripts', function () {
 		$site->deps = array_unique( array_merge( $site->deps, array_keys( $styles ) ) );
 	}
 }, 20 );
+
+// Shop dropdown in the header: each category shows its picture (the WooCommerce category image) next to its name.
+// The menu stays a WordPress menu; only links to product categories in a submenu get a picture.
+add_filter( 'nav_menu_item_title', function ( $title, $item, $args, $depth ) {
+	if ( $depth < 1 || 'product_cat' !== $item->object ) {
+		return $title;
+	}
+
+	$thumbnail = (int) get_term_meta( (int) $item->object_id, 'thumbnail_id', true );
+	if ( ! $thumbnail ) {
+		return $title;
+	}
+
+	$image = wp_get_attachment_image( $thumbnail, 'thumbnail', false, [
+		'class'    => 'dl-menu-thumb',
+		'alt'      => '',
+		'loading'  => 'lazy',
+		'decoding' => 'async',
+	] );
+
+	return $image . '<span class="dl-menu-label">' . $title . '</span>';
+}, 10, 4 );
