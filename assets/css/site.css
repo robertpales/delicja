@@ -292,6 +292,201 @@ body .wp-block-button__link:focus,
     text-align: center;
 }
 
+/* === Delicja bag === */
+.dl-bag {
+    --dl-bag-speed: 2.6s;
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.dl-bag-sun {
+    fill: var(--e-global-color-dltint);
+}
+
+.dl-bag-shadow {
+    fill: color-mix(in srgb, var(--e-global-color-text) 22%, transparent);
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: dl-bag-shadow var(--dl-bag-speed) ease-in-out infinite;
+}
+
+.dl-bag-hop {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: dl-bag-hop var(--dl-bag-speed) ease-in-out infinite;
+}
+
+.dl-bag-paper {
+    fill: var(--e-global-color-dlwhite);
+}
+
+.dl-bag-fold {
+    fill: none;
+    stroke: var(--e-global-color-dlborder);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.dl-bag-band {
+    fill: var(--e-global-color-primary);
+}
+
+.dl-bag-word {
+    fill: var(--e-global-color-dlwhite);
+    font-family: var(--e-global-typography-dldisplay-font-family);
+    font-size: 20px;
+    letter-spacing: 0.25em;
+}
+
+.dl-bag-eyes {
+    fill: var(--e-global-color-text);
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: dl-bag-blink 3.8s ease-in-out infinite;
+}
+
+.dl-bag-smile {
+    fill: none;
+    stroke: var(--e-global-color-text);
+    stroke-width: 6;
+    stroke-linecap: round;
+}
+
+.dl-bag-cheek {
+    fill: color-mix(in srgb, var(--e-global-color-primary) 22%, var(--e-global-color-dlwhite));
+}
+
+.dl-bag-sausage {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: dl-bag-pop var(--dl-bag-speed) ease-in-out infinite;
+}
+
+.dl-bag-ring {
+    fill: none;
+    stroke: var(--e-global-color-secondary);
+    stroke-width: 18;
+    stroke-linecap: round;
+}
+
+.dl-bag-ring-shine,
+.dl-bag-score,
+.dl-bag-shine {
+    fill: none;
+    stroke: color-mix(in srgb, var(--e-global-color-dlwhite) 50%, transparent);
+    stroke-width: 5;
+    stroke-linecap: round;
+}
+
+.dl-bag-string {
+    fill: none;
+    stroke: var(--e-global-color-text);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.dl-bag-bread {
+    fill: var(--e-global-color-dlcrust);
+}
+
+.dl-bag-dill path {
+    fill: none;
+    stroke: var(--e-global-color-dlleaf);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+}
+
+.dl-bag-glass {
+    fill: color-mix(in srgb, var(--e-global-color-dlwhite) 80%, transparent);
+    stroke: var(--e-global-color-dlborder);
+    stroke-width: 2;
+}
+
+.dl-bag-lid {
+    fill: var(--e-global-color-primary);
+}
+
+.dl-bag-pickle {
+    fill: var(--e-global-color-dlleaf);
+}
+
+@keyframes dl-bag-hop {
+    0%,
+    100% {
+        transform: translateY(0) scale(1, 1);
+    }
+
+    10% {
+        transform: translateY(0) scale(1.05, 0.94);
+    }
+
+    32% {
+        transform: translateY(-28px) scale(0.97, 1.04);
+    }
+
+    46% {
+        transform: translateY(-34px) scale(1, 1);
+    }
+
+    64% {
+        transform: translateY(0) scale(1.04, 0.95);
+    }
+
+    74% {
+        transform: translateY(0) scale(0.99, 1.01);
+    }
+}
+
+@keyframes dl-bag-pop {
+    0%,
+    20% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    46% {
+        transform: translateY(-120px) rotate(200deg);
+    }
+
+    68%,
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+@keyframes dl-bag-shadow {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    46% {
+        transform: scale(0.72);
+        opacity: 0.55;
+    }
+}
+
+@keyframes dl-bag-blink {
+    0%,
+    92%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    96% {
+        transform: scaleY(0.1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-bag * {
+        animation: none;
+    }
+}
+
 /* === Icon links === */
 .dl-icon-link p {
     display: flex;
@@ -334,6 +529,14 @@ body .wp-block-button__link:focus,
 
 .dl-icon-link--clock {
     --dl-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7z'/%3E%3C/svg%3E");
+}
+
+.dl-icon-link--instagram {
+    --dl-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.5-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/%3E%3C/svg%3E");
+}
+
+.dl-icon-link--company {
+    --dl-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M4 21V5l8-3 8 3v16h-6v-5h-4v5zm4-12h2V7H8zm6 0h2V7h-2zm-6 4h2v-2H8zm6 0h2v-2h-2z'/%3E%3C/svg%3E");
 }
 
 /* === Header === */
