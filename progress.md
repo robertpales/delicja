@@ -21,6 +21,7 @@ through Novamira, so they are not in git.
 - Main menu: categories moved under **Shop**, the separate "Categories" item removed. *(database)*
 - Order e-mails (new, cancelled, failed) go to web@digistudio.sk while testing; sender is info@delicja.dk. *(database)*
 - `CLAUDE.md`: keep this file updated after every change.
+- Purchase summary (order received page): site fonts and colours, thank-you box with a check icon, order overview, order table and address cards in the site style.
 
 ## 2026-10-22
 

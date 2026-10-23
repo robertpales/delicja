@@ -2470,6 +2470,10 @@ table.wc-block-cart-items td {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-order-overview li.woocommerce-order-overview__email {
+        grid-column: 1 / -1;
+    }
+
     .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details {
         padding: var(--dl-space-20) var(--dl-space-40);
     }
