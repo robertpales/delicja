@@ -4,6 +4,15 @@ What is still to be done on Delicja. Finished items move to `progress.md`.
 
 ---
 
+## Page content from the client
+
+Needed before launch and for the payment gateway approval (card schemes check these pages).
+- [ ] Terms and conditions (Handelsbetingelser): page `terms-and-conditions`.
+- [ ] Delivery and returns: page `levering-og-returnering` (and remove the WooCommerce sample page `refund_returns`).
+- [ ] Privacy policy: page `privacy-policy`.
+
+---
+
 ## Language versions (WPML)
 
 Three languages: **Danish** (main, no prefix), **English** `/en/`, **Polish** `/pl/`.

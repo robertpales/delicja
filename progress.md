@@ -23,6 +23,7 @@ through Novamira, so they are not in git.
 - `CLAUDE.md`: keep this file updated after every change.
 - Purchase summary (order received page): site fonts and colours, thank-you box with a check icon, order overview, order table and address cards in the site style.
 - `todo.md`: plan for the language versions (WPML: DA, EN, PL).
+- `todo.md`: legal page texts needed from the client.
 
 ## 2026-10-22
 
