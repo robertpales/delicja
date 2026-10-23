@@ -17,21 +17,9 @@ Three languages: **Danish** (main, no prefix), **English** `/en/`, **Polish** `/
 - Prices, stock and images are shared by all languages.
 
 **Before installing**
-- [ ] Client buys the WPML licence and gives us access. Check the current price and automatic translation credits.
-- [ ] Switch the WordPress site language from `en_US` to Danish (the main language is hard to change later).
-- [ ] Replace the English test names of products and categories with Danish ones.
+- [ ] Client buys the WPML licence - version Multilingual CMS and gives us access. 
 
 **Setup**
 - [ ] Install WPML + WooCommerce Multilingual, languages DA (main) / EN / PL, URLs with a language folder (`/en/`, `/pl/`).
-- [ ] Automatic translation only for products, product categories and attributes; publish without review.
-- [ ] Glossary: Polish brand and product names (Krakus, Wedel, Ptasie Mleczko, …) are never translated.
-- [ ] Translate slugs of pages, categories and products.
-- [ ] Translate Theme Builder templates (header, footer, product card, shop, product, cart, checkout, purchase summary) and menus.
-- [ ] Translate pages by hand (front page, about, contact, terms, delivery, cookies, privacy).
-- [ ] Code texts (`inc/*.php`, shortcodes, buttons) as translatable strings; translate them in String Translation.
-- [ ] `inc/schema.php`: language, URLs and breadcrumbs from the current language.
-- [ ] Rank Math: meta title and description per language, check `hreflang` and the sitemaps.
-- [ ] WooCommerce e-mails to customers in the customer's language.
-- [ ] Language switcher in the header (desktop and mobile menu). No automatic redirect by browser language.
-- [ ] Complianz cookie banner in all three languages.
-- [ ] Test: add a product in Danish → EN and PL versions appear with translated slug and meta; order in each language.
+- [ ] Switch the WordPress site language from `en_US` to Danish (the main language is hard to change later).
+- [ ] Plugin setup for project needs
