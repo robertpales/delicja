@@ -18,24 +18,13 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 **Shop information**
 - [ ] Opening hours of the shop.
 - [ ] Delivery: area, prices (by distance from the shop?), delivery days and times.
-- [ ] E-mail address where new orders should go after launch.
 
 **Payment gateway (Flatpay / Frisbii Pay)**
 - [ ] Ask Flatpay to activate online payments (Frisbii Pay) for the website delicja.dk.
-- [ ] Invite `web@digistudio.sk` as a user in the Frisbii (Billwerk+) admin. If that is not possible: send the Live Private Key and a test key or test account.
-- [ ] Which payment methods the contract includes: Visa/Mastercard, Dankort, MobilePay, Apple Pay, Google Pay.
-- [ ] When the payment is taken: at the order (recommended) or at delivery.
+- [ ] Invite `pales.robo@gmail.com` as a user in the Frisbii (Billwerk+) admin. If that is not possible: send the Live Private Key and a test key or test account.
 
 **Language versions**
-- [ ] Buy the WPML licence, plan **Multilingual CMS**, in the name of Delicja ApS, and give us access to the account.
-
----
-
-## Matej
-
-- [ ] Language switcher in the header (desktop and mobile menu), after WPML is installed.
-- [ ] Translate pages by hand into EN and PL (front page, about, contact, cookies, legal pages) in the WPML translation editor.
-- [ ] Translate Theme Builder templates (header, footer, product card, shop, product, cart, checkout, purchase summary) and menus.
+- [ ] Buy the WPML licence, plan **Multilingual CMS**, in the name of Delicja ApS, and give us access to the account. https://app.wpml.org/purchase
 
 ---
 
@@ -48,14 +37,13 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
 
 **Payment gateway (Frisbii Pay)**, when the client has done their part
-- [ ] Install Frisbii+ Pay from the WordPress plugin directory (search "Billwerk").
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks.
 - [ ] Test payments on test.delicja.dk.
 - [ ] Turn off cash on delivery; payment icons in the footer match the real methods.
 
 **Language versions (WPML)**, when the client has bought the licence
 
-Decided: Danish is the main language (no prefix), English `/en/`, Polish `/pl/`. Pages and templates are translated
+Recommended: Danish is the main language (no prefix), English `/en/`, Polish `/pl/`. Pages and templates are translated
 by hand (Matej). Products, categories and attributes are translated automatically when saved, including slugs and
 Rank Math meta title and description; the client only writes in Danish. Prices, stock and images are shared.
 
