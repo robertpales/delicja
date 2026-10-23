@@ -617,8 +617,10 @@
     --padding-left: var(--dl-space-50);
     flex: 0 1 28%;
     align-self: stretch;
+    position: relative;
     min-width: 0;
     overflow: hidden;
+    isolation: isolate;
     border-radius: var(--dl-radius-lg);
 }
 
@@ -633,16 +635,50 @@
     min-width: 0;
 }
 
-.dl-new-tile > .dl-new-image {
-    margin-block-start: auto;
+.dl-new > .dl-new-tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("../../images/folk/grain.svg") 0 0 / 220px 220px repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.12;
+    pointer-events: none;
 }
 
-.dl-new-tile .dl-new-image img {
+.dl-new-tile > .dl-new-bag {
+    position: absolute;
+    right: -6%;
+    bottom: -5%;
+    width: min(16rem, 62%);
+    rotate: -8deg;
+}
+
+.dl-new-tile > .dl-buttons {
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 782px) and (max-width: 1199px) {
+    .dl-new-tile > .dl-new-bag {
+        width: 50%;
+    }
+}
+
+.dl-new-bag svg {
+    --dl-bag-speed: 2.6s;
     display: block;
     width: 100%;
-    max-width: 14rem;
     height: auto;
-    margin-inline: auto;
+    overflow: visible;
+}
+
+.dl-new-bag svg * {
+    animation-play-state: paused;
+}
+
+.dl-new-tile:hover .dl-new-bag svg * {
+    animation-play-state: running;
 }
 
 @media (max-width: 781px) {
@@ -653,6 +689,20 @@
     .dl-new > .dl-new-tile,
     .dl-new > .dl-new-products {
         flex-basis: auto;
+    }
+
+    .dl-new > .dl-new-tile {
+        min-height: 15rem;
+    }
+
+    .dl-new-tile > .dl-new-bag {
+        width: min(12rem, 50%);
+    }
+}
+
+@media (max-width: 599px) {
+    .dl-new > .dl-new-tile {
+        min-height: 22rem;
     }
 }
 

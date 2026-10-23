@@ -2,7 +2,8 @@
 /**
  * Homepage hero illustration: a Delicja shopping bag with a face, full of Polish groceries (rye bread, a ring of
  * sausage, a jar of pickles, dill). It hops, the sausage jumps out and spins, the bag blinks (home.css).
- * Inline SVG so the colours come from the Elementor global colours; used with the shortcode [dl_hero_art].
+ * Inline SVG so the colours come from the Elementor global colours. Shortcode [dl_hero_art]: homepage hero and the
+ * New arrivals tile (there it only moves on hover).
  */
 
 defined( 'ABSPATH' ) || exit;

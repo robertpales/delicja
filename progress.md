@@ -13,6 +13,14 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Homepage hero: "Polish deli in the heart of Herning" in Anton with a handwritten line and a hand-drawn underline,
+  a short lead, and an animated drawing of a Delicja shopping bag (hops, the sausage jumps out, it blinks).
+  New global colours for the drawing: Bread crust, Dill green. *(partly database)*
+- New arrivals tile: same height as the product cards, paper grain, the Delicja bag peeks out and hops on hover.
+- Copy without unexplained Polish words: English names or an explanation in brackets (doughnuts, dumplings,
+  sour rye soup, "Come say hi!"); the story speaks to people from all over the world, not only Poles and Danes;
+  "Customer favourites"; the follow box says "photos from Delicja"; shorter "What you will find" on About us;
+  image alt texts the same way. *(database)*
 - Product pages open for everyone even while the shop is in WooCommerce "Coming soon" mode (shop, categories,
   cart and checkout stay hidden until the mode is switched off).
 - Homepage "Weekly deals" only shows while at least one product has a sale price; it appears by itself.
