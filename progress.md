@@ -13,6 +13,10 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Homepage hero: instead of the cartoon bag, real-looking products (rye bread, dill pickles, a doughnut, kabanosy,
+  pierogi, dill) that pop in one by one, float slowly and follow the mouse a little. The bag stays in the New
+  arrivals tile and on the contact page. *(partly database)*
+- Small delivery van icon in the red bar "Order online, we deliver to your door".
 - Contact page (`/kontakt/`): "Come say hi" with a hand-drawn picture of the shop front, buttons for directions and
   calling, cards for address, phone, e-mail, opening hours (Google Maps), Instagram and company details, and a red
   "Not in Herning? Order online" panel with the Delicja bag. The Page template no longer applies to it. *(database)*

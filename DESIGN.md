@@ -76,11 +76,19 @@ Delicja. Polaroid frames (`dl-polaroid` on an Image widget with a custom caption
 caption, slightly rotated), a hand-drawn red underline (`<span class="dl-scribble">` inside a heading), handwritten
 notes (`dl-hand-note`, global font *Handwritten*) with a drawn arrow. Use them sparingly: one or two per section.
 
+### Hero products (`home.css` → `=== Hero ===`, `site.js` → `=== Hero ===`)
+Real-looking product cut-outs (rye bread, dill pickles, a doughnut, kabanosy, pierogi, dill) as Image widgets with
+the class `dl-hero-item dl-hero-item--<name>`, files `delicja-hero-<name>.webp` on a transparent background. Motion
+design: they pop in one after another, then float slowly in layers, and with a mouse they drift against the pointer,
+the nearer ones more. No motion with *reduced motion*. The owner can swap a picture in Elementor; a new one should be
+a cut-out of a similar size and light (soft daylight from the upper left). `inc/hero.php` loads them without lazy
+loading, the bread with high priority.
+
 ### Delicja bag (`inc/hero.php`, `site.css` → `=== Delicja bag ===`)
 A simple drawing of a smiling Delicja paper bag with rye bread, a ring of sausage, a jar of pickles and dill. It hops,
 the sausage jumps out and spins, the bag blinks; no motion with *reduced motion*. Inline SVG from the shortcode
-`[dl_hero_art]` (Shortcode widget), coloured by the global colours. Homepage hero (always moving), New arrivals tile
-and the contact page's online panel (moving only on hover).
+`[dl_hero_art]` (Shortcode widget), coloured by the global colours. New arrivals tile and the contact page's online
+panel (moving only on hover).
 
 ### Buttons
 Red, rounded (12 px), white text; hover darker red. Outline variant: red border (`dl-btn-secondary`).
@@ -137,11 +145,11 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
 (`=== Product card ===`), the stepper in `assets/js/site.js` (WooCommerce Store API).
 
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
-1. Announcement bar and header (Theme Builder): wordmark, product search, account and mini cart, menu
+1. Announcement bar with a small delivery van icon, and header (Theme Builder): wordmark, product search, account and mini cart, menu
    Shop · Categories (all categories) · Deals · About us · Contact, address link. Mobile: hamburger menu.
 2. Hero on a red panel with paper grain: "Polish deli in the heart of Herning" in Anton (H1) with a handwritten line
    and a hand-drawn underline under "Herning", a short lead, a "Browse the shop" pill, a "Visit us in Herning" link
-   (About us → Visit us) and the animated Delicja bag.
+   (About us → Visit us) and the floating products (see Hero products).
 3. "Shop by category" with a "See all" link to the shop, then the category tiles (live, category order, images
    and product counts from WooCommerce), 6 per row on desktop, horizontal scroll below 1024 px.
 4. "Weekly deals" (live, products on sale, carousel). Hidden while nothing is on sale (body class `dl-no-deals`
