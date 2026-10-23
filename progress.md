@@ -13,6 +13,8 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- About us, "It all starts with a taste": the four chapters are joined by a hand-drawn red line with round number
+  stamps on it; photos in white frames with tape, slightly tilted (straighten on hover).
 - Homepage hero: "Polish deli in the heart of Herning" in Anton with a handwritten line and a hand-drawn underline,
   a short lead, and an animated drawing of a Delicja shopping bag (hops, the sausage jumps out, it blinks).
   New global colours for the drawing: Bread crust, Dill green. *(partly database)*

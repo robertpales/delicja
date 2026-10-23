@@ -233,37 +233,119 @@
 
 .dl-chapter {
     --align-items: center;
-    --gap: var(--dl-space-70);
+    --gap: var(--dl-space-80);
     --row-gap: var(--dl-space-40);
-    --column-gap: var(--dl-space-70);
+    --column-gap: var(--dl-space-80);
+    position: relative;
+    overflow: visible;
+}
+
+.dl-chapter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: calc(-1 * var(--dl-space-60));
+    left: 50%;
+    width: 14px;
+    height: auto;
+    translate: -50% 0;
+    background-color: color-mix(in srgb, var(--e-global-color-primary) 55%, transparent);
+    -webkit-mask: url("../../images/hand/squiggle.svg") center top / 14px 56px repeat-y;
+    mask: url("../../images/hand/squiggle.svg") center top / 14px 56px repeat-y;
+    pointer-events: none;
+}
+
+.dl-about-story-head + .dl-chapter::before {
+    top: 50%;
+}
+
+.dl-about-story > .dl-chapter:last-child::before {
+    bottom: 50%;
 }
 
 .dl-chapter > .dl-chapter-photo {
-    flex: 0 1 46%;
+    flex: 0 1 50%;
     min-width: 0;
 }
 
 .dl-chapter > .dl-chapter-text {
     --gap: 0px;
     --row-gap: 0px;
-    flex: 0 1 54%;
+    position: static;
+    flex: 0 1 50%;
     min-width: 0;
 }
 
 .dl-about .dl-chapter > .dl-chapter-photo > .dl-about-photo {
+    position: relative;
     width: 100%;
-    max-width: 28rem;
+    max-width: 26rem;
     margin-inline: auto;
+    rotate: -2.5deg;
+    transition: rotate var(--dl-transition);
+}
+
+.dl-about .dl-chapter.is-reversed > .dl-chapter-photo > .dl-about-photo {
+    rotate: 2deg;
+}
+
+.dl-about .dl-chapter > .dl-chapter-photo > .dl-about-photo:hover {
+    rotate: 0deg;
+}
+
+.dl-chapter-photo .dl-about-photo img {
+    border: 0.625rem solid var(--e-global-color-dlwhite);
+    border-radius: var(--dl-radius-sm);
+    box-shadow: var(--dl-shadow-pop);
+}
+
+.dl-chapter-photo .dl-about-photo::before {
+    content: "";
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    z-index: 1;
+    width: 6rem;
+    height: 1.6rem;
+    translate: -50% 0;
+    rotate: -3deg;
+    background-color: color-mix(in srgb, var(--e-global-color-primary) 22%, transparent);
+    -webkit-mask: url("../../images/hand/tape.svg") center / 100% 100% no-repeat;
+    mask: url("../../images/hand/tape.svg") center / 100% 100% no-repeat;
+}
+
+.dl-about .dl-chapter-text > .dl-chapter-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    translate: -50% -50%;
+    rotate: -6deg;
+    border: 3px solid var(--e-global-color-primary);
+    border-radius: 50%;
+    background-color: var(--e-global-color-dlwhite);
+    box-shadow: 0 0 0 0.5rem var(--e-global-color-dlwhite);
+}
+
+.dl-about .dl-chapter.is-reversed .dl-chapter-text > .dl-chapter-number {
+    rotate: 5deg;
 }
 
 .dl-chapter-number p {
-    font-weight: 800;
-    line-height: 1.6;
+    font-family: var(--e-global-typography-dldisplay-font-family);
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
     font-variant-numeric: tabular-nums;
 }
 
 .dl-about .dl-chapter-text > .dl-chapter-title {
-    margin-block: var(--dl-space-20) var(--dl-space-30);
+    margin-block: 0 var(--dl-space-30);
 }
 
 .dl-chapter-title .elementor-heading-title {
@@ -279,9 +361,30 @@
         --align-items: stretch;
     }
 
+    .dl-chapter::before {
+        display: none;
+    }
+
     .dl-chapter > .dl-chapter-photo,
     .dl-chapter > .dl-chapter-text {
         flex-basis: auto;
+    }
+
+    .dl-about .dl-chapter > .dl-chapter-photo > .dl-about-photo {
+        max-width: 92%;
+    }
+
+    .dl-about .dl-chapter-text > .dl-chapter-number {
+        position: static;
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-block-end: var(--dl-space-30);
+        translate: none;
+        box-shadow: none;
+    }
+
+    .dl-chapter-number p {
+        font-size: 1.375rem;
     }
 }
 
