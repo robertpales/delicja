@@ -122,6 +122,8 @@ matches. Delete it and it must disappear.
 | Picks a category | Shows on that category page, in related products and in search |
 | Adds a product tag (e.g. "New", "Bestseller") | Small pill badge on the card, linking to the tag page |
 | Sets stock to 0 | Card button says "Sold out" and is disabled |
+| Picks Origin, Storage, Diet, Allergens, May contain on the product's Attributes tab | Icons on the product page (Product facts) |
+| Keeps the nutrition table in the description (rows Energy … Salt) | Nutrition tiles with icons and % of the reference intake |
 | Changes a category's order or image | Category tiles on the homepage follow |
 | Edits a menu (*Appearance → Menus*) | Header and footer menus follow |
 
@@ -192,6 +194,15 @@ zoom. The related product cards do the same.
   "Add to cart", SKU and category, tabs Description / Reviews, related products (first in-stock products of the
   same category or tag, by name). Ingredients, allergens and nutrition are in the product description
   (EU regulation 1169/2011).
+  **Product facts** under SKU and category (`inc/product-facts.php`, shortcode `[dl_product_facts]`, `site.css` →
+  `=== Product facts ===`): hand-drawn icons (`assets/images/icons/`, named after the attribute term slug or the
+  nutrient, coloured red by CSS) that explain the product. Chips: net quantity from the product name, "From Poland"
+  (attribute Origin), Storage (Keep chilled / Keep frozen / Store in a cool, dry place), Diet (Vegetarian / Vegan /
+  Gluten-free). "Contains" and "May contain" (attributes Allergens and May contain, the 14 EU allergens; traces in
+  a lighter dashed style). Nutrition tiles read from the table in the description (rows Energy, Fat, of which
+  saturates, Carbohydrate, of which sugars, Fibre, Protein, Salt; "per 100 ml" when the heading says so) with the
+  % of the reference intake of an average adult (EU 1169/2011, Annex XIII). Missing data shows nothing; never
+  fill an attribute from guesswork, only from the pack or the supplier's data sheet.
 - **Search results:** WooCommerce's default layout (title "Search results for: …", 3-column grid of default
   cards, a search field when nothing is found).
 - **Cart and checkout:** WooCommerce's Cart and Checkout blocks. The checkout has a small header (site title and

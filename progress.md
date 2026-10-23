@@ -13,6 +13,11 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Product pages: "Product facts" with hand-drawn icons under SKU and category: net quantity, From Poland, storage,
+  diet, "Contains" and "May contain" allergens, and nutrition tiles per 100 g with % of the daily reference intake,
+  read from the nutrition table in the description. Works the same for every product; the owner picks the
+  attributes per product. New attributes Origin, Storage, Diet, Allergens, May contain; allergens of the test
+  products filled in from their ingredient lists. *(partly database)*
 - About us chapters: instead of one wavy line, a red-and-white baker's twine runs zigzag from photo to photo and
   draws itself while scrolling; the number stamps press in as each chapter appears.
 - Header no longer generic: linen background like a tablecloth with a red cross-stitch band along the bottom, a

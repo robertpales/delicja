@@ -2054,7 +2054,7 @@ table.wc-block-cart-items td {
     border-block-start: 1px solid var(--e-global-color-dlborder);
 }
 
-.dl-facts-title {
+.dl-facts h3.dl-facts-title {
     margin: 0 0 var(--dl-space-30);
     color: var(--e-global-color-accent);
     font-family: var(--e-global-typography-dleyeb-font-family), sans-serif;

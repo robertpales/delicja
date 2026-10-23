@@ -46,6 +46,9 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Stock: the shop and the webshop sell from the same shelves. Is stock kept up to date by hand in WooCommerce or
   synced with the cash register? Otherwise the webshop sells products that are already gone.
 - [ ] Products sold by weight (cheese, cold cuts from the counter): online they need a fixed pack size and price.
+- [ ] For each product, from the pack or the supplier's data sheet: storage (keep chilled, frozen, or cool and dry),
+  allergens it contains and may contain, vegetarian/vegan if stated. The product page shows them as icons.
+  The test products have allergens filled in from their ingredient lists (to be checked); storage is still empty.
 
 **Online presence** (Google, local search, AI answers)
 - [ ] Manager access to the Google Business Profile, so opening hours, photos and the website link match the site.
