@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Product search: the core search block in WooCommerce's product-search variation (adds post_type=product).
 add_shortcode( 'dl_product_search', function () {
-	return do_blocks( '<!-- wp:search {"label":"Search products","showLabel":false,"placeholder":"Search for sausages, cheese, sweets…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"product"},"namespace":"woocommerce/product-search"} /-->' );
+	return do_blocks( '<!-- wp:search {"label":"Search products","showLabel":false,"placeholder":"Search for sausages, sweets…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"product"},"namespace":"woocommerce/product-search"} /-->' );
 } );
 
 // Account icon linking to My account.
@@ -68,11 +68,13 @@ add_filter( 'nav_menu_item_title', function ( $title, $item, $args, $depth ) {
 		return $title;
 	}
 
-	$image = wp_get_attachment_image( $thumbnail, 'thumbnail', false, [
-		'class'    => 'dl-menu-thumb',
-		'alt'      => '',
-		'loading'  => 'lazy',
-		'decoding' => 'async',
+	// Loaded with the page at low priority, so the pictures are there on the first hover.
+	$image = wp_get_attachment_image( $thumbnail, 'woocommerce_gallery_thumbnail', false, [
+		'class'         => 'dl-menu-thumb',
+		'alt'           => '',
+		'loading'       => 'eager',
+		'fetchpriority' => 'low',
+		'decoding'      => 'async',
 	] );
 
 	return $image . '<span class="dl-menu-label">' . $title . '</span>';
