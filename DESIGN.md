@@ -135,7 +135,7 @@ matches. Delete it and it must disappear.
 | Products Archive (337) | Product archive | shop, category and tag pages |
 | Product search results (347) | Product archive | product search |
 | Single Product (339) | Single product | all products |
-| Page (340) | Single page | all pages except the front page, About us and Contact |
+| Page (340) | Single page | all pages except the front page, About us, Contact, Deals and My account |
 | Cart (341) | Single page | cart |
 | Checkout (342), Checkout header (343), Checkout footer (344, empty) | Single page / header / footer | checkout |
 | 404 page (346) | 404 | not found |
@@ -146,7 +146,8 @@ category name in red, the product count (`[dl_cat_count]`, nothing when empty) a
 at the bottom; the first tile is red, and the red moves to the tile under the mouse). Category images are cut-outs on a
 transparent background that look like real photos: daylight, natural textures, no labels, no glossy render look
 (`delicja-category-<slug>-cutout.webp`, 800 px).
-The front page (11), About us (118) and Contact (67) are pages built in Elementor (template *Elementor Full Width*).
+The front page (11), About us (118), Contact (67), Deals (65) and My account (37) are pages built in Elementor
+(template *Elementor Full Width*).
 
 ## Product card (homepage and shop)
 Loop Item 105. Square image on a light rounded tile, badges top-left (sale as "-20%", product tags as pills),
@@ -161,7 +162,8 @@ zoom. The related product cards do the same.
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
 1. Announcement bar with a small delivery van icon, and header (Theme Builder): wordmark, product search ("Search for
    sausages, sweets…"), account and mini cart (WooCommerce hides the mini cart from visitors while the shop is in
-   "Coming soon" mode), menu Shop · Deals · About us · Contact, "Come say hi!" (handwritten) with the address link.
+   "Coming soon" mode; then a cart link shows instead), menu Shop · Deals · About us · Contact (Deals only while at
+   least one product is on sale, `inc/woocommerce.php`), "Come say hi!" (handwritten) with the address link.
    Calm and clean: linen background (`dlsurface`), thin lines between the rows and at the bottom; the character
    comes from the red handwritten details, not from ornaments (a folk band there felt kitschy). Menu: a hand-drawn
    red underline draws in on hover and stays under the current page. The Shop dropdown shows each category with its picture (the category
@@ -205,9 +207,24 @@ zoom. The related product cards do the same.
   fill an attribute from guesswork, only from the pack or the supplier's data sheet.
 - **Search results:** WooCommerce's default layout (title "Search results for: …", 3-column grid of default
   cards, a search field when nothing is found).
-- **Cart and checkout:** WooCommerce's Cart and Checkout blocks. The checkout has a small header (site title and
-  cart icon) and no footer, like WooCommerce's own checkout. Payment, shipping and tax logic belong to Robo.
-- **My account, legal pages, Deals:** title + page content (Page template). Legal texts [TODO].
+- **Cart** (template Cart 341, Elementor Cart widget set to update the cart by itself; `inc/cart.php`,
+  `assets/css/pages/cart.css`, `site.js` → Cart): big "Your cart" with a handwritten "good choices!", product
+  pictures on linen tiles that tilt on hover, round − and + buttons around the quantity, the coupon as a dashed
+  ticket, and the order summary as a paper receipt (zigzag bottom edge, dashed lines, handwritten "Dziękujemy –
+  thank you!"). While the store is in Coming soon mode a short note above the checkout button says online ordering
+  opens soon. Empty cart: a section of the template with an empty wooden crate (`delicja-cart-empty-crate.webp`)
+  over the full crate photo (aligned); pointing at the crate or the "Browse the shop" button fills it up.
+- **Checkout:** WooCommerce's Checkout widget with a small header (logo and cart icon) and no footer. Payment,
+  shipping and tax logic belong to Robo.
+- **My account** (page built in Elementor, `assets/css/pages/my-account.css`): "Hello" with a handwritten
+  "witamy!", a short line and a polaroid of Elżbieta ("Elżbieta says hi!") next to the login form, which sits on a
+  linen card with a strip of tape. The register form (when Robo enables customer accounts), lost password and the
+  account pages (menu as a linen side list, the current page white) use the same style. Logged in, the welcome is
+  only the heading and the account pages get the full width.
+- **Deals** (`/tilbud/`, page built in Elementor, `assets/css/pages/tilbud.css`): "Deals" with a handwritten "while
+  they last", a lead and all products on sale (Loop Grid, product card); with no sale a note and "See the whole
+  shop" (`[dl_no_deals]`).
+- **Legal pages:** title + page content (Page template). Legal texts [TODO].
 - **About us:** page built in Elementor, CSS in `assets/css/pages/about.css`. The four chapters of "It all starts
   with a taste": photos in white frames with tape, joined zigzag by a red-and-white baker's twine (`site.js`, About
   story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
@@ -226,10 +243,11 @@ zoom. The related product cards do the same.
   the homepage hero and the contact shop front. A Hotspot widget with the photo, plus a hidden Image widget with the
   same photo after a change (same size, aligned). With the mouse on a hotspot (a tap on phones) the changed photo
   shows only around it (mask per hotspot id in the page CSS), the rest dims, the tooltip tells the story.
-- **Coming soon screen:** while the store is in WooCommerce's "Coming soon" mode, shop, category, cart and checkout
-  pages show the Elementor template "Coming soon (shop)" (Templates → Saved Templates) instead of WooCommerce's
-  default: a red panel "Almost ready, we're packing the first boxes", the shop's address, Get directions and
-  Instagram, the delivery box rocking now and then (`inc/woocommerce.php`, `site.css` → `=== Coming soon ===`).
+- **Coming soon screen:** while the store is in WooCommerce's "Coming soon" mode, visitors can browse the shop,
+  categories, tags, product search, product pages and the cart; only the checkout shows the Elementor template
+  "Coming soon (shop)" (Templates → Saved Templates) instead of WooCommerce's default: a red panel "Almost ready,
+  we're packing the first boxes", ordering online opens soon, Get directions and Back to your cart, the delivery box
+  rocking now and then (`inc/woocommerce.php`, `site.css` → `=== Coming soon ===`).
 - **404:** "Nothing found."
 - **Notices** ("added to your cart", errors) use WooCommerce's block notice banners.
 

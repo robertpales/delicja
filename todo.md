@@ -103,6 +103,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Pickup location: add the street address (Bethaniagade 5).
 - [ ] Delivery methods and prices, when the client sends them.
 - [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
+- [ ] Customer accounts (asked by Matej, 2026-10-23: My account has only "Log in", no way to create an account):
+  decide and switch on *WooCommerce → Settings → Accounts & Privacy* → "Allow customers to create an account on the
+  My account page" (and whether at checkout, and the password by e-mail link). The design is ready: the register
+  form appears as a second card next to the login, in the same style (`assets/css/pages/my-account.css`).
 
 **Payment gateway (Frisbii Pay)**, when the client has done their part
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks.
@@ -134,8 +138,8 @@ Prices, stock and images are shared.
 - [ ] Rich Results Test on the front page and a product.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
   Google-Extended) allowed; check `/llms.txt` and the sitemap there. The test site stays `noindex`.
-- [ ] Pages still marked "Indhold mangler" (om-os, tilbud, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
-  Kontakt is done (Matej, 2026-10-23).
+- [ ] Pages still marked "Indhold mangler" (om-os, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
+  Kontakt and Deals (`/tilbud/`) are done (Matej, 2026-10-23).
 
 **SEO check of Matej's changes** (2026-10-23; SEO is Robo's area, so please review, keep or change)
 - [ ] Changes made before the rule "SEO is Robo's" (backups `delicja_backup_rankmath_20261023-1309`,
@@ -146,7 +150,11 @@ Prices, stock and images are shared.
   an explanation in brackets, as on the site (see DESIGN.md → Copy).
 - [ ] New front page H1 "Polish deli in the heart of Herning" and the contact page (`/kontakt/`, H1 "Come say hi",
   page title "Kontakt"): meta title and description, and whether the slug stays Danish.
-- [ ] "Coming soon": product pages are open by code (`inc/woocommerce.php`), shop, categories and cart stay hidden.
-  Fine for indexing once the mode is off?
-- [ ] WP Fastest Cache: clear the front page when a product gets a sale price, so "Weekly deals" shows up right away
-  (the section is hidden while nothing is on sale).
+- [ ] "Coming soon": shop, categories, tags, product search, product pages and the cart are open by code
+  (`inc/woocommerce.php`, Matej asked that "Browse the shop" works); only the checkout stays closed. Fine for
+  indexing once the mode is off?
+- [ ] WP Fastest Cache: the whole cache is now cleared by code when a product is saved or a sale starts or ends
+  (`inc/woocommerce.php`), so "Weekly deals" and the Deals menu item appear right away. Keep or narrow it?
+- [ ] New pages: Deals (`/tilbud/`, H1 "Deals while they last"; the menu item shows only while something is on sale)
+  and My account (H1 "Hello witamy!"), cart H1 "Your cart": meta title and description, indexing of the Deals page
+  while it is empty.

@@ -1,0 +1,389 @@
+/* CSS for the page with the slug "my-account" (My account). Rename the file if the slug changes. */
+
+/* === Layout === */
+.dl-account {
+    --padding-top: var(--dl-space-60);
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: var(--dl-space-80);
+    --padding-left: var(--dl-gutter);
+    --content-width: var(--dl-wide);
+    --align-items: flex-start;
+    --gap: var(--dl-space-80);
+    --row-gap: var(--dl-space-60);
+    --column-gap: var(--dl-space-80);
+}
+
+.dl-account > .e-con-inner > .dl-account-intro {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 0 1 38%;
+    min-width: 0;
+}
+
+.dl-account > .e-con-inner > .dl-account-main {
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+.logged-in .dl-account {
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+}
+
+.logged-in .dl-account > .e-con-inner {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.logged-in .dl-account > .e-con-inner > :is(.dl-account-intro, .dl-account-main) {
+    flex: none;
+}
+
+.logged-in .dl-account-intro > :is(.dl-account-lead, .dl-account-photo) {
+    display: none;
+}
+
+/* === Welcome === */
+.dl-account-intro > .elementor-widget.dl-account-title {
+    margin-block: var(--dl-space-20) var(--dl-space-40);
+}
+
+.dl-account-title .elementor-heading-title {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dldisplay-font-family), sans-serif;
+    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.7);
+    font-weight: 400;
+    line-height: var(--e-global-typography-dldisplay-line-height);
+    letter-spacing: var(--e-global-typography-dldisplay-letter-spacing);
+    text-transform: uppercase;
+}
+
+.dl-account-title .dl-account-big {
+    display: inline-block;
+}
+
+.dl-account-title .dl-account-hand {
+    display: inline-block;
+    margin-inline-start: 0.2em;
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dlhand-font-family), cursive;
+    font-size: 0.5em;
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    vertical-align: 0.5em;
+    rotate: -5deg;
+}
+
+.dl-account-intro > .elementor-widget.dl-account-lead {
+    max-width: 24em;
+}
+
+.dl-account-lead p:last-child {
+    margin-block-end: 0;
+}
+
+.dl-account-intro > .elementor-widget.dl-account-photo {
+    width: min(16rem, 70%);
+    margin-block-start: var(--dl-space-60);
+    margin-inline-start: var(--dl-space-20);
+    rotate: -4deg;
+    transition:
+        rotate var(--dl-transition),
+        translate var(--dl-transition);
+}
+
+.dl-account-intro > .elementor-widget.dl-account-photo:hover {
+    rotate: 0deg;
+    translate: 0 -0.5rem;
+}
+
+/* === Forms === */
+.dl-account .dl-account-box .woocommerce {
+    max-width: none;
+}
+
+.dl-account-box .woocommerce :is(h2, h3) {
+    margin-block: 0 var(--dl-space-40);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlh4-font-size);
+    font-weight: var(--e-global-typography-dlh4-font-weight);
+    line-height: var(--e-global-typography-dlh4-line-height);
+    letter-spacing: var(--e-global-typography-dlh4-letter-spacing);
+}
+
+.dl-account-box #customer_login {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--dl-space-50);
+}
+
+.dl-account-box #customer_login::before,
+.dl-account-box #customer_login::after {
+    display: none;
+}
+
+.dl-account-box #customer_login > .u-column1,
+.dl-account-box #customer_login > .u-column2 {
+    float: none;
+    width: auto;
+}
+
+.dl-account-box .woocommerce :is(form.login, form.register, form.lost_reset_password, form.woocommerce-ResetPassword) {
+    position: relative;
+    margin: 0;
+    padding: var(--dl-space-60) var(--dl-space-50) var(--dl-space-50);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-lg);
+    background-color: var(--e-global-color-dlsurface);
+}
+
+.dl-account-box .woocommerce :is(form.login, form.register, form.lost_reset_password, form.woocommerce-ResetPassword)::before {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    left: 50%;
+    width: 5.5rem;
+    height: 1.5rem;
+    translate: -50% 0;
+    rotate: -3deg;
+    background-color: color-mix(in srgb, var(--e-global-color-primary) 22%, transparent);
+    -webkit-mask: url("../../images/hand/tape.svg") center / 100% 100% no-repeat;
+    mask: url("../../images/hand/tape.svg") center / 100% 100% no-repeat;
+}
+
+.dl-account-box .woocommerce form legend {
+    display: block;
+    margin: 0 0 var(--dl-space-40);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlh4-font-size);
+    font-weight: var(--e-global-typography-dlh4-font-weight);
+    line-height: var(--e-global-typography-dlh4-line-height);
+    letter-spacing: var(--e-global-typography-dlh4-letter-spacing);
+}
+
+.dl-account-box .woocommerce form .form-row {
+    width: auto;
+    margin: 0 0 var(--dl-space-40);
+    padding: 0;
+    float: none;
+}
+
+.dl-account-box .woocommerce form label {
+    display: block;
+    margin-block-end: var(--dl-space-10);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: var(--e-global-typography-dlsmallb-line-height);
+    letter-spacing: var(--e-global-typography-dlsmallb-letter-spacing);
+}
+
+.dl-account-box .woocommerce form .required {
+    color: var(--e-global-color-primary);
+    text-decoration: none;
+}
+
+.dl-account-box .woocommerce form .form-row .input-text {
+    min-height: 3rem;
+    padding: var(--dl-space-20) var(--dl-space-40);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+    transition:
+        border-color var(--dl-transition),
+        box-shadow var(--dl-transition);
+}
+
+.dl-account-box .woocommerce form .form-row .input-text:focus {
+    border-color: var(--e-global-color-text);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--e-global-color-dltint);
+}
+
+.dl-account-box .woocommerce form .show-password-input {
+    top: 50%;
+    right: var(--dl-space-30);
+    padding: 0;
+    border: 0;
+    background: none;
+    translate: 0 -50%;
+}
+
+.dl-account-box .woocommerce form .form-row:has(> .button[type="submit"]) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--dl-space-40);
+    margin-block-end: 0;
+}
+
+.dl-account-box .woocommerce form .woocommerce-form-login__rememberme {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--dl-space-20);
+    margin: 0;
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    font-weight: var(--e-global-typography-dlsmall-font-weight);
+}
+
+.dl-account-box .woocommerce form input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    accent-color: var(--e-global-color-primary);
+}
+
+.dl-account-box .woocommerce form .button[type="submit"] {
+    width: 100%;
+    margin: 0;
+    padding: var(--dl-space-30) var(--dl-space-50);
+    float: none;
+}
+
+.dl-account-box .woocommerce :is(.lost_password, .woocommerce-privacy-policy-text, form.register > p:not(.form-row)) {
+    margin: var(--dl-space-40) 0 0;
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+}
+
+.dl-account-box .woocommerce .lost_password {
+    text-align: center;
+}
+
+.dl-account-box .woocommerce :is(.lost_password, .woocommerce-privacy-policy-text) a {
+    color: var(--e-global-color-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.dl-account-box .woocommerce :is(.lost_password, .woocommerce-privacy-policy-text) a:hover {
+    color: var(--e-global-color-primary);
+}
+
+.dl-account-box .woocommerce form.lost_reset_password > p:first-of-type {
+    margin-block: 0 var(--dl-space-40);
+}
+
+/* === Account pages === */
+.dl-account-box .woocommerce:has(> .woocommerce-MyAccount-navigation) {
+    display: grid;
+    grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--dl-space-60);
+}
+
+.dl-account-box .woocommerce:has(> .woocommerce-MyAccount-navigation)::before,
+.dl-account-box .woocommerce:has(> .woocommerce-MyAccount-navigation)::after {
+    display: none;
+}
+
+.dl-account-box .woocommerce:has(> .woocommerce-MyAccount-navigation) > .woocommerce-notices-wrapper {
+    grid-column: 1 / -1;
+}
+
+.dl-account-box .woocommerce:has(> .woocommerce-MyAccount-navigation) > .woocommerce-notices-wrapper:not(:has(*)) {
+    display: none;
+}
+
+.dl-account-box .woocommerce > :is(.woocommerce-MyAccount-navigation, .woocommerce-MyAccount-content) {
+    float: none;
+    width: auto;
+    margin: 0;
+}
+
+.dl-account-box .woocommerce-MyAccount-navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dl-space-10);
+    margin: 0;
+    padding: var(--dl-space-20);
+    border-radius: var(--dl-radius-lg);
+    background-color: var(--e-global-color-dlsurface);
+    list-style: none;
+}
+
+.dl-account-box .woocommerce-MyAccount-navigation ul li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.dl-account-box .woocommerce-MyAccount-navigation ul li a {
+    display: block;
+    padding: var(--dl-space-20) var(--dl-space-30);
+    border-radius: var(--dl-radius-md);
+    color: var(--e-global-color-text);
+    text-decoration: none;
+    transition:
+        background-color var(--dl-transition),
+        color var(--dl-transition);
+}
+
+.dl-account-box .woocommerce-MyAccount-navigation ul li a:hover {
+    background-color: var(--e-global-color-dltint);
+    color: var(--e-global-color-primary);
+}
+
+.dl-account-box .woocommerce-MyAccount-navigation ul li.is-active a {
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.dl-account-box .woocommerce-MyAccount-content > p:first-child {
+    margin-block-start: 0;
+}
+
+.dl-account-box .woocommerce-MyAccount-content a:not(.button) {
+    color: var(--e-global-color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+@media (max-width: 1024px) {
+    .dl-account > .e-con-inner > .dl-account-intro {
+        flex-basis: 42%;
+    }
+}
+
+@media (max-width: 767px) {
+    .dl-account > .e-con-inner > .dl-account-intro {
+        flex: none;
+    }
+
+    .dl-account-intro > .elementor-widget.dl-account-photo {
+        display: none;
+    }
+
+    .dl-account-box .woocommerce :is(form.login, form.register, form.lost_reset_password, form.woocommerce-ResetPassword) {
+        padding: var(--dl-space-50) var(--dl-space-40) var(--dl-space-40);
+    }
+
+    .dl-account-box .woocommerce:has(> .woocommerce-MyAccount-navigation) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--dl-space-40);
+    }
+
+    .dl-account-box .woocommerce-MyAccount-navigation ul {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .dl-account-box .woocommerce-MyAccount-navigation ul li a {
+        white-space: nowrap;
+    }
+}

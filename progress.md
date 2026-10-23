@@ -16,6 +16,13 @@ through Novamira, so they are not in git.
 - "Browse the shop" works for visitors: the shop, categories, tags, product search and the cart are open while the
   store is in Coming soon mode; only checkout (and My account) wait until it is switched off. The header cart shows
   for visitors too.
+- My account in the shop's style: "Hello" with a handwritten "witamy!", a polaroid of Elżbieta ("Elżbieta says
+  hi!") and the login form on a linen card with a strip of tape: soft white fields, a full-width red "Log in",
+  "Lost your password?" below. Lost password, the register form and the account pages (side menu, orders,
+  addresses) got the same look. Creating an account is still off: that is Robo's decision (in `todo.md`).
+  *(partly database)*
+- Checkout while ordering is not open yet: the "Almost ready" screen now says that ordering online opens soon and
+  leads back to the cart. *(database)*
 - Cart page in the shop's style: big "Your cart" with a handwritten "good choices!", product pictures on linen tiles
   that tilt on hover, round − and + buttons (the cart updates by itself, no "Update cart" button), the coupon as a
   ticket, and the order summary as a paper receipt with a zigzag edge and a handwritten "Dziękujemy – thank you!".
