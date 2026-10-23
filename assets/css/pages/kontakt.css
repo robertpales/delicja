@@ -1,0 +1,238 @@
+/* CSS for the page with the slug "kontakt" (Contact). Rename the file if the slug changes. */
+
+/* === Layout === */
+.dl-contact {
+    --padding-top: var(--dl-space-60);
+    --padding-right: var(--dl-gutter);
+    --padding-bottom: var(--dl-space-80);
+    --padding-left: var(--dl-gutter);
+    --content-width: var(--dl-wide);
+    --gap: var(--dl-space-80);
+    --row-gap: var(--dl-space-80);
+    --column-gap: var(--dl-space-80);
+}
+
+/* === Opening === */
+.dl-contact-hero {
+    --align-items: center;
+    --gap: var(--dl-space-70);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-70);
+}
+
+.dl-contact-hero > .dl-contact-text {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 0 1 44%;
+    min-width: 0;
+}
+
+.dl-contact-hero > .dl-contact-art {
+    position: relative;
+    flex: 0 1 56%;
+    min-width: 0;
+}
+
+.dl-contact-text > .elementor-widget.dl-contact-title {
+    margin-block: var(--dl-space-20) var(--dl-space-50);
+}
+
+.dl-contact-text .dl-contact-title .elementor-heading-title {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dldisplay-font-family);
+    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.85);
+    font-weight: 400;
+    line-height: var(--e-global-typography-dldisplay-line-height);
+    letter-spacing: var(--e-global-typography-dldisplay-letter-spacing);
+    text-transform: uppercase;
+}
+
+.dl-contact-title .dl-contact-big {
+    display: block;
+}
+
+.dl-contact-title .dl-contact-hand {
+    display: block;
+    width: fit-content;
+    margin-block-start: 0.12em;
+    margin-inline-start: 0.15em;
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dlhand-font-family);
+    font-size: 0.42em;
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    rotate: -3deg;
+}
+
+.dl-contact-text > .elementor-widget.dl-contact-lead {
+    max-width: 30em;
+    margin-block-end: var(--dl-space-50);
+}
+
+.dl-contact-art > .elementor-widget.dl-contact-shop img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.dl-contact-art > .elementor-widget.dl-contact-note {
+    position: absolute;
+    top: 0;
+    right: 2%;
+    width: auto;
+    rotate: 6deg;
+    transform-origin: 0 100%;
+    animation: dl-contact-wiggle 3.2s ease-in-out infinite;
+}
+
+.dl-contact-note p {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--dl-space-10);
+}
+
+.dl-contact-note p::after {
+    content: "";
+    width: 3.5rem;
+    height: 2.6rem;
+    margin-inline-start: -1.5rem;
+    background-color: currentColor;
+    -webkit-mask: url("../../images/hand/arrow.svg") center / contain no-repeat;
+    mask: url("../../images/hand/arrow.svg") center / contain no-repeat;
+}
+
+@keyframes dl-contact-wiggle {
+    0%,
+    100% {
+        rotate: 6deg;
+    }
+
+    50% {
+        rotate: 1deg;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-contact-art > .elementor-widget.dl-contact-note {
+        animation: none;
+    }
+}
+
+/* === Contact cards === */
+.dl-contact .dl-contact-cards {
+    display: grid;
+    --gap: var(--dl-space-40);
+    --row-gap: var(--dl-space-40);
+    --column-gap: var(--dl-space-40);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dl-contact-cards > .dl-contact-card {
+    --gap: var(--dl-space-20);
+    --row-gap: var(--dl-space-20);
+    --padding-top: var(--dl-space-50);
+    --padding-right: var(--dl-space-50);
+    --padding-bottom: var(--dl-space-50);
+    --padding-left: var(--dl-space-50);
+    border-radius: var(--dl-radius-xl);
+    background-color: var(--e-global-color-dlsurface);
+    transition:
+        background-color var(--dl-transition),
+        translate var(--dl-transition);
+}
+
+.dl-contact-cards > .dl-contact-card:hover {
+    background-color: var(--e-global-color-dltint);
+    translate: 0 -2px;
+}
+
+.dl-contact-card .dl-contact-value {
+    font-family: var(--e-global-typography-secondary-font-family);
+    font-size: var(--e-global-typography-secondary-font-size);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: var(--e-global-typography-secondary-letter-spacing);
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1023px) {
+    .dl-contact .dl-contact-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 599px) {
+    .dl-contact .dl-contact-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* === Shop online === */
+.dl-contact .dl-contact-online {
+    --align-items: center;
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-50);
+    --padding-top: var(--dl-space-60);
+    --padding-right: var(--dl-space-70);
+    --padding-bottom: var(--dl-space-60);
+    --padding-left: var(--dl-space-70);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: var(--dl-radius-xl);
+}
+
+.dl-contact-online::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("../../images/folk/grain.svg") 0 0 / 220px 220px repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.dl-contact-online > .dl-contact-online-text {
+    --gap: var(--dl-space-30);
+    --row-gap: var(--dl-space-30);
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.dl-contact-online > .elementor-widget.dl-contact-bag {
+    flex: 0 0 min(13rem, 36%);
+    rotate: -6deg;
+}
+
+.dl-contact-bag .dl-bag * {
+    animation-play-state: paused;
+}
+
+.dl-contact-online:hover .dl-contact-bag .dl-bag * {
+    animation-play-state: running;
+}
+
+@media (max-width: 781px) {
+    .dl-contact-hero {
+        --align-items: stretch;
+    }
+
+    .dl-contact-hero > .dl-contact-text,
+    .dl-contact-hero > .dl-contact-art {
+        flex-basis: auto;
+    }
+
+    .dl-contact .dl-contact-online {
+        --padding-right: var(--dl-space-50);
+        --padding-left: var(--dl-space-50);
+    }
+
+    .dl-contact-online > .elementor-widget.dl-contact-bag {
+        flex-basis: 9rem;
+    }
+}
