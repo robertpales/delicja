@@ -37,3 +37,11 @@ Read `README.md` first (workflow, who does what, what goes where), then `DESIGN.
 - Do not update Elementor or PRO Elements.
 - Never invent prices, opening hours, CVR, legal texts or reviews. Mark unknowns as `[TODO]`.
 - One commit per change with a clear message. Code comments in English.
+
+## Progress log
+- After every finished change, add a line to `progress.md` and commit it with the change (or right after it).
+- Put it under today's date (newest date on top) and the person's name: **Robo** (robertpales) or **Matej**.
+  Create the date heading if it is missing.
+- One short line per change, written for people, not a copy of the commit message. Group related commits.
+- Mark changes made in WordPress/Elementor through Novamira with *(database)*: they are not in git.
+- Update the **Open** list at the bottom when something gets done or a new open point comes up.

@@ -19,6 +19,8 @@ through Novamira, so they are not in git.
 - Category URLs without `product-category` (e.g. `/dairy/`) returned 404; rewrite rules refreshed. *(database)*
 - Shop page shows all categories as tiles (new template "Shop – categories"); category pages keep the product grid.
 - Main menu: categories moved under **Shop**, the separate "Categories" item removed. *(database)*
+- Order e-mails (new, cancelled, failed) go to web@digistudio.sk while testing; sender is info@delicja.dk. *(database)*
+- `CLAUDE.md`: keep this file updated after every change.
 
 ## 2026-10-22
 
@@ -85,3 +87,4 @@ through Novamira, so they are not in git.
 - Tax rate is limited to the city Herning; should apply to all of Denmark.
 - WooCommerce "Coming soon" mode is on: logged-out visitors do not see the shop.
 - Payment gateway (pay in advance) before launch.
+- Before launch: order e-mails back to the owner's address (now web@digistudio.sk for testing).
