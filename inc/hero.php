@@ -11,17 +11,16 @@
 defined( 'ABSPATH' ) || exit;
 
 // The hero products are on the first screen: load them right away (WordPress lazy-loads all but the first images)
-// and give the bread, the largest one, the high fetch priority instead of the first image in the page.
+// and give the bread, the largest one, the high fetch priority instead of the first image in the page. Explicit
+// values, so WordPress does not add its own when it filters the page content.
 add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
 	$file = basename( (string) get_attached_file( $attachment->ID ) );
 	if ( ! str_starts_with( $file, 'delicja-hero-' ) ) {
 		return $attr;
 	}
 
-	unset( $attr['loading'], $attr['fetchpriority'] );
-	if ( 'delicja-hero-bread.webp' === $file ) {
-		$attr['fetchpriority'] = 'high';
-	}
+	$attr['loading']       = 'eager';
+	$attr['fetchpriority'] = 'delicja-hero-bread.webp' === $file ? 'high' : 'auto';
 
 	return $attr;
 }, 10, 2 );
