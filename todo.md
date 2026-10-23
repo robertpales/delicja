@@ -39,6 +39,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 
 ## Matej
 
+- [ ] Continue the design, but now unify and finish it rather than change it: give the site its final look,
+  keep what is already done and avoid big changes.
+  - [ ] Style the product page (template Single Product) in the site style.
+  - [ ] Related product cards (template Related product card) in the same style as all the other product cards on the site.
 - [ ] Tell Robo when the client has chosen the main language and given access to the WPML account.
 - [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
 - [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.

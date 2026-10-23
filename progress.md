@@ -26,6 +26,7 @@ through Novamira, so they are not in git.
 - `todo.md`: legal page texts needed from the client.
 - `todo.md` split by who does it (client via Matej, Matej, Robo); the open list moved there from this file.
 - `todo.md`: the client chooses the main language; order of work for the language versions (client → Matej → Robo → Matej).
+- `todo.md`: Matej finishes and unifies the design (product page, related product cards).
 
 ## 2026-10-22
 
