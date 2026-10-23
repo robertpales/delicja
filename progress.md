@@ -14,7 +14,8 @@ through Novamira, so they are not in git.
 
 **Matej**
 - Category images: 12 new cut-outs that look like real photos (natural light and textures, no glossy AI look) with
-  alt texts; the category tiles keep their design. Older images stay in the media library. *(database)*
+  alt texts; the category tiles keep their design, and the products are shown whole (no longer cut off at the
+  bottom). Older images stay in the media library. *(database)*
 - Homepage feels more human: new section "A little Polish shop on Bethaniagade" with real photos of the shop and
   Elżbieta as polaroids, handwritten "Zapraszamy!" (self-hosted Caveat font) and a hand-drawn underline; the
   "Follow Delicja" box shows real photos instead of generated cut-outs. *(partly database)*

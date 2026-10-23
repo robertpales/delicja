@@ -1211,7 +1211,7 @@ table.wc-block-cart-items td {
     --align-items: center;
     --padding-top: var(--dl-space-50);
     --padding-right: var(--dl-space-30);
-    --padding-bottom: 0px;
+    --padding-bottom: var(--dl-space-30);
     --padding-left: var(--dl-space-30);
     position: relative;
     height: 100%;
@@ -1266,8 +1266,8 @@ table.wc-block-cart-items td {
 }
 
 .dl-cat > .elementor-widget.dl-cat-image {
-    width: calc(100% + 2 * var(--dl-space-30));
-    margin: auto calc(-1 * var(--dl-space-30)) -14%;
+    width: 100%;
+    margin: auto 0 0;
     padding-block-start: var(--dl-space-30);
 }
 
