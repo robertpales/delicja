@@ -336,7 +336,7 @@
 }
 
 .dl-chapter-number p {
-    font-family: var(--e-global-typography-dldisplay-font-family);
+    font-family: var(--e-global-typography-dldisplay-font-family), sans-serif;
     font-size: 1.75rem;
     font-weight: 400;
     line-height: 1;
@@ -443,7 +443,7 @@
 .dl-about-quote-text cite {
     display: block;
     margin-block-start: var(--dl-space-40);
-    font-family: var(--e-global-typography-dleyeb-font-family);
+    font-family: var(--e-global-typography-dleyeb-font-family), sans-serif;
     font-size: var(--e-global-typography-dleyeb-font-size);
     font-style: normal;
     font-weight: var(--e-global-typography-dleyeb-font-weight);

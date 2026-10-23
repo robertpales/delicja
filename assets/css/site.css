@@ -103,7 +103,7 @@ input[type="radio"] {
     border-radius: var(--dl-radius-pill);
     background-color: var(--e-global-color-dltint);
     color: var(--e-global-color-secondary);
-    font-family: var(--e-global-typography-dlh4-font-family);
+    font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
     font-size: var(--e-global-typography-dlh4-font-size);
     font-weight: var(--e-global-typography-dlh4-font-weight);
     line-height: var(--e-global-typography-dlh4-line-height);
@@ -158,7 +158,7 @@ body .wp-block-button__link,
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-primary);
     color: var(--e-global-color-dlwhite);
-    font-family: var(--e-global-typography-accent-font-family);
+    font-family: var(--e-global-typography-accent-font-family), sans-serif;
     font-size: var(--e-global-typography-accent-font-size);
     font-weight: var(--e-global-typography-accent-font-weight);
     line-height: var(--e-global-typography-accent-line-height);
@@ -284,7 +284,7 @@ body .wp-block-button__link:focus,
     margin: 0;
     padding: var(--dl-space-20) var(--dl-space-10) var(--dl-space-30);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlhand-font-family);
+    font-family: var(--e-global-typography-dlhand-font-family), cursive;
     font-size: calc(var(--e-global-typography-dlhand-font-size) * 0.75);
     font-weight: var(--e-global-typography-dlhand-font-weight);
     line-height: var(--e-global-typography-dlhand-line-height);
@@ -335,7 +335,7 @@ body .wp-block-button__link:focus,
 
 .dl-bag-word {
     fill: var(--e-global-color-dlwhite);
-    font-family: var(--e-global-typography-dldisplay-font-family);
+    font-family: var(--e-global-typography-dldisplay-font-family), sans-serif;
     font-size: 20px;
     letter-spacing: 0.25em;
 }
@@ -878,7 +878,7 @@ body .wp-block-button__link:focus,
     padding: 0;
     border: 0;
     background-color: transparent;
-    font-family: var(--e-global-typography-dlmmenu-font-family);
+    font-family: var(--e-global-typography-dlmmenu-font-family), sans-serif;
     font-size: var(--e-global-typography-dlmmenu-font-size);
     font-weight: var(--e-global-typography-dlmmenu-font-weight);
     line-height: var(--e-global-typography-dlmmenu-line-height);
@@ -981,7 +981,7 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
 }
 
 .wc-block-components-notice-banner .wc-forward {
-    font-family: var(--e-global-typography-accent-font-family);
+    font-family: var(--e-global-typography-accent-font-family), sans-serif;
     font-size: var(--e-global-typography-accent-font-size);
     font-weight: var(--e-global-typography-accent-font-weight);
     line-height: var(--e-global-typography-accent-line-height);
@@ -1071,7 +1071,7 @@ table.wc-block-cart-items td {
     display: inline-block;
     padding: 0.3rem 0.6rem;
     border-radius: var(--dl-radius-sm);
-    font-family: var(--e-global-typography-dlbadge-font-family);
+    font-family: var(--e-global-typography-dlbadge-font-family), sans-serif;
     font-size: var(--e-global-typography-dlbadge-font-size);
     font-weight: var(--e-global-typography-dlbadge-font-weight);
     line-height: var(--e-global-typography-dlbadge-line-height);
@@ -1122,7 +1122,7 @@ table.wc-block-cart-items td {
 
 .elementor .dl-card .dl-card-price p.price {
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlprice-font-family);
+    font-family: var(--e-global-typography-dlprice-font-family), sans-serif;
     font-size: var(--e-global-typography-dlprice-font-size);
     font-weight: var(--e-global-typography-dlprice-font-weight);
     line-height: var(--e-global-typography-dlprice-line-height);
@@ -1162,7 +1162,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-primary);
     color: var(--e-global-color-dlwhite);
-    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmallb-font-size);
     font-weight: var(--e-global-typography-dlsmallb-font-weight);
     line-height: var(--e-global-typography-dlsmallb-line-height);
@@ -1201,7 +1201,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-primary);
     color: var(--e-global-color-dlwhite);
-    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmallb-font-size);
     font-weight: var(--e-global-typography-dlsmallb-font-weight);
     line-height: var(--e-global-typography-dlsmallb-line-height);
@@ -1279,7 +1279,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-dltint);
     color: var(--e-global-color-primary);
-    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmallb-font-size);
     font-weight: var(--e-global-typography-dlsmallb-font-weight);
     line-height: var(--e-global-typography-dlsmallb-line-height);
@@ -1437,7 +1437,7 @@ table.wc-block-cart-items td {
 }
 
 .dl-cat-label .elementor-heading-title {
-    font-family: var(--e-global-typography-dlh4-font-family);
+    font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
     font-size: var(--e-global-typography-dlh4-font-size);
     font-weight: var(--e-global-typography-dlh4-font-weight);
     line-height: var(--e-global-typography-dlh4-line-height);
@@ -1471,7 +1471,7 @@ table.wc-block-cart-items td {
 .dl-cat-count {
     margin: var(--dl-space-10) 0 0;
     color: var(--e-global-color-accent);
-    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlsmall-font-weight);
     line-height: var(--e-global-typography-dlsmall-line-height);
@@ -1581,7 +1581,7 @@ table.wc-block-cart-items td {
     align-items: center;
     gap: var(--dl-space-30);
     color: var(--e-global-color-accent);
-    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlsmall-font-weight);
     line-height: var(--e-global-typography-dlsmall-line-height);
@@ -1663,7 +1663,7 @@ table.wc-block-cart-items td {
     border: 2px solid var(--e-global-color-primary);
     border-radius: var(--dl-radius-md);
     color: var(--e-global-color-primary);
-    font-family: var(--e-global-typography-accent-font-family);
+    font-family: var(--e-global-typography-accent-font-family), sans-serif;
     font-size: var(--e-global-typography-accent-font-size);
     font-weight: var(--e-global-typography-accent-font-weight);
     line-height: var(--e-global-typography-accent-line-height);
@@ -1696,7 +1696,7 @@ table.wc-block-cart-items td {
 .dl-search .dl-shop-bar {
     flex-wrap: nowrap;
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-text-font-family);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
     font-weight: var(--e-global-typography-text-font-weight);
     line-height: var(--e-global-typography-text-line-height);
@@ -1787,7 +1787,7 @@ table.wc-block-cart-items td {
 .woocommerce div.product .dl-product-price p.price {
     margin: 0;
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-secondary-font-family);
+    font-family: var(--e-global-typography-secondary-font-family), sans-serif;
     font-size: var(--e-global-typography-secondary-font-size);
     font-weight: var(--e-global-typography-secondary-font-weight);
     line-height: var(--e-global-typography-secondary-line-height);
@@ -1832,7 +1832,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-primary);
     color: var(--e-global-color-dlwhite);
-    font-family: var(--e-global-typography-accent-font-family);
+    font-family: var(--e-global-typography-accent-font-family), sans-serif;
     font-size: var(--e-global-typography-accent-font-size);
     font-weight: var(--e-global-typography-accent-font-weight);
     line-height: var(--e-global-typography-accent-line-height);
@@ -1997,7 +1997,7 @@ table.wc-block-cart-items td {
 .woocommerce div.product .dl-mini-card .dl-mini-card-price .price {
     margin: 0;
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlsmall-font-weight);
     line-height: var(--e-global-typography-dlsmall-line-height);
@@ -2015,7 +2015,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-primary);
     color: var(--e-global-color-dlwhite);
-    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmallb-font-size);
     font-weight: var(--e-global-typography-dlsmallb-font-weight);
     line-height: var(--e-global-typography-dlsmallb-line-height);
@@ -2168,7 +2168,7 @@ table.wc-block-cart-items td {
     --purchase-button-border-radius: var(--dl-radius-md);
     --purchase-button-padding: var(--dl-space-40) var(--dl-space-50);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-text-font-family);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
     font-weight: var(--e-global-typography-text-font-weight);
     line-height: var(--e-global-typography-text-line-height);
@@ -2190,7 +2190,7 @@ table.wc-block-cart-items td {
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.cart_totals > h2, .woocommerce-billing-fields > h3, #ship-to-different-address, #order_review_heading) {
     margin-block: 0 var(--dl-space-40);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlh4-font-family);
+    font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
     font-size: var(--e-global-typography-dlh4-font-size);
     font-weight: var(--e-global-typography-dlh4-font-weight);
     line-height: var(--e-global-typography-dlh4-line-height);
@@ -2198,7 +2198,7 @@ table.wc-block-cart-items td {
 }
 
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(th, label, .e-checkout-secondary-title) {
-    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmallb-font-size);
     font-weight: var(--e-global-typography-dlsmallb-font-weight);
     line-height: var(--e-global-typography-dlsmallb-line-height);
@@ -2215,7 +2215,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-dlwhite);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-text-font-family);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
     font-weight: var(--e-global-typography-text-font-weight);
     line-height: var(--e-global-typography-text-line-height);
@@ -2277,7 +2277,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-md);
     background-color: var(--e-global-color-primary);
     color: var(--e-global-color-dlwhite);
-    font-family: var(--e-global-typography-accent-font-family);
+    font-family: var(--e-global-typography-accent-font-family), sans-serif;
     font-size: var(--e-global-typography-accent-font-size);
     font-weight: var(--e-global-typography-accent-font-weight);
     line-height: var(--e-global-typography-accent-line-height);
@@ -2300,7 +2300,7 @@ table.wc-block-cart-items td {
 }
 
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.order-total th, .order-total td, .order-total .amount) {
-    font-family: var(--e-global-typography-dlprice-font-family);
+    font-family: var(--e-global-typography-dlprice-font-family), sans-serif;
     font-size: var(--e-global-typography-dlprice-font-size);
     font-weight: var(--e-global-typography-dlprice-font-weight);
     line-height: var(--e-global-typography-dlprice-line-height);
@@ -2312,20 +2312,20 @@ table.wc-block-cart-items td {
 }
 
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.cart-subtotal td, .shipping td, .woocommerce-shipping-methods label) {
-    font-family: var(--e-global-typography-text-font-family);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
     font-weight: var(--e-global-typography-text-font-weight);
 }
 
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.woocommerce-shipping-destination, .e-checkout-message, .woocommerce-privacy-policy-text) {
     color: var(--e-global-color-accent);
-    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmall-font-size);
     line-height: var(--e-global-typography-dlsmall-line-height);
 }
 
 .elementor-widget-woocommerce-cart .product-name a {
-    font-family: var(--e-global-typography-dlpname-font-family);
+    font-family: var(--e-global-typography-dlpname-font-family), sans-serif;
     font-size: var(--e-global-typography-dlpname-font-size);
     font-weight: var(--e-global-typography-dlpname-font-weight);
     line-height: var(--e-global-typography-dlpname-line-height);
@@ -2389,7 +2389,7 @@ table.wc-block-cart-items td {
 }
 
 .elementor-widget-woocommerce-checkout-page #payment .wc_payment_method > label {
-    font-family: var(--e-global-typography-dlh5-font-family);
+    font-family: var(--e-global-typography-dlh5-font-family), sans-serif;
     font-size: var(--e-global-typography-dlh5-font-size);
     font-weight: var(--e-global-typography-dlh5-font-weight);
 }
@@ -2522,7 +2522,7 @@ table.wc-block-cart-items td {
     --button-border-radius: var(--dl-radius-md);
     --button-padding: var(--dl-space-30) var(--dl-space-50);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-text-font-family);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
     font-weight: var(--e-global-typography-text-font-weight);
     line-height: var(--e-global-typography-text-line-height);
@@ -2547,7 +2547,7 @@ table.wc-block-cart-items td {
     border-radius: var(--dl-radius-lg);
     background-color: var(--e-global-color-dltint);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlh3-font-family);
+    font-family: var(--e-global-typography-dlh3-font-family), sans-serif;
     font-size: var(--e-global-typography-dlh3-font-size);
     font-weight: var(--e-global-typography-dlh3-font-weight);
     line-height: var(--e-global-typography-dlh3-line-height);
@@ -2586,7 +2586,7 @@ table.wc-block-cart-items td {
     padding: 0;
     border: 0;
     color: var(--e-global-color-accent);
-    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlsmall-font-weight);
     line-height: var(--e-global-typography-dlsmall-line-height);
@@ -2598,7 +2598,7 @@ table.wc-block-cart-items td {
     display: block;
     margin-top: var(--dl-space-10);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlh5-font-family);
+    font-family: var(--e-global-typography-dlh5-font-family), sans-serif;
     font-size: var(--e-global-typography-dlh5-font-size);
     font-weight: var(--e-global-typography-dlh5-font-weight);
     line-height: var(--e-global-typography-dlh5-line-height);
@@ -2613,7 +2613,7 @@ table.wc-block-cart-items td {
 .elementor-element.elementor-widget-woocommerce-purchase-summary :is(.woocommerce-order-details__title, .woocommerce-column__title, .woocommerce-bacs-bank-details .wc-bacs-bank-details-heading, .woocommerce-order-downloads__title) {
     margin: 0 0 var(--dl-space-40);
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlh4-font-family);
+    font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
     font-size: var(--e-global-typography-dlh4-font-size);
     font-weight: var(--e-global-typography-dlh4-font-weight);
     line-height: var(--e-global-typography-dlh4-line-height);
@@ -2640,7 +2640,7 @@ table.wc-block-cart-items td {
 
 .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details thead th {
     color: var(--e-global-color-accent);
-    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmallb-font-size);
     font-weight: var(--e-global-typography-dlsmallb-font-weight);
     line-height: var(--e-global-typography-dlsmallb-line-height);
@@ -2649,7 +2649,7 @@ table.wc-block-cart-items td {
 
 .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details tfoot th {
     color: var(--e-global-color-accent);
-    font-family: var(--e-global-typography-text-font-family);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
     font-weight: var(--e-global-typography-text-font-weight);
 }
@@ -2660,7 +2660,7 @@ table.wc-block-cart-items td {
 
 .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details tfoot tr:has(small.includes_tax) :is(th, td, td > .amount) {
     color: var(--e-global-color-text);
-    font-family: var(--e-global-typography-dlprice-font-family);
+    font-family: var(--e-global-typography-dlprice-font-family), sans-serif;
     font-size: var(--e-global-typography-dlprice-font-size);
     font-weight: var(--e-global-typography-dlprice-font-weight);
     line-height: var(--e-global-typography-dlprice-line-height);
@@ -2670,7 +2670,7 @@ table.wc-block-cart-items td {
 .elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details small.includes_tax {
     display: block;
     color: var(--e-global-color-accent);
-    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlsmall-font-weight);
 }
@@ -2680,7 +2680,7 @@ table.wc-block-cart-items td {
 }
 
 .elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details .product-name a {
-    font-family: var(--e-global-typography-dlpname-font-family);
+    font-family: var(--e-global-typography-dlpname-font-family), sans-serif;
     font-size: var(--e-global-typography-dlpname-font-size);
     font-weight: var(--e-global-typography-dlpname-font-weight);
     line-height: var(--e-global-typography-dlpname-line-height);
