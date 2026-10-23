@@ -663,12 +663,27 @@
     pointer-events: none;
 }
 
-.dl-new-tile > .dl-new-bag {
+.dl-new .dl-new-tile > .elementor-widget.dl-new-crate {
     position: absolute;
-    right: -6%;
-    bottom: -5%;
-    width: min(16rem, 62%);
-    rotate: -8deg;
+    bottom: 0;
+    left: -8%;
+    width: 116%;
+    max-width: none;
+    margin: 0;
+    pointer-events: none;
+    translate: 0 40%;
+    transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dl-new-crate img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1rem 1.25rem color-mix(in srgb, var(--e-global-color-text) 35%, transparent));
+}
+
+.dl-new .dl-new-tile:hover > .elementor-widget.dl-new-crate {
+    translate: 0 38%;
 }
 
 .dl-new-tile > .dl-buttons {
@@ -676,19 +691,6 @@
     z-index: 1;
 }
 
-@media (min-width: 782px) and (max-width: 1199px) {
-    .dl-new-tile > .dl-new-bag {
-        width: 50%;
-    }
-}
-
-.dl-new-bag .dl-bag * {
-    animation-play-state: paused;
-}
-
-.dl-new-tile:hover .dl-new-bag .dl-bag * {
-    animation-play-state: running;
-}
 
 @media (max-width: 781px) {
     .dl-new {
@@ -704,14 +706,32 @@
         min-height: 15rem;
     }
 
-    .dl-new-tile > .dl-new-bag {
-        width: min(12rem, 50%);
+    .dl-new .dl-new-tile > .elementor-widget.dl-new-crate {
+        right: -4%;
+        left: auto;
+        width: min(24rem, 52%);
+        translate: 0 30%;
+    }
+
+    .dl-new .dl-new-tile:hover > .elementor-widget.dl-new-crate {
+        translate: 0 28%;
     }
 }
 
 @media (max-width: 599px) {
     .dl-new > .dl-new-tile {
         min-height: 22rem;
+    }
+
+    .dl-new .dl-new-tile > .elementor-widget.dl-new-crate {
+        right: auto;
+        left: -8%;
+        width: 116%;
+        translate: 0 40%;
+    }
+
+    .dl-new .dl-new-tile:hover > .elementor-widget.dl-new-crate {
+        translate: 0 38%;
     }
 }
 
@@ -914,18 +934,20 @@
 }
 
 .dl-follow > .dl-follow-art {
-    flex: 0 0 10.5rem;
-    rotate: -5deg;
+    flex: 0 0 13rem;
+    rotate: -3deg;
+    transition:
+        rotate 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dl-follow > .dl-follow-art:last-child {
-    rotate: 4deg;
+    rotate: 3deg;
 }
 
-.dl-follow .dl-follow-art img {
-    display: block;
-    width: 100%;
-    height: auto;
+.dl-follow > .dl-follow-art:hover {
+    rotate: 0deg;
+    translate: 0 -0.25rem;
 }
 
 @media (max-width: 781px) {

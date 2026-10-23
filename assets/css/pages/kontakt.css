@@ -205,17 +205,23 @@
     min-width: 0;
 }
 
-.dl-contact-online > .elementor-widget.dl-contact-bag {
-    flex: 0 0 min(13rem, 36%);
-    rotate: -6deg;
+.dl-contact-online > .elementor-widget.dl-contact-box {
+    flex: 0 0 min(24rem, 42%);
+    align-self: flex-end;
+    margin-block-end: calc(-1 * var(--dl-space-60));
+    translate: 0 14%;
+    transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dl-contact-bag .dl-bag * {
-    animation-play-state: paused;
+.dl-contact-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1rem 1.25rem color-mix(in srgb, var(--e-global-color-text) 35%, transparent));
 }
 
-.dl-contact-online:hover .dl-contact-bag .dl-bag * {
-    animation-play-state: running;
+.dl-contact-online:hover > .elementor-widget.dl-contact-box {
+    translate: 0 12%;
 }
 
 @media (max-width: 781px) {
@@ -239,15 +245,15 @@
         --padding-left: var(--dl-space-50);
     }
 
-    .dl-contact-online > .elementor-widget.dl-contact-bag {
-        flex-basis: 9rem;
+    .dl-contact-online > .elementor-widget.dl-contact-box {
+        flex-basis: 40%;
     }
 }
 
 @media (max-width: 599px) {
-    .dl-contact-online > .elementor-widget.dl-contact-bag {
+    .dl-contact-online > .elementor-widget.dl-contact-box {
         flex: 0 0 auto;
         align-self: center;
-        width: min(10rem, 60%);
+        width: min(22rem, 100%);
     }
 }
