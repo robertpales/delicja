@@ -35,8 +35,6 @@ Built from the shop's original wordmark SVG; do not redraw the lettering.
 | Surface (`dlsurface`) | #F5F4F2 | footer, image tiles, category tiles, search field |
 | Tint (`dltint`) | #FCEDEE | tag badges, light hover |
 | Border (`dlborder`) | #E7E4E0 | lines, card borders, separators |
-| Bread crust (`dlcrust`) | #B8763A | only in the Delicja bag drawing |
-| Dill green (`dlleaf`) | #5B8C3A | only in the Delicja bag drawing |
 
 Text must meet WCAG AA contrast.
 
@@ -90,11 +88,17 @@ until one is chosen: `/?hero=stories` (story only), `/?hero=bites` (change only)
 re-generated together with its "after" photo, at the same size and alignment. `inc/hero.php` loads the table photo
 without lazy loading; it stays the first image in the hero, so Elementor gives it the high fetch priority.
 
-### Delicja bag (`inc/hero.php`, `site.css` → `=== Delicja bag ===`)
-A simple drawing of a smiling Delicja paper bag with rye bread, a ring of sausage, a jar of pickles and dill. It hops,
-the sausage jumps out and spins, the bag blinks; no motion with *reduced motion*. Inline SVG from the shortcode
-`[dl_hero_art]` (Shortcode widget), coloured by the global colours. New arrivals tile and the contact page's online
-panel (moving only on hover).
+### Photos, not drawings
+Product pictures in promo panels are real-looking photos (cut-outs on a transparent background, soft daylight from
+the upper left) that run off the bottom edge of the panel: the New arrivals tile has a wooden crate of groceries
+(`delicja-new-crate.webp`), the contact page's "Not in Herning?" panel an opened delivery box
+(`delicja-delivery-box.webp`). On hover they rise a little. No cartoon drawings (they made the shop look like a toy
+shop).
+
+### Instagram posts (`site.css` → `=== Instagram post ===`)
+`dl-ig-post` on an Image widget with a custom caption and a link to https://www.instagram.com/delicja.dk/: white card
+with the round logo and "delicja.dk" on top, the photo (4:5), like/comment/share/save icons and the caption after
+"delicja.dk", like a post in the Instagram app. Used in "Follow Delicja".
 
 ### Buttons
 Red, rounded (12 px), white text; hover darker red. Outline variant: red border (`dl-btn-secondary`).
@@ -148,7 +152,9 @@ product name (weight is part of the name, e.g. "Kabanosy 250 g"), price (on sale
 old price), full-width "Add to cart" button. After adding it turns into a stepper (− "2 in cart" +) with a
 "View cart" link; products already in the cart show the stepper right away. Pieces from
 `inc/woocommerce.php` (shortcodes `[dl_product_badges]`, `[dl_add_to_cart]`), styles in `site.css`
-(`=== Product card ===`), the stepper in `assets/js/site.js` (WooCommerce Store API).
+(`=== Product card ===`), the stepper in `assets/js/site.js` (WooCommerce Store API). On hover the product is lifted
+a little and tilted (left, every second card right), as if picked up from the shelf, with a soft shadow below; no
+zoom. The related product cards do the same.
 
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
 1. Announcement bar with a small delivery van icon, and header (Theme Builder): wordmark, product search, account and mini cart, menu
@@ -165,11 +171,12 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
    doughnuts, the shop window), a handwritten "Come say hi!", the story from About us, buttons Our story and Get
    directions.
 6. "Customer favourites" (live, featured products) with category chips.
-7. "New arrivals" (live, newest products) with a red promo tile as tall as the cards: paper grain and the Delicja
-   bag peeking out.
+7. "New arrivals" (live, newest products) with a red promo tile as tall as the cards: paper grain and a wooden crate
+   of groceries at the bottom (see Photos, not drawings).
 8. Four promises (genuine Polish products, delivery, payment, family shop) [TODO confirm with the owner].
 9. "Questions and answers" (FAQ accordion) and a "More questions?" box [TODO final answers].
-10. "Follow Delicja" with the Instagram link and two real photos as polaroids.
+10. "Follow Delicja" with the Instagram link and two real photos as Instagram posts that link to Instagram (hidden
+    below 782 px).
 11. Footer (Theme Builder): round logo, short text, payment icons, menus Shop and Information, contact,
     copyright line. Company name + CVR [TODO] (required by Danish law), opening hours [TODO].
 
@@ -190,7 +197,7 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
 - **Contact** (`/kontakt/`): page built in Elementor, CSS in `assets/css/pages/kontakt.css`. "Come say hi" with a
   hand-drawn picture of the shop front (`delicja-shop-front-drawing.webp`), Get directions and Call us; six cards
   (address, phone, e-mail, opening hours on Google Maps, Instagram, company and CVR); a red "Not in Herning?" panel
-  with the Delicja bag.
+  with an opened delivery box.
 - **404:** "Nothing found."
 - **Notices** ("added to your cart", errors) use WooCommerce's block notice banners.
 

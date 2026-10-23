@@ -13,6 +13,12 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- New arrivals tile and the contact page's "Not in Herning?" panel: real-looking photos (a wooden crate of groceries,
+  an opened delivery box) at the bottom of the red panel instead of the cartoon bag; the bag drawing and its two
+  colours are removed. *(partly database)*
+- "Follow Delicja": the two photos are brighter (also on About us) and look like Instagram posts (logo, delicja.dk,
+  icons, caption); a click opens Instagram. *(partly database)*
+- Product cards: on hover the product is lifted and tilted a little, as if picked up from the shelf (no zoom).
 - Homepage hero: one styled table with all the products (bread and kabanosy on a board, doughnut on its own plate,
   pickles with dill, pierogi on an enamel plate). Nothing moves until the mouse is on a product: it tells a one-line
   story and changes (a bite from the doughnut, a slice of bread, an opened jar, a cut dumpling, a snapped kabanos).
