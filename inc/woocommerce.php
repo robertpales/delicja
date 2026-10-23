@@ -105,10 +105,40 @@ add_filter( 'body_class', function ( $classes ) {
 	return $classes;
 } );
 
-// Product pages stay visible while the store is in WooCommerce's "Coming soon" mode, so a click on a product
-// anywhere on the site shows the product. Shop, category, cart and checkout pages stay hidden until the mode is off.
+/**
+ * The Deals page (slug "tilbud"): products on sale. 0 when there is no such page.
+ */
+function delicja_deals_page_id(): int {
+	$page = get_page_by_path( 'tilbud' );
+
+	return $page ? (int) $page->ID : 0;
+}
+
+// The Deals menu item shows only while at least one product is on sale.
+add_filter( 'wp_nav_menu_objects', function ( $items ) {
+	$deals = delicja_deals_page_id();
+	if ( ! $deals || wc_get_product_ids_on_sale() ) {
+		return $items;
+	}
+
+	return array_filter( $items, fn ( $item ) => ! ( 'page' === $item->object && $deals === (int) $item->object_id ) );
+} );
+
+// Pages are cached (WP Fastest Cache): when sales start or end, or a product is saved, clear the cache so the
+// Deals menu item and the homepage "Weekly deals" section appear or disappear right away.
+foreach ( [ 'woocommerce_update_product', 'woocommerce_new_product', 'wc_after_products_starting_sales', 'wc_after_products_ending_sales' ] as $hook ) {
+	add_action( $hook, function () {
+		if ( function_exists( 'wpfc_clear_all_cache' ) ) {
+			wpfc_clear_all_cache( true );
+		}
+	} );
+}
+
+// While the store is in WooCommerce's "Coming soon" mode, visitors can already browse: the shop, categories, tags,
+// product search, product pages and the cart are open. Checkout and My account stay closed until the mode is off
+// (payment and delivery are not set up yet).
 add_filter( 'woocommerce_coming_soon_exclude', function ( $excluded ) {
-	return $excluded || is_product();
+	return $excluded || is_shop() || is_product_taxonomy() || is_product() || is_cart() || ( is_search() && 'product' === get_query_var( 'post_type' ) );
 } );
 
 // The screen WooCommerce shows instead of the shop, category, cart and checkout pages while the store is in

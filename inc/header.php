@@ -17,9 +17,12 @@ add_shortcode( 'dl_account', function () {
 	return do_blocks( '<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line"} /-->' );
 } );
 
-// Mini cart: bag icon with the item count and WooCommerce's cart drawer.
+// Mini cart: bag icon with the item count and WooCommerce's cart drawer. WooCommerce hides the mini cart from
+// visitors while the store is in "Coming soon" mode; then the cart icon is a plain link to the cart page.
 add_shortcode( 'dl_mini_cart', function () {
-	return do_blocks( '<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag"} /-->' );
+	$html = do_blocks( '<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag"} /-->' );
+
+	return '' !== trim( $html ) ? $html : do_blocks( '<!-- wp:woocommerce/cart-link {"content":""} /-->' );
 } );
 
 // Cart icon linking to the cart, for the checkout header (as in WooCommerce's checkout header).
