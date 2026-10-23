@@ -10,17 +10,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// The hero products are on the first screen: load them right away (WordPress lazy-loads all but the first images)
-// and give the bread, the largest one, the high fetch priority instead of the first image in the page. Explicit
-// values, so WordPress does not add its own when it filters the page content.
+// The hero products are on the first screen: load them right away (otherwise all but the first images in the page
+// are lazy-loaded). Elementor gives the first image in the page the high fetch priority, so the bread, the largest
+// product, is the first one in the hero.
 add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
-	$file = basename( (string) get_attached_file( $attachment->ID ) );
-	if ( ! str_starts_with( $file, 'delicja-hero-' ) ) {
-		return $attr;
+	if ( str_starts_with( basename( (string) get_attached_file( $attachment->ID ) ), 'delicja-hero-' ) ) {
+		$attr['loading'] = 'eager';
 	}
-
-	$attr['loading']       = 'eager';
-	$attr['fetchpriority'] = 'delicja-hero-bread.webp' === $file ? 'high' : 'auto';
 
 	return $attr;
 }, 10, 2 );
