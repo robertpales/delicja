@@ -82,7 +82,7 @@ the class `dl-hero-item dl-hero-item--<name>`, files `delicja-hero-<name>.webp` 
 design: they pop in one after another, then float slowly in layers, and with a mouse they drift against the pointer,
 the nearer ones more. No motion with *reduced motion*. The owner can swap a picture in Elementor; a new one should be
 a cut-out of a similar size and light (soft daylight from the upper left). `inc/hero.php` loads them without lazy
-loading, the bread with high priority.
+loading; the bread stays the first item, so Elementor gives it the high fetch priority.
 
 ### Delicja bag (`inc/hero.php`, `site.css` → `=== Delicja bag ===`)
 A simple drawing of a smiling Delicja paper bag with rye bread, a ring of sausage, a jar of pickles and dill. It hops,
