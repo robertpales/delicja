@@ -1595,6 +1595,10 @@ table.wc-block-cart-items td {
     transition: color var(--dl-transition);
 }
 
+.dl-cat > .elementor-widget.dl-cat-label {
+    position: static;
+}
+
 .dl-cat-label .elementor-heading-title a {
     text-decoration: none;
 }

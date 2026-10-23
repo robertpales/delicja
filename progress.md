@@ -13,6 +13,8 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Category tiles: a click anywhere on the tile, also on the picture, opens the category (before, only the name was a
+  link).
 - "Browse the shop" works for visitors: the shop, categories, tags, product search and the cart are open while the
   store is in Coming soon mode; only checkout (and My account) wait until it is switched off. The header cart shows
   for visitors too.
