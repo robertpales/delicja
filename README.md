@@ -16,7 +16,8 @@ to their own `claude/...` branch, which does not deploy until it is merged into 
 
 ## Who does what
 - **Matej:** design. His Claude builds the site in Elementor and writes the code in this repo; Matej reviews.
-- **Robo:** hosting, WooCommerce, payments, shipping, VAT, email, backups, production deploys.
+- **Robo:** hosting, WooCommerce, payments, shipping, VAT, email, backups, production deploys,
+  **SEO/GEO/AEO, security, and UX changes after the design is finished** (with an internal tool). Not Matej.
 - **Shop owner:** products, prices, stock, orders, texts.
 
 ## Where we work

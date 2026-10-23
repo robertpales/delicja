@@ -41,6 +41,7 @@ through Novamira, so they are not in git.
 - `todo.md` split by who does it (client via Matej, Matej, Robo); the open list moved there from this file.
 - `todo.md`: the client chooses the main language; order of work for the language versions (client → Matej → Robo → Matej).
 - `todo.md`: Matej finishes and unifies the design (product page, related product cards).
+- `CLAUDE.md` and README: SEO/GEO/AEO, security and UX changes after the design are Robo's areas, not Matej's.
 
 ## 2026-10-22
 

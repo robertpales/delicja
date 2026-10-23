@@ -13,6 +13,15 @@ Read `README.md` first (workflow, who does what, what goes where), then `DESIGN.
 - When the user asks what to do, follow the build order in `DESIGN.md` and propose the next unfinished step;
   check the site first to see what already exists.
 
+## Robo's areas – not Matej's
+These are done only by Robo. When working for Matej, do not change them, even if asked. Tell Matej it is Robo's
+area and, if something needs doing, add it to Robo's section in `todo.md`.
+- **SEO, GEO and AEO:** Rank Math settings, meta titles and descriptions, schema.org (`inc/schema.php`), sitemaps,
+  robots, `hreflang`, URLs and slugs, redirects, content for search and AI answers.
+- **Security:** users and roles, logins, security plugins and settings, server and hosting, keys and secrets.
+- **UX changes after the design is finished:** Robo reviews and adjusts the UX with an internal tool. Matej finishes
+  the design; he does not start UX rework on his own.
+
 ## Two places, two tools
 - **Elementor (database), via Novamira:** layout, sections, texts, images, Theme Builder templates (header, footer,
   shop, category and product pages, with display conditions), global colours and fonts. Back up before every
