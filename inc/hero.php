@@ -2,8 +2,8 @@
 /**
  * Homepage hero products and the Delicja bag illustration.
  *
- * The hero shows real product cut-outs (Image widgets, files named delicja-hero-*.webp) that float in layers
- * (home.css, Hero; site.js, Hero). The Delicja bag is a smiling shopping bag full of Polish groceries that hops and
+ * The hero shows real product cut-outs (Image widgets, files named delicja-hero-*.webp) on and above a wooden board on
+ * embroidered linen (home.css, Hero; site.js, Hero). The Delicja bag is a smiling shopping bag full of Polish groceries that hops and
  * blinks (site.css, Delicja bag): inline SVG so the colours come from the Elementor global colours. Shortcode
  * [dl_hero_art]: New arrivals tile and the contact page's shop online panel (it moves on hover).
  */
@@ -11,8 +11,8 @@
 defined( 'ABSPATH' ) || exit;
 
 // The hero products are on the first screen: load them right away (otherwise all but the first images in the page
-// are lazy-loaded). Elementor gives the first image in the page the high fetch priority, so the bread, the largest
-// product, is the first one in the hero.
+// are lazy-loaded). Elementor gives the first image in the page the high fetch priority, so the board, the largest
+// picture, is the first one in the hero.
 add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
 	if ( str_starts_with( basename( (string) get_attached_file( $attachment->ID ) ), 'delicja-hero-' ) ) {
 		$attr['loading'] = 'eager';

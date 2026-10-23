@@ -55,6 +55,7 @@
 .dl-hero > .dl-hero-art {
     position: relative;
     flex: 0 1 44%;
+    align-self: flex-end;
     min-width: 0;
     aspect-ratio: 1 / 0.92;
 }
@@ -107,10 +108,10 @@
 .dl-hero .dl-hero-art::before {
     content: "";
     position: absolute;
-    inset: 6%;
+    inset: -12% 4% 30%;
     height: auto;
     border-radius: 50%;
-    background: radial-gradient(closest-side, color-mix(in srgb, var(--e-global-color-dlwhite) 20%, transparent), transparent);
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--e-global-color-dlwhite) 22%, transparent), transparent);
 }
 
 .dl-hero-art > .elementor-widget.dl-hero-item {
@@ -127,78 +128,131 @@
     width: 100%;
     height: auto;
     rotate: var(--dl-tilt, 0deg);
-    filter: drop-shadow(0 1.25rem 1rem color-mix(in srgb, var(--e-global-color-text) 45%, transparent));
+    filter: drop-shadow(0 1rem 1rem color-mix(in srgb, var(--e-global-color-text) 30%, transparent));
     animation: dl-hero-float var(--dl-float, 6s) ease-in-out calc(var(--dl-delay, 0s) * -4) infinite;
 }
 
-.dl-hero-art > .dl-hero-item--dill {
-    --dl-depth: 0.5;
-    --dl-tilt: 24deg;
-    --dl-sway: -6deg;
-    --dl-float: 7s;
-    --dl-delay: 0.05s;
-    top: 1%;
-    left: 40%;
+.dl-hero-art > .dl-hero-item::after {
+    content: "";
+    position: absolute;
+    top: var(--dl-shadow-top, 100%);
+    left: 18%;
+    width: 64%;
+    height: var(--dl-shadow-size, 18%);
+    border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--e-global-color-text) 50%, transparent), transparent);
+    opacity: var(--dl-shadow-opacity, 0.6);
+    animation: dl-hero-shadow var(--dl-float, 6s) ease-in-out calc(var(--dl-delay, 0s) * -4) infinite;
+}
+
+.dl-hero .dl-hero-art > .elementor-widget.dl-hero-item--board {
+    --dl-depth: 0.4;
+    top: 48%;
+    left: -2%;
     z-index: 0;
-    width: 30%;
+    width: 113%;
+    max-width: none;
+    animation: dl-hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dl-hero-art > .dl-hero-item--board img {
+    filter: drop-shadow(0 1rem 1.5rem color-mix(in srgb, var(--e-global-color-text) 35%, transparent));
+    animation: none;
 }
 
 .dl-hero-art > .dl-hero-item--bread {
-    --dl-depth: 1;
-    --dl-tilt: -6deg;
-    --dl-float: 7.5s;
-    --dl-delay: 0.1s;
-    top: 24%;
-    left: 20%;
-    z-index: 1;
-    width: 54%;
-}
-
-.dl-hero-art > .dl-hero-item--pickles {
-    --dl-depth: 1.75;
-    --dl-tilt: 8deg;
-    --dl-float: 6.5s;
-    --dl-delay: 0.22s;
-    top: 2%;
-    right: 2%;
+    --dl-depth: 0.8;
+    --dl-tilt: -4deg;
+    --dl-delay: 0.25s;
+    top: 39%;
+    left: 22%;
     z-index: 2;
-    width: 27%;
-}
-
-.dl-hero-art > .dl-hero-item--paczek {
-    --dl-depth: 2.25;
-    --dl-tilt: -10deg;
-    --dl-sway: 5deg;
-    --dl-float: 5.5s;
-    --dl-delay: 0.34s;
-    top: 4%;
-    left: 4%;
-    z-index: 3;
-    width: 30%;
-}
-
-.dl-hero-art > .dl-hero-item--kabanosy {
-    --dl-depth: 2.75;
-    --dl-tilt: -28deg;
-    --dl-sway: 4deg;
-    --dl-float: 6s;
-    --dl-delay: 0.46s;
-    bottom: -2%;
-    left: 2%;
-    z-index: 4;
-    width: 40%;
+    width: 46%;
 }
 
 .dl-hero-art > .dl-hero-item--pierogi {
-    --dl-depth: 3.25;
-    --dl-tilt: 6deg;
-    --dl-sway: -4deg;
-    --dl-float: 5s;
-    --dl-delay: 0.58s;
-    bottom: 2%;
-    right: 0;
+    --dl-depth: 1.2;
+    --dl-tilt: 4deg;
+    --dl-delay: 0.4s;
+    top: 68%;
+    right: 12%;
+    z-index: 3;
+    width: 31%;
+}
+
+.dl-hero-art > .elementor-widget.dl-hero-item--bread,
+.dl-hero-art > .elementor-widget.dl-hero-item--pierogi {
+    animation-name: dl-hero-drop;
+    animation-duration: 0.9s;
+    animation-timing-function: ease-out;
+}
+
+.dl-hero-item--bread img,
+.dl-hero-item--pierogi img {
+    filter: drop-shadow(0 0.4rem 0.35rem color-mix(in srgb, var(--e-global-color-text) 50%, transparent));
+    animation: none;
+}
+
+.dl-hero-art > .dl-hero-item--board::after,
+.dl-hero-art > .dl-hero-item--bread::after,
+.dl-hero-art > .dl-hero-item--pierogi::after,
+.dl-hero-art > .dl-hero-item--dill::after {
+    content: none;
+}
+
+.dl-hero-art > .dl-hero-item--dill {
+    --dl-depth: 1.4;
+    --dl-tilt: 24deg;
+    --dl-sway: -6deg;
+    --dl-float: 7s;
+    --dl-delay: 0.55s;
+    top: -2%;
+    left: 37%;
+    z-index: 1;
+    width: 26%;
+}
+
+.dl-hero-art > .dl-hero-item--pickles {
+    --dl-depth: 1.9;
+    --dl-tilt: 9deg;
+    --dl-float: 6.5s;
+    --dl-delay: 0.65s;
+    --dl-shadow-top: 132%;
+    --dl-shadow-size: 12%;
+    --dl-shadow-opacity: 0.35;
+    top: 0;
+    right: 3%;
+    z-index: 3;
+    width: 24%;
+}
+
+.dl-hero-art > .dl-hero-item--paczek {
+    --dl-depth: 2.3;
+    --dl-tilt: -10deg;
+    --dl-sway: 5deg;
+    --dl-float: 5.5s;
+    --dl-delay: 0.75s;
+    --dl-shadow-top: 205%;
+    --dl-shadow-size: 20%;
+    --dl-shadow-opacity: 0.3;
+    top: 4%;
+    left: 2%;
     z-index: 4;
-    width: 38%;
+    width: 27%;
+}
+
+.dl-hero-art > .dl-hero-item--kabanosy {
+    --dl-depth: 2.8;
+    --dl-tilt: -18deg;
+    --dl-sway: 4deg;
+    --dl-float: 6s;
+    --dl-delay: 0.85s;
+    --dl-shadow-top: 88%;
+    --dl-shadow-size: 14%;
+    top: 60%;
+    left: 1%;
+    z-index: 5;
+    width: 34%;
 }
 
 @keyframes dl-hero-in {
@@ -206,6 +260,33 @@
         opacity: 0;
         translate: 0 3rem;
         scale: 0.6;
+    }
+}
+
+@keyframes dl-hero-rise {
+    from {
+        opacity: 0;
+        translate: 0 2.5rem;
+    }
+}
+
+@keyframes dl-hero-drop {
+    0% {
+        opacity: 0;
+        translate: 0 -3rem;
+    }
+
+    60% {
+        opacity: 1;
+        translate: 0 0.25rem;
+    }
+
+    80% {
+        translate: 0 -0.25rem;
+    }
+
+    100% {
+        translate: 0 0;
     }
 }
 
@@ -222,8 +303,16 @@
     }
 }
 
+@keyframes dl-hero-shadow {
+    50% {
+        scale: 0.8;
+        opacity: calc(var(--dl-shadow-opacity, 0.6) * 0.6);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .dl-hero-art > .elementor-widget.dl-hero-item,
+    .dl-hero-art > .dl-hero-item::after,
     .dl-hero-item img {
         animation: none;
         transition: none;
@@ -247,6 +336,22 @@
     .dl-hero > .dl-hero-art {
         align-self: center;
         width: min(24rem, 100%);
+    }
+
+    .dl-hero .dl-hero-art > .elementor-widget.dl-hero-item--board {
+        top: 44%;
+    }
+
+    .dl-hero-art > .dl-hero-item--bread {
+        top: 35%;
+    }
+
+    .dl-hero-art > .dl-hero-item--pierogi {
+        top: 64%;
+    }
+
+    .dl-hero-art > .dl-hero-item--kabanosy {
+        top: 56%;
     }
 }
 
