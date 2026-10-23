@@ -108,9 +108,10 @@ matches. Delete it and it must disappear.
 
 Loop items (*Templates → Loop Items*): **Product card** (105, homepage and shop), **Related product card** (338,
 WooCommerce's default card: related products and search results), **Category tile** (333: tall light tile with the
-category name in red, the product count (`[dl_cat_count]`, nothing when empty) and the category photo in a rounded
-frame at the bottom; the first tile is red, and the red moves to the tile under the mouse). Category photos are
-natural kitchen-table photos (`delicja-category-<slug>.webp`, 800 px, daylight, wooden table, no labels).
+category name in red, the product count (`[dl_cat_count]`, nothing when empty) and the category image at the
+bottom; the first tile is red, and the red moves to the tile under the mouse). Category images are cut-outs on a
+transparent background that look like real photos: daylight, natural textures, no labels, no glossy render look
+(`delicja-category-<slug>-cutout.webp`, 800 px).
 The front page (11) and About us (118) are pages built in Elementor (template *Elementor Full Width*).
 
 ## Product card (homepage and shop)
