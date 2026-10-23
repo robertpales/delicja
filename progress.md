@@ -13,6 +13,13 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Contact page: the drawing is replaced by a realistic photo of the real shop front, made from Google Street View
+  (Bethaniagade 5, May 2025) and the window logo photo. With the mouse on it the shop lights up as in the evening,
+  and the shelves, the door and the window tell a one-line story. The contact cards are clickable as a whole and
+  each icon moves its own way on hover (pin drops, phone rings, letter flies, clock turns, camera flashes).
+  *(partly database)*
+- Product facts: the full nutrition table moved from the Description tab under the nutrition tiles, so it is on the
+  page only once.
 - Homepage promo panels show real products from the shop instead of generated food: Krakus Żurek, Pierogi ruskie
   and Olewnik Myśliwska; E. Wedel Ptasie Mleczko, Wawel Krówka and Michałki (the shop's own product photos). They
   lift a little on hover. *(partly database)*

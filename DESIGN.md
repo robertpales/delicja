@@ -213,9 +213,13 @@ zoom. The related product cards do the same.
   story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
   only the stamps.
 - **Contact** (`/kontakt/`): page built in Elementor, CSS in `assets/css/pages/kontakt.css`. "Come say hi" with a
-  hand-drawn picture of the shop front (`delicja-shop-front-drawing.webp`), Get directions and Call us; six cards
-  (address, phone, e-mail, opening hours on Google Maps, Instagram, company and CVR); a red "Not in Herning?" panel
-  with an opened delivery box.
+  realistic photo of the real shop front (`delicja-shop-front.webp`, made from the Google Street View picture of
+  Bethaniagade 5, May 2025, and the photo of the window logo) as a Hotspot widget: with the mouse on it the shop
+  lights up as on a winter evening (`delicja-shop-front-evening.webp`, aligned, made from the day photo) and the
+  shelves, the door and the window tell a one-line story. Get directions and Call us; six cards (address, phone,
+  e-mail, opening hours on Google Maps, Instagram, company and CVR): the whole card is the link, its icon moves its
+  own way on hover (the pin drops, the phone rings, the letter flies off, the clock turns, the camera flashes) and a
+  hand-drawn arrow points in; a red "Not in Herning?" panel with an opened delivery box.
 - **404:** "Nothing found."
 - **Notices** ("added to your cart", errors) use WooCommerce's block notice banners.
 
