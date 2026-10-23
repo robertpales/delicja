@@ -118,6 +118,29 @@ add_filter( 'woocommerce_sale_flash', function ( $html, $post, $product ) {
 	return $percent > 0 ? '<span class="onsale">-' . $percent . '%</span>' : $html;
 }, 10, 3 );
 
+// "Added to your cart" message as a small card: the product's picture, its name and a "View cart" button
+// (site.css, === WooCommerce blocks ===). Several products at once keep WooCommerce's own message.
+add_filter( 'wc_add_to_cart_message_html', function ( $message, $products ) {
+	if ( 1 !== count( $products ) ) {
+		return $message;
+	}
+
+	$product = wc_get_product( (int) array_key_first( $products ) );
+	if ( ! $product ) {
+		return $message;
+	}
+
+	$quantity = (float) reset( $products );
+	$name     = ( $quantity > 1 ? wc_stock_amount( $quantity ) . ' × ' : '' ) . $product->get_name();
+
+	return '<span class="dl-added">'
+		. '<span class="dl-added-image">' . $product->get_image( 'woocommerce_gallery_thumbnail', [ 'alt' => '' ] ) . '</span>'
+		. '<span class="dl-added-text"><strong class="dl-added-title">Added to your cart</strong>'
+		. '<span class="dl-added-name">' . esc_html( $name ) . '</span></span>'
+		. '<a href="' . esc_url( wc_get_cart_url() ) . '" class="button wc-forward">View cart</a>'
+		. '</span>';
+}, 10, 2 );
+
 // Out-of-stock products say "Sold out" on the button (styled as disabled in site.css).
 add_filter( 'woocommerce_product_add_to_cart_text', function ( $text, $product ) {
 	if ( $product instanceof WC_Product && ! $product->is_in_stock() ) {

@@ -927,6 +927,146 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     box-sizing: content-box;
 }
 
+.wc-block-components-notice-banner {
+    border-radius: var(--dl-radius-lg);
+    animation: dl-notice-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.wc-block-components-notice-banner:focus {
+    outline: none;
+}
+
+.wc-block-components-notice-banner.is-success:has(.dl-added) {
+    align-items: center;
+    padding: var(--dl-space-30);
+    border: 1px solid var(--e-global-color-dlborder);
+    background-color: var(--e-global-color-dlwhite);
+    box-shadow: var(--dl-shadow-pop);
+}
+
+.wc-block-components-notice-banner.is-success:has(.dl-added) > svg {
+    display: none;
+}
+
+.wc-block-components-notice-banner:has(.dl-added) .wc-block-components-notice-banner__content {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.dl-added {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--dl-space-30) var(--dl-space-40);
+}
+
+.dl-added-image {
+    position: relative;
+    flex: none;
+    width: 4rem;
+    height: 4rem;
+    padding: var(--dl-space-10);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-dlsurface);
+}
+
+.dl-added-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.dl-added-image::after {
+    content: "";
+    position: absolute;
+    right: -0.375rem;
+    bottom: -0.375rem;
+    width: 1.375rem;
+    height: 1.375rem;
+    border: 2px solid var(--e-global-color-dlwhite);
+    border-radius: 50%;
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 0.75rem no-repeat,
+        var(--e-global-color-primary);
+    animation: dl-notice-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both;
+}
+
+.dl-added-text {
+    display: flex;
+    flex: 1 1 12rem;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.dl-added-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dlhand-font-family), cursive;
+    font-size: var(--e-global-typography-dlhand-font-size);
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: 1.1;
+}
+
+.dl-added-name {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlpname-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlpname-font-size);
+    font-weight: var(--e-global-typography-dlpname-font-weight);
+    line-height: var(--e-global-typography-dlpname-line-height);
+}
+
+.wc-block-components-notice-banner .dl-added .wc-forward {
+    flex: none;
+    margin: 0;
+    padding: var(--dl-space-30) var(--dl-space-50);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-primary);
+    color: var(--e-global-color-dlwhite);
+    text-decoration: none;
+    opacity: 1;
+    transition: background-color var(--dl-transition);
+}
+
+.wc-block-components-notice-banner .dl-added .wc-forward::after {
+    content: " →";
+}
+
+.wc-block-components-notice-banner .dl-added .wc-forward:hover,
+.wc-block-components-notice-banner .dl-added .wc-forward:focus {
+    background-color: var(--e-global-color-secondary);
+    color: var(--e-global-color-dlwhite);
+    text-decoration: none;
+}
+
+@keyframes dl-notice-in {
+    from {
+        opacity: 0;
+        translate: 0 -0.5rem;
+    }
+}
+
+@keyframes dl-notice-pop {
+    from {
+        scale: 0;
+    }
+}
+
+@media (max-width: 599px) {
+    .wc-block-components-notice-banner .dl-added .wc-forward {
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wc-block-components-notice-banner,
+    .dl-added-image::after {
+        animation: none;
+    }
+}
+
 .wc-block-components-notice-banner .wc-forward {
     font-family: var(--e-global-typography-accent-font-family), sans-serif;
     font-size: var(--e-global-typography-accent-font-size);
