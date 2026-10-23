@@ -425,7 +425,7 @@ body .wp-block-button__link:focus,
     --row-gap: var(--dl-space-50);
     --column-gap: var(--dl-space-50);
     --padding-bottom: var(--dl-header-band);
-    --dl-header-band: 2.25rem;
+    --dl-header-band: 2rem;
     position: relative;
     z-index: 10;
 }
@@ -437,7 +437,7 @@ body .wp-block-button__link:focus,
     bottom: 0;
     left: 0;
     height: var(--dl-header-band);
-    background-color: var(--e-global-color-primary);
+    background-color: color-mix(in srgb, var(--e-global-color-primary) 40%, transparent);
     -webkit-mask: url("../images/folk/band.svg") left center / auto 100% repeat-x;
     mask: url("../images/folk/band.svg") left center / auto 100% repeat-x;
 }
