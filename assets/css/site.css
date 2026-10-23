@@ -2046,6 +2046,168 @@ table.wc-block-cart-items td {
     pointer-events: none;
 }
 
+/* === Product facts === */
+.dl-facts {
+    display: grid;
+    gap: var(--dl-space-50);
+    padding-block-start: var(--dl-space-50);
+    border-block-start: 1px solid var(--e-global-color-dlborder);
+}
+
+.dl-facts-title {
+    margin: 0 0 var(--dl-space-30);
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dleyeb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dleyeb-font-size);
+    font-weight: var(--e-global-typography-dleyeb-font-weight);
+    line-height: var(--e-global-typography-dleyeb-line-height);
+    letter-spacing: var(--e-global-typography-dleyeb-letter-spacing);
+    text-transform: uppercase;
+}
+
+.dl-facts-chips,
+.dl-nutrients {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dl-facts-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dl-space-20);
+}
+
+.dl-fact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--dl-space-20);
+    padding: 0.375rem 0.875rem 0.375rem 0.5rem;
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-dlsurface);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: 1.2;
+}
+
+.dl-fact-icon {
+    flex: none;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: var(--dl-icon) center / contain no-repeat;
+    mask: var(--dl-icon) center / contain no-repeat;
+    transition: rotate 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dl-fact-chip:hover .dl-fact-icon,
+.dl-nutrient:hover .dl-fact-icon {
+    rotate: -10deg;
+}
+
+.dl-facts-allergens .dl-fact-chip {
+    background-color: var(--e-global-color-dltint);
+}
+
+.dl-facts-allergens.is-traces .dl-fact-chip {
+    border: 1px dashed var(--e-global-color-dlborder);
+    background-color: transparent;
+    color: var(--e-global-color-accent);
+    font-weight: var(--e-global-typography-dlsmall-font-weight);
+}
+
+.dl-facts-allergens.is-traces .dl-fact-icon {
+    background-color: var(--e-global-color-accent);
+}
+
+.dl-nutrients {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--dl-space-20);
+}
+
+.dl-nutrient {
+    display: grid;
+    align-content: start;
+    gap: var(--dl-space-10);
+    padding: var(--dl-space-30);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-dlwhite);
+}
+
+.dl-nutrient .dl-fact-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-block-end: var(--dl-space-10);
+}
+
+.dl-nutrient-value {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh5-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlh5-font-size);
+    font-weight: var(--e-global-typography-dlh5-font-weight);
+    line-height: 1.2;
+}
+
+.dl-nutrient-label {
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    line-height: 1.3;
+}
+
+.dl-nutrient-share {
+    position: relative;
+    display: block;
+    height: 0.375rem;
+    margin-block-start: var(--dl-space-20);
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-dlsurface);
+}
+
+.dl-nutrient-share::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: max(var(--dl-share), 0.375rem);
+    border-radius: inherit;
+    background-color: var(--e-global-color-primary);
+}
+
+.dl-nutrient-share span {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.25rem);
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.dl-facts-note {
+    margin: var(--dl-space-30) 0 0;
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 599px) {
+    .dl-nutrients {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-fact-chip:hover .dl-fact-icon,
+    .dl-nutrient:hover .dl-fact-icon {
+        rotate: none;
+    }
+}
+
 /* === Pages === */
 .dl-page {
     --padding-top: var(--dl-space-60);
