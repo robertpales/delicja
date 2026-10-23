@@ -557,7 +557,7 @@ add_action( 'wp_head', function () {
 			'@type'    => 'ListItem',
 			'position' => $offset + $i + 1,
 			'url'      => get_permalink( $p->ID ),
-			'name'     => wp_strip_all_tags( get_the_title( $p->ID ) ),
+			'name'     => wp_strip_all_tags( html_entity_decode( get_the_title( $p->ID ), ENT_QUOTES ) ),
 		];
 	}
 
@@ -596,12 +596,14 @@ add_action( 'wp_head', function () {
 
 // Rank Math: drop the types output above, keep the rest (e.g. Article on blog posts).
 // Our @ids match Rank Math's (#organization, #website), so its remaining entities still link to ours.
+// Its default Article on pages is dropped too: shop pages are not articles.
 add_filter( 'rank_math/json_ld', function ( $data ) {
-	$ours = [
+	$ours = is_page() || is_front_page() ? [ 'Article', 'BlogPosting', 'NewsArticle' ] : [];
+	$ours = array_merge( $ours, [
 		'Organization', 'OnlineStore', 'GroceryStore', 'LocalBusiness', 'Store', 'Person', 'Brand', 'Place',
 		'WebSite', 'WebPage', 'ItemPage', 'CollectionPage', 'AboutPage', 'ContactPage', 'SearchResultsPage',
 		'BreadcrumbList', 'Product', 'ProductGroup', 'ItemList',
-	];
+	] );
 	foreach ( $data as $key => $entity ) {
 		if ( is_array( $entity ) && array_intersect( (array) ( $entity['@type'] ?? [] ), $ours ) ) {
 			unset( $data[ $key ] );
