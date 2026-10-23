@@ -13,6 +13,8 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- "Added to your cart" message is now a small card: the product's picture with a red check, a handwritten "Added to
+  your cart", the product name and a red "View cart" button; it slides in, without the thick black frame.
 - Contact page: the drawing is replaced by a realistic photo of the real shop front, made from Google Street View
   (Bethaniagade 5, May 2025) and the window logo photo. With the mouse on it the shop lights up as in the evening,
   and the shelves, the door and the window tell a one-line story. The contact cards are clickable as a whole and

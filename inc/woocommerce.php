@@ -137,7 +137,7 @@ add_filter( 'wc_add_to_cart_message_html', function ( $message, $products ) {
 		. '<span class="dl-added-image">' . $product->get_image( 'woocommerce_gallery_thumbnail', [ 'alt' => '' ] ) . '</span>'
 		. '<span class="dl-added-text"><strong class="dl-added-title">Added to your cart</strong>'
 		. '<span class="dl-added-name">' . esc_html( $name ) . '</span></span>'
-		. '<a href="' . esc_url( wc_get_cart_url() ) . '" class="button wc-forward">View cart</a>'
+		. '<a href="' . esc_url( wc_get_cart_url() ) . '" class="dl-added-button">View cart</a>'
 		. '</span>';
 }, 10, 2 );
 
