@@ -1,34 +1,76 @@
 # To do
 
-What is still to be done on Delicja. Finished items move to `progress.md`.
+What is still to be done on Delicja, split by who does it. Finished items move to `progress.md`.
+
+- **Client**: Delicja ApS (the owner). Matej asks for everything in this section and passes it on.
+- **Matej**: design in Elementor, communication with the client.
+- **Robo**: technical setup (plugins, WooCommerce, code, server).
 
 ---
 
-## Page content from the client
+## Client (Matej asks, then sends it to Robo)
 
-Needed before launch and for the payment gateway approval (card schemes check these pages).
-- [ ] Terms and conditions (Handelsbetingelser): page `terms-and-conditions`.
-- [ ] Delivery and returns: page `levering-og-returnering` (and remove the WooCommerce sample page `refund_returns`).
-- [ ] Privacy policy: page `privacy-policy`.
+**Page texts** (needed before launch; the payment provider checks these pages)
+- [ ] Terms and conditions (Handelsbetingelser) → page `terms-and-conditions`.
+- [ ] Delivery and returns → page `levering-og-returnering`.
+- [ ] Privacy policy → page `privacy-policy`.
+
+**Shop information**
+- [ ] Opening hours of the shop.
+- [ ] Delivery: area, prices (by distance from the shop?), delivery days and times.
+- [ ] E-mail address where new orders should go after launch.
+
+**Payment gateway (Flatpay / Frisbii Pay)**
+- [ ] Ask Flatpay to activate online payments (Frisbii Pay) for the website delicja.dk.
+- [ ] Invite `web@digistudio.sk` as a user in the Frisbii (Billwerk+) admin. If that is not possible: send the Live Private Key and a test key or test account.
+- [ ] Which payment methods the contract includes: Visa/Mastercard, Dankort, MobilePay, Apple Pay, Google Pay.
+- [ ] When the payment is taken: at the order (recommended) or at delivery.
+
+**Language versions**
+- [ ] Buy the WPML licence, plan **Multilingual CMS**, in the name of Delicja ApS, and give us access to the account.
 
 ---
 
-## Language versions (WPML)
+## Matej
 
-Three languages: **Danish** (main, no prefix), **English** `/en/`, **Polish** `/pl/`.
+- [ ] Language switcher in the header (desktop and mobile menu), after WPML is installed.
+- [ ] Translate pages by hand into EN and PL (front page, about, contact, cookies, legal pages) in the WPML translation editor.
+- [ ] Translate Theme Builder templates (header, footer, product card, shop, product, cart, checkout, purchase summary) and menus.
 
-**Decided**
-- Plugin: WPML Multilingual CMS + WooCommerce Multilingual.
-- The licence is bought by the client (Delicja ApS) in their own name; we get access to the account.
-- Pages and Elementor templates are translated by hand (WPML translation editor).
-- Products, categories and attributes are translated automatically when saved (WPML automatic translation),
-  including slugs and Rank Math meta title and description. The client only writes in Danish.
-- Prices, stock and images are shared by all languages.
+---
 
-**Before installing**
-- [ ] Client buys the WPML licence - version Multilingual CMS and gives us access. 
+## Robo
 
-**Setup**
-- [ ] Install WPML + WooCommerce Multilingual, languages DA (main) / EN / PL, URLs with a language folder (`/en/`, `/pl/`).
-- [ ] Switch the WordPress site language from `en_US` to Danish (the main language is hard to change later).
-- [ ] Plugin setup for project needs
+**WooCommerce**
+- [ ] Tax rate: remove the city limit (Herning) so the 25 % moms applies to all of Denmark.
+- [ ] Pickup location: add the street address (Bethaniagade 5).
+- [ ] Delivery methods and prices, when the client sends them.
+- [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
+
+**Payment gateway (Frisbii Pay)**, when the client has done their part
+- [ ] Install Frisbii+ Pay from the WordPress plugin directory (search "Billwerk").
+- [ ] Keys, payment methods, logos, order status mapping; check webhooks.
+- [ ] Test payments on test.delicja.dk.
+- [ ] Turn off cash on delivery; payment icons in the footer match the real methods.
+
+**Language versions (WPML)**, when the client has bought the licence
+
+Decided: Danish is the main language (no prefix), English `/en/`, Polish `/pl/`. Pages and templates are translated
+by hand (Matej). Products, categories and attributes are translated automatically when saved, including slugs and
+Rank Math meta title and description; the client only writes in Danish. Prices, stock and images are shared.
+
+- [ ] Switch the WordPress site language from `en_US` to Danish before installing (hard to change later).
+- [ ] Install WPML + WooCommerce Multilingual, languages DA / EN / PL with language folders.
+- [ ] Automatic translation for products, categories and attributes; glossary so Polish brand and product names are not translated.
+- [ ] Translated slugs for pages, categories and products.
+- [ ] Code texts (`inc/*.php`, shortcodes, buttons) as translatable strings, translated in String Translation.
+- [ ] `inc/schema.php`: language, URLs and breadcrumbs from the current language.
+- [ ] Rank Math per language: meta, `hreflang`, sitemaps. WooCommerce e-mails in the customer's language. Complianz banner in all languages.
+- [ ] Test: a product added in Danish gets EN and PL versions; an order in each language.
+
+**Before launch**
+- [ ] Turn off WooCommerce "Coming soon" mode.
+- [ ] Order e-mails back to the client's address (now `web@digistudio.sk` for testing).
+- [ ] Replace test products and categories with real ones in Danish.
+- [ ] Delete old backups (`delicja_backup_*` options).
+- [ ] Rich Results Test on the front page and a product.

@@ -44,4 +44,5 @@ Read `README.md` first (workflow, who does what, what goes where), then `DESIGN.
   Create the date heading if it is missing.
 - One short line per change, written for people, not a copy of the commit message. Group related commits.
 - Mark changes made in WordPress/Elementor through Novamira with *(database)*: they are not in git.
-- Update the **Open** list at the bottom when something gets done or a new open point comes up.
+- Open tasks are in `todo.md`, split by who does them (Client via Matej, Matej, Robo). Tick off and move finished
+  tasks to `progress.md`; add new open points to the right person.

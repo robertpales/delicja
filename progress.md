@@ -24,6 +24,7 @@ through Novamira, so they are not in git.
 - Purchase summary (order received page): site fonts and colours, thank-you box with a check icon, order overview, order table and address cards in the site style.
 - `todo.md`: plan for the language versions (WPML: DA, EN, PL).
 - `todo.md`: legal page texts needed from the client.
+- `todo.md` split by who does it (client via Matej, Matej, Robo); the open list moved there from this file.
 
 ## 2026-10-22
 
@@ -86,8 +87,4 @@ through Novamira, so they are not in git.
 
 ## Open
 
-- Opening hours, delivery area and prices, terms and returns texts: waiting for the owner.
-- Tax rate is limited to the city Herning; should apply to all of Denmark.
-- WooCommerce "Coming soon" mode is on: logged-out visitors do not see the shop.
-- Payment gateway (pay in advance) before launch.
-- Before launch: order e-mails back to the owner's address (now web@digistudio.sk for testing).
+See `todo.md`.
