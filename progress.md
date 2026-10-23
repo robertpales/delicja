@@ -13,6 +13,9 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Homepage promo panels show real products from the shop instead of generated food: Krakus Żurek, Pierogi ruskie
+  and Olewnik Myśliwska; E. Wedel Ptasie Mleczko, Wawel Krówka and Michałki (the shop's own product photos). They
+  lift a little on hover. *(partly database)*
 - Product pages: "Product facts" with hand-drawn icons under SKU and category: net quantity, From Poland, storage,
   diet, "Contains" and "May contain" allergens, and nutrition tiles per 100 g with % of the daily reference intake,
   read from the nutrition table in the description. Works the same for every product; the owner picks the
