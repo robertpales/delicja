@@ -65,8 +65,8 @@ and letter spacing. Fluid sizes are `clamp()`.
 | Menu, Submenu, Mobile menu, FAQ question | | | header menus, FAQ |
 
 ### Ornament (`assets/images/folk/`)
-Single-colour SVGs used from CSS only: `grain.svg` (paper grain on red panels), `band.svg` (folk band on the
-about page).
+Single-colour SVGs used from CSS only: `grain.svg` (paper grain on red panels), `band.svg` (red cross-stitch folk
+band: bottom edge of the header, about page).
 
 ### Handmade touches (`assets/images/hand/`, `site.css` → `=== Handmade ===`)
 Real photos of the shop and of Elżbieta beat any generated image: use them wherever people should feel who is behind
@@ -157,8 +157,13 @@ a little and tilted (left, every second card right), as if picked up from the sh
 zoom. The related product cards do the same.
 
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
-1. Announcement bar with a small delivery van icon, and header (Theme Builder): wordmark, product search, account and mini cart, menu
-   Shop · Categories (all categories) · Deals · About us · Contact, address link. Mobile: hamburger menu.
+1. Announcement bar with a small delivery van icon, and header (Theme Builder): wordmark, product search ("Search for
+   sausages, sweets…"), account and mini cart (WooCommerce hides the mini cart from visitors while the shop is in
+   "Coming soon" mode), menu Shop · Deals · About us · Contact, "Come say hi!" (handwritten) with the address link.
+   The header is like the edge of a Polish tablecloth: linen background (`dlsurface`), a stitched line between the
+   rows and the red cross-stitch band (`band.svg`) along its bottom edge. Menu: a hand-drawn red underline draws in
+   on hover and stays under the current page. The Shop dropdown shows each category with its picture (the category
+   image, `inc/header.php`), 3 columns; on phones 2 columns in the menu drawer. Mobile: hamburger menu.
 2. Hero on a red panel with paper grain: "Polish deli in the heart of Herning" in Anton (H1) with a handwritten line
    and a hand-drawn underline under "Herning", a short lead, a "Browse the shop" pill, a "Visit us in Herning" link
    (About us → Visit us) and the table with Polish food (see Hero table).
