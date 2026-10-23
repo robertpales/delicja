@@ -135,13 +135,15 @@
 }
 
 .dl-hero-after {
+    --dl-mask: radial-gradient(ellipse var(--dl-mask-rx) var(--dl-mask-ry) at var(--dl-mask-x) var(--dl-mask-y), #000 60%, transparent);
+    --dl-mask-2: radial-gradient(ellipse var(--dl-mask2-rx, var(--dl-mask-rx)) var(--dl-mask2-ry, var(--dl-mask-ry)) at var(--dl-mask2-x, var(--dl-mask-x)) var(--dl-mask2-y, var(--dl-mask-y)), #000 60%, transparent);
     position: absolute;
     inset: 0;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.45s ease;
-    -webkit-mask: radial-gradient(ellipse var(--dl-mask-rx) var(--dl-mask-ry) at var(--dl-mask-x) var(--dl-mask-y), #000 60%, transparent);
-    mask: radial-gradient(ellipse var(--dl-mask-rx) var(--dl-mask-ry) at var(--dl-mask-x) var(--dl-mask-y), #000 60%, transparent);
+    -webkit-mask: var(--dl-mask), var(--dl-mask-2);
+    mask: var(--dl-mask), var(--dl-mask-2);
 }
 
 .dl-hero-after.is-on {
@@ -157,30 +159,42 @@
 
 .dl-hero-after--bread {
     --dl-mask-x: 51%;
-    --dl-mask-y: 30%;
-    --dl-mask-rx: 18%;
-    --dl-mask-ry: 21%;
+    --dl-mask-y: 29%;
+    --dl-mask-rx: 21%;
+    --dl-mask-ry: 22%;
+    --dl-mask2-x: 57%;
+    --dl-mask2-y: 40%;
+    --dl-mask2-rx: 12%;
+    --dl-mask2-ry: 9%;
 }
 
 .dl-hero-after--kabanosy {
     --dl-mask-x: 47%;
-    --dl-mask-y: 55%;
-    --dl-mask-rx: 20%;
-    --dl-mask-ry: 15%;
+    --dl-mask-y: 52%;
+    --dl-mask-rx: 18%;
+    --dl-mask-ry: 13%;
+    --dl-mask2-x: 56%;
+    --dl-mask2-y: 57%;
+    --dl-mask2-rx: 11%;
+    --dl-mask2-ry: 9%;
 }
 
 .dl-hero-after--pickles {
-    --dl-mask-x: 80%;
-    --dl-mask-y: 22%;
-    --dl-mask-rx: 15%;
-    --dl-mask-ry: 27%;
+    --dl-mask-x: 76.6%;
+    --dl-mask-y: 17%;
+    --dl-mask-rx: 13%;
+    --dl-mask-ry: 34%;
+    --dl-mask2-x: 88.5%;
+    --dl-mask2-y: 39.5%;
+    --dl-mask2-rx: 9%;
+    --dl-mask2-ry: 10%;
 }
 
 .dl-hero-after--pierogi {
-    --dl-mask-x: 82%;
-    --dl-mask-y: 62%;
-    --dl-mask-rx: 15%;
-    --dl-mask-ry: 16%;
+    --dl-mask-x: 83%;
+    --dl-mask-y: 63%;
+    --dl-mask-rx: 17%;
+    --dl-mask-ry: 17%;
 }
 
 .dl-hero-scene .e-hotspot {
