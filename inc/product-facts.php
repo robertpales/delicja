@@ -8,7 +8,9 @@
  * - nutrition from the table in the product description (rows Energy, Fat, of which saturates, Carbohydrate,
  *   of which sugars, Fibre, Protein, Salt), with the share of the reference intake of an average adult
  *   (EU 1169/2011, Annex XIII).
- * Missing data shows nothing: no allergen icons never means "no allergens".
+ * Missing data shows nothing: no allergen icons never means "no allergens". The nutrition table itself moves from the
+ * Description tab into Product facts (under "Show the full nutrition table"), so it is on the page once and complete
+ * (kJ and kcal), as the EU rules ask for food sold online.
  * Shortcode [dl_product_facts] in the Single Product template. Icons in assets/images/icons/ (named after the
  * attribute term slug or the nutrient), styles in site.css (=== Product facts ===).
  */
@@ -145,9 +147,22 @@ add_shortcode( 'dl_product_facts', function () {
 				. ( null !== $share ? '<span class="dl-nutrient-share" style="--dl-share: ' . min( 100, $share ) . '%"><span>' . $share . ' %</span></span>' : '' )
 				. '</li>';
 		}
+		$table = preg_match( '#<table.*?</table>#is', $content, $match ) ? wp_kses_post( $match[0] ) : '';
 		$html .= '<div class="dl-facts-nutrition"><h3 class="dl-facts-title">Nutrition per ' . $unit . '</h3><ul class="dl-nutrients">' . $tiles . '</ul>'
-			. '<p class="dl-facts-note">% of the reference intake of an average adult (8400 kJ / 2000 kcal). Full table and ingredients in the description below.</p></div>';
+			. '<p class="dl-facts-note">% of the reference intake of an average adult (8400 kJ / 2000 kcal).</p>'
+			. ( $table ? '<details class="dl-facts-table"><summary>Show the full nutrition table</summary>' . $table . '</details>' : '' )
+			. '</div>';
 	}
 
 	return $html ? '<section class="dl-facts" aria-label="Product facts">' . $html . '</section>' : '';
 } );
+
+// The nutrition heading and table leave the Description tab: Product facts shows them (see above).
+add_filter( 'the_content', function ( $content ) {
+	if ( ! is_product() || ! in_the_loop() || ! delicja_nutrition( $content ) ) {
+		return $content;
+	}
+
+	return preg_replace( '#<h[2-4][^>]*>\s*Nutrition per[^<]*</h[2-4]>\s*<table.*?</table>#is', '', $content );
+}, 20 );
+

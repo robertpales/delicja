@@ -2195,6 +2195,38 @@ table.wc-block-cart-items td {
     line-height: 1.5;
 }
 
+.dl-facts-table {
+    margin-block-start: var(--dl-space-30);
+}
+
+.dl-facts-table summary {
+    width: fit-content;
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+}
+
+.dl-facts-table table {
+    width: 100%;
+    margin: var(--dl-space-30) 0 0;
+    border-collapse: collapse;
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+}
+
+.dl-facts-table td {
+    padding: var(--dl-space-20) 0;
+    border-block-end: 1px solid var(--e-global-color-dlborder);
+}
+
+.dl-facts-table td:last-child {
+    text-align: end;
+}
+
 @media (max-width: 599px) {
     .dl-nutrients {
         grid-template-columns: repeat(2, minmax(0, 1fr));
