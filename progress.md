@@ -18,6 +18,10 @@ through Novamira, so they are not in git.
 - Homepage feels more human: new section "A little Polish shop on Bethaniagade" with real photos of the shop and
   Elżbieta as polaroids, handwritten "Zapraszamy!" (self-hosted Caveat font) and a hand-drawn underline; the
   "Follow Delicja" box shows real photos instead of generated cut-outs. *(partly database)*
+- SEO/GEO: front page, About us and Shop got a real meta title/description and share image (the front page showed
+  a placeholder text); cart, checkout, my account and purchase summary are `noindex`; Rank Math's llms.txt module is on
+  (`/llms.txt`: pages, products, categories, shop facts for AI answer engines). *(database)* Anton is preloaded on the
+  homepage so the hero headline shows sooner.
 - `todo.md`: questions for the client reviewed and completed (food rules: smiley, product information, alcohol,
   pant; delivery of chilled food, pickup, order e-mail; product list and stock; Google Business Profile, reviews,
   photo consent; launch; payment methods and accounting).

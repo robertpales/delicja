@@ -25,3 +25,14 @@ add_action( 'elementor/editor/after_enqueue_styles', function () {
 		filemtime( $dir . '/assets/css/fonts.css' )
 	);
 } );
+
+// The hero headline is the largest text on the homepage's first screen: load its font early.
+add_action( 'wp_head', function () {
+	if ( ! is_front_page() ) {
+		return;
+	}
+	printf(
+		'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+		esc_url( get_stylesheet_directory_uri() . '/assets/fonts/anton/anton-latin-400-normal.woff2' )
+	);
+}, 2 );

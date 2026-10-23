@@ -127,3 +127,6 @@ Prices, stock and images are shared.
 - [ ] Replace test products and categories with real ones in the main language.
 - [ ] Delete old backups (`delicja_backup_*` options).
 - [ ] Rich Results Test on the front page and a product.
+- [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
+  Google-Extended) allowed; check `/llms.txt` and the sitemap there. The test site stays `noindex`.
+- [ ] Pages still marked "Indhold mangler" (kontakt, om-os, tilbud, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
