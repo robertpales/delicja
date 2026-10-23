@@ -13,6 +13,13 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- "Browse the shop" works for visitors: the shop, categories, tags, product search and the cart are open while the
+  store is in Coming soon mode; only checkout (and My account) wait until it is switched off. The header cart shows
+  for visitors too.
+- New Deals page (`/tilbud/`): big "Deals" with a handwritten "while they last" and all products on sale; with no
+  sale it says so and points to the shop. The "Deals" menu item shows only while at least one product is on sale,
+  and the page cache is cleared when sales start or end. The red "Sunday" promo's button now leads to ready meals
+  instead of the empty deals. *(partly database)*
 - Contact shop front works like the homepage hero: each spot really changes the photo and means a way to Delicja.
   The shelves fill up (see the shop), the door opens with a doormat (directions), coffee and cake appear in the
   window with rising steam (our story), a delivery bike rolls in (shop online). Small pulsing dots show where to

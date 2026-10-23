@@ -86,13 +86,14 @@ add_shortcode( 'dl_cat_count', function () {
 	return '<p class="dl-cat-count">' . esc_html( $text ) . '</p>';
 } );
 
-// "Weekly deals" message when no product is on sale (the Loop Carousel shows nothing then).
+// Message on the Deals page (and the homepage "Weekly deals") when no product is on sale, with a way to the shop.
 add_shortcode( 'dl_no_deals', function () {
 	if ( wc_get_product_ids_on_sale() ) {
 		return '';
 	}
 
-	return '<p class="dl-empty">No deals right now. Check back soon.</p>';
+	return '<div class="dl-empty dl-shop-empty"><p>No deals right now. Check back soon, or have a look at everything else we have.</p>'
+		. '<a class="dl-shop-empty-button" href="' . esc_url( wc_get_page_permalink( 'shop' ) ) . '">See the whole shop</a></div>';
 } );
 
 // The homepage "Weekly deals" section only shows while at least one product is on sale (home.css hides it on
