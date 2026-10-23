@@ -424,22 +424,9 @@ body .wp-block-button__link:focus,
     --gap: var(--dl-space-50);
     --row-gap: var(--dl-space-50);
     --column-gap: var(--dl-space-50);
-    --padding-bottom: var(--dl-header-band);
-    --dl-header-band: 2rem;
     position: relative;
     z-index: 10;
-}
-
-.dl-header::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: var(--dl-header-band);
-    background-color: color-mix(in srgb, var(--e-global-color-primary) 40%, transparent);
-    -webkit-mask: url("../images/folk/band.svg") left center / auto 100% repeat-x;
-    mask: url("../images/folk/band.svg") left center / auto 100% repeat-x;
+    border-bottom: 1px solid var(--e-global-color-dlborder);
 }
 
 .dl-announcement {
@@ -893,8 +880,8 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     .dl-header-bar > .e-con-inner::after {
         content: "";
         grid-area: rule;
-        height: 1.5px;
-        background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--e-global-color-primary) 30%, transparent) 0 0.5rem, transparent 0.5rem 0.875rem);
+        height: 1px;
+        background-color: var(--e-global-color-dlborder);
     }
 
     .dl-header .dl-header-bar .dl-header-brand img {

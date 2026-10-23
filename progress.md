@@ -16,7 +16,8 @@ through Novamira, so they are not in git.
 - Header no longer generic: linen background like a tablecloth with a red cross-stitch band along the bottom, a
   stitched line between the rows, hand-drawn red underline in the menu, "Come say hi!" by the address, the Shop
   dropdown shows the category pictures, and the search says "Search for sausages, sweets…". *(partly database)*
-- Header: the cross-stitch band is softer (lighter red, a little smaller).
+- Header: the cross-stitch band and the stitched line are gone again (too much); the header is calm and clean,
+  the red handwritten details and the category pictures give it character.
 - New arrivals tile and the contact page's "Not in Herning?" panel: real-looking photos (a wooden crate of groceries,
   an opened delivery box) at the bottom of the red panel instead of the cartoon bag; the bag drawing and its two
   colours are removed. *(partly database)*
