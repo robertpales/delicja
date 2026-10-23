@@ -80,8 +80,13 @@
     rotate: -4deg;
 }
 
+.dl-hero-title .dl-scribble {
+    display: inline-block;
+    line-height: 0.95;
+}
+
 .dl-hero-title .dl-scribble::after {
-    bottom: -0.12em;
+    bottom: -0.1em;
     height: 0.16em;
     background-color: var(--e-global-color-dltint);
 }
@@ -181,6 +186,7 @@
     fill: none;
     stroke: var(--e-global-color-secondary);
     stroke-width: 18;
+    stroke-linecap: round;
 }
 
 .dl-bag-ring-shine,

@@ -13,26 +13,26 @@ add_shortcode( 'dl_hero_art', function () {
 	<ellipse class="dl-bag-shadow" cx="200" cy="398" rx="106" ry="11"/>
 	<g class="dl-bag-hop">
 		<g class="dl-bag-dill">
-			<path d="M270 186c2-34 8-62 22-92"/>
-			<path d="M276 146l-16-9M279 131l16-9M283 117l-13-12M287 105l15-5"/>
-			<path d="M284 186c6-28 17-50 34-68"/>
-			<path d="M295 151l15-2M301 138l-3-16M309 127l13 3"/>
+			<path d="M282 186c2-34 8-62 22-92"/>
+			<path d="M288 146l-16-9M291 131l16-9M295 117l-13-12M299 105l15-5"/>
+			<path d="M294 186c6-28 15-48 30-64"/>
+			<path d="M305 152l15-2M311 139l-3-16M318 129l12 3"/>
 		</g>
 		<g class="dl-bag-jar">
-			<rect class="dl-bag-glass" x="230" y="122" width="52" height="64" rx="10"/>
-			<rect class="dl-bag-lid" x="227" y="108" width="58" height="16" rx="5"/>
-			<ellipse class="dl-bag-pickle" cx="246" cy="158" rx="7.5" ry="17" transform="rotate(-10 246 158)"/>
-			<ellipse class="dl-bag-pickle" cx="265" cy="160" rx="7.5" ry="17" transform="rotate(12 265 160)"/>
-			<path class="dl-bag-shine" d="M238 132v20"/>
+			<rect class="dl-bag-glass" x="236" y="122" width="52" height="64" rx="10"/>
+			<rect class="dl-bag-lid" x="233" y="108" width="58" height="16" rx="5"/>
+			<ellipse class="dl-bag-pickle" cx="252" cy="158" rx="7.5" ry="17" transform="rotate(-10 252 158)"/>
+			<ellipse class="dl-bag-pickle" cx="271" cy="160" rx="7.5" ry="17" transform="rotate(12 271 160)"/>
+			<path class="dl-bag-shine" d="M244 132v20"/>
 		</g>
-		<g transform="rotate(-24 156 160)">
-			<rect class="dl-bag-bread" x="98" y="128" width="120" height="60" rx="30"/>
-			<path class="dl-bag-score" d="M124 144l12 26M150 142l12 26M176 142l12 26"/>
+		<g transform="rotate(-24 150 160)">
+			<rect class="dl-bag-bread" x="92" y="128" width="120" height="60" rx="30"/>
+			<path class="dl-bag-score" d="M118 144l12 26M144 142l12 26M170 142l12 26"/>
 		</g>
 		<g class="dl-bag-sausage">
-			<circle class="dl-bag-ring" cx="196" cy="148" r="33"/>
-			<path class="dl-bag-ring-shine" d="M172 132a29 29 0 0 1 36-12"/>
-			<path class="dl-bag-string" d="M190 112l6-10 6 10"/>
+			<path class="dl-bag-ring" d="M172 182a32 32 0 1 1 52 0"/>
+			<path class="dl-bag-ring-shine" d="M178 156a24 24 0 0 1 30-20"/>
+			<path class="dl-bag-string" d="M168 186l-6 6M228 186l6 6"/>
 		</g>
 		<path class="dl-bag-paper" d="M106 180h188l10 206a10 10 0 0 1-10 10.5H106a10 10 0 0 1-10-10.5z"/>
 		<path class="dl-bag-paper" d="M106 182l5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12 5.88-12 5.88 12v8H106z"/>
