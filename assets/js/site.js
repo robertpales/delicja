@@ -132,26 +132,51 @@
 })();
 
 /* === Hero === */
-// Homepage hero: the products float in layers and drift a little against the mouse, the nearer ones more
-// (--dl-depth per product in home.css). Only with a mouse and when the visitor allows motion.
+// Homepage hero: a table with Polish food (Elementor Hotspot widget, one hotspot per product). Nothing moves until
+// the mouse is on a product (a tap on phones): the rest of the table dims a little, the product's short story shows
+// (the hotspot tooltip) and the product changes, the doughnut gets a bite, the bread a slice cut off (the second
+// picture, hidden Image widget "dl-hero-scene-after", shown on the table only around that product, under the
+// tooltips; mask per product in home.css).
+// Versions to compare, until one is chosen: ?hero=stories (story only), ?hero=bites (change only), default both.
 (() => {
 	const hero = document.querySelector('.dl-hero');
-	if (!hero || !hero.querySelector('.dl-hero-item') || !matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+	const art = hero?.querySelector('.dl-hero-art');
+	const after = art?.querySelector('.dl-hero-scene-after img');
+	const spots = art ? [...art.querySelectorAll('.dl-hero-scene .e-hotspot')] : [];
+	if (!after || !spots.length) {
 		return;
 	}
+	const table = spots[0].parentElement;
 
-	let frame = 0;
-	const move = (x, y) => {
-		cancelAnimationFrame(frame);
-		frame = requestAnimationFrame(() => {
-			hero.style.setProperty('--dl-hero-x', x.toFixed(3));
-			hero.style.setProperty('--dl-hero-y', y.toFixed(3));
-		});
+	const version = new URLSearchParams(location.search).get('hero') || 'both';
+	hero.dataset.dlHero = version;
+	// The story-only version keeps the product as it is: it stays bright while the rest dims.
+	const source = version === 'stories' ? table.querySelector(':scope > img') : after;
+
+	const layers = spots.map((spot) => {
+		const key = [...spot.classList].find((name) => name.startsWith('elementor-repeater-item-'))?.slice(24);
+		const layer = document.createElement('div');
+		layer.className = 'dl-hero-after dl-hero-after--' + key;
+		const picture = source.cloneNode();
+		picture.removeAttribute('fetchpriority');
+		picture.alt = '';
+		layer.append(picture);
+		spots[0].before(layer);
+		return layer;
+	});
+
+	const show = (index) => {
+		layers.forEach((layer, i) => layer.classList.toggle('is-on', i === index));
+		art.classList.toggle('is-focus', index > -1);
 	};
 
-	hero.addEventListener('pointermove', (event) => {
-		const box = hero.getBoundingClientRect();
-		move((event.clientX - box.left) / box.width - 0.5, (event.clientY - box.top) / box.height - 0.5);
+	spots.forEach((spot, index) => {
+		spot.addEventListener('pointerenter', (event) => event.pointerType === 'mouse' && show(index));
+		spot.addEventListener('pointerleave', (event) => event.pointerType === 'mouse' && show(-1));
+		spot.addEventListener('click', (event) => {
+			if (event.pointerType !== 'mouse') {
+				show(layers[index].classList.contains('is-on') ? -1 : index);
+			}
+		});
 	});
-	hero.addEventListener('pointerleave', () => move(0, 0));
 })();
