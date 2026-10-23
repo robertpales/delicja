@@ -76,17 +76,19 @@ Delicja. Polaroid frames (`dl-polaroid` on an Image widget with a custom caption
 caption, slightly rotated), a hand-drawn red underline (`<span class="dl-scribble">` inside a heading), handwritten
 notes (`dl-hand-note`, global font *Handwritten*) with a drawn arrow. Use them sparingly: one or two per section.
 
-### Hero products (`home.css` → `=== Hero ===`, `site.js` → `=== Hero ===`)
-A small food scene like in food advertising: a round wooden board on linen with red Polish folk embroidery sits at the
-bottom of the red panel and runs off its edge like a table. The rye bread and the pierogi lie on the board; the
-doughnut, the jar of dill pickles, the kabanosy and a sprig of dill float above it, with soft shadows on the board that
-shrink as they rise. All are real-looking cut-outs as Image widgets with the class `dl-hero-item
-dl-hero-item--<name>`, files `delicja-hero-<name>.webp` on a transparent background. Motion design: the board rises,
-the bread and pierogi drop onto it, the rest pops in; then the floating ones drift slowly, and with a mouse everything
-moves a little against the pointer, the nearer things more. No motion with *reduced motion*. The owner can swap a
-picture in Elementor; a new one should be a cut-out of a similar size and light (soft daylight from the upper left).
-`inc/hero.php` loads them without lazy loading; the board stays the first item, so Elementor gives it the high fetch
-priority.
+### Hero table (`home.css` → `=== Hero ===`, `site.js` → `=== Hero ===`)
+One styled photo of a Polish table on linen with red folk embroidery: rye bread, kabanosy and a knife on a wooden
+board, a glazed doughnut on a porcelain plate, a jar of dill pickles with dill, fried pierogi on an enamel plate. It
+sits at the bottom right of the red panel and runs off its bottom edge. Nothing moves on its own. Elementor
+**Hotspot** widget (`dl-hero-scene`): one invisible hotspot over each product (`_id` paczek, bread, kabanosy,
+pickles, pierogi; position in Elementor, size in `home.css`); the tooltip is the product's story: name in bold, one
+short sentence (editable in Elementor). With the mouse on a product (a tap on phones) the rest of the table dims a
+little, the story shows, and the product changes: the doughnut gets a bite, the bread a slice cut off, the jar is
+opened, a dumpling is cut in half, a kabanos is snapped. The changed state is a second, aligned photo (hidden Image
+widget `dl-hero-scene-after`, `delicja-scene-after.webp`) shown only around that product. **Versions to compare**
+until one is chosen: `/?hero=stories` (story only), `/?hero=bites` (change only), `/` both. A new photo must be
+re-generated together with its "after" photo, at the same size and alignment. `inc/hero.php` loads the table photo
+without lazy loading; it stays the first image in the hero, so Elementor gives it the high fetch priority.
 
 ### Delicja bag (`inc/hero.php`, `site.css` → `=== Delicja bag ===`)
 A simple drawing of a smiling Delicja paper bag with rye bread, a ring of sausage, a jar of pickles and dill. It hops,
@@ -153,7 +155,7 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
    Shop · Categories (all categories) · Deals · About us · Contact, address link. Mobile: hamburger menu.
 2. Hero on a red panel with paper grain: "Polish deli in the heart of Herning" in Anton (H1) with a handwritten line
    and a hand-drawn underline under "Herning", a short lead, a "Browse the shop" pill, a "Visit us in Herning" link
-   (About us → Visit us) and the food scene (see Hero products).
+   (About us → Visit us) and the table with Polish food (see Hero table).
 3. "Shop by category" with a "See all" link to the shop, then the category tiles (live, category order, images
    and product counts from WooCommerce), 6 per row on desktop, horizontal scroll below 1024 px.
 4. "Weekly deals" (live, products on sale, carousel). Hidden while nothing is on sale (body class `dl-no-deals`

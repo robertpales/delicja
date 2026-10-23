@@ -81,6 +81,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 
 ## Matej
 
+- [ ] Choose the homepage hero version (`/?hero=stories`, `/?hero=bites` or `/` both), then remove the `?hero=` switch
+  and the unused code (`site.js` and `home.css`, Hero).
 - [ ] Continue the design, but now unify and finish it rather than change it: give the site its final look,
   keep what is already done and avoid big changes.
   - [ ] Style the product page (template Single Product) in the site style.

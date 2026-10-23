@@ -13,6 +13,10 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Homepage hero: one styled table with all the products (bread and kabanosy on a board, doughnut on its own plate,
+  pickles with dill, pierogi on an enamel plate). Nothing moves until the mouse is on a product: it tells a one-line
+  story and changes (a bite from the doughnut, a slice of bread, an opened jar, a cut dumpling, a snapped kabanos).
+  Three versions to compare: `/?hero=stories`, `/?hero=bites`, `/` both. *(partly database)*
 - Homepage hero: the products got a setting. A round wooden board on linen with red Polish folk embroidery runs off
   the bottom of the red panel like a table; bread and pierogi lie on it, the other products float above it with soft
   shadows on the board. *(partly database)*
