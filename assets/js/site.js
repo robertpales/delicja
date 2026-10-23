@@ -180,3 +180,86 @@
 		});
 	});
 })();
+
+/* === About story === */
+// About us, "It all starts with a taste": a red-and-white baker's twine runs from each chapter photo to the next,
+// like photos strung on a line, zigzagging between the left and the right column. One SVG behind the photos; each
+// piece draws itself when the next photo scrolls into view. Only where the photos sit side by side (782 px and up).
+(() => {
+	const story = document.querySelector('.dl-about-story');
+	const photos = story ? [...story.querySelectorAll('.dl-chapter .dl-about-photo')] : [];
+	if (photos.length < 2) {
+		return;
+	}
+
+	const ns = 'http://www.w3.org/2000/svg';
+	const make = (name, attributes = {}) => {
+		const element = document.createElementNS(ns, name);
+		Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+		return element;
+	};
+
+	const svg = make('svg', { class: 'dl-twine', 'aria-hidden': 'true' });
+	const pieces = photos.slice(1).map((photo, index) => {
+		const id = 'dl-twine-' + index;
+		const reveal = make('path', { class: 'dl-twine-reveal', pathLength: '1' });
+		const mask = make('mask', { id, maskUnits: 'userSpaceOnUse' });
+		const group = make('g', { mask: 'url(#' + id + ')' });
+		const base = make('path', { class: 'dl-twine-base' });
+		const stripe = make('path', { class: 'dl-twine-stripe' });
+		mask.append(reveal);
+		group.append(base, stripe);
+		svg.append(mask, group);
+		return { mask, group, paths: [reveal, base, stripe] };
+	});
+	story.prepend(svg);
+
+	const wide = matchMedia('(min-width: 782px)');
+	const draw = () => {
+		svg.style.display = wide.matches ? '' : 'none';
+		if (!wide.matches) {
+			return;
+		}
+		const box = story.getBoundingClientRect();
+		svg.setAttribute('width', box.width);
+		svg.setAttribute('height', box.height);
+		pieces.forEach((piece, index) => {
+			const from = photos[index].getBoundingClientRect();
+			const to = photos[index + 1].getBoundingClientRect();
+			const x1 = from.left + from.width / 2 - box.left;
+			const y1 = from.bottom - box.top - 40;
+			const x2 = to.left + to.width / 2 - box.left;
+			const y2 = to.top - box.top + 16;
+			const drop = Math.max(150, (y2 - y1) * 0.6 + 150);
+			const d = `M${x1} ${y1}C${x1} ${y1 + drop} ${x2} ${y2 - drop} ${x2} ${y2}`;
+			piece.paths.forEach((path) => path.setAttribute('d', d));
+			['x', 'y'].forEach((key) => piece.mask.setAttribute(key, 0));
+			piece.mask.setAttribute('width', box.width);
+			piece.mask.setAttribute('height', box.height);
+		});
+	};
+
+	new ResizeObserver(draw).observe(story);
+	wide.addEventListener('change', draw);
+
+	// The chapter number stamps press in as their chapter scrolls into view.
+	const chapters = [...story.querySelectorAll('.dl-chapter')];
+	chapters.forEach((chapter) => chapter.classList.add('is-waiting'));
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) {
+				return;
+			}
+			if (entry.target.classList.contains('dl-chapter')) {
+				entry.target.classList.replace('is-waiting', 'is-in');
+			} else {
+				pieces[photos.indexOf(entry.target) - 1]?.mask.classList.add('is-drawn');
+			}
+			observer.unobserve(entry.target);
+		});
+	}, { threshold: 0.25 });
+	photos.slice(1).forEach((photo) => observer.observe(photo));
+	chapters.forEach((chapter) => observer.observe(chapter));
+})();
+

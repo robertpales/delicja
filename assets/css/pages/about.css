@@ -240,27 +240,56 @@
     overflow: visible;
 }
 
-.dl-chapter::before {
-    content: "";
+.dl-about .dl-about-story {
+    position: relative;
+}
+
+.dl-twine {
     position: absolute;
     top: 0;
-    bottom: calc(-1 * var(--dl-space-60));
-    left: 50%;
-    width: 14px;
-    height: auto;
-    translate: -50% 0;
-    background-color: color-mix(in srgb, var(--e-global-color-primary) 55%, transparent);
-    -webkit-mask: url("../../images/hand/squiggle.svg") center top / 14px 56px repeat-y;
-    mask: url("../../images/hand/squiggle.svg") center top / 14px 56px repeat-y;
+    left: 0;
+    z-index: 0;
+    overflow: visible;
     pointer-events: none;
 }
 
-.dl-about-story-head + .dl-chapter::before {
-    top: 50%;
+.dl-twine-base,
+.dl-twine-stripe,
+.dl-twine-reveal {
+    fill: none;
+    stroke-linecap: round;
 }
 
-.dl-about-story > .dl-chapter:last-child::before {
-    bottom: 50%;
+.dl-twine-base {
+    stroke: var(--e-global-color-primary);
+    stroke-width: 3.5;
+    filter: drop-shadow(0 2px 2px color-mix(in srgb, var(--e-global-color-text) 18%, transparent));
+}
+
+.dl-twine-stripe {
+    stroke: var(--e-global-color-dlwhite);
+    stroke-width: 3.5;
+    stroke-dasharray: 2.5 5.5;
+    stroke-linecap: butt;
+}
+
+.dl-twine-reveal {
+    stroke: var(--e-global-color-dlwhite);
+    stroke-width: 14;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.6s cubic-bezier(0.45, 0, 0.25, 1);
+}
+
+.dl-twine .is-drawn .dl-twine-reveal {
+    stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-twine-reveal {
+        stroke-dashoffset: 0;
+        transition: none;
+    }
 }
 
 .dl-chapter > .dl-chapter-photo {
@@ -278,6 +307,7 @@
 
 .dl-about .dl-chapter > .dl-chapter-photo > .dl-about-photo {
     position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 26rem;
     margin-inline: auto;
@@ -335,6 +365,24 @@
     rotate: 5deg;
 }
 
+.dl-about .dl-chapter .dl-chapter-text > .dl-chapter-number {
+    transition:
+        scale 0.5s cubic-bezier(0.34, 1.8, 0.64, 1),
+        opacity 0.25s ease;
+}
+
+.dl-about .dl-chapter.is-waiting .dl-chapter-text > .dl-chapter-number {
+    opacity: 0;
+    scale: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-about .dl-chapter.is-waiting .dl-chapter-text > .dl-chapter-number {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
 .dl-chapter-number p {
     font-family: var(--e-global-typography-dldisplay-font-family), sans-serif;
     font-size: 1.75rem;
@@ -359,10 +407,6 @@
 @media (max-width: 781px) {
     .dl-chapter {
         --align-items: stretch;
-    }
-
-    .dl-chapter::before {
-        display: none;
     }
 
     .dl-chapter > .dl-chapter-photo,

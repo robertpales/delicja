@@ -13,6 +13,8 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- About us chapters: instead of one wavy line, a red-and-white baker's twine runs zigzag from photo to photo and
+  draws itself while scrolling; the number stamps press in as each chapter appears.
 - Header no longer generic: linen background like a tablecloth with a red cross-stitch band along the bottom, a
   stitched line between the rows, hand-drawn red underline in the menu, "Come say hi!" by the address, the Shop
   dropdown shows the category pictures, and the search says "Search for sausages, sweets…". *(partly database)*

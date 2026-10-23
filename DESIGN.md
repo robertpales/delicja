@@ -198,7 +198,9 @@ zoom. The related product cards do the same.
   cart icon) and no footer, like WooCommerce's own checkout. Payment, shipping and tax logic belong to Robo.
 - **My account, legal pages, Deals:** title + page content (Page template). Legal texts [TODO].
 - **About us:** page built in Elementor, CSS in `assets/css/pages/about.css`. The four chapters of "It all starts
-  with a taste" hang on a hand-drawn red line with round number stamps; photos in white frames with tape.
+  with a taste": photos in white frames with tape, joined zigzag by a red-and-white baker's twine (`site.js`, About
+  story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
+  only the stamps.
 - **Contact** (`/kontakt/`): page built in Elementor, CSS in `assets/css/pages/kontakt.css`. "Come say hi" with a
   hand-drawn picture of the shop front (`delicja-shop-front-drawing.webp`), Get directions and Call us; six cards
   (address, phone, e-mail, opening hours on Google Maps, Instagram, company and CVR); a red "Not in Herning?" panel
