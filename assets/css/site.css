@@ -2189,6 +2189,35 @@ table.wc-block-cart-items td {
     pointer-events: none;
 }
 
+/* === Picture reveal === */
+.dl-reveal-layer {
+    --dl-mask: radial-gradient(ellipse var(--dl-mask-rx) var(--dl-mask-ry) at var(--dl-mask-x) var(--dl-mask-y), #000 60%, transparent);
+    --dl-mask-2: radial-gradient(ellipse var(--dl-mask2-rx, var(--dl-mask-rx)) var(--dl-mask2-ry, var(--dl-mask-ry)) at var(--dl-mask2-x, var(--dl-mask-x)) var(--dl-mask2-y, var(--dl-mask-y)), #000 60%, transparent);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    -webkit-mask: var(--dl-mask), var(--dl-mask-2);
+    mask: var(--dl-mask), var(--dl-mask-2);
+}
+
+.dl-reveal-layer img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.dl-reveal-layer.is-on {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-reveal-layer {
+        transition: none;
+    }
+}
+
 /* === Product facts === */
 .dl-facts {
     display: grid;
@@ -2438,7 +2467,7 @@ table.wc-block-cart-items td {
 }
 
 .dl-soon-title .elementor-heading-title {
-    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.85);
+    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.7);
     text-transform: uppercase;
 }
 
@@ -2509,11 +2538,12 @@ table.wc-block-cart-items td {
     content: "";
     width: 3.5rem;
     height: 2.6rem;
-    margin-inline-end: -2.5rem;
+    margin-inline-end: -1rem;
     background-color: currentColor;
     -webkit-mask: url("../images/hand/arrow.svg") center / contain no-repeat;
     mask: url("../images/hand/arrow.svg") center / contain no-repeat;
-    rotate: 70deg;
+    rotate: -60deg;
+    scale: -1 1;
 }
 
 @keyframes dl-soon-pack {

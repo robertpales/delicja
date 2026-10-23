@@ -134,22 +134,6 @@
     display: none;
 }
 
-.dl-hero-after {
-    --dl-mask: radial-gradient(ellipse var(--dl-mask-rx) var(--dl-mask-ry) at var(--dl-mask-x) var(--dl-mask-y), #000 60%, transparent);
-    --dl-mask-2: radial-gradient(ellipse var(--dl-mask2-rx, var(--dl-mask-rx)) var(--dl-mask2-ry, var(--dl-mask-ry)) at var(--dl-mask2-x, var(--dl-mask-x)) var(--dl-mask2-y, var(--dl-mask-y)), #000 60%, transparent);
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.45s ease;
-    -webkit-mask: var(--dl-mask), var(--dl-mask-2);
-    mask: var(--dl-mask), var(--dl-mask-2);
-}
-
-.dl-hero-after.is-on {
-    opacity: 1;
-}
-
 .dl-hero-after--paczek {
     --dl-mask-x: 17%;
     --dl-mask-y: 45%;
@@ -294,8 +278,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .dl-hero-scene img,
-    .dl-hero-after {
+    .dl-hero-scene img {
         transition: none;
     }
 }

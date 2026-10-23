@@ -13,6 +13,13 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Contact shop front works like the homepage hero: each spot really changes the photo and means a way to Delicja.
+  The shelves fill up (see the shop), the door opens with a doormat (directions), coffee and cake appear in the
+  window with rising steam (our story), a delivery bike rolls in (shop online). Small pulsing dots show where to
+  look. The hero and the contact page share one "Picture reveal" code. *(partly database)*
+- Shop, categories, cart and checkout no longer show WooCommerce's grey "Great things are on the horizon" while the
+  shop is in Coming soon mode, but Delicja's own "Almost ready, we're packing the first boxes" page (Elementor
+  template, editable). *(partly database)*
 - "Added to your cart" message is now a small card: the product's picture with a red check, a handwritten "Added to
   your cart", the product name and a red "View cart" button; it slides in, without the thick black frame.
 - Contact page: the drawing is replaced by a realistic photo of the real shop front, made from Google Street View

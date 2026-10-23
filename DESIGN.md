@@ -213,13 +213,23 @@ zoom. The related product cards do the same.
   story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
   only the stamps.
 - **Contact** (`/kontakt/`): page built in Elementor, CSS in `assets/css/pages/kontakt.css`. "Come say hi" with a
-  realistic photo of the real shop front (`delicja-shop-front.webp`, made from the Google Street View picture of
-  Bethaniagade 5, May 2025, and the photo of the window logo) as a Hotspot widget: with the mouse on it the shop
-  lights up as on a winter evening (`delicja-shop-front-evening.webp`, aligned, made from the day photo) and the
-  shelves, the door and the window tell a one-line story. Get directions and Call us; six cards (address, phone,
-  e-mail, opening hours on Google Maps, Instagram, company and CVR): the whole card is the link, its icon moves its
-  own way on hover (the pin drops, the phone rings, the letter flies off, the clock turns, the camera flashes) and a
-  hand-drawn arrow points in; a red "Not in Herning?" panel with an opened delivery box.
+  realistic photo of the real shop front (`delicja-shop-front-day.webp`, made from the Google Street View picture of
+  Bethaniagade 5, May 2025, and the photo of the window logo) as a Hotspot widget with small pulsing dots. Each spot is
+  a way to Delicja and changes the photo (Picture reveal, below): the shelves fill up ("Full shelves", link to the
+  shop), the door opens with a doormat ("Come in!", directions), coffee and cake appear in the window with rising
+  steam ("Stay for coffee", our story), a delivery bike rolls in ("Not in Herning?", shop online). The changed photo
+  is `delicja-shop-front-open.webp` (hidden Image widget `dl-contact-shop-after`, aligned). Get directions and Call
+  us; six cards (address, phone, e-mail, opening hours on Google Maps, Instagram, company and CVR): the whole card is
+  the link, its icon moves its own way on hover and a hand-drawn arrow points in; a red "Not in Herning?" panel with
+  an opened delivery box.
+- **Picture reveal** (`site.js` → `=== Picture reveal ===`, `site.css` → `=== Picture reveal ===`): the system behind
+  the homepage hero and the contact shop front. A Hotspot widget with the photo, plus a hidden Image widget with the
+  same photo after a change (same size, aligned). With the mouse on a hotspot (a tap on phones) the changed photo
+  shows only around it (mask per hotspot id in the page CSS), the rest dims, the tooltip tells the story.
+- **Coming soon screen:** while the store is in WooCommerce's "Coming soon" mode, shop, category, cart and checkout
+  pages show the Elementor template "Coming soon (shop)" (Templates → Saved Templates) instead of WooCommerce's
+  default: a red panel "Almost ready, we're packing the first boxes", the shop's address, Get directions and
+  Instagram, the delivery box rocking now and then (`inc/woocommerce.php`, `site.css` → `=== Coming soon ===`).
 - **404:** "Nothing found."
 - **Notices** ("added to your cart", errors) use WooCommerce's block notice banners.
 

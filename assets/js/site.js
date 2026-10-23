@@ -131,36 +131,28 @@
 	}
 })();
 
-/* === Hero === */
-// Homepage hero: a table with Polish food (Elementor Hotspot widget, one hotspot per product). Nothing moves until
-// the mouse is on a product (a tap on phones): the rest of the table dims a little, the product's short story shows
-// (the hotspot tooltip) and the product changes, the doughnut gets a bite, the bread a slice cut off (the second
-// picture, hidden Image widget "dl-hero-scene-after", shown on the table only around that product, under the
-// tooltips; mask per product in home.css).
-// Versions to compare, until one is chosen: ?hero=stories (story only), ?hero=bites (change only), default both.
-(() => {
-	const hero = document.querySelector('.dl-hero');
-	const art = hero?.querySelector('.dl-hero-art');
-	const after = art?.querySelector('.dl-hero-scene-after img');
-	const spots = art ? [...art.querySelectorAll('.dl-hero-scene .e-hotspot')] : [];
-	if (!after || !spots.length) {
+/* === Picture reveal === */
+// A photo in an Elementor Hotspot widget (one hotspot per thing in the photo) and a hidden Image widget with the same
+// photo after a change, aligned. Nothing moves until the mouse is on a hotspot (a tap on phones): the changed photo
+// shows only around that hotspot (a layer per hotspot, class <prefix>--<hotspot id>, mask in the page CSS), the rest
+// of the photo dims a little (class is-focus on the container) and the tooltip tells the story.
+const delicjaReveal = (art, scene, after, prefix, source = null) => {
+	const changed = art?.querySelector(after + ' img');
+	const spots = art ? [...art.querySelectorAll(scene + ' .e-hotspot')] : [];
+	if (!changed || !spots.length) {
 		return;
 	}
-	const table = spots[0].parentElement;
-
-	const version = new URLSearchParams(location.search).get('hero') || 'both';
-	hero.dataset.dlHero = version;
-	// The story-only version keeps the product as it is: it stays bright while the rest dims.
-	const source = version === 'stories' ? table.querySelector(':scope > img') : after;
+	const picture = source || changed;
 
 	const layers = spots.map((spot) => {
 		const key = [...spot.classList].find((name) => name.startsWith('elementor-repeater-item-'))?.slice(24);
 		const layer = document.createElement('div');
-		layer.className = 'dl-hero-after dl-hero-after--' + key;
-		const picture = source.cloneNode();
-		picture.removeAttribute('fetchpriority');
-		picture.alt = '';
-		layer.append(picture);
+		layer.className = 'dl-reveal-layer ' + prefix + ' ' + prefix + '--' + key;
+		const copy = picture.cloneNode();
+		copy.removeAttribute('fetchpriority');
+		copy.removeAttribute('loading');
+		copy.alt = '';
+		layer.append(copy);
 		spots[0].before(layer);
 		return layer;
 	});
@@ -179,7 +171,31 @@
 			}
 		});
 	});
+};
+
+/* === Hero === */
+// Homepage hero: a table with Polish food. On a product its story shows and the product changes: the doughnut gets
+// a bite, the bread a slice cut off (Picture reveal; masks in home.css).
+// Versions to compare, until one is chosen: ?hero=stories (story only), ?hero=bites (change only), default both.
+(() => {
+	const hero = document.querySelector('.dl-hero');
+	const art = hero?.querySelector('.dl-hero-art');
+	if (!art) {
+		return;
+	}
+
+	const version = new URLSearchParams(location.search).get('hero') || 'both';
+	hero.dataset.dlHero = version;
+	// The story-only version keeps the product as it is: it stays bright while the rest dims.
+	const source = version === 'stories' ? art.querySelector('.dl-hero-scene .elementor-widget-container > img') : null;
+	delicjaReveal(art, '.dl-hero-scene', '.dl-hero-scene-after', 'dl-hero-after', source);
 })();
+
+/* === Contact === */
+// Contact page: the shop front. Each spot is a way to Delicja: come in (the door opens), stay for coffee (coffee and
+// cake appear in the window), shop (the shelves fill up), or get it delivered (a bike with a box arrives).
+// Picture reveal; masks in kontakt.css.
+delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.dl-contact-shop-after', 'dl-shop-after');
 
 /* === About story === */
 // About us, "It all starts with a taste": a red-and-white baker's twine runs from each chapter photo to the next,
