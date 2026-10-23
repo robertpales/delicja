@@ -224,6 +224,74 @@ body .wp-block-button__link:focus,
     text-align: center;
 }
 
+/* === Handmade === */
+.dl-hand-note {
+    rotate: -4deg;
+    transform-origin: 0 100%;
+}
+
+.dl-scribble {
+    position: relative;
+    white-space: nowrap;
+}
+
+.dl-scribble::after {
+    content: "";
+    position: absolute;
+    right: -0.1em;
+    bottom: -0.3em;
+    left: -0.1em;
+    height: 0.36em;
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: url("../images/hand/underline.svg") center / 100% 100% no-repeat;
+    mask: url("../images/hand/underline.svg") center / 100% 100% no-repeat;
+    pointer-events: none;
+}
+
+.elementor-widget.dl-polaroid .wp-caption {
+    position: relative;
+    max-width: none;
+    margin: 0;
+    padding: var(--dl-space-20) var(--dl-space-20) 0;
+    background-color: var(--e-global-color-dlwhite);
+    box-shadow: var(--dl-shadow-pop);
+}
+
+.elementor-widget.dl-polaroid .wp-caption::before {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    left: 50%;
+    z-index: 1;
+    width: 5.5rem;
+    height: 1.5rem;
+    translate: -50% 0;
+    rotate: -3deg;
+    background-color: color-mix(in srgb, var(--e-global-color-primary) 22%, transparent);
+    -webkit-mask: url("../images/hand/tape.svg") center / 100% 100% no-repeat;
+    mask: url("../images/hand/tape.svg") center / 100% 100% no-repeat;
+}
+
+.elementor-widget.dl-polaroid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.elementor-widget.dl-polaroid .widget-image-caption {
+    margin: 0;
+    padding: var(--dl-space-20) var(--dl-space-10) var(--dl-space-30);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlhand-font-family);
+    font-size: calc(var(--e-global-typography-dlhand-font-size) * 0.75);
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: var(--e-global-typography-dlhand-line-height);
+    letter-spacing: var(--e-global-typography-dlhand-letter-spacing);
+    text-align: center;
+}
+
 /* === Icon links === */
 .dl-icon-link p {
     display: flex;

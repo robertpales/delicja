@@ -33,7 +33,8 @@ Built from the shop's original wordmark SVG; do not redraw the lettering.
 Text must meet WCAG AA contrast.
 
 ### Fonts → Elementor Global Fonts (*Site Settings → Global Fonts*)
-**Plus Jakarta Sans** for everything, **Anton** only for the homepage hero headline. Both are self-hosted in
+**Plus Jakarta Sans** for everything, **Anton** only for the homepage hero headline, **Caveat** (handwriting) only
+for small handmade notes and photo captions. All are self-hosted in
 `assets/fonts/` (OFL) and registered in Elementor by `inc/fonts.php`. Every global font has an explicit line height
 and letter spacing. Fluid sizes are `clamp()`.
 
@@ -54,11 +55,18 @@ and letter spacing. Fluid sizes are `clamp()`.
 | Product name (`dlpname`) | 16 px | 600 / 1.35 | product card |
 | Price (`dlprice`) | 18–20 px | 700 / 1.6 | product card |
 | Badge (`dlbadge`) | 13 px | 700 / 1 | "-20%" and tag badges |
+| Handwritten (`dlhand`) | 24–30 px | Caveat 600 / 1.1 | handmade notes ("Zapraszamy!"), polaroid captions (75 %) |
 | Menu, Submenu, Mobile menu, FAQ question | | | header menus, FAQ |
 
 ### Ornament (`assets/images/folk/`)
 Single-colour SVGs used from CSS only: `grain.svg` (paper grain on red panels), `band.svg` (folk band on the
 about page).
+
+### Handmade touches (`assets/images/hand/`, `site.css` → `=== Handmade ===`)
+Real photos of the shop and of Elżbieta beat any generated image: use them wherever people should feel who is behind
+Delicja. Polaroid frames (`dl-polaroid` on an Image widget with a custom caption: white frame, tape, handwritten
+caption, slightly rotated), a hand-drawn red underline (`<span class="dl-scribble">` inside a heading), handwritten
+notes (`dl-hand-note`, global font *Handwritten*) with a drawn arrow. Use them sparingly: one or two per section.
 
 ### Buttons
 Red, rounded (12 px), white text; hover darker red. Outline variant: red border (`dl-btn-secondary`).
@@ -100,8 +108,9 @@ matches. Delete it and it must disappear.
 
 Loop items (*Templates → Loop Items*): **Product card** (105, homepage and shop), **Related product card** (338,
 WooCommerce's default card: related products and search results), **Category tile** (333: tall light tile with the
-category name in red, the product count (`[dl_cat_count]`, nothing when empty) and the category image at the
-bottom; the first tile is red, and the red moves to the tile under the mouse).
+category name in red, the product count (`[dl_cat_count]`, nothing when empty) and the category photo in a rounded
+frame at the bottom; the first tile is red, and the red moves to the tile under the mouse). Category photos are
+natural kitchen-table photos (`delicja-category-<slug>.webp`, 800 px, daylight, wooden table, no labels).
 The front page (11) and About us (118) are pages built in Elementor (template *Elementor Full Width*).
 
 ## Product card (homepage and shop)
@@ -121,11 +130,13 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
    and product counts from WooCommerce), 6 per row on desktop, horizontal scroll below 1024 px.
 4. "Weekly deals" (live, products on sale, carousel). Message when nothing is on sale.
 5. Two promo panels ("The taste of a Polish Sunday", "Sweets like at babcia's").
+5a. "A little Polish shop on Bethaniagade" (`dl-story`): three real photos as polaroids (coffee and cake, pączki,
+   the shop window), a handwritten "Zapraszamy!", the story from About us, buttons Our story and Get directions.
 6. "Our favourites" (live, featured products) with category chips.
 7. "New arrivals" (live, newest products) with a red promo tile.
 8. Four promises (genuine Polish products, delivery, payment, family shop) [TODO confirm with the owner].
 9. "Questions and answers" (FAQ accordion) and a "More questions?" box [TODO final answers].
-10. "Follow Delicja" with the Instagram link.
+10. "Follow Delicja" with the Instagram link and two real photos as polaroids.
 11. Footer (Theme Builder): round logo, short text, payment icons, menus Shop and Information, contact,
     copyright line. Company name + CVR [TODO] (required by Danish law), opening hours [TODO].
 

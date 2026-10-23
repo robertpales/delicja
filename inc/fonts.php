@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 add_filter( 'elementor/fonts/additional_fonts', function ( $fonts ) {
 	$fonts['Plus Jakarta Sans'] = 'system';
 	$fonts['Anton']             = 'system';
+	$fonts['Caveat']            = 'system';
 
 	return $fonts;
 } );

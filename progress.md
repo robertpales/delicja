@@ -15,6 +15,9 @@ through Novamira, so they are not in git.
 **Matej**
 - Category photos: 12 new natural photos (Polish home kitchen, daylight, wooden table) with alt texts; the old
   cut-out images stay in the media library. *(database)* Category tiles show the photo in a rounded frame.
+- Homepage feels more human: new section "A little Polish shop on Bethaniagade" with real photos of the shop and
+  Elżbieta as polaroids, handwritten "Zapraszamy!" (self-hosted Caveat font) and a hand-drawn underline; the
+  "Follow Delicja" box shows real photos instead of generated cut-outs. *(partly database)*
 
 **Robo**
 - Schema.org structured data (`inc/schema.php`): company (GroceryStore + OnlineStore with CVR, VAT, address, GPS),
