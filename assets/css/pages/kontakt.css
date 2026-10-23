@@ -28,6 +28,7 @@
 }
 
 .dl-contact-hero > .dl-contact-art {
+    --padding-top: var(--dl-space-70);
     position: relative;
     flex: 0 1 56%;
     min-width: 0;
@@ -227,6 +228,12 @@
         flex-basis: auto;
     }
 
+    .dl-contact-hero > .dl-contact-art {
+        align-self: center;
+        width: 100%;
+        max-width: 34rem;
+    }
+
     .dl-contact .dl-contact-online {
         --padding-right: var(--dl-space-50);
         --padding-left: var(--dl-space-50);
@@ -234,5 +241,13 @@
 
     .dl-contact-online > .elementor-widget.dl-contact-bag {
         flex-basis: 9rem;
+    }
+}
+
+@media (max-width: 599px) {
+    .dl-contact-online > .elementor-widget.dl-contact-bag {
+        flex: 0 0 auto;
+        align-self: center;
+        width: min(10rem, 60%);
     }
 }
