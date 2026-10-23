@@ -13,6 +13,9 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Contact page (`/kontakt/`): "Come say hi" with a hand-drawn picture of the shop front, buttons for directions and
+  calling, cards for address, phone, e-mail, opening hours (Google Maps), Instagram and company details, and a red
+  "Not in Herning? Order online" panel with the Delicja bag. The Page template no longer applies to it. *(database)*
 - About us, "It all starts with a taste": the four chapters are joined by a hand-drawn red line with round number
   stamps on it; photos in white frames with tape, slightly tilted (straighten on hover).
 - Homepage hero: "Polish deli in the heart of Herning" in Anton with a handwritten line and a hand-drawn underline,
