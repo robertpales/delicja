@@ -333,7 +333,18 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
+    .dl-cart .elementor-widget-woocommerce-cart .e-cart__container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .dl-cart .elementor-widget-woocommerce-cart .e-cart__column-end {
+        justify-self: end;
+        width: min(100%, 30rem);
+    }
+}
+
+@media (max-width: 768px) {
     .dl-cart .elementor-widget-woocommerce-cart table.cart tr.cart_item {
         grid-template-columns: 4.5rem 1fr auto;
     }

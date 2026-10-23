@@ -2972,7 +2972,7 @@ table.wc-block-cart-items td {
     padding: 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .elementor-widget-woocommerce-cart .e-cart__column {
         min-width: 0;
     }
