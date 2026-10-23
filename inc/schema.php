@@ -548,17 +548,36 @@ add_action( 'wp_head', function () {
 	$paged = max( 1, (int) get_query_var( 'paged' ) );
 	$url   = $paged > 1 ? trailingslashit( $url ) . 'page/' . $paged . '/' : $url;
 
-	// Products in the listing on this page, positions continue on later pages.
 	global $wp_query;
-	$items  = [];
-	$offset = ( $paged - 1 ) * (int) $wp_query->get( 'posts_per_page' );
-	foreach ( $wp_query->posts as $i => $p ) {
-		$items[] = [
-			'@type'    => 'ListItem',
-			'position' => $offset + $i + 1,
-			'url'      => get_permalink( $p->ID ),
-			'name'     => wp_strip_all_tags( html_entity_decode( get_the_title( $p->ID ), ENT_QUOTES ) ),
-		];
+	$items = [];
+	if ( ! $term && ! is_search() ) {
+		// The shop page shows the categories with products (template "Shop – categories").
+		$cats = get_terms( [
+			'taxonomy'   => 'product_cat',
+			'parent'     => 0,
+			'hide_empty' => true,
+			'orderby'    => 'menu_order',
+			'exclude'    => [ (int) get_option( 'default_product_cat' ) ],
+		] );
+		foreach ( is_wp_error( $cats ) ? [] : array_values( $cats ) as $i => $cat ) {
+			$items[] = [
+				'@type'    => 'ListItem',
+				'position' => $i + 1,
+				'url'      => get_term_link( $cat ),
+				'name'     => html_entity_decode( $cat->name, ENT_QUOTES ),
+			];
+		}
+	} else {
+		// Products in the listing on this page, positions continue on later pages.
+		$offset = ( $paged - 1 ) * (int) $wp_query->get( 'posts_per_page' );
+		foreach ( $wp_query->posts as $i => $p ) {
+			$items[] = [
+				'@type'    => 'ListItem',
+				'position' => $offset + $i + 1,
+				'url'      => get_permalink( $p->ID ),
+				'name'     => wp_strip_all_tags( html_entity_decode( get_the_title( $p->ID ), ENT_QUOTES ) ),
+			];
+		}
 	}
 
 	$name     = $term ? html_entity_decode( $term->name, ENT_QUOTES ) : get_the_title( $shop );

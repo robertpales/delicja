@@ -1062,6 +1062,29 @@ table.wc-block-cart-items td {
     }
 }
 
+/* Shop page: all categories as a plain grid, no scroller, no highlighted first tile. */
+.dl-cats.dl-cats--all .elementor-loop-container.elementor-grid {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--dl-space-30);
+    overflow: visible;
+    margin-inline: 0;
+    padding: 0;
+}
+
+@media (min-width: 600px) {
+    .dl-cats.dl-cats--all .elementor-loop-container.elementor-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .dl-cats.dl-cats--all .elementor-loop-container.elementor-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--dl-space-40);
+    }
+}
+
 .dl-scroll-hint {
     display: none;
 }
@@ -1216,6 +1239,18 @@ table.wc-block-cart-items td {
 }
 
 .dl-cats:has(.dl-cat:hover) .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) .dl-cat-count {
+    color: var(--e-global-color-accent);
+}
+
+.dl-cats--all .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) {
+    background-color: var(--e-global-color-dlsurface);
+}
+
+.dl-cats--all .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) .dl-cat-label .elementor-heading-title {
+    color: var(--e-global-color-primary);
+}
+
+.dl-cats--all .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) .dl-cat-count {
     color: var(--e-global-color-accent);
 }
 
