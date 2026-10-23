@@ -129,4 +129,19 @@ Prices, stock and images are shared.
 - [ ] Rich Results Test on the front page and a product.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
   Google-Extended) allowed; check `/llms.txt` and the sitemap there. The test site stays `noindex`.
-- [ ] Pages still marked "Indhold mangler" (kontakt, om-os, tilbud, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
+- [ ] Pages still marked "Indhold mangler" (om-os, tilbud, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
+  Kontakt is done (Matej, 2026-10-23).
+
+**SEO check of Matej's changes** (2026-10-23; SEO is Robo's area, so please review, keep or change)
+- [ ] Changes made before the rule "SEO is Robo's" (backups `delicja_backup_rankmath_20261023-1309`,
+  `delicja_backup_seo_pages_20261023-1310`): Rank Math meta title, description and share image for the front page,
+  About us and Shop; excerpts for those pages; `noindex` on cart, checkout, my account and purchase summary;
+  Rank Math's llms.txt module (`llms-txt`) with extra shop facts.
+- [ ] Front page meta description has Polish words (kabanosy, pierogi, ptasie mleczko). Matej wants English names or
+  an explanation in brackets, as on the site (see DESIGN.md → Copy).
+- [ ] New front page H1 "Polish deli in the heart of Herning" and the contact page (`/kontakt/`, H1 "Come say hi",
+  page title "Kontakt"): meta title and description, and whether the slug stays Danish.
+- [ ] "Coming soon": product pages are open by code (`inc/woocommerce.php`), shop, categories and cart stay hidden.
+  Fine for indexing once the mode is off?
+- [ ] WP Fastest Cache: clear the front page when a product gets a sale price, so "Weekly deals" shows up right away
+  (the section is hidden while nothing is on sale).
