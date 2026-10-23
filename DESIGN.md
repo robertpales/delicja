@@ -77,12 +77,16 @@ caption, slightly rotated), a hand-drawn red underline (`<span class="dl-scribbl
 notes (`dl-hand-note`, global font *Handwritten*) with a drawn arrow. Use them sparingly: one or two per section.
 
 ### Hero products (`home.css` → `=== Hero ===`, `site.js` → `=== Hero ===`)
-Real-looking product cut-outs (rye bread, dill pickles, a doughnut, kabanosy, pierogi, dill) as Image widgets with
-the class `dl-hero-item dl-hero-item--<name>`, files `delicja-hero-<name>.webp` on a transparent background. Motion
-design: they pop in one after another, then float slowly in layers, and with a mouse they drift against the pointer,
-the nearer ones more. No motion with *reduced motion*. The owner can swap a picture in Elementor; a new one should be
-a cut-out of a similar size and light (soft daylight from the upper left). `inc/hero.php` loads them without lazy
-loading; the bread stays the first item, so Elementor gives it the high fetch priority.
+A small food scene like in food advertising: a round wooden board on linen with red Polish folk embroidery sits at the
+bottom of the red panel and runs off its edge like a table. The rye bread and the pierogi lie on the board; the
+doughnut, the jar of dill pickles, the kabanosy and a sprig of dill float above it, with soft shadows on the board that
+shrink as they rise. All are real-looking cut-outs as Image widgets with the class `dl-hero-item
+dl-hero-item--<name>`, files `delicja-hero-<name>.webp` on a transparent background. Motion design: the board rises,
+the bread and pierogi drop onto it, the rest pops in; then the floating ones drift slowly, and with a mouse everything
+moves a little against the pointer, the nearer things more. No motion with *reduced motion*. The owner can swap a
+picture in Elementor; a new one should be a cut-out of a similar size and light (soft daylight from the upper left).
+`inc/hero.php` loads them without lazy loading; the board stays the first item, so Elementor gives it the high fetch
+priority.
 
 ### Delicja bag (`inc/hero.php`, `site.css` → `=== Delicja bag ===`)
 A simple drawing of a smiling Delicja paper bag with rye bread, a ring of sausage, a jar of pickles and dill. It hops,
@@ -149,7 +153,7 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
    Shop · Categories (all categories) · Deals · About us · Contact, address link. Mobile: hamburger menu.
 2. Hero on a red panel with paper grain: "Polish deli in the heart of Herning" in Anton (H1) with a handwritten line
    and a hand-drawn underline under "Herning", a short lead, a "Browse the shop" pill, a "Visit us in Herning" link
-   (About us → Visit us) and the floating products (see Hero products).
+   (About us → Visit us) and the food scene (see Hero products).
 3. "Shop by category" with a "See all" link to the shop, then the category tiles (live, category order, images
    and product counts from WooCommerce), 6 per row on desktop, horizontal scroll below 1024 px.
 4. "Weekly deals" (live, products on sale, carousel). Hidden while nothing is on sale (body class `dl-no-deals`

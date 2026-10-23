@@ -13,6 +13,9 @@ through Novamira, so they are not in git.
 ## 2026-10-23
 
 **Matej**
+- Homepage hero: the products got a setting. A round wooden board on linen with red Polish folk embroidery runs off
+  the bottom of the red panel like a table; bread and pierogi lie on it, the other products float above it with soft
+  shadows on the board. *(partly database)*
 - Homepage hero: instead of the cartoon bag, real-looking products (rye bread, dill pickles, a doughnut, kabanosy,
   pierogi, dill) that pop in one by one, float slowly and follow the mouse a little. The bag stays in the New
   arrivals tile and on the contact page. *(partly database)*
