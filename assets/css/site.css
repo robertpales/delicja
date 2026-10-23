@@ -2737,7 +2737,7 @@ table.wc-block-cart-items td {
 }
 
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) > .elementor-widget-container > .woocommerce,
-.dl-store-notices .wc-block-store-notices.alignwide {
+.dl-store-notices .wc-block-store-notices.woocommerce.alignwide {
     width: auto;
     max-width: none;
     margin-inline: 0;

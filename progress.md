@@ -16,6 +16,11 @@ through Novamira, so they are not in git.
 - "Browse the shop" works for visitors: the shop, categories, tags, product search and the cart are open while the
   store is in Coming soon mode; only checkout (and My account) wait until it is switched off. The header cart shows
   for visitors too.
+- Cart page in the shop's style: big "Your cart" with a handwritten "good choices!", product pictures on linen tiles
+  that tilt on hover, round − and + buttons (the cart updates by itself, no "Update cart" button), the coupon as a
+  ticket, and the order summary as a paper receipt with a zigzag edge and a handwritten "Dziękujemy – thank you!".
+  While online ordering is not open yet, a short note says so. An empty cart shows an empty wooden crate with
+  straw that fills up with groceries when you point at it, and a "Browse the shop" button. *(partly database)*
 - New Deals page (`/tilbud/`): big "Deals" with a handwritten "while they last" and all products on sale; with no
   sale it says so and points to the shop. The "Deals" menu item shows only while at least one product is on sale,
   and the page cache is cleared when sales start or end. The red "Sunday" promo's button now leads to ready meals

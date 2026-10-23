@@ -52,8 +52,12 @@
 
 /* === Products === */
 .dl-cart .elementor-widget-woocommerce-cart {
-    --product-link-normal-color: var(--e-global-color-text);
-    --product-link-hover-color: var(--e-global-color-primary);
+    --order-summary-title-color: var(--e-global-color-accent);
+}
+
+.dl-cart .elementor-widget-woocommerce-cart .product-name {
+    --links-normal-color: var(--e-global-color-text);
+    --links-hover-color: var(--e-global-color-primary);
 }
 
 .dl-cart .elementor-widget-woocommerce-cart thead th {
@@ -88,6 +92,7 @@
 
 .dl-cart .elementor-widget-woocommerce-cart .product-name a:hover {
     text-decoration: underline;
+    text-underline-offset: 0.15em;
 }
 
 .dl-cart .elementor-widget-woocommerce-cart table.cart .product-price {
@@ -184,14 +189,22 @@
 .dl-cart .elementor-widget-woocommerce-cart .coupon .coupon-col {
     flex-wrap: nowrap;
     gap: var(--dl-space-20);
+    width: 100%;
+    max-width: 32rem;
 }
 
 .dl-cart .elementor-widget-woocommerce-cart .coupon .coupon-col-start {
-    flex: 1 1 auto;
+    flex: 1 1 0%;
+    padding-inline-end: 0;
 }
 
-.dl-cart .elementor-widget-woocommerce-cart .coupon .coupon-col-start input {
+.dl-cart .elementor-widget-woocommerce-cart .coupon .coupon-col-end {
+    flex: none;
+}
+
+.dl-cart .woocommerce-cart-form .coupon-col-start #coupon_code {
     width: 100%;
+    margin: 0;
 }
 
 /* === Receipt === */
@@ -290,6 +303,18 @@
 
 .dl-cart-empty > .elementor-widget.dl-cart-title {
     margin-block-end: var(--dl-space-30);
+}
+
+.dl-cart-empty .dl-cart-title .elementor-heading-title {
+    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.5);
+}
+
+.dl-cart-empty .dl-cart-title .dl-cart-hand {
+    display: block;
+    width: fit-content;
+    margin: 0.15em auto 0;
+    font-size: 0.6em;
+    vertical-align: baseline;
 }
 
 .dl-cart-empty > .elementor-widget.dl-cart-empty-text {
