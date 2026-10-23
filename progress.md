@@ -12,6 +12,10 @@ through Novamira, so they are not in git.
 
 ## 2026-10-23
 
+**Matej**
+- Category photos: 12 new natural photos (Polish home kitchen, daylight, wooden table) with alt texts; the old
+  cut-out images stay in the media library. *(database)* Category tiles show the photo in a rounded frame.
+
 **Robo**
 - Schema.org structured data (`inc/schema.php`): company (GroceryStore + OnlineStore with CVR, VAT, address, GPS),
   website with product search, pages, products, shop and categories. Rank Math and WooCommerce duplicates switched off.

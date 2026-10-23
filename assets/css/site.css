@@ -1142,9 +1142,9 @@ table.wc-block-cart-items td {
     --row-gap: 0px;
     --align-items: center;
     --padding-top: var(--dl-space-50);
-    --padding-right: var(--dl-space-30);
-    --padding-bottom: 0px;
-    --padding-left: var(--dl-space-30);
+    --padding-right: var(--dl-space-20);
+    --padding-bottom: var(--dl-space-20);
+    --padding-left: var(--dl-space-20);
     position: relative;
     height: 100%;
     overflow: hidden;
@@ -1197,17 +1197,24 @@ table.wc-block-cart-items td {
     transition: color var(--dl-transition);
 }
 
+.dl-cat > .elementor-widget.dl-cat-sub {
+    margin-block-end: var(--dl-space-40);
+}
+
 .dl-cat > .elementor-widget.dl-cat-image {
-    width: calc(100% + 2 * var(--dl-space-30));
-    margin: auto calc(-1 * var(--dl-space-30)) -14%;
-    padding-block-start: var(--dl-space-30);
+    width: 100%;
+    margin: auto 0 0;
+    overflow: hidden;
+    border-radius: var(--dl-radius-lg);
 }
 
 .dl-cat .dl-cat-image img {
     display: block;
     width: 100%;
     height: auto;
-    transform-origin: 50% 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: 50% 85%;
     transition: scale var(--dl-transition);
 }
 
