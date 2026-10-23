@@ -1108,6 +1108,64 @@ table.wc-block-cart-items td {
     mix-blend-mode: multiply;
 }
 
+.dl-card .dl-card-image,
+.dl-mini-card .dl-mini-card-image {
+    position: relative;
+}
+
+.dl-card .dl-card-image::before,
+.dl-mini-card .dl-mini-card-image::before {
+    content: "";
+    position: absolute;
+    right: 26%;
+    bottom: 6%;
+    left: 26%;
+    height: 7%;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--e-global-color-text) 32%, transparent), transparent);
+    opacity: 0;
+    scale: 0.85 1;
+    transition:
+        opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        scale 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dl-card .dl-card-image img,
+.dl-mini-card .dl-mini-card-image img {
+    position: relative;
+    transform-origin: 50% 85%;
+    transition:
+        translate 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        rotate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dl-card:hover .dl-card-image::before,
+.dl-mini-card:hover .dl-mini-card-image::before {
+    opacity: 1;
+    scale: 1;
+}
+
+.dl-card:hover .dl-card-image img,
+.dl-mini-card:hover .dl-mini-card-image img {
+    translate: 0 -0.3rem;
+    rotate: -1.5deg;
+}
+
+.e-loop-item:nth-child(even) .dl-card:hover .dl-card-image img,
+.e-loop-item:nth-child(even) .dl-mini-card:hover .dl-mini-card-image img {
+    rotate: 1.5deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-card:hover .dl-card-image img,
+    .dl-mini-card:hover .dl-mini-card-image img,
+    .e-loop-item:nth-child(even) .dl-card:hover .dl-card-image img,
+    .e-loop-item:nth-child(even) .dl-mini-card:hover .dl-mini-card-image img {
+        translate: none;
+        rotate: none;
+    }
+}
+
 .dl-card-title .elementor-heading-title {
     min-height: calc(2 * 1.35em);
 }
