@@ -131,6 +131,25 @@
 	}
 })();
 
+/* === Cart === */
+// − and + next to the quantity fields on the cart page (inc/cart.php). They change the number as typing would; the
+// Elementor Cart widget then updates the cart by itself. 0 removes the product.
+document.addEventListener('click', (event) => {
+	const button = event.target.closest('.dl-qty-button');
+	const input = button?.parentElement.querySelector('input.qty');
+	if (!input) {
+		return;
+	}
+
+	const step = Number(input.step) || 1;
+	const min = input.min === '' ? 0 : Number(input.min);
+	const max = input.max === '' ? Infinity : Number(input.max);
+	const value = (Number(input.value) || 0) + (button.classList.contains('dl-qty-plus') ? step : -step);
+	input.value = Math.min(max, Math.max(min, value));
+	input.dispatchEvent(new Event('input', { bubbles: true }));
+	input.dispatchEvent(new Event('change', { bubbles: true }));
+});
+
 /* === Picture reveal === */
 // A photo in an Elementor Hotspot widget (one hotspot per thing in the photo) and a hidden Image widget with the same
 // photo after a change, aligned. Nothing moves until the mouse is on a hotspot (a tap on phones): the changed photo
