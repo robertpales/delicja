@@ -53,8 +53,10 @@
 }
 
 .dl-hero > .dl-hero-art {
+    position: relative;
     flex: 0 1 44%;
     min-width: 0;
+    aspect-ratio: 1 / 0.92;
 }
 
 .dl-hero .dl-hero-text > .dl-hero-title {
@@ -102,13 +104,130 @@
     --column-gap: var(--dl-space-50);
 }
 
-.dl-hero .dl-hero-art > .dl-hero-bag {
-    width: min(26rem, 100%);
-    margin-inline: auto;
+.dl-hero .dl-hero-art::before {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    height: auto;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--e-global-color-dlwhite) 20%, transparent), transparent);
 }
 
-.dl-hero-bag:hover .dl-bag {
-    --dl-bag-speed: 1.3s;
+.dl-hero-art > .elementor-widget.dl-hero-item {
+    position: absolute;
+    margin: 0;
+    pointer-events: none;
+    transform: translate3d(calc(var(--dl-hero-x, 0) * var(--dl-depth, 1) * -1rem), calc(var(--dl-hero-y, 0) * var(--dl-depth, 1) * -1rem), 0);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: dl-hero-in 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) var(--dl-delay, 0s) both;
+}
+
+.dl-hero-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    rotate: var(--dl-tilt, 0deg);
+    filter: drop-shadow(0 1.25rem 1rem color-mix(in srgb, var(--e-global-color-text) 45%, transparent));
+    animation: dl-hero-float var(--dl-float, 6s) ease-in-out calc(var(--dl-delay, 0s) * -4) infinite;
+}
+
+.dl-hero-art > .dl-hero-item--dill {
+    --dl-depth: 0.5;
+    --dl-tilt: 24deg;
+    --dl-sway: -6deg;
+    --dl-float: 7s;
+    --dl-delay: 0.05s;
+    top: 1%;
+    left: 40%;
+    z-index: 0;
+    width: 30%;
+}
+
+.dl-hero-art > .dl-hero-item--bread {
+    --dl-depth: 1;
+    --dl-tilt: -6deg;
+    --dl-float: 7.5s;
+    --dl-delay: 0.1s;
+    top: 24%;
+    left: 20%;
+    z-index: 1;
+    width: 54%;
+}
+
+.dl-hero-art > .dl-hero-item--pickles {
+    --dl-depth: 1.75;
+    --dl-tilt: 8deg;
+    --dl-float: 6.5s;
+    --dl-delay: 0.22s;
+    top: 2%;
+    right: 2%;
+    z-index: 2;
+    width: 27%;
+}
+
+.dl-hero-art > .dl-hero-item--paczek {
+    --dl-depth: 2.25;
+    --dl-tilt: -10deg;
+    --dl-sway: 5deg;
+    --dl-float: 5.5s;
+    --dl-delay: 0.34s;
+    top: 4%;
+    left: 4%;
+    z-index: 3;
+    width: 30%;
+}
+
+.dl-hero-art > .dl-hero-item--kabanosy {
+    --dl-depth: 2.75;
+    --dl-tilt: -28deg;
+    --dl-sway: 4deg;
+    --dl-float: 6s;
+    --dl-delay: 0.46s;
+    bottom: -2%;
+    left: 2%;
+    z-index: 4;
+    width: 40%;
+}
+
+.dl-hero-art > .dl-hero-item--pierogi {
+    --dl-depth: 3.25;
+    --dl-tilt: 6deg;
+    --dl-sway: -4deg;
+    --dl-float: 5s;
+    --dl-delay: 0.58s;
+    bottom: 2%;
+    right: 0;
+    z-index: 4;
+    width: 38%;
+}
+
+@keyframes dl-hero-in {
+    from {
+        opacity: 0;
+        translate: 0 3rem;
+        scale: 0.6;
+    }
+}
+
+@keyframes dl-hero-float {
+    0%,
+    100% {
+        translate: 0 0;
+        rotate: var(--dl-tilt, 0deg);
+    }
+
+    50% {
+        translate: 0 calc(var(--dl-lift, 0.75rem) * -1);
+        rotate: calc(var(--dl-tilt, 0deg) + var(--dl-sway, 3deg));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-hero-art > .elementor-widget.dl-hero-item,
+    .dl-hero-item img {
+        animation: none;
+        transition: none;
+    }
 }
 
 @media (max-width: 781px) {
@@ -125,8 +244,9 @@
         flex-basis: auto;
     }
 
-    .dl-hero .dl-hero-art > .dl-hero-bag {
-        width: min(18rem, 86%);
+    .dl-hero > .dl-hero-art {
+        align-self: center;
+        width: min(24rem, 100%);
     }
 }
 

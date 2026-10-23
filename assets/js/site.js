@@ -130,3 +130,28 @@
 		sync();
 	}
 })();
+
+/* === Hero === */
+// Homepage hero: the products float in layers and drift a little against the mouse, the nearer ones more
+// (--dl-depth per product in home.css). Only with a mouse and when the visitor allows motion.
+(() => {
+	const hero = document.querySelector('.dl-hero');
+	if (!hero || !hero.querySelector('.dl-hero-item') || !matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+		return;
+	}
+
+	let frame = 0;
+	const move = (x, y) => {
+		cancelAnimationFrame(frame);
+		frame = requestAnimationFrame(() => {
+			hero.style.setProperty('--dl-hero-x', x.toFixed(3));
+			hero.style.setProperty('--dl-hero-y', y.toFixed(3));
+		});
+	};
+
+	hero.addEventListener('pointermove', (event) => {
+		const box = hero.getBoundingClientRect();
+		move((event.clientX - box.left) / box.width - 0.5, (event.clientY - box.top) / box.height - 0.5);
+	});
+	hero.addEventListener('pointerleave', () => move(0, 0));
+})();

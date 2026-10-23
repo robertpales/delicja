@@ -1,12 +1,30 @@
 <?php
 /**
- * Delicja bag illustration: a Delicja shopping bag with a face, full of Polish groceries (rye bread, a ring of
- * sausage, a jar of pickles, dill). It hops, the sausage jumps out and spins, the bag blinks (site.css, Delicja bag).
- * Inline SVG so the colours come from the Elementor global colours. Shortcode [dl_hero_art]: homepage hero, the
- * New arrivals tile and the contact page's shop online panel (in the last two it only moves on hover).
+ * Homepage hero products and the Delicja bag illustration.
+ *
+ * The hero shows real product cut-outs (Image widgets, files named delicja-hero-*.webp) that float in layers
+ * (home.css, Hero; site.js, Hero). The Delicja bag is a smiling shopping bag full of Polish groceries that hops and
+ * blinks (site.css, Delicja bag): inline SVG so the colours come from the Elementor global colours. Shortcode
+ * [dl_hero_art]: New arrivals tile and the contact page's shop online panel (it moves on hover).
  */
 
 defined( 'ABSPATH' ) || exit;
+
+// The hero products are on the first screen: load them right away (WordPress lazy-loads all but the first images)
+// and give the bread, the largest one, the high fetch priority instead of the first image in the page.
+add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
+	$file = basename( (string) get_attached_file( $attachment->ID ) );
+	if ( ! str_starts_with( $file, 'delicja-hero-' ) ) {
+		return $attr;
+	}
+
+	unset( $attr['loading'], $attr['fetchpriority'] );
+	if ( 'delicja-hero-bread.webp' === $file ) {
+		$attr['fetchpriority'] = 'high';
+	}
+
+	return $attr;
+}, 10, 2 );
 
 add_shortcode( 'dl_hero_art', function () {
 	return '<svg class="dl-bag" viewBox="0 0 400 420" role="img" aria-label="A smiling Delicja shopping bag full of Polish groceries: rye bread, a ring of sausage, a jar of pickles and dill">
