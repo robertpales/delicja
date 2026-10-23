@@ -2201,6 +2201,280 @@ table.wc-block-cart-items td {
     }
 }
 
+/* === Purchase summary === */
+.elementor-element.elementor-widget-woocommerce-purchase-summary {
+    --general-text-color: var(--e-global-color-text);
+    --confirmation-message-color: var(--e-global-color-text);
+    --sections-background-color: var(--e-global-color-dlwhite);
+    --sections-border-color: var(--e-global-color-dlborder);
+    --sections-border-type: solid;
+    --sections-border-radius: var(--dl-radius-lg);
+    --sections-padding: var(--dl-space-50);
+    --sections-spacing: var(--dl-space-50);
+    --titles-color: var(--e-global-color-text);
+    --titles-spacing: var(--dl-space-40);
+    --payment-details-titles-color: var(--e-global-color-accent);
+    --payment-details-items-color: var(--e-global-color-text);
+    --payment-details-border-color: var(--e-global-color-dlborder);
+    --payment-details-border-type: solid;
+    --payment-details-border-width: 0;
+    --payment-details-space-between: var(--dl-space-10);
+    --payment-details-titles-spacing: var(--dl-space-10);
+    --bank-details-titles-color: var(--e-global-color-accent);
+    --bank-details-items-color: var(--e-global-color-text);
+    --bank-details-border-width: 0;
+    --order-details-items-color: var(--e-global-color-text);
+    --order-details-titles-totals-color: var(--e-global-color-text);
+    --order-details-variations-color: var(--e-global-color-accent);
+    --order-details-product-links-normal-color: var(--e-global-color-primary);
+    --order-details-product-links-hover-color: var(--e-global-color-secondary);
+    --order-details-rows-gap: var(--dl-space-30);
+    --tables-divider-border-color: var(--e-global-color-dlborder);
+    --tables-divider-border-type: solid;
+    --tables-divider-border-width: 1px;
+    --button-normal-text-color: var(--e-global-color-text);
+    --button-hover-text-color: var(--e-global-color-dlwhite);
+    --buttons-border-color: var(--e-global-color-text);
+    --buttons-border-type: solid;
+    --button-border-radius: var(--dl-radius-md);
+    --button-padding: var(--dl-space-30) var(--dl-space-50);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family);
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+    letter-spacing: var(--e-global-typography-text-letter-spacing);
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-order {
+    display: grid;
+    gap: var(--dl-space-50);
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-order > * {
+    margin: 0;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-thankyou-order-received {
+    display: flex;
+    align-items: center;
+    gap: var(--dl-space-40);
+    margin: 0;
+    padding: var(--dl-space-50);
+    border-radius: var(--dl-radius-lg);
+    background-color: var(--e-global-color-dltint);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh3-font-family);
+    font-size: var(--e-global-typography-dlh3-font-size);
+    font-weight: var(--e-global-typography-dlh3-font-weight);
+    line-height: var(--e-global-typography-dlh3-line-height);
+    letter-spacing: var(--e-global-typography-dlh3-letter-spacing);
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-thankyou-order-received::before {
+    content: "";
+    flex: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--e-global-color-primary);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cmask id='m'%3E%3Crect width='48' height='48' fill='white'/%3E%3Cpath d='M15 25l6 6 12-13' fill='none' stroke='black' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/mask%3E%3Ccircle cx='24' cy='24' r='24' mask='url(%23m)'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-order-overview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dl-space-40) var(--dl-space-70);
+    margin: 0;
+    padding: var(--dl-space-50);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-lg);
+    list-style: none;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce ul.woocommerce-order-overview::before,
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce ul.woocommerce-order-overview::after {
+    display: none;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-order-overview li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    font-weight: var(--e-global-typography-dlsmall-font-weight);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+    letter-spacing: var(--e-global-typography-dlsmall-letter-spacing);
+    text-transform: none;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-order-overview li strong {
+    display: block;
+    margin-top: var(--dl-space-10);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh5-font-family);
+    font-size: var(--e-global-typography-dlh5-font-size);
+    font-weight: var(--e-global-typography-dlh5-font-weight);
+    line-height: var(--e-global-typography-dlh5-line-height);
+    letter-spacing: var(--e-global-typography-dlh5-letter-spacing);
+    overflow-wrap: break-word;
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-order > p:not(.woocommerce-notice) {
+    color: var(--e-global-color-accent);
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary :is(.woocommerce-order-details__title, .woocommerce-column__title, .woocommerce-bacs-bank-details .wc-bacs-bank-details-heading, .woocommerce-order-downloads__title) {
+    margin: 0 0 var(--dl-space-40);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh4-font-family);
+    font-size: var(--e-global-typography-dlh4-font-size);
+    font-weight: var(--e-global-typography-dlh4-font-weight);
+    line-height: var(--e-global-typography-dlh4-line-height);
+    letter-spacing: var(--e-global-typography-dlh4-letter-spacing);
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details {
+    width: 100%;
+    margin: 0;
+    padding: var(--dl-space-40) var(--dl-space-50);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-lg);
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details :is(th, td) {
+    padding: var(--dl-space-30) 0;
+    background: none;
+    vertical-align: top;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details :is(.product-total, tfoot td) {
+    text-align: right;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details thead th {
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmallb-font-family);
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: var(--e-global-typography-dlsmallb-line-height);
+    letter-spacing: var(--e-global-typography-dlsmallb-letter-spacing);
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details tfoot th {
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-text-font-family);
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details tfoot td {
+    font-weight: var(--e-global-typography-text-font-weight);
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details tfoot tr:has(small.includes_tax) :is(th, td, td > .amount) {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlprice-font-family);
+    font-size: var(--e-global-typography-dlprice-font-size);
+    font-weight: var(--e-global-typography-dlprice-font-weight);
+    line-height: var(--e-global-typography-dlprice-line-height);
+    letter-spacing: var(--e-global-typography-dlprice-letter-spacing);
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details small.includes_tax {
+    display: block;
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    font-weight: var(--e-global-typography-dlsmall-font-weight);
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details small.includes_tax .amount {
+    font: inherit;
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details .product-name a {
+    font-family: var(--e-global-typography-dlpname-font-family);
+    font-size: var(--e-global-typography-dlpname-font-size);
+    font-weight: var(--e-global-typography-dlpname-font-weight);
+    line-height: var(--e-global-typography-dlpname-line-height);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details .product-quantity {
+    color: var(--e-global-color-accent);
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details .product-total {
+    white-space: nowrap;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-customer-details .addresses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--dl-space-50);
+    margin: 0;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-customer-details .addresses::before,
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-customer-details .addresses::after {
+    display: none;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-customer-details .woocommerce-column {
+    float: none;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-customer-details address {
+    height: auto;
+    margin: 0;
+    padding: var(--dl-space-50);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-lg);
+    color: var(--e-global-color-text);
+    font-style: normal;
+    line-height: var(--e-global-typography-text-line-height);
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-customer-details address p {
+    margin: var(--dl-space-30) 0 0;
+    padding: 0;
+    color: var(--e-global-color-accent);
+}
+
+.elementor-widget-woocommerce-purchase-summary .woocommerce-customer-details address p::before {
+    color: var(--e-global-color-primary);
+}
+
+@media (max-width: 767px) {
+    .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-thankyou-order-received {
+        padding: var(--dl-space-40);
+    }
+
+    .elementor-element.elementor-widget-woocommerce-purchase-summary :is(.woocommerce-order-overview, .woocommerce-customer-details address) {
+        padding: var(--dl-space-40);
+    }
+
+    .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-order-overview {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .elementor-element.elementor-widget-woocommerce-purchase-summary .woocommerce-table--order-details {
+        padding: var(--dl-space-20) var(--dl-space-40);
+    }
+}
+
 /* === Checkout === */
 .dl-checkout-header {
     --padding-top: var(--dl-space-50);
