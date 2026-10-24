@@ -193,11 +193,16 @@ const delicjaReveal = (art, scene, after, prefix, source = null) => {
 		art.classList.toggle('is-focus', index > -1);
 	};
 
+	// Safari reports a tap's click as a mouse click: take the pointer type from the pointerdown before it.
+	let pointer = 'mouse';
 	spots.forEach((spot, index) => {
+		spot.addEventListener('pointerdown', (event) => {
+			pointer = event.pointerType;
+		});
 		spot.addEventListener('pointerenter', (event) => event.pointerType === 'mouse' && show(index));
 		spot.addEventListener('pointerleave', (event) => event.pointerType === 'mouse' && show(-1));
-		spot.addEventListener('click', (event) => {
-			if (event.pointerType !== 'mouse') {
+		spot.addEventListener('click', () => {
+			if (pointer !== 'mouse') {
 				show(layers[index].classList.contains('is-on') ? -1 : index);
 			}
 		});
