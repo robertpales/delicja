@@ -16,6 +16,8 @@ through Novamira, so they are not in git.
 - Homepage hero: three red apples are now the centre of the board (on hover the front one is cut in half), and the
   milk is an unbranded farm-style glass bottle with a paper cap and twine. Stories "Apples" and "Fresh milk".
   *(partly database)*
+- Homepage hero: the knife no longer lies on the kabanosy pointing at the pickle jar; it lies on the free board
+  between the apples and the kabanosy (in both pictures, so it stays put on hover). *(database)*
 - Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
   the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
   doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the
