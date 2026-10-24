@@ -148,15 +148,15 @@
     --dl-mask-ry: 13%;
 }
 
-.dl-hero-after--kielbasa {
-    --dl-mask-x: 50.5%;
+.dl-hero-after--apples {
+    --dl-mask-x: 51%;
     --dl-mask-y: 41%;
     --dl-mask-rx: 17%;
-    --dl-mask-ry: 13%;
-    --dl-mask2-x: 52%;
-    --dl-mask2-y: 49%;
-    --dl-mask2-rx: 12%;
-    --dl-mask2-ry: 7%;
+    --dl-mask-ry: 17.5%;
+    --dl-mask2-x: 61%;
+    --dl-mask2-y: 43%;
+    --dl-mask2-rx: 6%;
+    --dl-mask2-ry: 17%;
 }
 
 .dl-hero-after--kabanosy {
@@ -221,9 +221,9 @@
     --dl-spot-h: 42%;
 }
 
-.dl-hero-scene .elementor-repeater-item-kielbasa {
-    --dl-spot-w: 30%;
-    --dl-spot-h: 21%;
+.dl-hero-scene .elementor-repeater-item-apples {
+    --dl-spot-w: 29%;
+    --dl-spot-h: 27.5%;
 }
 
 .dl-hero-scene .elementor-repeater-item-kabanosy {
