@@ -118,6 +118,12 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   are Robo's area. Only makes sense together with customer accounts above. If added, Matej styles the buttons in
   `my-account.css` to match the login card.
 
+**Deploy**
+- [ ] Page cache after a deploy (asked by Matej, 2026-10-24): `inc/deploy.php` clears WP Fastest Cache on the first
+  request that reaches PHP, but cached pages are served without PHP, so the homepage kept the old `site.js?ver=…`
+  for a while (an iPhone still showed the old behaviour). Let the workflow trigger the purge itself after rsync
+  (e.g. one request with a query string, or deleting the cache folder over SSH).
+
 **Payment gateway (Frisbii Pay)**, when the client has done their part
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks.
 - [ ] Test payments on test.delicja.dk.
