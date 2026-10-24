@@ -162,6 +162,23 @@ document.addEventListener('click', (event) => {
 	input.dispatchEvent(new Event('change', { bubbles: true }));
 });
 
+/* === Shop === */
+// The small category tiles above the product grid (Products Archive template): the category being viewed is marked,
+// and on narrow screens its tile is scrolled into view.
+document.querySelectorAll('.dl-shop-cats .dl-cat-label a').forEach((link) => {
+	if (new URL(link.href).pathname !== location.pathname) {
+		return;
+	}
+	const tile = link.closest('.dl-cat');
+	tile?.classList.add('is-current');
+	link.setAttribute('aria-current', 'page');
+	const row = tile?.closest('.elementor-loop-container');
+	if (tile && row && row.scrollWidth > row.clientWidth) {
+		const box = tile.getBoundingClientRect();
+		row.scrollLeft += box.left - row.getBoundingClientRect().left - (row.clientWidth - box.width) / 2;
+	}
+});
+
 /* === Picture reveal === */
 // A photo in an Elementor Hotspot widget (one hotspot per thing in the photo) and a hidden Image widget with the same
 // photo after a change, aligned. Nothing moves until the mouse is on a hotspot (a tap on phones): the changed photo

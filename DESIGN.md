@@ -141,7 +141,7 @@ matches. Delete it and it must disappear.
 |---|---|---|
 | Header (21) | Header | entire site |
 | Footer (26) | Footer | entire site |
-| Products Archive (337) | Product archive | shop, category and tag pages |
+| Products Archive (337) | Product archive | shop, category and tag pages: small category tiles on top (Loop Grid `dl-shop-cats` with the Category tile; the category being viewed is red), then all products |
 | Product search results (347) | Product archive | product search |
 | Single Product (339) | Single product | all products |
 | Page (340) | Single page | all other pages |

@@ -144,18 +144,6 @@ add_filter( 'woocommerce_coming_soon_exclude', function ( $excluded ) {
 		|| ( wc_terms_and_conditions_page_id() && is_page( wc_terms_and_conditions_page_id() ) );
 } );
 
-// The shop page shows the category tiles (template "Shop – categories"). Sorted (?orderby=…, e.g. the homepage's
-// "See all new arrivals"), it shows all products in the grid of the Products Archive template instead.
-add_filter( 'elementor/theme/get_location_templates/template_id', function ( $template_id ) {
-	$tiles = get_page_by_path( 'shop-categories', OBJECT, 'elementor_library' );
-	$grid  = get_page_by_path( 'products-archive', OBJECT, 'elementor_library' );
-	if ( ! $tiles || ! $grid || (int) $template_id !== $tiles->ID || ! is_shop() || empty( $_GET['orderby'] ) ) {
-		return $template_id;
-	}
-
-	return $grid->ID;
-} );
-
 // The screen WooCommerce shows instead of the shop, category, cart and checkout pages while the store is in
 // "Coming soon" mode: the Elementor template "Coming soon (shop)" (Templates → Saved Templates, slug
 // delicja-coming-soon), so the owner can edit it. Styles in site.css (=== Coming soon ===).
