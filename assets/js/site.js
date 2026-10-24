@@ -206,7 +206,7 @@ const delicjaReveal = (art, scene, after, prefix, source = null) => {
 
 /* === Hero === */
 // Homepage hero: a table with Polish food. On a product its story shows and the product changes: the doughnut gets
-// a bite, the glass of milk is half drunk, an apple is cut in half (Picture reveal; masks in home.css).
+// a bite, the glass of milk is half drunk, a wedge is cut out of an apple (Picture reveal; masks in home.css).
 // Versions to compare, until one is chosen: ?hero=stories (story only), ?hero=bites (change only), default both.
 (() => {
 	const hero = document.querySelector('.dl-hero');

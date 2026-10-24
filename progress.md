@@ -18,8 +18,8 @@ through Novamira, so they are not in git.
   *(partly database)*
 - Homepage hero: the knife no longer lies on the kabanosy pointing at the pickle jar; it lies on the free board
   between the apples and the kabanosy (in both pictures, so it stays put on hover). *(database)*
-- Homepage hero: the cut apple on hover looks natural now: two halves lying tilted on the board, creamy flesh with
-  the core and pips, the apple's leaf tucked behind. *(partly database)*
+- Homepage hero: on hover the front apple stays whole and a wedge is cut out of it (the wedge lies on the board
+  beside it, just behind the knife), instead of the apple cut in half, which did not look natural. *(partly database)*
 - Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
   the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
   doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the
