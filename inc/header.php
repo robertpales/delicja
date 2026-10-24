@@ -17,6 +17,19 @@ add_shortcode( 'dl_account', function () {
 	return do_blocks( '<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line"} /-->' );
 } );
 
+// Product categories without products stay out of the menus (Shop dropdown, footer) until they get products, like
+// the category tiles.
+add_filter( 'wp_nav_menu_objects', function ( $items ) {
+	return array_filter( $items, function ( $item ) {
+		if ( 'product_cat' !== $item->object ) {
+			return true;
+		}
+		$term = get_term( (int) $item->object_id, 'product_cat' );
+
+		return $term instanceof WP_Term && $term->count > 0;
+	} );
+} );
+
 // Mini cart: bag icon with the item count and WooCommerce's cart drawer. WooCommerce hides the mini cart from
 // visitors while the store is in "Coming soon" mode; then the cart icon is a plain link to the cart page.
 add_shortcode( 'dl_mini_cart', function () {

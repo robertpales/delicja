@@ -622,6 +622,32 @@ body .wp-block-button__link:focus,
     color: var(--e-global-color-dlwhite);
 }
 
+.elementor-location-header .wc-block-cart-link {
+    position: relative;
+}
+
+.elementor-location-header .dl-cart-count {
+    position: absolute;
+    top: -0.35rem;
+    right: -0.55rem;
+    display: grid;
+    place-items: center;
+    min-width: 1.15rem;
+    height: 1.15rem;
+    padding: 0 0.3em;
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-primary);
+    color: var(--e-global-color-dlwhite);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
+    font-size: calc(var(--e-global-typography-dlsmallb-font-size) * 0.75);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: 1;
+}
+
+.elementor-location-header .dl-cart-count[hidden] {
+    display: none;
+}
+
 .dl-header-bar .dl-header-nav {
     grid-area: nav;
 }
@@ -2658,8 +2684,226 @@ table.wc-block-cart-items td {
     color: var(--e-global-color-dlborder);
 }
 
-.dl-404 .dl-404-text p {
-    margin-block: 1em;
+.dl-404 {
+    --content-width: var(--dl-wide);
+    --align-items: center;
+    --gap: var(--dl-space-70);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-70);
+}
+
+.dl-404 > .e-con-inner > .dl-404-text {
+    --gap: 0px;
+    --row-gap: 0px;
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+.dl-404 > .e-con-inner > .dl-404-art {
+    flex: 0 1 42%;
+    min-width: 0;
+}
+
+.dl-404-text > .elementor-widget.dl-404-title {
+    margin-block: var(--dl-space-20) var(--dl-space-40);
+}
+
+.dl-404-title .elementor-heading-title,
+.dl-info .dl-page-title .elementor-heading-title {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dldisplay-font-family), sans-serif;
+    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.6);
+    font-weight: 400;
+    line-height: var(--e-global-typography-dldisplay-line-height);
+    letter-spacing: var(--e-global-typography-dldisplay-letter-spacing);
+    text-transform: uppercase;
+}
+
+.dl-404-title .dl-404-hand {
+    display: inline-block;
+    margin-inline-start: 0.2em;
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dlhand-font-family), cursive;
+    font-size: 0.55em;
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    vertical-align: 0.4em;
+    rotate: -5deg;
+}
+
+.dl-404-text > .elementor-widget.dl-404-lead {
+    max-width: 30em;
+    margin-block-end: var(--dl-space-40);
+}
+
+.dl-404-lead p:last-child {
+    margin-block-end: 0;
+}
+
+.dl-404-text > .elementor-widget.dl-404-search {
+    width: min(100%, 30rem);
+    margin-block-end: var(--dl-space-40);
+}
+
+.dl-404-text .dl-buttons {
+    --align-items: center;
+    --gap: var(--dl-space-40);
+    --row-gap: var(--dl-space-30);
+    --column-gap: var(--dl-space-50);
+}
+
+/* === Information pages === */
+.dl-info {
+    --content-width: var(--dl-wide);
+    --gap: var(--dl-space-40);
+    --row-gap: var(--dl-space-40);
+}
+
+.dl-info-head {
+    --gap: 0px;
+    --row-gap: 0px;
+}
+
+.dl-info-head > .elementor-widget.dl-page-title {
+    margin-block-start: var(--dl-space-20);
+}
+
+.dl-info-body {
+    --align-items: flex-start;
+    --gap: var(--dl-space-80);
+    --row-gap: var(--dl-space-60);
+    --column-gap: var(--dl-space-80);
+}
+
+.dl-info-body > .elementor-widget.dl-info-content {
+    flex: 1 1 0%;
+    min-width: 0;
+    max-width: 46rem;
+}
+
+.dl-info-content :is(h2, h3) {
+    margin-block: var(--dl-space-60) var(--dl-space-20);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlh4-font-size);
+    font-weight: var(--e-global-typography-dlh4-font-weight);
+    line-height: var(--e-global-typography-dlh4-line-height);
+    letter-spacing: var(--e-global-typography-dlh4-letter-spacing);
+}
+
+.dl-info-content h3 {
+    font-family: var(--e-global-typography-dlh5-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlh5-font-size);
+    font-weight: var(--e-global-typography-dlh5-font-weight);
+    line-height: var(--e-global-typography-dlh5-line-height);
+    letter-spacing: var(--e-global-typography-dlh5-letter-spacing);
+}
+
+.dl-info-content > :first-child,
+.dl-info-content .elementor-widget-container > :first-child {
+    margin-block-start: 0;
+}
+
+.dl-info-content :is(ul, ol) {
+    padding-inline-start: 1.25em;
+}
+
+.dl-info-content li + li {
+    margin-block-start: var(--dl-space-10);
+}
+
+.dl-info-content a {
+    color: var(--e-global-color-primary);
+    text-underline-offset: 0.15em;
+}
+
+.dl-info-body > .dl-info-aside {
+    --gap: var(--dl-space-30);
+    --row-gap: var(--dl-space-30);
+    --padding-top: var(--dl-space-50);
+    --padding-right: var(--dl-space-50);
+    --padding-bottom: var(--dl-space-50);
+    --padding-left: var(--dl-space-50);
+    position: sticky;
+    top: var(--dl-space-50);
+    flex: 0 0 19rem;
+    border-radius: var(--dl-radius-lg);
+    background-color: var(--e-global-color-dlsurface);
+}
+
+.dl-info-aside-title .elementor-heading-title {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlh5-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlh5-font-size);
+    font-weight: var(--e-global-typography-dlh5-font-weight);
+    line-height: var(--e-global-typography-dlh5-line-height);
+    letter-spacing: var(--e-global-typography-dlh5-letter-spacing);
+}
+
+.dl-info-menu .elementor-nav-menu--main .elementor-nav-menu {
+    gap: var(--dl-space-10);
+}
+
+.dl-info-menu .elementor-nav-menu--main .elementor-item {
+    padding: var(--dl-space-20) var(--dl-space-30);
+    border-radius: var(--dl-radius-md);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+}
+
+.dl-info-menu .elementor-nav-menu--main .elementor-item:hover,
+.dl-info-menu .elementor-nav-menu--main .elementor-item:focus {
+    background-color: var(--e-global-color-dltint);
+    color: var(--e-global-color-primary);
+}
+
+.dl-info-menu .elementor-nav-menu--main .elementor-item.elementor-item-active {
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-primary);
+    font-weight: 700;
+}
+
+.dl-info-menu .elementor-nav-menu--main .elementor-item::after {
+    display: none;
+}
+
+.dl-info-help {
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+}
+
+.dl-info-help p {
+    margin: 0;
+}
+
+.dl-info-help strong {
+    color: var(--e-global-color-text);
+}
+
+.dl-info-help a {
+    color: var(--e-global-color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+@media (max-width: 1024px) {
+    .dl-404 > .e-con-inner > .dl-404-art {
+        flex-basis: auto;
+        width: min(26rem, 90%);
+    }
+
+    .dl-info-body > .dl-info-aside {
+        position: static;
+        flex-basis: auto;
+        width: 100%;
+    }
 }
 
 .woocommerce-account .dl-page > .e-con-inner > .dl-page-title,
@@ -2667,6 +2911,47 @@ table.wc-block-cart-items td {
     width: 100%;
     max-width: 1000px;
     margin-inline: auto;
+}
+
+/* === Crate === */
+.dl-crate {
+    display: grid;
+    grid-template-areas: "crate";
+}
+
+.dl-crate > .elementor-widget {
+    grid-area: crate;
+    width: 100%;
+    margin: 0;
+}
+
+.dl-crate img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.dl-crate > .dl-crate-full {
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.35s ease,
+        -webkit-mask-size 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        mask-size 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    -webkit-mask: radial-gradient(closest-side, #000 65%, transparent) 50% 45% / 0% 0% no-repeat;
+    mask: radial-gradient(closest-side, #000 65%, transparent) 50% 45% / 0% 0% no-repeat;
+}
+
+.dl-crate-scene:has(.dl-crate:hover, .dl-crate-fill a:is(:hover, :focus-visible)) .dl-crate > .dl-crate-full {
+    opacity: 1;
+    -webkit-mask-size: 280% 280%;
+    mask-size: 280% 280%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-crate > .dl-crate-full {
+        transition: none;
+    }
 }
 
 /* === Cart and checkout widgets === */

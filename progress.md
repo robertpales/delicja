@@ -20,6 +20,17 @@ through Novamira, so they are not in git.
 - Fixes found in the site check: the FAQ's "terms and conditions" link pointed to a missing page; the homepage
   category chips and "Shop sweets" went through redirects; the terms page was hidden behind "Almost ready";
   "See all new arrivals" showed the category tiles instead of the newest products. *(partly database)*
+- No bread anywhere else either: the wooden crate (New arrivals, empty cart) and the delivery box (Contact, "Almost
+  ready") now hold a ring of kiełbasa, and the Bakery tile shows doughnuts with jam and cheesecake. *(database)*
+- Information pages (Terms, Privacy, Delivery & returns, Cookies): own template "Information page" with a big
+  title, readable text and a linen side card with the Information menu and "Questions? Call or write". *(partly
+  database)*
+- 404 page: "This shelf is empty – sorry!" with product search, "Browse the shop" and the empty crate that fills up
+  when you point at it (the same crate as the empty cart, now one shared piece). *(partly database)*
+- The header cart icon shows the number of items for visitors too (while ordering is not open yet it is a plain
+  link to the cart).
+- Empty categories (Bakery, Drinks, Spices, Cosmetics have no products yet) are left out of the menus and the
+  homepage tiles until they get products; two homepage chips now lead to Ready meals and Pantry. *(partly database)*
 
 ## 2026-10-23
 

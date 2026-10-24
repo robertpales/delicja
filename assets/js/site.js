@@ -64,6 +64,18 @@
 	const show = (cart) => {
 		items = new Map(cart.items.map((item) => [item.id, item]));
 		document.querySelectorAll('.dl-card-button').forEach(render);
+
+		// The header's cart link (shown instead of the mini cart while the store is in Coming soon mode) gets a count.
+		document.querySelectorAll('.wc-block-cart-link').forEach((link) => {
+			let badge = link.querySelector('.dl-cart-count');
+			if (!badge) {
+				badge = document.createElement('span');
+				badge.className = 'dl-cart-count';
+				link.append(badge);
+			}
+			badge.textContent = cart.items_count || '';
+			badge.hidden = !cart.items_count;
+		});
 	};
 
 	const sync = () => request().then(show).catch(() => {});
