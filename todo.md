@@ -109,6 +109,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   decide and switch on *WooCommerce → Settings → Accounts & Privacy* → "Allow customers to create an account on the
   My account page" (and whether at checkout, and the password by e-mail link). The design is ready: the register
   form appears as a second card next to the login, in the same style (`assets/css/pages/my-account.css`).
+- [ ] Log in with Google or Facebook on My account (asked by Matej, 2026-10-24). Needs a social login plugin and
+  an OAuth app at Google and at Meta (client ID and secret, privacy policy link, consent screen); logins and keys
+  are Robo's area. Only makes sense together with customer accounts above. If added, Matej styles the buttons in
+  `my-account.css` to match the login card.
 
 **Payment gateway (Frisbii Pay)**, when the client has done their part
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks.
