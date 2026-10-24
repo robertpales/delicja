@@ -22,6 +22,8 @@ through Novamira, so they are not in git.
   beside it, just behind the knife), instead of the apple cut in half, which did not look natural. *(partly database)*
 - Hero and contact shop front on iPhone: a tap now shows the change (bite, cut, open jar…), not only the story.
   Safari reports a tap as a mouse click, so the change was skipped.
+- Homepage hero on phones: the tap marks on the products are now tiny soft white glints that slowly breathe, instead
+  of red dots with a white ring.
 - Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
   the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
   doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the

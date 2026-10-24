@@ -83,14 +83,14 @@ bread (Delicja does not sell it) and no brand labels. It sits at the bottom righ
 bottom edge. Nothing moves on its own. Elementor **Hotspot** widget (`dl-hero-scene`): one invisible hotspot over
 each product (`_id` paczek, milk, apples, kabanosy, pickles, pierogi; position in Elementor, size in `home.css`); the
 tooltip is the product's story: name in bold, one short sentence (editable in Elementor). With the mouse on a product
-(a tap on phones) the rest of the table dims a little, the story shows, and the product changes: the doughnut gets a
-bite, the glass of milk is half drunk, a wedge is cut out of the front apple (the wedge lies on the board beside it),
-the jar is opened, a dumpling is cut in half, a kabanos is snapped. The changed state is a second, aligned photo
-(hidden Image widget `dl-hero-scene-after`, `delicja-hero-table-apples-4-after.webp`) shown only around that product.
-**Versions to compare** until one is chosen: `/?hero=stories` (story only), `/?hero=bites` (change only), `/` both. A
-new photo must be re-generated together with its "after" photo, at the same size and alignment. `inc/hero.php` loads
-the table photo without lazy loading; it stays the first image in the hero, so Elementor gives it the high fetch
-priority.
+(a tap on phones; there a tiny soft white glint that slowly breathes marks each product, nothing more) the rest of
+the table dims a little, the story shows, and the product changes: the doughnut gets a bite, the glass of milk is
+half drunk, a wedge is cut out of the front apple (the wedge lies on the board beside it), the jar is opened, a
+dumpling is cut in half, a kabanos is snapped. The changed state is a second, aligned photo (hidden Image widget
+`dl-hero-scene-after`, `delicja-hero-table-apples-4-after.webp`) shown only around that product. **Versions to
+compare** until one is chosen: `/?hero=stories` (story only), `/?hero=bites` (change only), `/` both. A new photo
+must be re-generated together with its "after" photo, at the same size and alignment. `inc/hero.php` loads the table
+photo without lazy loading; it stays the first image in the hero, so Elementor gives it the high fetch priority.
 
 ### Photos, not drawings
 Product pictures in promo panels are real-looking photos (cut-outs on a transparent background, soft daylight from
