@@ -176,6 +176,8 @@ Prices, stock and images are shared.
 - [ ] New pages: Deals (`/tilbud/`, H1 "Deals while they last"; the menu item shows only while something is on sale)
   and My account (H1 "Hello witamy!"), cart H1 "Your cart": meta title and description, indexing of the Deals page
   while it is empty.
+- [ ] About us lead shortened (2026-10-24): "A Polish deli in the centre of Herning, where you can taste home."
+  The page's meta description or excerpt may still use the old, longer text.
 - [ ] Homepage hero picture changed (apples, farm milk; now `delicja-hero-table-apples-2.webp`, alt text updated).
   Rank Math's schema on the front page still lists the old picture `delicja-hero-table.webp` as its ImageObject
   (200 × 200), and the front page share image may be old too.

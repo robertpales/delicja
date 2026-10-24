@@ -31,6 +31,8 @@ through Novamira, so they are not in git.
   tiles template "Shop – categories" is no longer used. *(partly database)*
 - Homepage on phones: "Customer favourites" and "New arrivals" have the same small scroll bar under the row as the
   categories, so it is clear they scroll sideways.
+- About us: the lead under "A taste of home, made from the heart" is one short sentence now ("A Polish deli in the
+  centre of Herning, where you can taste home."); the longer text repeated the "How it started" part. *(database)*
 - Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
   the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
   doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the
