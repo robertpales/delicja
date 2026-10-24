@@ -20,6 +20,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts.
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
   the About us story.
+- [ ] Homepage hero picture: does the shop sell apples and fresh milk? The picture shows only products Delicja sells.
+  Also confirm the short product stories in it (e.g. the doughnut "filled with rose jam").
+- [ ] Customer accounts: should customers be able to create an account, and log in with Google or Facebook? (Robo
+  switches it on.)
 
 **Shop information**
 - [ ] Opening hours of the shop.
