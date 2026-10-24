@@ -24,6 +24,8 @@ through Novamira, so they are not in git.
   Safari reports a tap as a mouse click, so the change was skipped.
 - Homepage hero on phones: the tap marks on the products are now tiny soft white glints that slowly breathe, instead
   of red dots with a white ring.
+- Category tiles: the first one (Meat) is no longer red on its own, which looked like it was selected; a tile turns
+  red only under the mouse.
 - Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
   the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
   doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the

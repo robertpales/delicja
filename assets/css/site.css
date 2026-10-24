@@ -1672,47 +1672,20 @@ table.wc-block-cart-items td {
     transition: scale var(--dl-transition);
 }
 
-.dl-cat:hover,
-.dl-cats .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat {
+.dl-cat:hover {
     background-color: var(--e-global-color-primary);
 }
 
-.dl-cat:hover .dl-cat-label .elementor-heading-title,
-.dl-cats .e-loop-item:nth-child(1 of .e-loop-item) .dl-cat-label .elementor-heading-title {
+.dl-cat:hover .dl-cat-label .elementor-heading-title {
     color: var(--e-global-color-dlwhite);
 }
 
-.dl-cat:hover .dl-cat-count,
-.dl-cats .e-loop-item:nth-child(1 of .e-loop-item) .dl-cat-count {
+.dl-cat:hover .dl-cat-count {
     color: var(--e-global-color-dltint);
 }
 
 .dl-cat:hover .dl-cat-image img {
     scale: 1.04;
-}
-
-.dl-cats:has(.dl-cat:hover) .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) {
-    background-color: var(--e-global-color-dlsurface);
-}
-
-.dl-cats:has(.dl-cat:hover) .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) .dl-cat-label .elementor-heading-title {
-    color: var(--e-global-color-primary);
-}
-
-.dl-cats:has(.dl-cat:hover) .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) .dl-cat-count {
-    color: var(--e-global-color-accent);
-}
-
-.dl-cats--all .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) {
-    background-color: var(--e-global-color-dlsurface);
-}
-
-.dl-cats--all .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) .dl-cat-label .elementor-heading-title {
-    color: var(--e-global-color-primary);
-}
-
-.dl-cats--all .e-loop-item:nth-child(1 of .e-loop-item) > .dl-cat:not(:hover) .dl-cat-count {
-    color: var(--e-global-color-accent);
 }
 
 /* === Shop === */
