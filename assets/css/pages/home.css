@@ -556,6 +556,50 @@
     }
 }
 
+@supports (animation-timeline: scroll()) {
+    @media (max-width: 599px) {
+        .dl-products--favourites,
+        .dl-products--new {
+            position: relative;
+            padding-block-end: calc(var(--dl-space-20) + 3px);
+            timeline-scope: --dl-row;
+        }
+
+        .dl-products--favourites .elementor-loop-container.elementor-grid,
+        .dl-products--new .elementor-loop-container.elementor-grid {
+            scroll-timeline: --dl-row x;
+            scrollbar-width: none;
+        }
+
+        .dl-products--favourites .elementor-loop-container::-webkit-scrollbar,
+        .dl-products--new .elementor-loop-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dl-products--favourites::before,
+        .dl-products--new::before,
+        .dl-products--favourites::after,
+        .dl-products--new::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: calc(50% - 1.5rem);
+            width: 3rem;
+            height: 3px;
+            border-radius: var(--dl-radius-pill);
+            background-color: var(--e-global-color-dlborder);
+        }
+
+        .dl-products--favourites::after,
+        .dl-products--new::after {
+            width: 1.2rem;
+            background-color: var(--e-global-color-primary);
+            animation: dl-cats-progress linear both;
+            animation-timeline: --dl-row;
+        }
+    }
+}
+
 /* === Chips === */
 .dl-chips {
     --gap: var(--dl-space-20);

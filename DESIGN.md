@@ -184,7 +184,8 @@ zoom. The related product cards do the same.
    and a hand-drawn underline under "Herning", a short lead, a "Browse the shop" pill, a "Visit us in Herning" link
    (About us → Visit us) and the table with Polish food (see Hero table).
 3. "Shop by category" with a "See all" link to the shop, then the category tiles (live, category order, images
-   and product counts from WooCommerce), 6 per row on desktop, horizontal scroll below 1024 px.
+   and product counts from WooCommerce), 6 per row on desktop, horizontal scroll below 1024 px with a small scroll
+   bar under the row (grey track, red thumb that moves as you scroll).
 4. "Weekly deals" (live, products on sale, carousel). Hidden while nothing is on sale (body class `dl-no-deals`
    from `inc/woocommerce.php`); it appears by itself when the owner sets a sale price.
 5. Two promo panels ("The taste of a Polish Sunday", "Sweets just like grandma's").
@@ -194,6 +195,7 @@ zoom. The related product cards do the same.
 6. "Customer favourites" (live, featured products) with category chips.
 7. "New arrivals" (live, newest products) with a red promo tile as tall as the cards: paper grain and a wooden crate
    of groceries at the bottom (see Photos, not drawings).
+   Below 600 px both product rows scroll sideways and get the same small scroll bar as the categories.
 8. Four promises (genuine Polish products, delivery, payment, family shop) [TODO confirm with the owner].
 9. "Questions and answers" (FAQ accordion) and a "More questions?" box [TODO final answers].
 10. "Follow Delicja" with the Instagram link and two real photos as Instagram posts that link to Instagram (hidden

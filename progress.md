@@ -29,6 +29,8 @@ through Novamira, so they are not in git.
 - Shop page: shows all products right away, with the categories as small tiles in one row above them (also on
   category pages, where the category being viewed is red; on phones the row scrolls sideways). The big category
   tiles template "Shop – categories" is no longer used. *(partly database)*
+- Homepage on phones: "Customer favourites" and "New arrivals" have the same small scroll bar under the row as the
+  categories, so it is clear they scroll sideways.
 - Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
   the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
   doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the
