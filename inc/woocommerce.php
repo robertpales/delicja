@@ -136,10 +136,24 @@ foreach ( [ 'woocommerce_update_product', 'woocommerce_new_product', 'wc_after_p
 }
 
 // While the store is in WooCommerce's "Coming soon" mode, visitors can already browse: the shop, categories, tags,
-// product search, product pages and the cart are open. Checkout and My account stay closed until the mode is off
+// product search, product pages, the cart and the terms are open. Only the checkout stays closed until the mode is off
 // (payment and delivery are not set up yet).
 add_filter( 'woocommerce_coming_soon_exclude', function ( $excluded ) {
-	return $excluded || is_shop() || is_product_taxonomy() || is_product() || is_cart() || ( is_search() && 'product' === get_query_var( 'post_type' ) );
+	return $excluded || is_shop() || is_product_taxonomy() || is_product() || is_cart()
+		|| ( is_search() && 'product' === get_query_var( 'post_type' ) )
+		|| ( wc_terms_and_conditions_page_id() && is_page( wc_terms_and_conditions_page_id() ) );
+} );
+
+// The shop page shows the category tiles (template "Shop – categories"). Sorted (?orderby=…, e.g. the homepage's
+// "See all new arrivals"), it shows all products in the grid of the Products Archive template instead.
+add_filter( 'elementor/theme/get_location_templates/template_id', function ( $template_id ) {
+	$tiles = get_page_by_path( 'shop-categories', OBJECT, 'elementor_library' );
+	$grid  = get_page_by_path( 'products-archive', OBJECT, 'elementor_library' );
+	if ( ! $tiles || ! $grid || (int) $template_id !== $tiles->ID || ! is_shop() || empty( $_GET['orderby'] ) ) {
+		return $template_id;
+	}
+
+	return $grid->ID;
 } );
 
 // The screen WooCommerce shows instead of the shop, category, cart and checkout pages while the store is in

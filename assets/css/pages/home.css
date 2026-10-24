@@ -112,7 +112,7 @@
     width: 142%;
     max-width: none;
     margin: 0;
-    translate: 0 9%;
+    translate: 0 7.2%;
 }
 
 .dl-hero-scene img {
@@ -136,49 +136,56 @@
 
 .dl-hero-after--paczek {
     --dl-mask-x: 17%;
-    --dl-mask-y: 45%;
+    --dl-mask-y: 56%;
     --dl-mask-rx: 13%;
-    --dl-mask-ry: 15%;
+    --dl-mask-ry: 12%;
 }
 
-.dl-hero-after--bread {
-    --dl-mask-x: 51%;
-    --dl-mask-y: 29%;
-    --dl-mask-rx: 21%;
-    --dl-mask-ry: 22%;
-    --dl-mask2-x: 57%;
-    --dl-mask2-y: 40%;
+.dl-hero-after--milk {
+    --dl-mask-x: 27.4%;
+    --dl-mask-y: 34%;
+    --dl-mask-rx: 6%;
+    --dl-mask-ry: 13%;
+}
+
+.dl-hero-after--kielbasa {
+    --dl-mask-x: 50.5%;
+    --dl-mask-y: 41%;
+    --dl-mask-rx: 17%;
+    --dl-mask-ry: 13%;
+    --dl-mask2-x: 52%;
+    --dl-mask2-y: 49%;
     --dl-mask2-rx: 12%;
-    --dl-mask2-ry: 9%;
+    --dl-mask2-ry: 7%;
 }
 
 .dl-hero-after--kabanosy {
     --dl-mask-x: 47%;
-    --dl-mask-y: 52%;
+    --dl-mask-y: 62%;
     --dl-mask-rx: 18%;
-    --dl-mask-ry: 13%;
+    --dl-mask-ry: 10%;
     --dl-mask2-x: 56%;
-    --dl-mask2-y: 57%;
+    --dl-mask2-y: 66%;
     --dl-mask2-rx: 11%;
-    --dl-mask2-ry: 9%;
+    --dl-mask2-ry: 7%;
 }
 
 .dl-hero-after--pickles {
     --dl-mask-x: 76.6%;
-    --dl-mask-y: 17%;
+    --dl-mask-y: 33.7%;
     --dl-mask-rx: 13%;
-    --dl-mask-ry: 34%;
+    --dl-mask-ry: 27%;
     --dl-mask2-x: 88.5%;
-    --dl-mask2-y: 39.5%;
+    --dl-mask2-y: 51.7%;
     --dl-mask2-rx: 9%;
-    --dl-mask2-ry: 10%;
+    --dl-mask2-ry: 8%;
 }
 
 .dl-hero-after--pierogi {
     --dl-mask-x: 83%;
-    --dl-mask-y: 63%;
+    --dl-mask-y: 70.5%;
     --dl-mask-rx: 17%;
-    --dl-mask-ry: 17%;
+    --dl-mask-ry: 13.6%;
 }
 
 .dl-hero-scene .e-hotspot {
@@ -206,27 +213,32 @@
 
 .dl-hero-scene .elementor-repeater-item-paczek {
     --dl-spot-w: 22%;
-    --dl-spot-h: 20%;
+    --dl-spot-h: 16%;
 }
 
-.dl-hero-scene .elementor-repeater-item-bread {
+.dl-hero-scene .elementor-repeater-item-milk {
+    --dl-spot-w: 20.5%;
+    --dl-spot-h: 42%;
+}
+
+.dl-hero-scene .elementor-repeater-item-kielbasa {
     --dl-spot-w: 30%;
-    --dl-spot-h: 28%;
+    --dl-spot-h: 21%;
 }
 
 .dl-hero-scene .elementor-repeater-item-kabanosy {
     --dl-spot-w: 34%;
-    --dl-spot-h: 23%;
+    --dl-spot-h: 18.4%;
 }
 
 .dl-hero-scene .elementor-repeater-item-pickles {
     --dl-spot-w: 12%;
-    --dl-spot-h: 35%;
+    --dl-spot-h: 28%;
 }
 
 .dl-hero-scene .elementor-repeater-item-pierogi {
     --dl-spot-w: 27%;
-    --dl-spot-h: 26%;
+    --dl-spot-h: 20.8%;
 }
 
 .dl-hero-scene .e-hotspot__tooltip {
@@ -314,7 +326,7 @@
     .dl-hero > .dl-hero-art {
         align-self: center;
         width: min(32rem, 100%);
-        aspect-ratio: 1 / 0.6;
+        aspect-ratio: 1 / 0.8;
     }
 
     .dl-hero .dl-hero-art > .elementor-widget.dl-hero-scene {

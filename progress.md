@@ -10,6 +10,17 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-24
+
+**Matej**
+- Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
+  the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
+  doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the
+  "Genuine Polish products" promise and About us. *(partly database)*
+- Fixes found in the site check: the FAQ's "terms and conditions" link pointed to a missing page; the homepage
+  category chips and "Shop sweets" went through redirects; the terms page was hidden behind "Almost ready";
+  "See all new arrivals" showed the category tiles instead of the newest products. *(partly database)*
+
 ## 2026-10-23
 
 **Matej**
