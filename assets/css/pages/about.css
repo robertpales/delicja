@@ -150,6 +150,62 @@
     }
 }
 
+@media (max-width: 599px) {
+    .dl-begin-text > .dl-moments {
+        --padding-top: var(--dl-space-40);
+        --padding-right: var(--dl-space-40);
+        --padding-bottom: var(--dl-space-40);
+        --padding-left: var(--dl-space-40);
+        border-top: 0;
+        border-radius: var(--dl-radius-lg);
+        background-color: var(--e-global-color-dlsurface);
+    }
+
+    .dl-moments > .dl-moment {
+        position: relative;
+        align-items: center;
+    }
+
+    .dl-moments > .dl-moment:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: calc(3.5rem + var(--dl-space-10));
+        bottom: calc(var(--dl-space-10) - var(--dl-space-40));
+        left: calc(1.75rem - 1px);
+        border-left: 2px dashed color-mix(in srgb, var(--e-global-color-primary) 35%, transparent);
+    }
+
+    .dl-moments .dl-moment > .dl-moment-icon {
+        display: grid;
+        place-items: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background-color: var(--e-global-color-dlwhite);
+        align-self: start;
+    }
+
+    .dl-moment .dl-moment-icon img {
+        width: 2.25rem;
+        height: 2.25rem;
+        object-fit: contain;
+    }
+
+    .dl-begin-text > .dl-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dl-begin-text > .dl-buttons > .elementor-widget-button,
+    .dl-begin-text > .dl-buttons .elementor-button {
+        width: 100%;
+    }
+
+    .dl-begin-text > .dl-buttons .elementor-button {
+        justify-content: center;
+    }
+}
+
 .dl-btn-instagram .elementor-button-content-wrapper {
     align-items: center;
 }

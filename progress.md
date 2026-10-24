@@ -33,6 +33,8 @@ through Novamira, so they are not in git.
   categories, so it is clear they scroll sideways.
 - About us: the lead under "A taste of home, made from the heart" is one short sentence now ("A Polish deli in the
   centre of Herning, where you can taste home."); the longer text repeated the "How it started" part. *(database)*
+- About us on phones, "How it started": the three moments sit in a light card as a small timeline (icons in white
+  circles joined by a dashed red line), and the two Instagram buttons are full width and equal.
 - Homepage hero without bread (Delicja does not sell bread): a ring of Olewnik kiełbasa podwawelska is the centre of
   the board (on hover a few thick slices are cut off) and a bottle of Łaciate milk with a glass stands by the
   doughnut (on hover the glass is half drunk, the doughnut gets a bite). "Bread" is gone from the hero line, the

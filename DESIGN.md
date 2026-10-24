@@ -243,6 +243,8 @@ zoom. The related product cards do the same.
   with a taste": photos in white frames with tape, joined zigzag by a red-and-white baker's twine (`site.js`, About
   story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
   only the stamps.
+  "How it started": on phones its three moments are a small timeline in a light card (icons in white circles joined
+  by a dashed red line) and the buttons are full width; from 600 px the moments stand in three columns.
 - **Contact** (`/kontakt/`): page built in Elementor, CSS in `assets/css/pages/kontakt.css`. "Come say hi" with a
   realistic photo of the real shop front (`delicja-shop-front-day.webp`, made from the Google Street View picture of
   Bethaniagade 5, May 2025, and the photo of the window logo) as a Hotspot widget with small pulsing dots. Each spot is
