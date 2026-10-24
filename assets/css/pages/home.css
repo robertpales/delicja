@@ -151,12 +151,12 @@
 .dl-hero-after--apples {
     --dl-mask-x: 51%;
     --dl-mask-y: 41%;
-    --dl-mask-rx: 17%;
+    --dl-mask-rx: 16%;
     --dl-mask-ry: 17.5%;
-    --dl-mask2-x: 61%;
+    --dl-mask2-x: 59%;
     --dl-mask2-y: 43%;
-    --dl-mask2-rx: 6%;
-    --dl-mask2-ry: 17%;
+    --dl-mask2-rx: 9%;
+    --dl-mask2-ry: 15%;
 }
 
 .dl-hero-after--kabanosy {
