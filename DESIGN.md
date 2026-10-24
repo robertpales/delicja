@@ -75,15 +75,17 @@ caption, slightly rotated), a hand-drawn red underline (`<span class="dl-scribbl
 notes (`dl-hand-note`, global font *Handwritten*) with a drawn arrow. Use them sparingly: one or two per section.
 
 ### Hero table (`home.css` → `=== Hero ===`, `site.js` → `=== Hero ===`)
-One styled photo of a Polish table on linen with red folk embroidery: rye bread, kabanosy and a knife on a wooden
-board, a glazed doughnut on a porcelain plate, a jar of dill pickles with dill, fried pierogi on an enamel plate. It
-sits at the bottom right of the red panel and runs off its bottom edge. Nothing moves on its own. Elementor
-**Hotspot** widget (`dl-hero-scene`): one invisible hotspot over each product (`_id` paczek, bread, kabanosy,
-pickles, pierogi; position in Elementor, size in `home.css`); the tooltip is the product's story: name in bold, one
-short sentence (editable in Elementor). With the mouse on a product (a tap on phones) the rest of the table dims a
-little, the story shows, and the product changes: the doughnut gets a bite, the bread a slice cut off, the jar is
-opened, a dumpling is cut in half, a kabanos is snapped. The changed state is a second, aligned photo (hidden Image
-widget `dl-hero-scene-after`, `delicja-scene-after.webp`) shown only around that product. **Versions to compare**
+One styled photo of a Polish table on linen with red folk embroidery: a ring of Olewnik kiełbasa podwawelska,
+kabanosy and a knife on a wooden board, a bottle of Łaciate milk with a glass, a glazed doughnut on a porcelain
+plate, a jar of dill pickles with dill, fried pierogi on an enamel plate (`delicja-hero-table.webp`). Only products
+Delicja really sells: no bread. It sits at the bottom right of the red panel and runs off its bottom edge. Nothing
+moves on its own. Elementor **Hotspot** widget (`dl-hero-scene`): one invisible hotspot over each product (`_id`
+paczek, milk, kielbasa, kabanosy, pickles, pierogi; position in Elementor, size in `home.css`); the tooltip is the
+product's story: name in bold, one short sentence (editable in Elementor). With the mouse on a product (a tap on
+phones) the rest of the table dims a little, the story shows, and the product changes: the doughnut gets a bite, the
+glass of milk is half drunk, a few slices are cut off the sausage, the jar is opened, a dumpling is cut in half, a
+kabanos is snapped. The changed state is a second, aligned photo (hidden Image widget `dl-hero-scene-after`,
+`delicja-hero-table-after.webp`) shown only around that product. **Versions to compare**
 until one is chosen: `/?hero=stories` (story only), `/?hero=bites` (change only), `/` both. A new photo must be
 re-generated together with its "after" photo, at the same size and alignment. `inc/hero.php` loads the table photo
 without lazy loading; it stays the first image in the hero, so Elementor gives it the high fetch priority.
@@ -91,8 +93,13 @@ without lazy loading; it stays the first image in the hero, so Elementor gives i
 ### Photos, not drawings
 Product pictures in promo panels are real-looking photos (cut-outs on a transparent background, soft daylight from
 the upper left) that run off the bottom edge of the panel: the New arrivals tile has a wooden crate of groceries
-(`delicja-new-crate.webp`), the contact page's "Not in Herning?" panel an opened delivery box
-(`delicja-delivery-box.webp`). On hover they rise a little. No cartoon drawings (they made the shop look like a toy
+(`delicja-new-crate-kielbasa.webp`), the contact page's "Not in Herning?" panel an opened delivery box
+(`delicja-delivery-box-kielbasa.webp`). On hover they rise a little. Only products Delicja sells (no bread).
+
+### Crate (`site.css` → `=== Crate ===`)
+An empty wooden crate (`delicja-cart-empty-crate.webp`) with the full crate photo on top, aligned (`dl-crate`, Image
+widgets `dl-crate-empty` and `dl-crate-full`). Pointing at the crate, or at the button with `dl-crate-fill` in the same
+section (`dl-crate-scene`), fills it up from the middle. Used by the empty cart and the 404 page. No cartoon drawings (they made the shop look like a toy
 shop).
 
 ### Instagram posts (`site.css` → `=== Instagram post ===`)
@@ -135,7 +142,8 @@ matches. Delete it and it must disappear.
 | Products Archive (337) | Product archive | shop, category and tag pages |
 | Product search results (347) | Product archive | product search |
 | Single Product (339) | Single product | all products |
-| Page (340) | Single page | all pages except the front page, About us, Contact, Deals and My account |
+| Page (340) | Single page | all other pages |
+| Information page (451) | Single page | Terms, Privacy Policy, Delivery & returns, Cookies, Om os |
 | Cart (341) | Single page | cart |
 | Checkout (342), Checkout header (343), Checkout footer (344, empty) | Single page / header / footer | checkout |
 | 404 page (346) | 404 | not found |
@@ -162,8 +170,9 @@ zoom. The related product cards do the same.
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
 1. Announcement bar with a small delivery van icon, and header (Theme Builder): wordmark, product search ("Search for
    sausages, sweets…"), account and mini cart (WooCommerce hides the mini cart from visitors while the shop is in
-   "Coming soon" mode; then a cart link shows instead), menu Shop · Deals · About us · Contact (Deals only while at
-   least one product is on sale, `inc/woocommerce.php`), "Come say hi!" (handwritten) with the address link.
+   "Coming soon" mode; then a cart link with a red item count shows instead, `site.js`), menu Shop · Deals · About us ·
+   Contact (Deals only while at least one product is on sale, `inc/woocommerce.php`; categories without products
+   are left out of the menus, `inc/header.php`), "Come say hi!" (handwritten) with the address link.
    Calm and clean: linen background (`dlsurface`), thin lines between the rows and at the bottom; the character
    comes from the red handwritten details, not from ornaments (a folk band there felt kitschy). Menu: a hand-drawn
    red underline draws in on hover and stays under the current page. The Shop dropdown shows each category with its picture (the category
@@ -248,7 +257,11 @@ zoom. The related product cards do the same.
   "Coming soon (shop)" (Templates → Saved Templates) instead of WooCommerce's default: a red panel "Almost ready,
   we're packing the first boxes", ordering online opens soon, Get directions and Back to your cart, the delivery box
   rocking now and then (`inc/woocommerce.php`, `site.css` → `=== Coming soon ===`).
-- **404:** "Nothing found."
+- **404:** "This shelf is empty – sorry!", a short line, the product search, "Browse the shop" and "Back to the front
+  page", and the crate (see Crate).
+- **Information pages** (template Information page): "Good to know", the page title in Anton, the text in a readable
+  column (headings h2/h3 smaller than the title) and a linen side card with the Information menu (Appearance → Menus,
+  "Footer – Information"; the current page white) and "Questions? Call … or write …".
 - **Notices** ("added to your cart", errors) use WooCommerce's block notice banners.
 
 ## Known differences from the block theme

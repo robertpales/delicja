@@ -103,6 +103,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Pickup location: add the street address (Bethaniagade 5).
 - [ ] Delivery methods and prices, when the client sends them.
 - [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
+  Privacy Policy still shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery &
+  returns say "[TODO] Indhold mangler". The pages already have their design (template Information page).
 - [ ] Customer accounts (asked by Matej, 2026-10-23: My account has only "Log in", no way to create an account):
   decide and switch on *WooCommerce → Settings → Accounts & Privacy* → "Allow customers to create an account on the
   My account page" (and whether at checkout, and the password by e-mail link). The design is ready: the register
@@ -155,6 +157,8 @@ Prices, stock and images are shared.
   indexing once the mode is off?
 - [ ] WP Fastest Cache: the whole cache is now cleared by code when a product is saved or a sale starts or ends
   (`inc/woocommerce.php`), so "Weekly deals" and the Deals menu item appear right away. Keep or narrow it?
+- [ ] 404 page (H1 "This shelf is empty – sorry!") and the Information page template (eyebrow "Good to know") are new
+  (Matej, 2026-10-24). Categories without products are now left out of the menus and the homepage tiles.
 - [ ] New pages: Deals (`/tilbud/`, H1 "Deals while they last"; the menu item shows only while something is on sale)
   and My account (H1 "Hello witamy!"), cart H1 "Your cart": meta title and description, indexing of the Deals page
   while it is empty.
