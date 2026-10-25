@@ -251,6 +251,9 @@ zoom. The related product cards do the same.
   story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
   only the stamps.
   The title is like the contact page: "A taste of home" in Anton, "made from the heart" handwritten in red under it.
+  The openings of About us and Contact are built the same way: same title size and spacing, and from 782 px the text
+  starts at the same height (top-aligned with the same top space), not centred against pictures of different height.
+  The About opening photo is cropped 5:4.
   "How it started" sits on a linen band (`dlsurface`) across the full width with soft waves at the top and bottom,
   so the page flows from white into linen and back. On phones its three moments are a small timeline in a white
   card (icons in linen circles joined by a dashed red line) and the buttons are full width; from 600 px the moments

@@ -36,6 +36,16 @@
     min-width: 0;
 }
 
+@media (min-width: 782px) {
+    .dl-contact-hero {
+        --align-items: flex-start;
+    }
+
+    .dl-contact-hero > .dl-contact-text {
+        --padding-top: var(--dl-space-80);
+    }
+}
+
 .dl-contact-text > .elementor-widget.dl-contact-title {
     margin-block: var(--dl-space-20) var(--dl-space-50);
 }

@@ -47,13 +47,13 @@
 }
 
 .dl-about .dl-about-hero-text > .dl-about-title {
-    margin-block: var(--dl-space-30) var(--dl-space-40);
+    margin-block: var(--dl-space-20) var(--dl-space-50);
 }
 
 .dl-about .dl-about-hero-text .dl-about-title .elementor-heading-title {
     color: var(--e-global-color-text);
     font-family: var(--e-global-typography-dldisplay-font-family), sans-serif;
-    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.8);
+    font-size: calc(var(--e-global-typography-dldisplay-font-size) * 0.85);
     font-weight: 400;
     line-height: var(--e-global-typography-dldisplay-line-height);
     letter-spacing: var(--e-global-typography-dldisplay-letter-spacing);
@@ -81,11 +81,26 @@
 }
 
 .dl-about .dl-about-hero > .dl-about-hero-text > .dl-about-lead {
-    max-width: 32em;
+    max-width: 30em;
 }
 
 .dl-about-hero-text > .dl-buttons {
     margin-block-start: var(--dl-space-50);
+}
+
+.dl-about-hero-art .dl-about-photo img {
+    aspect-ratio: 5 / 4;
+    object-position: 50% 35%;
+}
+
+@media (min-width: 782px) {
+    .dl-about-hero {
+        --align-items: flex-start;
+    }
+
+    .dl-about-hero > .dl-about-hero-text {
+        --padding-top: var(--dl-space-80);
+    }
 }
 
 /* === How it started === */

@@ -26,6 +26,8 @@ through Novamira, so they are not in git.
   the first part to the second is smooth and clearly separated. *(partly database)*
 - About us: all two-column parts use the same grid (two equal columns, same gap), so texts and pictures start on the
   same lines in every section.
+- About us and Contact: the opening texts start at the same height on both pages, with the same title size and
+  spacing; the About photo is a little lower (5:4), so text and photo end together.
 
 ## 2026-10-24
 
