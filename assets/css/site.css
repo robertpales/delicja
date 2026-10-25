@@ -3792,7 +3792,7 @@ table.wc-block-cart-items td {
     padding: 0;
 }
 
-.dl-social-login .nsl-container-block .nsl-container-buttons {
+.dl-social-login div.nsl-container.nsl-container-block .nsl-container-buttons {
     display: grid;
     gap: var(--dl-space-20);
     max-width: none;
@@ -3805,7 +3805,7 @@ table.wc-block-cart-items td {
     text-decoration: none;
 }
 
-.dl-social-login .nsl-container .nsl-button {
+.dl-social-login div.nsl-container .nsl-button.nsl-button-default {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3845,7 +3845,7 @@ table.wc-block-cart-items td {
     height: 1.25rem;
 }
 
-.dl-social-login .nsl-container .nsl-button-label-container {
+.dl-social-login div.nsl-container .nsl-button-default div.nsl-button-label-container {
     flex: none;
     margin: 0;
     padding: 0;
