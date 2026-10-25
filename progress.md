@@ -10,6 +10,13 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-25
+
+**Matej**
+- Language switcher prepared in the header: three little handwritten greetings "Hej! · Hi! · Cześć!" next to the
+  account and cart icons (on phones at the top of the open menu). It does nothing yet; once WPML is set up the
+  greetings link to the Danish, English and Polish pages, the main language first. *(partly database)*
+
 ## 2026-10-24
 
 **Matej**

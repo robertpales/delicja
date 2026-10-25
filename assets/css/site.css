@@ -893,7 +893,69 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     rotate: -3deg;
 }
 
+.dl-header-actions > .dl-header-lang {
+    display: none;
+    margin-inline-end: var(--dl-space-20);
+}
+
+.dl-lang {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3em;
+    font-family: var(--e-global-typography-dlhand-font-family), cursive;
+    font-size: calc(var(--e-global-typography-dlhand-font-size) * 0.75);
+    font-weight: var(--e-global-typography-dlhand-font-weight);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.dl-lang-item {
+    position: relative;
+    color: var(--e-global-color-text);
+    text-decoration: none;
+    transition: color var(--dl-transition);
+}
+
+a.dl-lang-item:hover,
+a.dl-lang-item:focus-visible,
+.dl-lang-item.is-current {
+    color: var(--e-global-color-primary);
+}
+
+.dl-lang-item.is-current::after {
+    content: "";
+    position: absolute;
+    right: -0.1em;
+    bottom: -0.25em;
+    left: -0.1em;
+    height: 0.35em;
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: url("../images/hand/underline.svg") center / 100% 100% no-repeat;
+    mask: url("../images/hand/underline.svg") center / 100% 100% no-repeat;
+}
+
+.dl-lang-dot {
+    color: var(--e-global-color-accent);
+}
+
+.dl-header-bar:has(.elementor-menu-toggle.elementor-active) .dl-header-actions > .dl-header-lang {
+    display: block;
+    position: fixed;
+    top: var(--dl-space-60);
+    left: var(--dl-space-40);
+    z-index: 100001;
+    margin: 0;
+}
+
+.dl-header-bar:has(.elementor-menu-toggle.elementor-active) .dl-lang {
+    font-size: var(--e-global-typography-dlhand-font-size);
+}
+
 @media (min-width: 600px) {
+    .dl-header-actions > .dl-header-lang {
+        display: block;
+    }
+
     .dl-header-bar > .e-con-inner {
         grid-template-areas:
             "brand search actions"
