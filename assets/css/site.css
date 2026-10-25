@@ -980,6 +980,12 @@ a.dl-lang-item:focus-visible,
     font-size: var(--e-global-typography-dlhand-font-size);
 }
 
+@media (min-width: 600px) and (max-width: 1023px) {
+    .dl-header-bar:not(:has(.elementor-menu-toggle.elementor-active)) .dl-header-actions .dl-lang-item:not(.is-current) .dl-lang-word {
+        display: none;
+    }
+}
+
 @media (min-width: 600px) {
     .dl-header-actions > .dl-header-lang {
         display: block;

@@ -33,7 +33,7 @@ add_shortcode( 'dl_lang_switch', function () {
 				continue;
 			}
 			$items[] = sprintf(
-				'<a class="dl-lang-item%s" href="%s" lang="%s"%s>%s<span class="screen-reader-text"> (%s)</span></a>',
+				'<a class="dl-lang-item%s" href="%s" lang="%s"%s><span class="dl-lang-word">%s</span><span class="screen-reader-text"> (%s)</span></a>',
 				$language['active'] ? ' is-current' : '',
 				esc_url( $language['url'] ),
 				esc_attr( $code ),
@@ -47,7 +47,7 @@ add_shortcode( 'dl_lang_switch', function () {
 	}
 
 	foreach ( $greetings as $code => $greeting ) {
-		$items[] = sprintf( '<span class="dl-lang-item%s" lang="%s">%s</span>', 'en' === $code ? ' is-current' : '', $code, esc_html( $greeting ) );
+		$items[] = sprintf( '<span class="dl-lang-item%s" lang="%s"><span class="dl-lang-word">%s</span></span>', 'en' === $code ? ' is-current' : '', $code, esc_html( $greeting ) );
 	}
 
 	return '<div class="dl-lang" aria-hidden="true">' . implode( '', $items ) . '</div>';
