@@ -21,6 +21,9 @@ through Novamira, so they are not in git.
   opens a small list Dansk · English · Polski with flags.
 - Header icons tidied: language, account and cart sit on one line, all the same height and dark colour, with the
   same white round hover; the cart's item count sits on the corner of the cart icon.
+- About us: the title uses the same lettering as the homepage and contact page ("A taste of home" in Anton,
+  "made from the heart" handwritten), and "How it started" sits on a linen band with soft waves, so the move from
+  the first part to the second is smooth and clearly separated. *(partly database)*
 
 ## 2026-10-24
 

@@ -39,7 +39,7 @@ Built from the shop's original wordmark SVG; do not redraw the lettering.
 Text must meet WCAG AA contrast.
 
 ### Fonts → Elementor Global Fonts (*Site Settings → Global Fonts*)
-**Plus Jakarta Sans** for everything, **Anton** only for the big headline of the homepage hero and the contact page,
+**Plus Jakarta Sans** for everything, **Anton** only for the big headline of the homepage hero, About us and the contact page,
 **Caveat** (handwriting) only for small handmade notes, photo captions and the handwritten line in those headlines. All are self-hosted in
 `assets/fonts/` (OFL) and registered in Elementor by `inc/fonts.php`. Every global font has an explicit line height
 and letter spacing. Fluid sizes are `clamp()`.
@@ -248,8 +248,11 @@ zoom. The related product cards do the same.
   with a taste": photos in white frames with tape, joined zigzag by a red-and-white baker's twine (`site.js`, About
   story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
   only the stamps.
-  "How it started": on phones its three moments are a small timeline in a light card (icons in white circles joined
-  by a dashed red line) and the buttons are full width; from 600 px the moments stand in three columns.
+  The title is like the contact page: "A taste of home" in Anton, "made from the heart" handwritten in red under it.
+  "How it started" sits on a linen band (`dlsurface`) across the full width with soft waves at the top and bottom,
+  so the page flows from white into linen and back. On phones its three moments are a small timeline in a white
+  card (icons in linen circles joined by a dashed red line) and the buttons are full width; from 600 px the moments
+  stand in three columns.
 - **Contact** (`/kontakt/`): page built in Elementor, CSS in `assets/css/pages/kontakt.css`. "Come say hi" with a
   realistic photo of the real shop front (`delicja-shop-front-day.webp`, made from the Google Street View picture of
   Bethaniagade 5, May 2025, and the photo of the window logo) as a Hotspot widget with small pulsing dots. Each spot is
