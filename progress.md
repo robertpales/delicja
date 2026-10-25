@@ -17,6 +17,8 @@ through Novamira, so they are not in git.
   account and cart icons (on phones at the top of the open menu). It does nothing yet; once WPML is set up the
   greetings link to the Danish, English and Polish pages, the main language first. *(partly database)*
 - Language switcher: each greeting has its flag as a small round sticker (Denmark, United Kingdom, Poland).
+- Language switcher made quiet: instead of the handwritten greetings, a small grey pill with the flag and "EN" that
+  opens a small list Dansk · English · Polski with flags.
 
 ## 2026-10-24
 
