@@ -62,6 +62,13 @@ through Novamira, so they are not in git.
 - Empty categories (Bakery, Drinks, Spices, Cosmetics have no products yet) are left out of the menus and the
   homepage tiles until they get products; two homepage chips now lead to Ready meals and Pantry. *(partly database)*
 
+## 2026-10-25
+
+**Robo**
+- Google login (Nextend Social Login, free): Google app in Robo's Google Cloud, plugin set up, customer registration on. *(database)*
+- "Continue with Google" buttons under the login and registration forms in My account and at the top of the checkout
+  (`inc/social-login.php`), styled like the site's fields. Facebook follows after Meta's business verification.
+
 ## 2026-10-23
 
 **Matej**

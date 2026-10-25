@@ -3752,6 +3752,115 @@ table.wc-block-cart-items td {
     }
 }
 
+/* === Social login === */
+.dl-social-login {
+    display: grid;
+    gap: var(--dl-space-40);
+    margin-block: var(--dl-space-50) 0;
+}
+
+.dl-social-login--checkout {
+    margin-block: 0 var(--dl-space-50);
+}
+
+.dl-social-login-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--dl-space-30);
+    margin: 0;
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family);
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    font-weight: var(--e-global-typography-dlsmall-font-weight);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+    letter-spacing: var(--e-global-typography-dlsmall-letter-spacing);
+}
+
+.dl-social-login-divider::before,
+.dl-social-login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--e-global-color-dlborder);
+}
+
+.dl-social-login--checkout .dl-social-login-divider::before {
+    display: none;
+}
+
+.dl-social-login .nsl-container.nsl-container-block {
+    padding: 0;
+}
+
+.dl-social-login .nsl-container-block .nsl-container-buttons {
+    display: grid;
+    gap: var(--dl-space-20);
+    max-width: none;
+    padding: 0;
+}
+
+.dl-social-login .nsl-container-block .nsl-container-buttons a {
+    flex: none;
+    margin: 0;
+    text-decoration: none;
+}
+
+.dl-social-login .nsl-container .nsl-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dl-space-30);
+    min-height: 2.875rem;
+    padding: var(--dl-space-20) var(--dl-space-40);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-md);
+    box-shadow: none;
+    background-color: var(--e-global-color-dlwhite) !important;
+    color: var(--e-global-color-text);
+    transition: border-color var(--dl-transition), background-color var(--dl-transition);
+}
+
+.dl-social-login .nsl-container-buttons a:hover .nsl-button,
+.dl-social-login .nsl-container-buttons a:focus-visible .nsl-button {
+    border-color: var(--e-global-color-text);
+}
+
+.dl-social-login .nsl-container-buttons a:focus-visible {
+    outline: none;
+}
+
+.dl-social-login .nsl-container-buttons a:focus-visible .nsl-button {
+    outline: 2px solid var(--e-global-color-text);
+    outline-offset: 2px;
+}
+
+.dl-social-login .nsl-container .nsl-button-svg-container {
+    flex: none;
+    padding: 0;
+}
+
+.dl-social-login .nsl-container .nsl-button-svg-container svg {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.dl-social-login .nsl-container .nsl-button-label-container {
+    flex: none;
+    margin: 0;
+    padding: 0;
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-accent-font-family);
+    font-size: var(--e-global-typography-accent-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-accent-line-height);
+    letter-spacing: var(--e-global-typography-accent-letter-spacing);
+}
+
+.dl-social-login .nsl-container .nsl-button-label-container b {
+    font-weight: var(--e-global-typography-accent-font-weight);
+}
+
 /* === Checkout === */
 .dl-checkout-header {
     --padding-top: var(--dl-space-50);
