@@ -176,8 +176,9 @@ zoom. The related product cards do the same.
    "Coming soon" mode; then a cart link with a red item count shows instead, `site.js`), menu Shop · Deals · About us ·
    Contact (Deals only while at least one product is on sale, `inc/woocommerce.php`; categories without products
    are left out of the menus, `inc/header.php`), "Come say hi!" (handwritten) with the address link.
-   Language switcher (`[dl_lang_switch]`, `inc/header.php`): three small handwritten greetings "Hej! · Hi! · Cześć!"
-   (Danish, English, Polish) before the account icon, the current one red with the hand-drawn underline; on phones
+   Language switcher (`[dl_lang_switch]`, `inc/header.php`): three small handwritten greetings "Hej! Hi! Cześć!"
+   (Danish, English, Polish), each with its flag as a small round sticker (white edge, tilted; `assets/images/flags/`),
+   before the account icon, the current one red with the hand-drawn underline; on phones
    at the top of the open menu. Until WPML is set up it only shows the idea (no links); with WPML the greetings link
    to the translations, the main language first.
    Calm and clean: linen background (`dlsurface`), thin lines between the rows and at the bottom; the character

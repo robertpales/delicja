@@ -17,9 +17,9 @@ add_shortcode( 'dl_account', function () {
 	return do_blocks( '<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line"} /-->' );
 } );
 
-// Language switcher: three little greetings, Hej! (Danish), Hi! (English), Cześć! (Polish). With WPML they link to
-// the translations of the current page, the default language first. Until WPML is set up they only show the idea:
-// nothing is a link, English (the site's language now) is marked.
+// Language switcher: three little greetings, Hej! (Danish), Hi! (English), Cześć! (Polish), each with its flag as a
+// small round sticker (site.css). With WPML they link to the translations of the current page, the default language
+// first. Until WPML is set up they only show the idea: nothing is a link, English (the site's language now) is marked.
 add_shortcode( 'dl_lang_switch', function () {
 	$greetings = [ 'da' => 'Hej!', 'en' => 'Hi!', 'pl' => 'Cześć!' ];
 	$languages = apply_filters( 'wpml_active_languages', null, [ 'skip_missing' => 0 ] );
@@ -43,14 +43,14 @@ add_shortcode( 'dl_lang_switch', function () {
 			);
 		}
 
-		return '<nav class="dl-lang" aria-label="' . esc_attr__( 'Language', 'delicja' ) . '">' . implode( '<span class="dl-lang-dot" aria-hidden="true">·</span>', $items ) . '</nav>';
+		return '<nav class="dl-lang" aria-label="' . esc_attr__( 'Language', 'delicja' ) . '">' . implode( '', $items ) . '</nav>';
 	}
 
 	foreach ( $greetings as $code => $greeting ) {
 		$items[] = sprintf( '<span class="dl-lang-item%s" lang="%s">%s</span>', 'en' === $code ? ' is-current' : '', $code, esc_html( $greeting ) );
 	}
 
-	return '<div class="dl-lang" aria-hidden="true">' . implode( '<span class="dl-lang-dot">·</span>', $items ) . '</div>';
+	return '<div class="dl-lang" aria-hidden="true">' . implode( '', $items ) . '</div>';
 } );
 
 // Product categories without products stay out of the menus (Shop dropdown, footer) until they get products, like

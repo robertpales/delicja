@@ -16,6 +16,7 @@ through Novamira, so they are not in git.
 - Language switcher prepared in the header: three little handwritten greetings "Hej! · Hi! · Cześć!" next to the
   account and cart icons (on phones at the top of the open menu). It does nothing yet; once WPML is set up the
   greetings link to the Danish, English and Polish pages, the main language first. *(partly database)*
+- Language switcher: each greeting has its flag as a small round sticker (Denmark, United Kingdom, Poland).
 
 ## 2026-10-24
 
