@@ -17,40 +17,49 @@ add_shortcode( 'dl_account', function () {
 	return do_blocks( '<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line"} /-->' );
 } );
 
-// Language switcher: three little greetings, Hej! (Danish), Hi! (English), Cześć! (Polish), each with its flag as a
-// small round sticker (site.css). With WPML they link to the translations of the current page, the default language
-// first. Until WPML is set up they only show the idea: nothing is a link, English (the site's language now) is marked.
+// Language switcher: a quiet pill with the flag and code of the current language (EN); a click opens a small list
+// (Dansk, English, Polski with their flags; site.css and site.js, Language switcher). With WPML the list links to the
+// translations of the current page, the default language first. Until WPML is set up the list only shows the
+// languages, nothing is a link, and English (the site's language now) is the current one.
 add_shortcode( 'dl_lang_switch', function () {
-	$greetings = [ 'da' => 'Hej!', 'en' => 'Hi!', 'pl' => 'Cześć!' ];
+	$names     = [ 'da' => 'Dansk', 'en' => 'English', 'pl' => 'Polski' ];
 	$languages = apply_filters( 'wpml_active_languages', null, [ 'skip_missing' => 0 ] );
-	$items     = [];
+	$current   = 'en';
+	$options   = [];
 
 	if ( is_array( $languages ) && $languages ) {
 		$default = apply_filters( 'wpml_default_language', null );
 		uksort( $languages, fn( $a, $b ) => ( $b === $default ) <=> ( $a === $default ) );
 		foreach ( $languages as $code => $language ) {
-			if ( empty( $greetings[ $code ] ) ) {
+			if ( empty( $names[ $code ] ) ) {
 				continue;
 			}
-			$items[] = sprintf(
-				'<a class="dl-lang-item%s" href="%s" lang="%s"%s><span class="dl-lang-word">%s</span><span class="screen-reader-text"> (%s)</span></a>',
+			if ( $language['active'] ) {
+				$current = $code;
+			}
+			$options[] = sprintf(
+				'<li><a class="dl-lang-option%s" href="%s" lang="%s"%s><span class="dl-lang-flag" data-lang="%s"></span>%s</a></li>',
 				$language['active'] ? ' is-current' : '',
 				esc_url( $language['url'] ),
 				esc_attr( $code ),
 				$language['active'] ? ' aria-current="true"' : '',
-				esc_html( $greetings[ $code ] ),
-				esc_html( $language['native_name'] )
+				esc_attr( $code ),
+				esc_html( $names[ $code ] )
 			);
 		}
-
-		return '<nav class="dl-lang" aria-label="' . esc_attr__( 'Language', 'delicja' ) . '">' . implode( '', $items ) . '</nav>';
+	} else {
+		foreach ( $names as $code => $name ) {
+			$options[] = sprintf( '<li><span class="dl-lang-option%s" lang="%s"><span class="dl-lang-flag" data-lang="%s"></span>%s</span></li>', $current === $code ? ' is-current' : '', $code, $code, $name );
+		}
 	}
 
-	foreach ( $greetings as $code => $greeting ) {
-		$items[] = sprintf( '<span class="dl-lang-item%s" lang="%s"><span class="dl-lang-word">%s</span></span>', 'en' === $code ? ' is-current' : '', $code, esc_html( $greeting ) );
-	}
-
-	return '<div class="dl-lang" aria-hidden="true">' . implode( '', $items ) . '</div>';
+	return sprintf(
+		'<details class="dl-lang"><summary class="dl-lang-current" aria-label="%s"><span class="dl-lang-flag" data-lang="%s"></span><span class="dl-lang-code">%s</span></summary><ul class="dl-lang-list">%s</ul></details>',
+		esc_attr( sprintf( __( 'Language: %s', 'delicja' ), $names[ $current ] ) ),
+		esc_attr( $current ),
+		esc_html( strtoupper( $current ) ),
+		implode( '', $options )
+	);
 } );
 
 // Product categories without products stay out of the menus (Shop dropdown, footer) until they get products, like
