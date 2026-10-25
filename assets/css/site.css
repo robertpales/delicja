@@ -572,9 +572,11 @@ body .wp-block-button__link:focus,
     --gap: var(--dl-space-10);
     --row-gap: var(--dl-space-10);
     --column-gap: var(--dl-space-10);
+    --align-items: center;
     grid-area: actions;
     justify-self: end;
     flex-wrap: nowrap;
+    align-items: center;
 }
 
 .dl-header-actions .elementor-shortcode,
@@ -626,10 +628,31 @@ body .wp-block-button__link:focus,
     position: relative;
 }
 
+.dl-header-actions .wc-block-cart-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--dl-radius-pill);
+    color: var(--e-global-color-text);
+    transition: background-color var(--dl-transition);
+}
+
+.dl-header-actions .wc-block-cart-link:hover {
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-text);
+}
+
+.dl-header-actions .wc-block-cart-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .elementor-location-header .dl-cart-count {
     position: absolute;
-    top: -0.35rem;
-    right: -0.55rem;
+    top: 0.275rem;
+    right: 0.075rem;
     display: grid;
     place-items: center;
     min-width: 1.15rem;
@@ -911,15 +934,13 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     display: inline-flex;
     align-items: center;
     gap: 0.4em;
-    padding: 0.35em 0.6em;
-    border: 1px solid transparent;
+    height: 2.75rem;
+    padding: 0 0.75em;
     border-radius: var(--dl-radius-pill);
-    color: var(--e-global-color-accent);
+    color: var(--e-global-color-text);
     cursor: pointer;
     list-style: none;
-    transition:
-        border-color var(--dl-transition),
-        color var(--dl-transition);
+    transition: background-color var(--dl-transition);
 }
 
 .dl-lang-current::-webkit-details-marker {
@@ -940,8 +961,7 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
 
 .dl-lang-current:hover,
 .dl-lang[open] > .dl-lang-current {
-    border-color: var(--e-global-color-dlborder);
-    color: var(--e-global-color-text);
+    background-color: var(--e-global-color-dlwhite);
 }
 
 .dl-lang-current:focus-visible {
@@ -1011,7 +1031,7 @@ a.dl-lang-option:focus-visible {
 .dl-header-bar:has(.elementor-menu-toggle.elementor-active) .dl-header-actions > .dl-header-lang {
     display: block;
     position: fixed;
-    top: var(--dl-space-60);
+    top: calc(var(--dl-space-60) + 12px - 1.375rem);
     left: var(--dl-space-40);
     z-index: 100001;
 }

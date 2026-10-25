@@ -19,6 +19,8 @@ through Novamira, so they are not in git.
 - Language switcher: each greeting has its flag as a small round sticker (Denmark, United Kingdom, Poland).
 - Language switcher made quiet: instead of the handwritten greetings, a small grey pill with the flag and "EN" that
   opens a small list Dansk · English · Polski with flags.
+- Header icons tidied: language, account and cart sit on one line, all the same height and dark colour, with the
+  same white round hover; the cart's item count sits on the corner of the cart icon.
 
 ## 2026-10-24
 
