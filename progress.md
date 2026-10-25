@@ -24,6 +24,8 @@ through Novamira, so they are not in git.
 - About us: the title uses the same lettering as the homepage and contact page ("A taste of home" in Anton,
   "made from the heart" handwritten), and "How it started" sits on a linen band with soft waves, so the move from
   the first part to the second is smooth and clearly separated. *(partly database)*
+- About us: all two-column parts use the same grid (two equal columns, same gap), so texts and pictures start on the
+  same lines in every section.
 
 ## 2026-10-24
 

@@ -10,6 +10,7 @@
     --gap: var(--dl-space-80);
     --row-gap: var(--dl-space-80);
     --column-gap: var(--dl-space-80);
+    --dl-about-columns: var(--dl-space-80);
 }
 
 .dl-about-photo img {
@@ -28,20 +29,20 @@
 /* === Opening === */
 .dl-about-hero {
     --align-items: center;
-    --gap: var(--dl-space-70);
+    --gap: var(--dl-about-columns);
     --row-gap: var(--dl-space-50);
-    --column-gap: var(--dl-space-70);
+    --column-gap: var(--dl-about-columns);
 }
 
 .dl-about-hero > .dl-about-hero-text {
     --gap: 0px;
     --row-gap: 0px;
-    flex: 0 1 52%;
+    flex: 0 1 50%;
     min-width: 0;
 }
 
 .dl-about-hero > .dl-about-hero-art {
-    flex: 0 1 48%;
+    flex: 0 1 50%;
     min-width: 0;
 }
 
@@ -94,9 +95,9 @@
 
 .dl-begin {
     --align-items: center;
-    --gap: var(--dl-space-70);
+    --gap: var(--dl-about-columns);
     --row-gap: var(--dl-space-60);
-    --column-gap: var(--dl-space-70);
+    --column-gap: var(--dl-about-columns);
     --padding-top: calc(var(--dl-wave) + var(--dl-space-60));
     --padding-bottom: calc(var(--dl-wave) + var(--dl-space-60));
     --dl-wave: clamp(2rem, 4vw, 3.5rem);
@@ -126,14 +127,14 @@
 .dl-begin > .dl-begin-text {
     --gap: 0px;
     --row-gap: 0px;
-    flex: 0 1 58%;
+    flex: 0 1 50%;
     min-width: 0;
 }
 
 .dl-begin > .dl-begin-reel {
     --gap: var(--dl-space-30);
     --row-gap: var(--dl-space-30);
-    flex: 0 1 42%;
+    flex: 0 1 50%;
     min-width: 0;
 }
 
@@ -343,9 +344,9 @@
 
 .dl-chapter {
     --align-items: center;
-    --gap: var(--dl-space-80);
+    --gap: var(--dl-about-columns);
     --row-gap: var(--dl-space-40);
-    --column-gap: var(--dl-space-80);
+    --column-gap: var(--dl-about-columns);
     position: relative;
     overflow: visible;
 }
@@ -627,23 +628,23 @@
 }
 
 .dl-visit-columns {
-    --gap: var(--dl-space-50);
+    --gap: var(--dl-about-columns);
     --row-gap: var(--dl-space-50);
-    --column-gap: var(--dl-space-50);
+    --column-gap: var(--dl-about-columns);
     --align-items: stretch;
 }
 
 .dl-visit-columns > .dl-visit-shop {
     --gap: 0px;
     --row-gap: 0px;
-    flex: 0 1 58%;
+    flex: 0 1 50%;
     min-width: 0;
 }
 
 .dl-visit-columns > .dl-visit-side {
     --gap: var(--dl-space-40);
     --row-gap: var(--dl-space-40);
-    flex: 0 1 42%;
+    flex: 0 1 50%;
     min-width: 0;
 }
 

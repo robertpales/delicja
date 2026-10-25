@@ -244,7 +244,9 @@ zoom. The related product cards do the same.
   they last", a lead and all products on sale (Loop Grid, product card); with no sale a note and "See the whole
   shop" (`[dl_no_deals]`).
 - **Legal pages:** title + page content (Page template). Legal texts [TODO].
-- **About us:** page built in Elementor, CSS in `assets/css/pages/about.css`. The four chapters of "It all starts
+- **About us:** page built in Elementor, CSS in `assets/css/pages/about.css`. All two-column parts (opening, How it
+  started, the chapters, Visit us) use the same grid: two equal columns with the same gap (`--dl-about-columns`),
+  so the texts and pictures line up on the same edges all the way down. The four chapters of "It all starts
   with a taste": photos in white frames with tape, joined zigzag by a red-and-white baker's twine (`site.js`, About
   story) that draws itself while scrolling; round number stamps press in as each chapter comes into view. On phones
   only the stamps.
