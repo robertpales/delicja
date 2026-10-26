@@ -98,6 +98,14 @@ the upper left) that run off the bottom edge of the panel: the New arrivals tile
 (`delicja-new-crate-kielbasa.webp`), the "Not in Herning?" panel an opened delivery box
 (`delicja-delivery-box-kielbasa.webp`). On hover they rise a little. Only products Delicja sells (no bread).
 
+### Opening hours
+Tuesday–Wednesday 11:00–17:00, Thursday–Friday 11:00–17:30, Saturday–Sunday 10:00–16:00, Monday closed (from the
+shop's Google Business Profile, 2026-10-26). Shown as text in Elementor (the owner edits them there) in four places:
+Contact card "Opening hours", About us → Visit us, footer, homepage FAQ "Can I come to the shop?". In the first three
+as a small two-column list next to the clock icon (`dl-hours`, `site.css` → `=== Icon links ===`):
+`<span class="dl-hours"><span class="dl-hours-row"><span>Tue–Wed</span><span>11:00–17:00</span></span>…</span>`,
+the closed day with `is-closed` (muted). If the hours change, change all four places and the Google profile.
+
 ### Delivery panel (`site.css` → `=== Delivery panel ===`)
 "Not in Herning?": a red panel (paper grain) with a white heading, one line about delivery, a light "Shop online"
 button and the opened delivery box running off its bottom edge (classes `dl-online`, `dl-online-text`,

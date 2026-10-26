@@ -415,6 +415,34 @@ body .wp-block-button__link:focus,
     --dl-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M4 21V5l8-3 8 3v16h-6v-5h-4v5zm4-12h2V7H8zm6 0h2V7h-2zm-6 4h2v-2H8zm6 0h2v-2h-2z'/%3E%3C/svg%3E");
 }
 
+.dl-icon-link p:has(.dl-hours) {
+    align-items: flex-start;
+}
+
+.dl-icon-link p:has(.dl-hours)::before {
+    margin-block-start: 0.2em;
+}
+
+.dl-hours {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    column-gap: var(--dl-space-40);
+    row-gap: 0.15em;
+}
+
+.dl-hours-row {
+    display: contents;
+}
+
+.dl-hours-row > :last-child {
+    font-variant-numeric: tabular-nums;
+}
+
+.dl-hours-row.is-closed {
+    color: var(--e-global-color-accent);
+}
+
 /* === Header === */
 .dl-header {
     --padding-top: 0px;
