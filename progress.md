@@ -20,7 +20,8 @@ through Novamira, so they are not in git.
 - Footer: link to the shop's food inspection reports on findsmiley.dk, under the opening hours on every page;
   required for a food webshop. It is Fødevarestyrelsen's official "Inspection Report" badge (the magnifier with the
   smileys), as their guide recommends; the Danish "Se kontrolrapport" badge is in the media library for the Danish
-  version. Checked that the page is Delicja's (CVR 45266575). *(database; size in git)*
+  version. Checked that the page is Delicja's (CVR 45266575). Rounded corners like the payment icons.
+  *(database; size in git)*
 - Opening hours on the site instead of "see Google Maps": Tue–Wed 11:00–17:00, Thu–Fri 11:00–17:30, Sat–Sun
   10:00–16:00, Monday closed (from the Google profile). As a small list next to the clock icon on the Contact card,
   About us → Visit us and in the footer, and in the homepage FAQ answer. *(partly database)*

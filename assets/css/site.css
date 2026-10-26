@@ -4209,12 +4209,14 @@ table.wc-block-cart-items td {
 
 .dl-footer .dl-smiley-link a {
     display: inline-block;
+    border-radius: var(--dl-radius-sm);
 }
 
 .dl-footer .dl-footer-contact .dl-smiley-link img {
     display: block;
     width: 132px;
     height: auto;
+    border-radius: var(--dl-radius-sm);
 }
 
 .dl-payment {

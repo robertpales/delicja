@@ -223,8 +223,9 @@ zoom. The related product cards do the same.
     MobilePay, the client's choice), menus Shop and Information, contact,
     copyright line, company name + CVR (required by Danish law), opening hours, and the link to the shop's food
     inspection reports on findsmiley.dk (`https://www.findsmiley.dk/1475269`; required for a food webshop). The link is
-    Fødevarestyrelsen's official badge (lup icon, green), an Image widget `dl-smiley-link`, 132 px wide: English
-    "Inspection Report" (media 479) now, Danish "Se kontrolrapport" (media 480) in the Danish footer. Never a smiley
+    Fødevarestyrelsen's official badge (lup icon, green, its thin pale frame trimmed), an Image widget
+    `dl-smiley-link`, 132 px wide with rounded corners (`--dl-radius-sm`, like the payment icons): English
+    "Inspection Report" (media 481) now, Danish "Se kontrolrapport" (media 482) in the Danish footer. Never a smiley
     picture: it would have to match the latest inspection result at all times.
 
 ## Other pages
