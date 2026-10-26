@@ -26,10 +26,6 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Shop information**
-- [ ] Opening hours of the shop, for every day. They are not public anywhere: the Google Business Profile has only
-  "Monday: closed" (checked 2026-10-26). The site now says "Opening hours on Google Maps" in four places (homepage FAQ,
-  footer, About us → Visit us, Contact card); once we have the hours, they go on the site there. Ask the client to
-  fill them in on Google too.
 - [ ] Delivery: area, prices (by distance from the shop?), delivery days and times.
 - [ ] Minimum order value and free delivery threshold, if any.
 - [ ] Chilled and frozen products (meat, dairy, fish): how are they kept cold on the way? Only local delivery for them?
@@ -179,6 +175,9 @@ Prices, stock and images are shared.
 - [ ] New pages: Deals (`/tilbud/`, H1 "Deals while they last"; the menu item shows only while something is on sale)
   and My account (H1 "Hello witamy!"), cart H1 "Your cart": meta title and description, indexing of the Deals page
   while it is empty.
+- [ ] Opening hours are on the site now (2026-10-26, from the Google Business Profile): Tue–Wed 11:00–17:00,
+  Thu–Fri 11:00–17:30, Sat–Sun 10:00–16:00, Monday closed. `inc/schema.php` still lists them as unknown: add
+  `openingHoursSpecification` to the store schema.
 - [ ] About us lead shortened (2026-10-24): "A Polish deli in the centre of Herning, where you can taste home."
   The page's meta description or excerpt may still use the old, longer text.
 - [ ] Homepage hero picture changed (apples, farm milk; now `delicja-hero-table-apples-2.webp`, alt text updated).

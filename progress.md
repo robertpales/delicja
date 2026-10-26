@@ -10,6 +10,13 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-26
+
+**Matej**
+- Opening hours on the site instead of "see Google Maps": Tue–Wed 11:00–17:00, Thu–Fri 11:00–17:30, Sat–Sun
+  10:00–16:00, Monday closed (from the Google profile). As a small list next to the clock icon on the Contact card,
+  About us → Visit us and in the footer, and in the homepage FAQ answer. *(partly database)*
+
 ## 2026-10-25
 
 **Matej**
