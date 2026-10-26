@@ -66,18 +66,14 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 **Payment gateway (Flatpay / Frisbii Pay)**
 - [ ] Ask Flatpay to activate online payments (Frisbii Pay) for the website delicja.dk.
 - [ ] Invite `pales.robo@gmail.com` as a user in the Frisbii (Billwerk+) admin. If that is not possible: send the Live Private Key and a test key or test account.
-- [ ] Which payment methods to offer online (MobilePay, Dankort, Visa/Mastercard, Apple Pay, Google Pay); some need a
-  separate agreement.
 - [ ] Accounting: which system (e-conomic, Dinero, Billy, …)? Should orders go there automatically?
 
 **Language versions**
-- [ ] Which language is the main (default) one: Danish, English or Polish. The main language has no prefix in the URL,
-  the other two get a language folder (`/da/`, `/en/`, `/pl/`). The client writes products in the main language.
 - [ ] Buy the WPML licence, plan **Multilingual CMS**, in the name of Delicja ApS, and give us access to the account. https://app.wpml.org/purchase
   Check how many automatic translation credits the plan includes; more cost extra.
 
 **Order of work for the language versions**
-1. Client → Matej: main language + WPML account.
+1. Client → Matej: main language (done: **Danish**, 2026-10-26) + WPML account (still open).
 2. Matej → Robo: tells Robo that both are ready.
 3. Robo: installs and sets up WPML, then tells Matej.
 4. Matej: pages and templates in the main language.
@@ -93,7 +89,7 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   keep what is already done and avoid big changes.
   - [ ] Style the product page (template Single Product) in the site style.
   - [ ] Related product cards (template Related product card) in the same style as all the other product cards on the site.
-- [ ] Tell Robo when the client has chosen the main language and given access to the WPML account.
+- [ ] Tell Robo when the client has given access to the WPML account (main language chosen: Danish, 2026-10-26).
 - [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
 - [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.
 
@@ -124,13 +120,14 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   (e.g. one request with a query string, or deleting the cache folder over SSH).
 
 **Payment gateway (Frisbii Pay)**, when the client has done their part
-- [ ] Keys, payment methods, logos, order status mapping; check webhooks.
+- [ ] Keys, payment methods, logos, order status mapping; check webhooks. The client wants **Dankort, Visa/Mastercard,
+  Apple Pay and Google Pay, no MobilePay** (2026-10-26). The footer icons and the homepage texts already show these.
 - [ ] Test payments on test.delicja.dk.
-- [ ] Turn off cash on delivery; payment icons in the footer match the real methods.
+- [ ] Turn off cash on delivery.
 
 **Language versions (WPML)**, when Matej says the client has chosen the main language and given access to the WPML account
 
-Recommended: Danish is the main language (no prefix), English `/en/`, Polish `/pl/`. The client decides. Pages and
+Main language: **Danish** (the client's choice, 2026-10-26), no prefix; English `/en/`, Polish `/pl/`. Pages and
 templates are translated by hand (Matej). Products, categories and attributes are translated automatically when saved,
 including slugs and Rank Math meta title and description; the client only writes in the main language.
 Prices, stock and images are shared.

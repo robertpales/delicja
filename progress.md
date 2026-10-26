@@ -16,6 +16,9 @@ through Novamira, so they are not in git.
 - Opening hours on the site instead of "see Google Maps": Tue–Wed 11:00–17:00, Thu–Fri 11:00–17:30, Sat–Sun
   10:00–16:00, Monday closed (from the Google profile). As a small list next to the clock icon on the Contact card,
   About us → Visit us and in the footer, and in the homepage FAQ answer. *(partly database)*
+- Client's answers: online payment methods Dankort, Visa/Mastercard, Apple Pay and Google Pay (no MobilePay); main
+  language Danish. Footer payment icons now Dankort, Visa, Mastercard, Apple Pay, Google Pay (official logos from the
+  Frisbii plugin), and the homepage "Pay your way" and FAQ texts name these methods. *(database)*
 - Shop sorting made to fit the site: instead of the browser's select box, a white pill "Sort: Our picks" that opens a
   small list (Our picks, Most popular, Newest, Price: low to high, Price: high to low) with a red tick on the current
   one; also in product search. Sorting by price and by popularity did not work before (the shop grid fell back to

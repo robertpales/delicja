@@ -219,8 +219,9 @@ zoom. The related product cards do the same.
 9. "Questions and answers" (FAQ accordion) and a "More questions?" box [TODO final answers].
 10. "Follow Delicja" with the Instagram link and two real photos as Instagram posts that link to Instagram (hidden
     below 782 px).
-11. Footer (Theme Builder): round logo, short text, payment icons, menus Shop and Information, contact,
-    copyright line. Company name + CVR [TODO] (required by Danish law), opening hours [TODO].
+11. Footer (Theme Builder): round logo, short text, payment icons (Dankort, Visa, Mastercard, Apple Pay, Google Pay; no
+    MobilePay, the client's choice), menus Shop and Information, contact,
+    copyright line, company name + CVR (required by Danish law), opening hours.
 
 ## Other pages
 - **Shop, category and tag pages:** breadcrumbs, title, result count and sorting, 4-column card grid
