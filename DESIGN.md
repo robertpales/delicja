@@ -222,8 +222,10 @@ zoom. The related product cards do the same.
 11. Footer (Theme Builder): round logo, short text, payment icons (Dankort, Visa, Mastercard, Apple Pay, Google Pay; no
     MobilePay, the client's choice), menus Shop and Information, contact,
     copyright line, company name + CVR (required by Danish law), opening hours, and the link to the shop's food
-    inspection reports on findsmiley.dk (`https://www.findsmiley.dk/1475269`, magnifier icon `dl-icon-link--report`;
-    required for a food webshop). A link with text, not a smiley picture, so it never shows an outdated result.
+    inspection reports on findsmiley.dk (`https://www.findsmiley.dk/1475269`; required for a food webshop). The link is
+    Fødevarestyrelsen's official badge (lup icon, green), an Image widget `dl-smiley-link`, 132 px wide: English
+    "Inspection Report" (media 479) now, Danish "Se kontrolrapport" (media 480) in the Danish footer. Never a smiley
+    picture: it would have to match the latest inspection result at all times.
 
 ## Other pages
 - **Shop, category and tag pages:** breadcrumbs, title, result count and sorting, 4-column card grid
