@@ -26,7 +26,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Shop information**
-- [ ] Opening hours of the shop.
+- [ ] Opening hours of the shop, for every day. They are not public anywhere: the Google Business Profile has only
+  "Monday: closed" (checked 2026-10-26). The site now says "Opening hours on Google Maps" in four places (homepage FAQ,
+  footer, About us → Visit us, Contact card); once we have the hours, they go on the site there. Ask the client to
+  fill them in on Google too.
 - [ ] Delivery: area, prices (by distance from the shop?), delivery days and times.
 - [ ] Minimum order value and free delivery threshold, if any.
 - [ ] Chilled and frozen products (meat, dairy, fish): how are they kept cold on the way? Only local delivery for them?
