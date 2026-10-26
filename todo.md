@@ -26,10 +26,9 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Shop information**
-- [ ] Delivery: area, prices (by distance from the shop?), delivery days and times.
-- [ ] Minimum order value and free delivery threshold, if any.
-- [ ] Chilled and frozen products (meat, dairy, fish): how are they kept cold on the way? Only local delivery for them?
-- [ ] Pickup in the shop: how soon an order is ready, and how the customer is told.
+- [ ] Chilled and frozen products (meat, dairy, fish): how are they kept cold on the way, also for deliveries further
+  in Jutland (219 kr.)?
+- [ ] Pickup in the shop: how is the customer told that the order is ready (e-mail from the shop, SMS, phone call)?
 - [ ] Which e-mail address receives new orders, and who handles them in the shop.
 
 **Food rules** (required for selling food online in Denmark)
@@ -100,7 +99,17 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 **WooCommerce**
 - [ ] Tax rate: remove the city limit (Herning) so the 25 % moms applies to all of Denmark.
 - [ ] Pickup location: add the street address (Bethaniagade 5).
-- [ ] Delivery methods and prices, when the client sends them.
+- [ ] Delivery methods and prices from the client (2026-10-26). Now the zone "Denmark" has only free shipping on.
+  - Herning: 49 kr., free from 799 kr.
+  - Up to 15 km from the shop: 79 kr., free from 999 kr.
+  - 15–40 km from the shop: 129 kr., free from 1,299 kr.
+  - Rest of Jutland: 219 kr. flat (no free threshold); time arranged with the customer.
+  - Deliveries on Wednesdays and Fridays, Herning and up to 40 km between 15:00 and 17:00.
+  - Pickup in the shop (Bethaniagade 5): free, ready about two hours after the order, subject to availability.
+  WooCommerce zones work by postcode, not distance: either postcode lists for the 15 km and 40 km rings around
+  Herning (7400) or a distance-based shipping plugin. Jutland = postcodes 6000–9990 (Funen 5000–5999 and the islands
+  are not Jutland). Put the same rules on the Delivery & returns page with the client's texts. The site texts already
+  show these prices (announcement bar, homepage feature and FAQ, delivery panel on About us and Contact).
 - [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
   Privacy Policy still shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery &
   returns say "[TODO] Indhold mangler". The pages already have their design (template Information page).

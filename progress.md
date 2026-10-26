@@ -16,6 +16,11 @@ through Novamira, so they are not in git.
 - Opening hours on the site instead of "see Google Maps": Tue–Wed 11:00–17:00, Thu–Fri 11:00–17:30, Sat–Sun
   10:00–16:00, Monday closed (from the Google profile). As a small list next to the clock icon on the Contact card,
   About us → Visit us and in the footer, and in the homepage FAQ answer. *(partly database)*
+- Client's delivery terms on the site: announcement bar "Free delivery in Herning from 799 kr.", homepage feature
+  "Delivered to your door" and the FAQ answer with all prices (Herning 49 kr., up to 15 km 79 kr., up to 40 km
+  129 kr., rest of Jutland 219 kr., free from 799 / 999 / 1,299 kr.; Wednesdays and Fridays 15:00–17:00; pickup ready
+  in about two hours), and the "Not in Herning?" panel on About us and Contact. Shipping in the checkout is Robo's.
+  *(database)*
 - Client's answers: online payment methods Dankort, Visa/Mastercard, Apple Pay and Google Pay (no MobilePay); main
   language Danish. Footer payment icons now Dankort, Visa, Mastercard, Apple Pay, Google Pay (official logos from the
   Frisbii plugin), and the homepage "Pay your way" and FAQ texts name these methods. *(database)*
