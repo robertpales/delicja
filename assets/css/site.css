@@ -3154,6 +3154,84 @@ table.wc-block-cart-items td {
     }
 }
 
+/* === Delivery panel === */
+.dl-online.e-con {
+    --align-items: center;
+    --gap: var(--dl-space-50);
+    --row-gap: var(--dl-space-50);
+    --column-gap: var(--dl-space-50);
+    --padding-top: var(--dl-space-60);
+    --padding-right: var(--dl-space-70);
+    --padding-bottom: var(--dl-space-60);
+    --padding-left: var(--dl-space-70);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: var(--dl-radius-xl);
+}
+
+.dl-online::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("../images/folk/grain.svg") 0 0 / 220px 220px repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.dl-online > .dl-online-text {
+    --gap: var(--dl-space-30);
+    --row-gap: var(--dl-space-30);
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.dl-online > .elementor-widget.dl-online-box {
+    flex: 0 0 min(24rem, 42%);
+    align-self: flex-end;
+    margin-block-end: calc(-1 * var(--dl-space-60));
+    translate: 0 14%;
+    transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dl-online-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1rem 1.25rem color-mix(in srgb, var(--e-global-color-text) 35%, transparent));
+}
+
+.dl-online:hover > .elementor-widget.dl-online-box {
+    translate: 0 12%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-online > .elementor-widget.dl-online-box {
+        transition: none;
+    }
+}
+
+@media (max-width: 781px) {
+    .dl-online.e-con {
+        --padding-right: var(--dl-space-50);
+        --padding-left: var(--dl-space-50);
+    }
+
+    .dl-online > .elementor-widget.dl-online-box {
+        flex-basis: 40%;
+    }
+}
+
+@media (max-width: 599px) {
+    .dl-online > .elementor-widget.dl-online-box {
+        flex: 0 0 auto;
+        align-self: center;
+        width: min(22rem, 100%);
+    }
+}
+
 /* === Cart and checkout widgets === */
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) {
     --sections-background-color: var(--e-global-color-dlwhite);

@@ -646,7 +646,7 @@
     --gap: var(--dl-about-columns);
     --row-gap: var(--dl-space-50);
     --column-gap: var(--dl-about-columns);
-    --align-items: stretch;
+    --align-items: center;
 }
 
 .dl-visit-columns > .dl-visit-shop {
@@ -680,17 +680,6 @@
 .dl-visit-side > .dl-about-photo {
     flex: none;
     width: 100%;
-}
-
-.dl-visit-side > .dl-visit-online {
-    margin-block-start: var(--dl-space-50);
-    --gap: var(--dl-space-30);
-    --row-gap: var(--dl-space-30);
-    --padding-top: var(--dl-space-60);
-    --padding-right: var(--dl-space-50);
-    --padding-bottom: var(--dl-space-60);
-    --padding-left: var(--dl-space-50);
-    border-radius: var(--dl-radius-xl);
 }
 
 .dl-visit-thanks p {

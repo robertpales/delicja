@@ -95,8 +95,14 @@ photo without lazy loading; it stays the first image in the hero, so Elementor g
 ### Photos, not drawings
 Product pictures in promo panels are real-looking photos (cut-outs on a transparent background, soft daylight from
 the upper left) that run off the bottom edge of the panel: the New arrivals tile has a wooden crate of groceries
-(`delicja-new-crate-kielbasa.webp`), the contact page's "Not in Herning?" panel an opened delivery box
+(`delicja-new-crate-kielbasa.webp`), the "Not in Herning?" panel an opened delivery box
 (`delicja-delivery-box-kielbasa.webp`). On hover they rise a little. Only products Delicja sells (no bread).
+
+### Delivery panel (`site.css` → `=== Delivery panel ===`)
+"Not in Herning?": a red panel (paper grain) with a white heading, one line about delivery, a light "Shop online"
+button and the opened delivery box running off its bottom edge (classes `dl-online`, `dl-online-text`,
+`dl-online-box`). The same panel on Contact and at the end of About us ("Visit us"), under the text and the shop
+window photo.
 
 ### Crate (`site.css` → `=== Crate ===`)
 An empty wooden crate (`delicja-cart-empty-crate.webp`) with the full crate photo on top, aligned (`dl-crate`, Image

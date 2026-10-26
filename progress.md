@@ -28,6 +28,9 @@ through Novamira, so they are not in git.
   same lines in every section.
 - About us and Contact: the opening texts start at the same height on both pages, with the same title size and
   spacing; the About photo is a little lower (5:4), so text and photo end together.
+- About us, "Visit us": the pale pink "Not in Herning?" box under the photo is now the same red delivery panel as on
+  Contact (full width, with the opened box of groceries), and the text and shop window photo sit side by side, centred.
+  The panel is one shared piece for both pages. *(partly database)*
 
 ## 2026-10-24
 
