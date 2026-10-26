@@ -217,6 +217,36 @@ add_shortcode( 'dl_shop_bar', function () {
 	return '<div class="dl-shop-bar">' . ob_get_clean() . delicja_sort_menu() . '</div>';
 } );
 
+// WooCommerce sorts by price, popularity and rating with SQL clauses that it adds only to the main query. The
+// Elementor Loop Grid of the shop runs its own copy of that query, which then fell back to newest first. Add the same
+// clauses to that copy (once, only to that query).
+add_action( 'pre_get_posts', function ( $query ) {
+	if ( $query->is_main_query() || ! in_array( 'product', (array) $query->get( 'post_type' ), true ) ) {
+		return;
+	}
+
+	$orderby   = $query->get( 'orderby' );
+	$callbacks = [
+		'price'      => 'DESC' === strtoupper( (string) $query->get( 'order' ) ) ? 'order_by_price_desc_post_clauses' : 'order_by_price_asc_post_clauses',
+		'popularity' => 'order_by_popularity_post_clauses',
+		'rating'     => 'order_by_rating_post_clauses',
+	];
+	if ( ! is_string( $orderby ) || ! isset( $callbacks[ $orderby ] ) || ! WC()->query ) {
+		return;
+	}
+
+	$callback = $callbacks[ $orderby ];
+	$apply    = function ( $clauses, $current ) use ( $query, $callback, &$apply ) {
+		if ( $current !== $query ) {
+			return $clauses;
+		}
+		remove_filter( 'posts_clauses', $apply, 20 );
+
+		return WC()->query->$callback( $clauses );
+	};
+	add_filter( 'posts_clauses', $apply, 20, 2 );
+} );
+
 // Sorting as a small pill that opens a short list of links (site.css, Shop; site.js closes it), instead of
 // WooCommerce's select box. Same options and rules as woocommerce_catalog_ordering(), with friendlier names; each
 // option is a link to page 1 of the same list, the default order without ?orderby.
@@ -235,7 +265,7 @@ function delicja_sort_menu() {
 		'price-desc' => __( 'Price: high to low', 'delicja' ),
 	];
 
-	$default = apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', '' ) );
+	$default = apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', 'menu_order' ) );
 	$options = apply_filters( 'woocommerce_catalog_orderby', array_slice( $names, 1 ) );
 	if ( wc_get_loop_prop( 'is_search' ) ) {
 		$options = [ 'relevance' => $names['relevance'] ] + $options;

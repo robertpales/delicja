@@ -18,7 +18,8 @@ through Novamira, so they are not in git.
   About us → Visit us and in the footer, and in the homepage FAQ answer. *(partly database)*
 - Shop sorting made to fit the site: instead of the browser's select box, a white pill "Sort: Our picks" that opens a
   small list (Our picks, Most popular, Newest, Price: low to high, Price: high to low) with a red tick on the current
-  one; also in product search.
+  one; also in product search. Sorting by price and by popularity did not work before (the shop grid fell back to
+  newest first); fixed.
 
 ## 2026-10-25
 
