@@ -13,6 +13,10 @@ through Novamira, so they are not in git.
 ## 2026-10-26
 
 **Matej**
+- Client questions settled by Matej: the shop sells apples and fresh milk (hero picture stays), the opening hours on
+  the site are right, keeping chilled goods cold on deliveries is the shop's own matter, the delivery postcode lists
+  are made by us without the client, and a customer is told by e-mail and SMS or WhatsApp that a pickup order is
+  ready (to Robo).
 - Footer: link to the shop's food inspection reports on findsmiley.dk, under the opening hours on every page;
   required for a food webshop. It is Fødevarestyrelsen's official "Inspection Report" badge (the magnifier with the
   smileys), as their guide recommends; the Danish "Se kontrolrapport" badge is in the media library for the Danish

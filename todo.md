@@ -20,15 +20,12 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts.
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
   the About us story.
-- [ ] Homepage hero picture: does the shop sell apples and fresh milk? The picture shows only products Delicja sells.
-  Also confirm the short product stories in it (e.g. the doughnut "filled with rose jam").
+- [ ] Homepage hero picture: confirm the short product stories in it (e.g. the doughnut "filled with rose jam").
+  (Apples and fresh milk: the shop sells them, 2026-10-26.)
 - [ ] Customer accounts: should customers be able to create an account, and log in with Google or Facebook? (Robo
   switches it on.)
 
 **Shop information**
-- [ ] Chilled and frozen products (meat, dairy, fish): how are they kept cold on the way, also for deliveries further
-  in Jutland (219 kr.)?
-- [ ] Pickup in the shop: how is the customer told that the order is ready (e-mail from the shop, SMS, phone call)?
 - [ ] Who packs and handles the online orders in the shop? (The orders e-mail is `shop@delicja.dk`, 2026-10-26.)
 
 **Food rules** (required for selling food online in Denmark)
@@ -107,9 +104,14 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   - Deliveries on Wednesdays and Fridays, Herning and up to 40 km between 15:00 and 17:00.
   - Pickup in the shop (Bethaniagade 5): free, ready about two hours after the order, subject to availability.
   WooCommerce zones work by postcode, not distance: either postcode lists for the 15 km and 40 km rings around
-  Herning (7400) or a distance-based shipping plugin. Jutland = postcodes 6000–9990 (Funen 5000–5999 and the islands
-  are not Jutland). Put the same rules on the Delivery & returns page with the client's texts. The site texts already
+  the shop or a distance-based shipping plugin. We make the postcode lists ourselves (distance from Bethaniagade 5);
+  the client does not need to check them (Matej, 2026-10-26). Jutland = postcodes 6000–9990 (Funen 5000–5999 and
+  the islands are not Jutland). Put the same rules on the Delivery & returns page with the client's texts. The site texts already
   show these prices (announcement bar, homepage feature and FAQ, delivery panel on About us and Contact).
+- [ ] Pickup in the shop: when the order is ready, the customer gets an e-mail and an SMS or WhatsApp message
+  (Matej, 2026-10-26). E-mail: an order status like "Ready for pickup" with its own customer e-mail, sent when the
+  shop sets it. SMS/WhatsApp: decide whether the shop sends it by hand from its phone or an SMS service sends it
+  automatically (extra cost); tell Matej which, so the checkout and Delivery & returns texts say the same.
 - [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
   Privacy Policy still shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery &
   returns say "[TODO] Indhold mangler". The pages already have their design (template Information page).
