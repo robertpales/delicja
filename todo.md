@@ -32,8 +32,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Who packs and handles the online orders in the shop? (The orders e-mail is `shop@delicja.dk`, 2026-10-26.)
 
 **Food rules** (required for selling food online in Denmark)
-- [ ] Fødevarestyrelsen: is online sale and delivery part of the shop's food registration? Send the link to the
-  shop's page on findsmiley.dk; a food webshop must link to its latest inspection report (smiley).
+- [ ] Fødevarestyrelsen: is online sale and delivery part of the shop's food registration? (The link to the shop's
+  inspection reports on findsmiley.dk is in the footer, 2026-10-26.)
 - [ ] Product information shown before purchase (EU 1169/2011): ingredients with allergens highlighted, net quantity,
   storage conditions, nutrition table, producer or importer (name and address), country of origin where required.
   Best source: supplier data sheets.

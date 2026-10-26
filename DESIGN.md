@@ -221,7 +221,9 @@ zoom. The related product cards do the same.
     below 782 px).
 11. Footer (Theme Builder): round logo, short text, payment icons (Dankort, Visa, Mastercard, Apple Pay, Google Pay; no
     MobilePay, the client's choice), menus Shop and Information, contact,
-    copyright line, company name + CVR (required by Danish law), opening hours.
+    copyright line, company name + CVR (required by Danish law), opening hours, and the link to the shop's food
+    inspection reports on findsmiley.dk (`https://www.findsmiley.dk/1475269`, magnifier icon `dl-icon-link--report`;
+    required for a food webshop). A link with text, not a smiley picture, so it never shows an outdated result.
 
 ## Other pages
 - **Shop, category and tag pages:** breadcrumbs, title, result count and sorting, 4-column card grid
