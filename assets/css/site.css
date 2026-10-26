@@ -2004,7 +2004,7 @@ table.wc-block-cart-items td {
     list-style: none;
 }
 
-.dl-sort-option {
+.dl-sort-list a.dl-sort-option {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2016,17 +2016,17 @@ table.wc-block-cart-items td {
     white-space: nowrap;
 }
 
-.dl-sort-option:hover,
-.dl-sort-option:focus-visible {
+.dl-sort-list a.dl-sort-option:hover,
+.dl-sort-list a.dl-sort-option:focus-visible {
     background-color: var(--e-global-color-dlsurface);
     color: var(--e-global-color-text);
 }
 
-.dl-sort-option.is-current {
+.dl-sort-list a.dl-sort-option.is-current {
     font-weight: 700;
 }
 
-.dl-sort-option.is-current::after {
+.dl-sort-list a.dl-sort-option.is-current::after {
     content: "";
     flex: none;
     width: 0.8em;
