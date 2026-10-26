@@ -29,7 +29,7 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Chilled and frozen products (meat, dairy, fish): how are they kept cold on the way, also for deliveries further
   in Jutland (219 kr.)?
 - [ ] Pickup in the shop: how is the customer told that the order is ready (e-mail from the shop, SMS, phone call)?
-- [ ] Which e-mail address receives new orders, and who handles them in the shop.
+- [ ] Who packs and handles the online orders in the shop? (The orders e-mail is `shop@delicja.dk`, 2026-10-26.)
 
 **Food rules** (required for selling food online in Denmark)
 - [ ] Fødevarestyrelsen: is online sale and delivery part of the shop's food registration? Send the link to the
@@ -153,7 +153,9 @@ Prices, stock and images are shared.
 
 **Before launch**
 - [ ] Turn off WooCommerce "Coming soon" mode.
-- [ ] Order e-mails back to the client's address (now `web@digistudio.sk` for testing).
+- [ ] Order e-mails to the client's address `shop@delicja.dk` (an alias of `info@delicja.dk`, set up by the client
+  2026-10-26; now `web@digistudio.sk` for testing). Check the sender address of the customer e-mails and that mail
+  from the site is delivered (SPF/DKIM for delicja.dk).
 - [ ] Replace test products and categories with real ones in the main language.
 - [ ] Delete old backups (`delicja_backup_*` options).
 - [ ] Rich Results Test on the front page and a product.
