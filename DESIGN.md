@@ -225,6 +225,10 @@ zoom. The related product cards do the same.
 ## Other pages
 - **Shop, category and tag pages:** breadcrumbs, title, result count and sorting, 4-column card grid
   (2 on mobile), numbered pagination, a note with a link to the whole shop when a category is empty.
+  Sorting (`[dl_shop_bar]`, `inc/woocommerce.php`; `site.css` → `=== Shop ===`) is not WooCommerce's select box but a
+  white pill "⇅ Sort: Our picks ⌄" that opens a small list of links: Our picks, Most popular, Newest, Price: low to
+  high, Price: high to low (Best match first in search results); the current one bold with a red tick. Each option
+  goes to page 1 of the same list.
 - **Product page:** breadcrumbs, gallery with zoom and lightbox, name, price, short description, quantity and
   "Add to cart", SKU and category, tabs Description / Reviews, related products (first in-stock products of the
   same category or tag, by name). Ingredients, allergens and nutrition are in the product description

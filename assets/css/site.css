@@ -1919,27 +1919,128 @@ table.wc-block-cart-items td {
 }
 
 .dl-shop-bar > *,
-.dl-shop-bar .woocommerce-result-count,
-.dl-shop-bar .woocommerce-ordering {
+.dl-shop-bar .woocommerce-result-count {
     margin: 0;
 }
 
-.dl-shop-bar .woocommerce-ordering {
-    display: flex;
+.dl-sort {
+    position: relative;
+    margin-inline-start: auto;
 }
 
-.dl-shop-bar select {
-    padding: var(--dl-space-10) var(--dl-space-30);
+.dl-sort-current {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 2.75rem;
+    padding: 0 var(--dl-space-40);
     border: 1px solid var(--e-global-color-dlborder);
     border-radius: var(--dl-radius-pill);
     background-color: var(--e-global-color-dlwhite);
     color: var(--e-global-color-text);
-    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    transition: border-color var(--dl-transition);
 }
 
-.dl-shop-bar select:focus-visible {
+.dl-sort-current::-webkit-details-marker {
+    display: none;
+}
+
+.dl-sort-current::before {
+    content: "";
+    flex: none;
+    width: 1.1em;
+    height: 1.1em;
+    background-color: var(--e-global-color-primary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 4v16M3 16l4 4 4-4M17 20V4M13 8l4-4 4 4'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 4v16M3 16l4 4 4-4M17 20V4M13 8l4-4 4 4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.dl-sort-current::after {
+    content: "";
+    width: 0.4em;
+    height: 0.4em;
+    margin-inline-start: 0.2em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    rotate: 45deg;
+    translate: 0 -0.15em;
+    transition: rotate var(--dl-transition);
+}
+
+.dl-sort-label {
+    color: var(--e-global-color-accent);
+    font-weight: 400;
+}
+
+.dl-sort-current:hover,
+.dl-sort[open] > .dl-sort-current {
+    border-color: var(--e-global-color-text);
+}
+
+.dl-sort-current:focus-visible {
     outline: 2px solid var(--e-global-color-primary);
     outline-offset: 2px;
+}
+
+.dl-sort[open] > .dl-sort-current::after {
+    rotate: 225deg;
+    translate: 0 0.1em;
+}
+
+.dl-sort-list {
+    position: absolute;
+    top: calc(100% + var(--dl-space-20));
+    right: 0;
+    z-index: 30;
+    min-width: max(100%, 14rem);
+    margin: 0;
+    padding: var(--dl-space-20);
+    border-radius: var(--dl-radius-lg);
+    background-color: var(--e-global-color-dlwhite);
+    box-shadow: var(--dl-shadow-pop);
+    list-style: none;
+}
+
+.dl-sort-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--dl-space-40);
+    padding: var(--dl-space-20) var(--dl-space-30);
+    border-radius: var(--dl-radius-md);
+    color: var(--e-global-color-text);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dl-sort-option:hover,
+.dl-sort-option:focus-visible {
+    background-color: var(--e-global-color-dlsurface);
+    color: var(--e-global-color-text);
+}
+
+.dl-sort-option.is-current {
+    font-weight: 700;
+}
+
+.dl-sort-option.is-current::after {
+    content: "";
+    flex: none;
+    width: 0.8em;
+    height: 0.45em;
+    border-bottom: 2px solid var(--e-global-color-primary);
+    border-left: 2px solid var(--e-global-color-primary);
+    rotate: -45deg;
+    translate: 0 -0.15em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-sort-current::after {
+        transition: none;
+    }
 }
 
 .dl-products--grid .elementor-pagination {
@@ -2108,12 +2209,7 @@ table.wc-block-cart-items td {
     line-height: var(--e-global-typography-text-line-height);
 }
 
-.dl-search .dl-shop-bar .woocommerce-ordering {
-    margin: 0 0 1em;
-}
-
-.dl-search .dl-shop-bar select {
-    all: revert;
+.dl-search .dl-shop-bar .dl-sort {
     font-size: var(--e-global-typography-dlsmall-font-size);
 }
 

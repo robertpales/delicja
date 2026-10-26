@@ -162,10 +162,11 @@ document.addEventListener('click', (event) => {
 	input.dispatchEvent(new Event('change', { bubbles: true }));
 });
 
-/* === Language switcher === */
-// The language list in the header (inc/header.php) is a <details>: close it on a click elsewhere or with Escape.
+/* === Dropdowns === */
+// The language list in the header (inc/header.php) and the sorting in the shop bar (inc/woocommerce.php) are
+// <details>: close them on a click elsewhere or with Escape.
 document.addEventListener('click', (event) => {
-	document.querySelectorAll('.dl-lang[open]').forEach((list) => {
+	document.querySelectorAll('.dl-lang[open], .dl-sort[open]').forEach((list) => {
 		if (!list.contains(event.target)) {
 			list.open = false;
 		}
@@ -173,7 +174,7 @@ document.addEventListener('click', (event) => {
 });
 document.addEventListener('keydown', (event) => {
 	if (event.key === 'Escape') {
-		document.querySelectorAll('.dl-lang[open]').forEach((list) => {
+		document.querySelectorAll('.dl-lang[open], .dl-sort[open]').forEach((list) => {
 			list.open = false;
 		});
 	}

@@ -213,10 +213,69 @@ add_shortcode( 'dl_shop_bar', function () {
 
 	ob_start();
 	woocommerce_result_count();
-	woocommerce_catalog_ordering();
 
-	return '<div class="dl-shop-bar">' . ob_get_clean() . '</div>';
+	return '<div class="dl-shop-bar">' . ob_get_clean() . delicja_sort_menu() . '</div>';
 } );
+
+// Sorting as a small pill that opens a short list of links (site.css, Shop; site.js closes it), instead of
+// WooCommerce's select box. Same options and rules as woocommerce_catalog_ordering(), with friendlier names; each
+// option is a link to page 1 of the same list, the default order without ?orderby.
+function delicja_sort_menu() {
+	if ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) {
+		return '';
+	}
+
+	$names = [
+		'relevance'  => __( 'Best match', 'delicja' ),
+		'menu_order' => __( 'Our picks', 'delicja' ),
+		'popularity' => __( 'Most popular', 'delicja' ),
+		'rating'     => __( 'Best rated', 'delicja' ),
+		'date'       => __( 'Newest', 'delicja' ),
+		'price'      => __( 'Price: low to high', 'delicja' ),
+		'price-desc' => __( 'Price: high to low', 'delicja' ),
+	];
+
+	$default = apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', '' ) );
+	$options = apply_filters( 'woocommerce_catalog_orderby', array_slice( $names, 1 ) );
+	if ( wc_get_loop_prop( 'is_search' ) ) {
+		$options = [ 'relevance' => $names['relevance'] ] + $options;
+		unset( $options['menu_order'] );
+		$default = 'relevance';
+	} elseif ( 'menu_order' !== $default ) {
+		unset( $options['menu_order'] );
+	}
+	if ( ! wc_review_ratings_enabled() ) {
+		unset( $options['rating'] );
+	}
+	if ( ! $options ) {
+		return '';
+	}
+
+	$current = isset( $_GET['orderby'] ) ? wc_clean( wp_unslash( $_GET['orderby'] ) ) : $default;
+	if ( ! isset( $options[ $current ] ) ) {
+		$current = array_key_first( $options );
+	}
+
+	$base  = remove_query_arg( [ 'orderby', 'paged', 'product-page' ], get_pagenum_link( 1, false ) );
+	$items = '';
+	foreach ( $options as $key => $label ) {
+		$url    = $key === $default ? $base : add_query_arg( 'orderby', $key, $base );
+		$items .= sprintf(
+			'<li><a class="dl-sort-option%s" href="%s" rel="nofollow"%s>%s</a></li>',
+			$key === $current ? ' is-current' : '',
+			esc_url( $url ),
+			$key === $current ? ' aria-current="true"' : '',
+			esc_html( $names[ $key ] ?? $label )
+		);
+	}
+
+	return sprintf(
+		'<details class="dl-sort"><summary class="dl-sort-current"><span class="dl-sort-label">%s</span> %s</summary><ul class="dl-sort-list">%s</ul></details>',
+		esc_html__( 'Sort:', 'delicja' ),
+		esc_html( $names[ $current ] ?? $options[ $current ] ),
+		$items
+	);
+}
 
 // Notices ("added to your cart", errors) use WooCommerce's block notice banners, as in a block theme.
 // The Elementor Notices widget moves them into place.
