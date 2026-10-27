@@ -24,6 +24,8 @@ through Novamira, so they are not in git.
   link changed to it. *(database)*
 - Delivery texts: "Live even further away? Get in touch and we will arrange it together." in the "Not in Herning?"
   panel (About us, Contact) and in the homepage delivery FAQ (with e-mail and phone). *(database)*
+- Browser tab icon: instead of the round badge (unreadable at 16 px), the "D" from the Delicja script logo in white
+  on a red rounded square; also the icon on phone home screens. *(database: Site Icon; source in git)*
 - No sharper photo of Elżbieta for the About us opening (the video frames are blurry or mid-word); asked the client
   for one (`todo.md`).
 

@@ -21,7 +21,10 @@ behind text.
 
 ### Logo (`assets/images/logo/`)
 Built from the shop's original wordmark SVG; do not redraw the lettering.
-- `delicja-logo.svg`: round badge (footer, favicon). At least 96 px.
+- `delicja-logo.svg`: round badge (footer). At least 96 px.
+- `delicja-icon.svg`: the "D" of the script logo in white on a red rounded square (`primary`). Browser tab and
+  phone home screen icon: exported as a 512 px PNG and set as the Site Icon (Settings → General / Customizer → Site
+  Identity), which makes the 32–270 px sizes. The round badge is too detailed at 16 px.
 - `delicja-logo-wordmark.svg`: script + "POLSKI SKLEP" (header; also the Site Logo in Site Settings).
 
 ### Colours → Elementor Global Colors (*Site Settings → Global Colors*)
