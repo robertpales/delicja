@@ -165,6 +165,11 @@ add_action( 'admin_enqueue_scripts', function () {
 
 // Marked ready: remember when, so the deadline and the reminder count from then (the e-mail is sent by its class).
 add_action( 'woocommerce_order_status_ready-pickup', function ( $order_id, $order ) {
+	if ( ! delicja_is_pickup_order( $order ) ) {
+		$order->add_order_note( __( 'This order is delivered, not collected in the shop: no "Ready for pickup" e-mail is sent and it is not cancelled automatically.', 'delicja' ) );
+
+		return;
+	}
 	$order->update_meta_data( '_delicja_ready_at', time() );
 	$order->delete_meta_data( '_delicja_pickup_reminded' );
 	$order->save_meta_data();
