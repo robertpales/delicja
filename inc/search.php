@@ -33,7 +33,9 @@ add_action( 'pre_get_posts', function ( $query ) {
 // SKU) and sorts by date, so WordPress's search order is not used there.
 add_filter( 'posts_orderby', function ( $orderby, $query ) {
 	$search = trim( (string) ( $query->get( 's' ) ?: $query->get( 'search' ) ) );
-	if ( '' === $search || ! in_array( 'product', (array) $query->get( 'post_type' ), true ) ) {
+	// Only for the default order (best match, or the Store API's newest first), not when the customer sorts by price.
+	$sort = $query->get( 'orderby' );
+	if ( '' === $search || ! in_array( 'product', (array) $query->get( 'post_type' ), true ) || ! in_array( $sort, [ '', 'relevance', 'date', 'date ID' ], true ) ) {
 		return $orderby;
 	}
 	global $wpdb;
