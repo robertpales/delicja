@@ -23,6 +23,10 @@ through Novamira, so they are not in git.
   pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
   released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
   e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- Privacy fix: a cached page showed a guest's name, address, e-mail, phone and cart to every visitor (the mini cart
+  block prints them into the page and WP Fastest Cache stored it). Now visitors with a WooCommerce session get no
+  cached pages and create none (WPFC Exclude cookies *(database, .htaccess)* and `DONOTCACHEPAGE`), and the addresses
+  are no longer printed at all (`inc/cache.php`). Checked in a browser with a test guest.
 - Microsoft Clarity (project z4by01ybij): loads only after the visitor allows statistics, with Consent Mode v2;
   cookies erased when the consent is revoked; only on delicja.dk (test site with `?dl-analytics=1`).
 - Google Analytics did not load after consent: Complianz renamed the held-back gtag.js tag a second time
