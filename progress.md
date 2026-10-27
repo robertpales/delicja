@@ -16,6 +16,9 @@ through Novamira, so they are not in git.
 - My account: login and registration in one card instead of two side by side. A switch "Log in / Register" on top
   shows one form at a time, and "Continue with Google" is there only once, under both. After a failed registration
   the register form stays open.
+- Register form: two checkboxes instead of the long privacy text: "I have read the privacy policy" (required) and
+  "Send me e-mails about deals and new products" (optional). Both are saved with the date; customers can change the
+  e-mail consent in Account details. The newsletter tool itself is Robo's.
 
 ## 2026-10-26
 

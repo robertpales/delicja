@@ -263,7 +263,9 @@ zoom. The related product cards do the same.
   "witamy!", a short line and a polaroid of Elżbieta ("Elżbieta says hi!") next to one linen card with a strip of
   tape (max. 30rem, centred in its column). With customer accounts on, the card has a switch "Log in / Register" on
   top (two radio buttons, no JavaScript; `inc/account.php`) that shows one form at a time, and one "Continue with
-  Google" under both forms. Lost password and the account pages (menu as a linen side list, the current page white)
+  Google" under both forms. Instead of WooCommerce's privacy text, the register form has two checkboxes: "I have
+  read the privacy policy" (required) and "Send me e-mails about deals and new products" (optional, unticked; also in
+  Account details, to change it later). Lost password and the account pages (menu as a linen side list, the current page white)
   use the same style. Logged in, the welcome is
   only the heading and the account pages get the full width.
 - **Deals** (`/tilbud/`, page built in Elementor, `assets/css/pages/tilbud.css`): "Deals" with a handwritten "while

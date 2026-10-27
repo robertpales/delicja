@@ -328,6 +328,43 @@
     accent-color: var(--e-global-color-primary);
 }
 
+.dl-account-box .woocommerce form .form-row.dl-consent-row {
+    margin-block-end: var(--dl-space-30);
+}
+
+.dl-account-box .woocommerce form .form-row.dl-consent-row + .form-row:not(.dl-consent-row) {
+    margin-block-start: var(--dl-space-50);
+}
+
+.dl-account-box .woocommerce form label.dl-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--dl-space-30);
+    margin: 0;
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    font-weight: var(--e-global-typography-dlsmall-font-weight);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+    letter-spacing: var(--e-global-typography-dlsmall-letter-spacing);
+    cursor: pointer;
+}
+
+.dl-account-box .woocommerce form label.dl-consent input[type="checkbox"] {
+    flex: none;
+    margin-block-start: 0.15em;
+}
+
+.dl-account-box .woocommerce form label.dl-consent a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.dl-account-box .woocommerce form label.dl-consent a:hover {
+    color: var(--e-global-color-primary);
+}
+
 .dl-account-box .woocommerce form .button[type="submit"] {
     width: 100%;
     margin: 0;

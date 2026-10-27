@@ -16,7 +16,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   the 2-year right to complain (reklamationsret) and the complaint body (Nævnenes Hus). The EU ODR link is no longer
   needed (the platform closed on 20 July 2025).
 - [ ] Delivery and returns → page `levering-og-returnering`.
-- [ ] Privacy policy → page `privacy-policy`.
+- [ ] Privacy policy → page `privacy-policy`. It must also cover the e-mails about deals and new products (customers
+  can sign up for them when they create an account, 2026-10-27).
 - [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts.
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
   the About us story.
@@ -119,6 +120,12 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   decide and switch on *WooCommerce → Settings → Accounts & Privacy* → "Allow customers to create an account on the
   My account page" (and whether at checkout, and the password by e-mail link). The design is ready: the register
   form appears as a second card next to the login, in the same style (`assets/css/pages/my-account.css`).
+- [ ] Marketing e-mails (Matej, 2026-10-27): the register form has an optional, unticked checkbox "Send me e-mails
+  about deals and new products"; the date of the consent is saved in user meta `delicja_marketing_consent` (removed
+  when the customer unticks it in Account details), the privacy checkbox in `delicja_privacy_accepted`
+  (`inc/account.php`). Choose how the client sends the e-mails (newsletter tool) and sync or export these customers;
+  every e-mail needs an unsubscribe link. Maybe the same checkbox at checkout. Customers who sign up with Google skip
+  the form, so they can only opt in later in Account details.
 - [ ] Log in with Google or Facebook on My account (asked by Matej, 2026-10-24). Needs a social login plugin and
   an OAuth app at Google and at Meta (client ID and secret, privacy policy link, consent screen); logins and keys
   are Robo's area. Only makes sense together with customer accounts above. If added, Matej styles the buttons in
