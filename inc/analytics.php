@@ -4,7 +4,10 @@
  * Analytics", added by Complianz): Complianz adds the script and runs it only after the visitor allows statistics in
  * the cookie banner. It collects only on the live site, delicja.dk. On the test site Complianz does not add it, so our
  * own testing stays out of the statistics; add ?dl-analytics=1 to a URL there to check that it works.
- * Microsoft Clarity is Robo's.
+ *
+ * Microsoft Clarity (project z4by01ybij) is added here, not in Complianz (its wizard takes one statistics tool):
+ * nothing is loaded before the visitor allows statistics; then Clarity loads and gets Consent Mode v2 (analytics
+ * granted, ads denied). When the consent is revoked, Clarity erases its cookies. Same live-site rule as above.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -46,3 +49,52 @@ add_action( 'wp', function () {
 		);
 	} );
 } );
+
+add_action( 'wp_head', function () {
+	if ( ! delicja_is_live_site() && ! isset( $_GET['dl-analytics'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		return;
+	}
+	?>
+	<script>
+	(function () {
+		var id = 'z4by01ybij';
+		var loaded = false;
+		function clarity() {
+			if (typeof window.clarity === 'function') {
+				window.clarity.apply(null, arguments);
+			}
+		}
+		function load() {
+			if (loaded) {
+				return;
+			}
+			loaded = true;
+			window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+			var script = document.createElement('script');
+			script.async = true;
+			script.src = 'https://www.clarity.ms/tag/' + id;
+			document.head.appendChild(script);
+		}
+		function allowed(event) {
+			var categories = event && event.detail && event.detail.categories;
+			if (Array.isArray(categories)) {
+				return categories.indexOf('statistics') !== -1;
+			}
+			return typeof window.cmplz_has_consent === 'function' && window.cmplz_has_consent('statistics');
+		}
+		document.addEventListener('cmplz_fire_categories', function (event) {
+			if (allowed(event)) {
+				load();
+				clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+			}
+		});
+		document.addEventListener('cmplz_revoke', function (event) {
+			if (loaded && !allowed(event)) {
+				clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+				clarity('consent', false);
+			}
+		});
+	})();
+	</script>
+	<?php
+}, 5 );
