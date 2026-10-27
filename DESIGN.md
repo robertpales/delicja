@@ -295,7 +295,7 @@ zoom. The related product cards do the same.
   so the page flows from white into linen and back. On phones its three moments are a small timeline in a white
   card (icons in linen circles joined by a dashed red line) and the buttons are full width; from 600 px the moments
   stand in three columns.
-- **Contact** (`/kontakt/`): page built in Elementor, CSS in `assets/css/pages/kontakt.css`. "Come say hi" with a
+- **Contact** (`/contact/`): page built in Elementor, CSS in `assets/css/pages/contact.css`. "Come say hi" with a
   realistic photo of the real shop front (`delicja-shop-front-day.webp`, made from the Google Street View picture of
   Bethaniagade 5, May 2025, and the photo of the window logo) as a Hotspot widget with small pulsing dots. Each spot is
   a way to Delicja and changes the photo (Picture reveal, below): the shelves fill up ("Full shelves", link to the
@@ -323,7 +323,7 @@ zoom. The related product cards do the same.
 
 ## Known differences from the block theme
 - Weekly deals: the carousel arrows are hidden while nothing is on sale.
-- Deals and Contact link to `/deals/` and `/kontakt/` (the block theme linked to pages that did not exist).
+- Deals and Contact link to `/deals/` and `/contact/` (the block theme linked to pages that did not exist).
 - Quantity +/− signs in the mini cart use the site font.
 - In the cart's "New in store" list one image can be a few pixels larger in the block theme (a WordPress image
   sizing quirk there).

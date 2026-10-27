@@ -272,7 +272,7 @@ add_action( 'wp_head', function () {
 			'telephone'         => $c['phone'],
 			'email'             => $c['email'],
 			'areaServed'        => 'DK',
-			'url'               => get_permalink( get_page_by_path( 'kontakt' ) ) ?: null,
+			'url'               => ( $contact = get_page_by_path( 'contact' ) ) ? get_permalink( apply_filters( 'wpml_object_id', $contact->ID, 'page', true ) ) : null,
 		],
 		'areaServed'      => $c['area_served'],
 		'knowsAbout'      => $c['knows_about'],
@@ -355,12 +355,12 @@ add_action( 'wp_head', function () {
 	$pid = get_queried_object_id();
 	$url = is_front_page() ? $c['base'] : get_permalink( $pid );
 
+	// By the English slug, so translations get the same type.
 	$types = [
 		'about'   => 'AboutPage',
-		'om-os'   => 'AboutPage',
-		'kontakt' => 'ContactPage',
+		'contact' => 'ContactPage',
 	];
-	$type = $types[ get_post_field( 'post_name', $pid ) ] ?? 'WebPage';
+	$type = $types[ get_post_field( 'post_name', delicja_english_id( (int) $pid ) ) ] ?? 'WebPage';
 
 	$page = [
 		'@type'         => $type,

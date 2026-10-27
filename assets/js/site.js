@@ -265,7 +265,7 @@ const delicjaReveal = (art, scene, after, prefix, source = null) => {
 /* === Contact === */
 // Contact page: the shop front. Each spot is a way to Delicja: come in (the door opens), stay for coffee (coffee and
 // cake appear in the window), shop (the shelves fill up), or get it delivered (a bike with a box arrives).
-// Picture reveal; masks in kontakt.css.
+// Picture reveal; masks in contact.css.
 delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.dl-contact-shop-after', 'dl-shop-after');
 
 /* === About story === */
