@@ -4,7 +4,8 @@
  * come from WooCommerce's Store API (public, read-only), so they show the same products, prices and pant as the shop.
  * The full results page is the template "Product search results" (shop layout, styles in site.css, === Search ===).
  * Product searches (results page and live search) look in the name and the short description only: the long
- * description holds the ingredient lists, which made unrelated products show up first.
+ * description holds the ingredient lists, which made unrelated products show up first. Names where a word starts
+ * with the search ("kie" → Kiełbasa) come before names that only contain it ("ruskie").
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -27,3 +28,15 @@ add_action( 'pre_get_posts', function ( $query ) {
 		$query->set( 'search_columns', [ 'post_title', 'post_excerpt' ] );
 	}
 } );
+
+add_filter( 'posts_search_orderby', function ( $orderby, $query ) {
+	$search = trim( (string) $query->get( 's' ) );
+	if ( '' === $search || ! in_array( 'product', (array) $query->get( 'post_type' ), true ) ) {
+		return $orderby;
+	}
+	global $wpdb;
+	$like  = $wpdb->esc_like( $search );
+	$start = $wpdb->prepare( "WHEN {$wpdb->posts}.post_title LIKE %s OR {$wpdb->posts}.post_title LIKE %s THEN 0", $like . '%', '% ' . $like . '%' );
+
+	return "(CASE {$start} ELSE 1 END)" . ( $orderby ? ', ' . $orderby : '' );
+}, 10, 2 );
