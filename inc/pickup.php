@@ -3,7 +3,7 @@
  * Pickup orders (shipping method "Pickup in the shop", local_pickup):
  * - The shop marks an order "Ready for pickup" (order status, also as a bulk action and a button in the order list).
  *   The customer gets an e-mail with the date to collect it by: the end of the third day the shop is open, counting
- *   the day it was marked ready if the shop is still open then.
+ *   the day it was marked ready if the shop is open at least two more hours that day.
  * - After the second of those days the customer gets a reminder.
  * - Not collected by the end of the third day: the order is cancelled. Frisbii Pay releases the card reservation
  *   and WooCommerce puts the goods back in stock; the customer gets WooCommerce's "Cancelled order" e-mail with a
@@ -56,7 +56,8 @@ function delicja_opening_hours_lines(): array {
 }
 
 /**
- * Closing times of the next three days the shop is open after $from (a day counts while the shop is still open).
+ * Closing times of the next three days the shop is open after $from (that day counts if the shop is open at least
+ * two more hours).
  *
  * @return DateTimeImmutable[]
  */
@@ -73,7 +74,7 @@ function delicja_pickup_days( int $from ): array {
 		}
 		[ $h, $m ] = array_map( 'intval', explode( ':', $open[1] ) );
 		$close     = $date->setTime( $h, $m );
-		if ( $close->getTimestamp() > $from ) {
+		if ( $close->getTimestamp() >= $from + 2 * HOUR_IN_SECONDS ) {
 			$days[] = $close;
 		}
 	}
