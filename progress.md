@@ -12,6 +12,48 @@ through Novamira, so they are not in git.
 
 ## 2026-10-27
 
+**Robo**
+- Shipping by the client's prices: zones by postcode and road distance from the shop (Herning 49 kr., up to 15 km
+  79 kr., 15–40 km 129 kr., rest of Jutland 219 kr.; free from 799 / 999 / 1,299 kr.), pickup in the shop in every
+  zone, the old "free shipping for all of Denmark" removed. With free delivery the paid one is hidden; outside the
+  delivery area only pickup and a note to get in touch (`inc/shipping.php`). *(database: zones)*
+- Checked: 25 % moms applies to all of Denmark (no city limit).
+- Pickup orders: new order status "Ready for pickup" (also as a bulk action and a button in the order list) with an
+  e-mail to the customer: collect by the end of the third day the shop is open, opening hours, amount charged at
+  pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
+  released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
+  e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- WhatsApp message "ready for pickup" from the shop's own WhatsApp (free, no plugin): a button in the order list and
+  in the order opens WhatsApp with the message and collect-by date filled in; the link is also added as an order note,
+  so it can be used from the WooCommerce mobile app.
+- Search results in the shop layout: the same product cards, grid and sorting as the categories (before: plain cards
+  in three columns); nothing found → a short note, "See the whole shop" and the category tiles. *(database: template
+  "Product search results")*
+- Live search: results with picture, name and price appear under the header search field while typing (WooCommerce
+  Store API, no plugin), keyboard and screen reader friendly; "See all results" opens the results page
+  (`inc/search.php`, `site.js`).
+- Deals page slug is now `deals`, Contact `contact` (also Delivery & returns: `delivery-and-returns`). The page CSS, the Deals menu
+  item and its noindex no longer depend on the Danish slug; page CSS uses the English slug (`deals.css`, `contact.css`); schema finds Contact the same way.
+- Privacy fix: a cached page showed a guest's name, address, e-mail, phone and cart to every visitor (the mini cart
+  block prints them into the page and WP Fastest Cache stored it). Now visitors with a WooCommerce session get no
+  cached pages and create none (WPFC Exclude cookies *(database, .htaccess)* and `DONOTCACHEPAGE`), and the addresses
+  are no longer printed at all (`inc/cache.php`). Checked in a browser with a test guest.
+- Microsoft Clarity (project z4by01ybij): loads only after the visitor allows statistics, with Consent Mode v2;
+  cookies erased when the consent is revoked; only on delicja.dk (test site with `?dl-analytics=1`).
+- Google Analytics did not load after consent: Complianz renamed the held-back gtag.js tag a second time
+  (`data-cmplz-data-cmplz-src`). Fixed; checked in a browser: nothing before consent or after Deny, GA and Clarity
+  after Accept (`inc/analytics.php`).
+- SEO check of Matej's changes: kept the meta, share images, `noindex` on cart/checkout/account/summary, open shop
+  pages in Coming soon mode, the full cache clear on product changes, 404 and Information page. Changed: front page
+  description without Polish words (pierogi explained), About us description from the new lead, meta title and
+  description for Contact and Deals (slug `/kontakt/` stays: Danish is the main language). *(database; backup
+  `delicja_backup_seo_20261027`)*
+- Schema: opening hours (`openingHoursSpecification`, from the same list as the pickup e-mails); Rank Math's stale
+  front page image (old hero, 200 × 200) dropped. Deals page `noindex` while nothing is on sale (`inc/seo.php`).
+- llms.txt: opening hours, delivery prices and zones, pickup, payment methods. *(database)*
+- The old block "Pickup at store" switched off: the checkout is the classic one, pickup is a shipping method in each
+  zone. *(database)*
+
 **Matej**
 - Share image with the shop front (1200 × 630, media 504) prepared for link previews; setting it in Rank Math is Robo's.
   *(database: media)*

@@ -107,12 +107,21 @@ add_filter( 'body_class', function ( $classes ) {
 } );
 
 /**
- * The Deals page (slug "tilbud"): products on sale. 0 when there is no such page.
+ * The Deals page (English slug "deals"): products on sale. 0 when there is no such page.
  */
 function delicja_deals_page_id(): int {
-	$page = get_page_by_path( 'tilbud' );
+	$page = get_page_by_path( 'deals' );
 
-	return $page ? (int) $page->ID : 0;
+	return $page ? delicja_english_id( (int) $page->ID ) : 0;
+}
+
+/**
+ * True for the Deals page or one of its translations; $id defaults to the current page.
+ */
+function delicja_is_deals_page( int $id = 0 ): bool {
+	$id = $id ?: ( is_page() ? get_queried_object_id() : 0 );
+
+	return $id && delicja_deals_page_id() === delicja_english_id( $id );
 }
 
 // The Deals menu item shows only while at least one product is on sale.
@@ -122,7 +131,7 @@ add_filter( 'wp_nav_menu_objects', function ( $items ) {
 		return $items;
 	}
 
-	return array_filter( $items, fn ( $item ) => ! ( 'page' === $item->object && $deals === (int) $item->object_id ) );
+	return array_filter( $items, fn ( $item ) => ! ( 'page' === $item->object && delicja_is_deals_page( (int) $item->object_id ) ) );
 } );
 
 // Pages are cached (WP Fastest Cache): when sales start or end, or a product is saved, clear the cache so the
@@ -372,9 +381,12 @@ add_shortcode( 'dl_search_empty', function () {
 		return '';
 	}
 
-	return '<div class="dl-search-empty"><p>No products were found matching your selection.</p>'
-		. do_blocks( '<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","buttonText":"Search","query":{"post_type":"product"}} /-->' )
-		. '</div>';
+	// The search field in the header still holds the query; the category tiles follow under this (template "Product
+	// search results", shown only when nothing is found).
+	return '<div class="dl-empty dl-shop-empty dl-search-empty"><p>'
+		/* translators: %s: search query */
+		. sprintf( esc_html__( 'No products match “%s”. Try another word, or browse the categories below.', 'delicja' ), esc_html( get_search_query() ) )
+		. '</p><a class="dl-shop-empty-button" href="' . esc_url( wc_get_page_permalink( 'shop' ) ) . '">' . esc_html__( 'See the whole shop', 'delicja' ) . '</a></div>';
 } );
 
 // Empty shop, category or tag page: a short note and a way back to all products.

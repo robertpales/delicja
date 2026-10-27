@@ -13,7 +13,6 @@
  * Company data is in dl_schema_config() only.
  *
  * Left out on purpose (unknown, never invent – add here when the owner confirms):
- * - openingHours / openingHoursSpecification: shop opening hours unknown.
  * - slogan: no official slogan; the site tagline is used as the description instead.
  * - founder / employees / Person: unknown.
  * - aggregateRating / review: product reviews are disabled and there are no shop ratings.
@@ -31,6 +30,26 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+/** Opening hours from delicja_opening_hours() (inc/pickup.php), one entry per group of days with the same hours. */
+function dl_schema_opening_hours() {
+	if ( ! function_exists( 'delicja_opening_hours' ) ) {
+		return null;
+	}
+	$names = [ 1 => 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+	$specs = [];
+	foreach ( delicja_opening_hours() as $n => $hours ) {
+		if ( ! $hours ) {
+			continue;
+		}
+		$key = implode( '-', $hours );
+		if ( ! isset( $specs[ $key ] ) ) {
+			$specs[ $key ] = [ '@type' => 'OpeningHoursSpecification', 'dayOfWeek' => [], 'opens' => $hours[0], 'closes' => $hours[1] ];
+		}
+		$specs[ $key ]['dayOfWeek'][] = 'https://schema.org/' . $names[ $n ];
+	}
+	return array_values( $specs );
+}
 
 /** Company data and @id map. The only place where @ids are defined. */
 function dl_schema_config() {
@@ -246,13 +265,14 @@ add_action( 'wp_head', function () {
 		],
 		'geo'             => [ '@type' => 'GeoCoordinates', 'latitude' => $c['geo'][0], 'longitude' => $c['geo'][1] ],
 		'hasMap'          => 'https://www.google.com/maps/search/?api=1&query=' . $c['geo'][0] . ',' . $c['geo'][1],
+		'openingHoursSpecification' => dl_schema_opening_hours(),
 		'contactPoint'    => [
 			'@type'             => 'ContactPoint',
 			'contactType'       => 'customer service',
 			'telephone'         => $c['phone'],
 			'email'             => $c['email'],
 			'areaServed'        => 'DK',
-			'url'               => get_permalink( get_page_by_path( 'kontakt' ) ) ?: null,
+			'url'               => ( $contact = get_page_by_path( 'contact' ) ) ? get_permalink( apply_filters( 'wpml_object_id', $contact->ID, 'page', true ) ) : null,
 		],
 		'areaServed'      => $c['area_served'],
 		'knowsAbout'      => $c['knows_about'],
@@ -335,12 +355,12 @@ add_action( 'wp_head', function () {
 	$pid = get_queried_object_id();
 	$url = is_front_page() ? $c['base'] : get_permalink( $pid );
 
+	// By the English slug, so translations get the same type.
 	$types = [
 		'about'   => 'AboutPage',
-		'om-os'   => 'AboutPage',
-		'kontakt' => 'ContactPage',
+		'contact' => 'ContactPage',
 	];
-	$type = $types[ get_post_field( 'post_name', $pid ) ] ?? 'WebPage';
+	$type = $types[ get_post_field( 'post_name', delicja_english_id( (int) $pid ) ) ] ?? 'WebPage';
 
 	$page = [
 		'@type'         => $type,
@@ -627,6 +647,11 @@ add_filter( 'rank_math/json_ld', function ( $data ) {
 		if ( is_array( $entity ) && array_intersect( (array) ( $entity['@type'] ?? [] ), $ours ) ) {
 			unset( $data[ $key ] );
 		}
+	}
+	// Its primary image of the page, guessed from old page content (e.g. a replaced hero picture at 200 × 200); our
+	// WebPage has its own primaryImageOfPage, so nothing links to it.
+	if ( isset( $data['primaryImage'] ) ) {
+		unset( $data['primaryImage'] );
 	}
 	return $data;
 }, 99 );

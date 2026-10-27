@@ -35,7 +35,7 @@ area and, if something needs doing, add it to Robo's section in `todo.md`.
 ## Conventions
 - Colours and fonts are Elementor globals. In CSS use `var(--e-global-color-…)` / `var(--e-global-typography-…)`,
   never hex values or font names. Every global font has an explicit line height and letter spacing.
-- Global CSS → `assets/css/site.css` (into the matching block). Page CSS → `assets/css/pages/<slug>.css`.
+- Global CSS → `assets/css/site.css` (into the matching block). Page CSS → `assets/css/pages/<slug>.css` (the English slug; rename the file when the slug changes).
 - Class prefix `dl-`. One declaration per line, comments only as block headers (`/* === Header === */`).
 - Use Elementor widgets for normal content (texts, images, buttons, products) so the owner can edit them.
   Code (HTML widget) only for things Elementor cannot do.
