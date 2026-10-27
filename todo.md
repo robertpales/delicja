@@ -162,6 +162,8 @@ Prices, stock and images are shared.
 - [ ] Automatic translation for products, categories and attributes; glossary so Polish brand and product names are not translated.
 - [ ] Translated slugs for pages, categories and products.
 - [ ] Code texts (`inc/*.php`, shortcodes, buttons) as translatable strings, translated in String Translation.
+- [ ] Live search (`inc/search.php`): Store API results in the current language (check with WPML; add `lang` to the
+  endpoint if needed).
 - [ ] `inc/schema.php`: language, URLs and breadcrumbs from the current language.
 - [ ] Rank Math per language: meta, `hreflang`, sitemaps. WooCommerce e-mails in the customer's language. Complianz banner in all languages.
 - [ ] Test: a product added in the main language gets the other two versions; an order in each language.
