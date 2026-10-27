@@ -55,6 +55,9 @@ through Novamira, so they are not in git.
   zone. *(database)*
 
 **Matej**
+- The site says it has only a light look (`color-scheme: only light`), so phone browsers with a forced dark mode
+  (Samsung Internet, Chrome's dark theme for websites) leave its colours alone where they respect it; the client saw a
+  dark version on her phone.
 - Share image with the shop front (1200 × 630, media 504) prepared for link previews; setting it in Rank Math is Robo's.
   *(database: media)*
 - Footer logo: the red rounded square with the "D" (as in the browser tab) instead of the round badge, a bit smaller
