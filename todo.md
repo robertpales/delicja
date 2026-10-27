@@ -17,7 +17,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   needed (the platform closed on 20 July 2025).
 - [ ] Delivery and returns → page `levering-og-returnering`.
 - [ ] Privacy policy → page `privacy-policy`. It must also cover the e-mails about deals and new products (customers
-  can sign up for them when they create an account, 2026-10-27).
+  can sign up for them when they create an account, 2026-10-27), and the statistics tools Google Analytics and
+  Microsoft Clarity (only with the visitor's consent in the cookie banner).
 - [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts.
   (2026-10-27: the client will send all three texts; we wait for them.)
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
@@ -150,6 +151,16 @@ need a product list from her, 2026-10-27)
   an OAuth app at Google and at Meta (client ID and secret, privacy policy link, consent screen); logins and keys
   are Robo's area. Only makes sense together with customer accounts above. If added, Matej styles the buttons in
   `my-account.css` to match the login card.
+
+**Statistics**
+- [ ] Microsoft Clarity (Matej sent Robo the project, 2026-10-27). Complianz's wizard takes only one statistics tool
+  and Google Analytics is set there, so Clarity needs the manual Clarity Consent Mode snippet
+  (https://complianz.io/manual-clarity-consent-mode/), only on delicja.dk like GA (`inc/analytics.php`). In Clarity:
+  Settings → Setup → cookies off by default.
+- [ ] After launch: check Google Analytics Realtime on delicja.dk (GA4 property "Delicja ApS", G-X3VJVFR9B7, set up
+  in Complianz → Statistics; on the test site only with `?dl-analytics=1`). Run the Complianz cookie scan so the
+  cookie policy lists the `_ga` cookies. Decide on shop events (product views, cart, purchases): the official
+  "Google Analytics for WooCommerce" plugin. Search Console is Robo's (SEO).
 
 **Deploy**
 - [ ] Page cache after a deploy (asked by Matej, 2026-10-24): `inc/deploy.php` clears WP Fastest Cache on the first
