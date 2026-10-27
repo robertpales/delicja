@@ -34,7 +34,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 
 **Food rules** (required for selling food online in Denmark)
 - [ ] Fødevarestyrelsen: is online sale and delivery part of the shop's food registration? (The link to the shop's
-  inspection reports on findsmiley.dk is in the footer, 2026-10-26.)
+  inspection reports on findsmiley.dk is in the footer, 2026-10-26.) The client has asked Fødevarestyrelsen and waits
+  for their answer (2026-10-27).
 - [ ] Product information shown before purchase (EU 1169/2011): ingredients with allergens highlighted, net quantity,
   storage conditions, nutrition table, producer or importer (name and address), country of origin where required.
   Best source: supplier data sheets.
@@ -67,7 +68,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Launch date, and who manages the domain delicja.dk (DNS) and the website on it now.
 
 **Payment gateway (Flatpay / Frisbii Pay)**
-- [ ] Ask Flatpay to activate online payments (Frisbii Pay) for the website delicja.dk.
+- [ ] Ask Flatpay to activate online payments (Frisbii Pay) for the website delicja.dk. The client has asked Flatpay
+  for online payments and the API key and waits for their reply (2026-10-27).
 - [ ] Invite `pales.robo@gmail.com` as a user in the Frisbii (Billwerk+) admin. If that is not possible: send the Live Private Key and a test key or test account.
 - [ ] Accounting: which system (e-conomic, Dinero, Billy, …)? Should orders go there automatically?
 
