@@ -23,6 +23,12 @@ through Novamira, so they are not in git.
   pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
   released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
   e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- Search results in the shop layout: the same product cards, grid and sorting as the categories (before: plain cards
+  in three columns); nothing found → a short note, "See the whole shop" and the category tiles. *(database: template
+  "Product search results")*
+- Live search: results with picture, name and price appear under the header search field while typing (WooCommerce
+  Store API, no plugin), keyboard and screen reader friendly; "See all results" opens the results page
+  (`inc/search.php`, `site.js`).
 - Deals page slug is now `deals`, Contact `contact` (also Delivery & returns: `delivery-and-returns`). The page CSS, the Deals menu
   item and its noindex no longer depend on the Danish slug; page CSS uses the English slug (`deals.css`, `contact.css`); schema finds Contact the same way.
 - Privacy fix: a cached page showed a guest's name, address, e-mail, phone and cart to every visitor (the mini cart
