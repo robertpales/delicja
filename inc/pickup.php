@@ -176,11 +176,19 @@ add_filter( 'woocommerce_email_classes', function ( $emails ) {
 	$emails['Delicja_Email_Ready_Pickup']    = new Delicja_Email_Ready_Pickup();
 	$emails['Delicja_Email_Pickup_Reminder'] = new Delicja_Email_Pickup_Reminder();
 
+	// WooCommerce sends the cancelled order e-mails only from Processing and On hold; also from Ready for pickup.
+	foreach ( [ 'WC_Email_Cancelled_Order', 'WC_Email_Customer_Cancelled_Order' ] as $class ) {
+		if ( isset( $emails[ $class ] ) ) {
+			add_action( 'woocommerce_order_status_ready-pickup_to_cancelled_notification', [ $emails[ $class ], 'trigger' ], 10, 2 );
+		}
+	}
+
 	return $emails;
 } );
 
 add_filter( 'woocommerce_email_actions', function ( $actions ) {
 	$actions[] = 'woocommerce_order_status_ready-pickup';
+	$actions[] = 'woocommerce_order_status_ready-pickup_to_cancelled';
 	$actions[] = 'delicja_pickup_reminder';
 
 	return $actions;
