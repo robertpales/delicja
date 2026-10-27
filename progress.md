@@ -18,6 +18,13 @@ through Novamira, so they are not in git.
   zone, the old "free shipping for all of Denmark" removed. With free delivery the paid one is hidden; outside the
   delivery area only pickup and a note to get in touch (`inc/shipping.php`). *(database: zones)*
 - Checked: 25 % moms applies to all of Denmark (no city limit).
+- Pickup orders: new order status "Ready for pickup" (also as a bulk action and a button in the order list) with an
+  e-mail to the customer: collect by the end of the third day the shop is open, opening hours, amount charged at
+  pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
+  released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
+  e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- The old block "Pickup at store" switched off: the checkout is the classic one, pickup is a shipping method in each
+  zone. *(database)*
 
 **Matej**
 - Google Analytics 4 (property "Delicja ApS", G-X3VJVFR9B7) set up in Complianz → Statistics: it starts only after

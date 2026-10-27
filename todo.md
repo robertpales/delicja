@@ -29,7 +29,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Shop information**
-- [ ] Pickup orders: collect within **3 days** (Matej's proposal, 2026-10-27; the client confirms). Ready in about two
+- [ ] Pickup orders: collect within **3 days** (Matej's proposal, 2026-10-27; the client confirms). On the site it is
+  3 days the shop is open, counted from the "Ready for pickup" e-mail (Robo, 2026-10-27). Ready in about two
   hours; a reminder after 2 days; not collected after 3 days → the order is cancelled, the card reservation (valid
   about 7 days) released and the goods go back on the shelf. Payment is charged only at handover (see Robo →
   Payment gateway). Then the Delivery & returns text and the FAQ say the same.
@@ -118,12 +119,10 @@ need a product list from her, 2026-10-27)
   7442, 7550, 6973, 7540, 7361, 7270, 6971, 7500, 8600 Silkeborg, 7362 Hampen, 8653 Them (40.4 km, counted in);
   rest of Jutland 6000–9990; ferry islands (6720, 7884, 8305, 8592, 8789, 8799, 9940) and the rest of Denmark only
   pickup. If the client adds or moves a town, change the zone's postcodes.
-- [ ] Pickup orders not collected within 3 days: cancel them (releases the card reservation); WooCommerce does not do
-  this by itself, so the shop does it by hand or a small scheduled task.
-- [ ] Pickup in the shop: when the order is ready, the customer gets an e-mail and an SMS or WhatsApp message
-  (Matej, 2026-10-26). E-mail: an order status like "Ready for pickup" with its own customer e-mail, sent when the
-  shop sets it. SMS/WhatsApp: decide whether the shop sends it by hand from its phone or an SMS service sends it
-  automatically (extra cost); tell Matej which, so the checkout and Delivery & returns texts say the same.
+- [ ] Pickup "ready" SMS/WhatsApp: the e-mail is done (`inc/pickup.php`); decide whether the shop also sends an SMS
+  by hand from its phone or an SMS service sends it automatically (extra cost); tell Matej which.
+- [ ] Live site: a real server cron (or a scheduled ping of `wp-cron.php` every 15 minutes) so the hourly pickup check
+  also runs when visitors only get cached pages. Check what Simply offers.
 - [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
   Privacy Policy still shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery &
   returns say "[TODO] Indhold mangler". The pages already have their design (template Information page).
