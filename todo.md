@@ -117,7 +117,6 @@ need a product list from her, 2026-10-27)
     of Jutland 219 kr., time agreed with the customer; further away by arrangement. Pickup in the shop free, ready in
     about two hours, collect within 3 days the shop is open after the "ready" e-mail, otherwise the order is
     cancelled; the card is charged at pickup or delivery. Towns in each zone: Robo's list below (Robo → WooCommerce).
-  - Meta title and description of these pages are set (Robo, SEO); if a text changes a lot, tell Robo.
 ---
 
 ## Robo
