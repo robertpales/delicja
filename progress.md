@@ -13,6 +13,8 @@ through Novamira, so they are not in git.
 ## 2026-10-27
 
 **Matej**
+- Footer logo: the red rounded square with the "D" (as in the browser tab) instead of the round badge, a bit smaller
+  (80 px instead of 112). *(database: footer; size in git)*
 - Google Analytics 4 (property "Delicja ApS", G-X3VJVFR9B7) set up in Complianz → Statistics: it starts only after
   the visitor allows statistics in the cookie banner (nothing is loaded from Google before), and it collects only on
   delicja.dk; on the test site only with `?dl-analytics=1` for checking. Checked: no Google requests before consent
