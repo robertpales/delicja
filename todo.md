@@ -44,13 +44,14 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Deposit (pant): drinks in cans and bottles sold in Denmark need the Danish pant mark, and the pant is charged on
   top of the price. Which drinks carry pant, and which pant class (A, B, C)?
 
-**Products and stock**
-- [ ] Product list in the main language: name, price incl. moms, weight or volume, category, EAN barcode, photo.
-  Ideally an export from the cash register system. Which system does the shop use?
+**Products and stock** (the client adds the products herself in WooCommerce, as agreed in the contract; we do not
+need a product list from her, 2026-10-27)
 - [ ] Stock: the shop and the webshop sell from the same shelves. Is stock kept up to date by hand in WooCommerce or
   synced with the cash register? Otherwise the webshop sells products that are already gone.
 - [ ] Products sold by weight (cheese, cold cuts from the counter): online they need a fixed pack size and price.
-- [ ] For each product, from the pack or the supplier's data sheet: storage (keep chilled, frozen, or cool and dry),
+- [ ] When she adds a product, in the main language (Danish), from the pack or the supplier's data sheet: name, price
+  incl. moms, weight or volume, category, photo, ingredients with allergens, nutrition, producer or importer, country
+  of origin where required, and storage (keep chilled, frozen, or cool and dry),
   allergens it contains and may contain, vegetarian/vegan if stated. The product page shows them as icons.
   The test products have allergens filled in from their ingredient lists (to be checked); storage is still empty.
 
@@ -94,6 +95,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   keep what is already done and avoid big changes.
   - [ ] Style the product page (template Single Product) in the site style.
   - [ ] Related product cards (template Related product card) in the same style as all the other product cards on the site.
+- [ ] A short guide for the client on adding a product (which fields, allergens and storage icons, photo size,
+  category), so every product page is complete.
 - [ ] Tell Robo when the client has given access to the WPML account (main language chosen: Danish, 2026-10-26).
 - [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
 - [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.
@@ -193,7 +196,8 @@ Prices, stock and images are shared.
 - [ ] Order e-mails to the client's address `shop@delicja.dk` (an alias of `info@delicja.dk`, set up by the client
   2026-10-26; now `web@digistudio.sk` for testing). Check the sender address of the customer e-mails and that mail
   from the site is delivered (SPF/DKIM for delicja.dk).
-- [ ] Replace test products and categories with real ones in the main language.
+- [ ] Before launch: delete the test products and the test categories the client does not use (she adds the real
+  products herself, in Danish, as agreed in the contract).
 - [ ] Delete old backups (`delicja_backup_*` options).
 - [ ] Rich Results Test on the front page and a product.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
