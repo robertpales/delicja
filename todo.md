@@ -180,30 +180,6 @@ Prices, stock and images are shared.
 - [ ] Pages still marked "Indhold mangler" (om-os, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
   Kontakt and Deals (`/tilbud/`) are done (Matej, 2026-10-23).
 
-**SEO check of Matej's changes** (2026-10-23; SEO is Robo's area, so please review, keep or change)
-- [ ] Changes made before the rule "SEO is Robo's" (backups `delicja_backup_rankmath_20261023-1309`,
-  `delicja_backup_seo_pages_20261023-1310`): Rank Math meta title, description and share image for the front page,
-  About us and Shop; excerpts for those pages; `noindex` on cart, checkout, my account and purchase summary;
-  Rank Math's llms.txt module (`llms-txt`) with extra shop facts.
-- [ ] Front page meta description has Polish words (kabanosy, pierogi, ptasie mleczko). Matej wants English names or
-  an explanation in brackets, as on the site (see DESIGN.md → Copy).
-- [ ] New front page H1 "Polish deli in the heart of Herning" and the contact page (`/kontakt/`, H1 "Come say hi",
-  page title "Kontakt"): meta title and description, and whether the slug stays Danish.
-- [ ] "Coming soon": shop, categories, tags, product search, product pages and the cart are open by code
-  (`inc/woocommerce.php`, Matej asked that "Browse the shop" works); only the checkout stays closed. Fine for
-  indexing once the mode is off?
-- [ ] WP Fastest Cache: the whole cache is now cleared by code when a product is saved or a sale starts or ends
-  (`inc/woocommerce.php`), so "Weekly deals" and the Deals menu item appear right away. Keep or narrow it?
-- [ ] 404 page (H1 "This shelf is empty – sorry!") and the Information page template (eyebrow "Good to know") are new
-  (Matej, 2026-10-24). Categories without products are now left out of the menus and the homepage tiles.
-- [ ] New pages: Deals (`/tilbud/`, H1 "Deals while they last"; the menu item shows only while something is on sale)
-  and My account (H1 "Hello witamy!"), cart H1 "Your cart": meta title and description, indexing of the Deals page
-  while it is empty.
-- [ ] Opening hours are on the site now (2026-10-26, from the Google Business Profile): Tue–Wed 11:00–17:00,
-  Thu–Fri 11:00–17:30, Sat–Sun 10:00–16:00, Monday closed. `inc/schema.php` still lists them as unknown: add
-  `openingHoursSpecification` to the store schema.
-- [ ] About us lead shortened (2026-10-24): "A Polish deli in the centre of Herning, where you can taste home."
-  The page's meta description or excerpt may still use the old, longer text.
-- [ ] Homepage hero picture changed (apples, farm milk; now `delicja-hero-table-apples-2.webp`, alt text updated).
-  Rank Math's schema on the front page still lists the old picture `delicja-hero-table.webp` as its ImageObject
-  (200 × 200), and the front page share image may be old too.
+**SEO with the main language** (when the Danish version is made)
+- [ ] Meta titles and descriptions in Danish for all pages, categories and products; the English ones set on
+  2026-10-27 (front page, About us, Shop, Contact, Deals) become the `/en/` version. llms.txt in Danish.

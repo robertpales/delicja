@@ -23,6 +23,14 @@ through Novamira, so they are not in git.
   pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
   released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
   e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- SEO check of Matej's changes: kept the meta, share images, `noindex` on cart/checkout/account/summary, open shop
+  pages in Coming soon mode, the full cache clear on product changes, 404 and Information page. Changed: front page
+  description without Polish words (pierogi explained), About us description from the new lead, meta title and
+  description for Contact and Deals (slug `/kontakt/` stays: Danish is the main language). *(database; backup
+  `delicja_backup_seo_20261027`)*
+- Schema: opening hours (`openingHoursSpecification`, from the same list as the pickup e-mails); Rank Math's stale
+  front page image (old hero, 200 × 200) dropped. Deals page `noindex` while nothing is on sale (`inc/seo.php`).
+- llms.txt: opening hours, delivery prices and zones, pickup, payment methods. *(database)*
 - The old block "Pickup at store" switched off: the checkout is the classic one, pickup is a shipping method in each
   zone. *(database)*
 
