@@ -26,7 +26,9 @@ add_action( 'wp', function () {
 	$loader = COMPLIANZ::$banner_loader;
 
 	// Complianz loads gtag.js right away and only holds back the config. Hold back the library too, so nothing is
-	// requested from Google before the visitor allows statistics (Complianz moves data-cmplz-src to src on consent).
+	// requested from Google before the visitor allows statistics. The tag is printed with a normal src: Complianz's
+	// script blocker turns it into data-cmplz-src (a data-cmplz-src printed here would be renamed a second time, to
+	// data-cmplz-data-cmplz-src, and never load) and moves it back to src on consent.
 	remove_action( 'cmplz_before_statistics_script', [ $loader, 'add_gtag_js' ], 10 );
 
 	if ( ! delicja_is_live_site() && ! isset( $_GET['dl-analytics'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -43,7 +45,7 @@ add_action( 'wp', function () {
 		$category = method_exists( $loader, 'get_statistics_category' ) ? $loader->get_statistics_category() : 'statistics';
 
 		printf(
-			'<script async type="text/plain" data-category="%s" data-cmplz-src="%s"></script>' . "\n",
+			'<script async type="text/plain" data-category="%s" src="%s"></script>' . "\n",
 			esc_attr( $category ),
 			esc_url( 'https://www.googletagmanager.com/gtag/js?id=' . $code )
 		);
