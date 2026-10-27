@@ -107,7 +107,9 @@ need a product list from her, 2026-10-27)
 - [ ] Tell Robo when the client has given access to the WPML account (main language chosen: Danish, 2026-10-26).
 - [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
 - [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.
-
+- [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
+  Privacy Policy still shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery &
+  returns say "[TODO] Indhold mangler". The pages already have their design (template Information page).
 ---
 
 ## Robo
@@ -123,23 +125,12 @@ need a product list from her, 2026-10-27)
   by hand from its phone or an SMS service sends it automatically (extra cost); tell Matej which.
 - [ ] Live site: a real server cron (or a scheduled ping of `wp-cron.php` every 15 minutes) so the hourly pickup check
   also runs when visitors only get cached pages. Check what Simply offers.
-- [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
-  Privacy Policy still shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery &
-  returns say "[TODO] Indhold mangler". The pages already have their design (template Information page).
-- [ ] Customer accounts (asked by Matej, 2026-10-23: My account has only "Log in", no way to create an account):
-  decide and switch on *WooCommerce → Settings → Accounts & Privacy* → "Allow customers to create an account on the
-  My account page" (and whether at checkout, and the password by e-mail link). The design is ready: the register
-  form appears as a second card next to the login, in the same style (`assets/css/pages/my-account.css`).
 - [ ] Marketing e-mails (Matej, 2026-10-27): the register form has an optional, unticked checkbox "Send me e-mails
   about deals and new products"; the date of the consent is saved in user meta `delicja_marketing_consent` (removed
   when the customer unticks it in Account details), the privacy checkbox in `delicja_privacy_accepted`
   (`inc/account.php`). Choose how the client sends the e-mails (newsletter tool) and sync or export these customers;
   every e-mail needs an unsubscribe link. Maybe the same checkbox at checkout. Customers who sign up with Google skip
   the form, so they can only opt in later in Account details.
-- [ ] Log in with Google or Facebook on My account (asked by Matej, 2026-10-24). Needs a social login plugin and
-  an OAuth app at Google and at Meta (client ID and secret, privacy policy link, consent screen); logins and keys
-  are Robo's area. Only makes sense together with customer accounts above. If added, Matej styles the buttons in
-  `my-account.css` to match the login card.
 
 **Statistics**
 - [ ] Microsoft Clarity (Matej sent Robo the project, 2026-10-27). Complianz's wizard takes only one statistics tool
@@ -160,26 +151,7 @@ need a product list from her, 2026-10-27)
 **Payment gateway (Frisbii Pay)**, when the client has done their part
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks. The client wants **Dankort, Visa/Mastercard,
   Apple Pay and Google Pay, no MobilePay** (2026-10-26). The footer icons and the homepage texts already show these.
-- [ ] **Reserve at checkout, charge at handover** (client's question, 2026-10-27; Forbrugerombudsmanden: the card may be
-  charged only when the goods are handed to a carrier or to the customer, also for click-and-collect). Frisbii Pay
-  1.8.19 does this. Settings in *WooCommerce → Settings → Payments → Frisbii Pay*:
-  - **Instant Settle: nothing selected.** Now "physical products" is selected on the test site, so orders are charged
-    right away; this must be turned off.
-  - Auto-settle: leave on ("Disable auto-settle" unticked): the plugin charges when the order status changes to
-    Completed (`OrderFlow/OrderCapture.php`).
-  - Status Frisbii Pay Authorised → **Processing**, Settled → **Completed** (now On hold / Processing; with
-    "Settled = Processing" an order would be charged as soon as it is processing).
-  - Flow: order → reserved, status Processing → the shop marks it **Completed** when the customer collects it or
-    our driver delivers it (admin or the WooCommerce app; bulk "Mark complete" after a delivery round) → charged.
-    Something missing: lower the order lines before Completed (only less than reserved can be charged). Cancelled →
-    the plugin voids the reservation (required by the guidelines, 4.3).
-  - An authorisation is normally valid about 7 days (Frisbii docs): Wednesday/Friday deliveries fit; pickup orders
-    need a pickup deadline (client decides, e.g. 3 days), then cancel.
-  - Ask Frisbii/Flatpay: Dankort, Apple Pay and Google Pay reservations work the same (card payments underneath)?
-    After a lower capture, is the rest of the reservation released at once?
-  - The terms must say: "the amount is reserved when you order and charged when you receive or collect the goods".
 - [ ] Test payments on test.delicja.dk (test cards: order → Authorised; Completed → Settled; partial; cancel).
-- [ ] Turn off cash on delivery.
 
 **Language versions (WPML)**, when Matej says the client has chosen the main language and given access to the WPML account
 
@@ -199,10 +171,6 @@ Prices, stock and images are shared.
 - [ ] Test: a product added in the main language gets the other two versions; an order in each language.
 
 **Before launch**
-- [ ] Turn off WooCommerce "Coming soon" mode.
-- [ ] Order e-mails to the client's address `shop@delicja.dk` (an alias of `info@delicja.dk`, set up by the client
-  2026-10-26; now `web@digistudio.sk` for testing). Check the sender address of the customer e-mails and that mail
-  from the site is delivered (SPF/DKIM for delicja.dk).
 - [ ] Do not delete the products now on the site: they are real (Matej, 2026-10-27). The client adds the rest
   herself, in Danish, as agreed in the contract.
 - [ ] Delete old backups (`delicja_backup_*` options).
