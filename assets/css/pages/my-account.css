@@ -384,6 +384,10 @@
     text-align: center;
 }
 
+.dl-account-box .woocommerce form.register > p:not(.form-row) {
+    margin-block-end: var(--dl-space-50);
+}
+
 .dl-account-box .woocommerce :is(.lost_password, .woocommerce-privacy-policy-text) a {
     color: var(--e-global-color-accent);
     text-decoration: underline;
