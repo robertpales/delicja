@@ -19,6 +19,7 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Privacy policy → page `privacy-policy`. It must also cover the e-mails about deals and new products (customers
   can sign up for them when they create an account, 2026-10-27).
 - [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts.
+  (2026-10-27: the client will send all three texts; we wait for them.)
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
   the About us story.
 - [ ] Homepage hero picture: confirm the short product stories in it (e.g. the doughnut "filled with rose jam").
@@ -27,9 +28,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Shop information**
-- [ ] Pickup orders: how many days does the customer have to collect (the card reservation lasts about 7 days; after
-  the deadline the order is cancelled and the reservation released)? Payment is charged only at handover
-  (2026-10-27, see Robo → Payment gateway).
+- [ ] Pickup orders: collect within **3 days** (Matej's proposal, 2026-10-27; the client confirms). Ready in about two
+  hours; a reminder after 2 days; not collected after 3 days → the order is cancelled, the card reservation (valid
+  about 7 days) released and the goods go back on the shelf. Payment is charged only at handover (see Robo →
+  Payment gateway). Then the Delivery & returns text and the FAQ say the same.
 - [ ] Who packs and handles the online orders in the shop? (The orders e-mail is `shop@delicja.dk`, 2026-10-26.)
 
 **Food rules** (required for selling food online in Denmark)
@@ -39,10 +41,11 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Product information shown before purchase (EU 1169/2011): ingredients with allergens highlighted, net quantity,
   storage conditions, nutrition table, producer or importer (name and address), country of origin where required.
   Best source: supplier data sheets.
-- [ ] Alcohol: will beer, vodka or other alcohol be sold online? Then an age check is needed at checkout and on
-  delivery (16+, or 18+ above 16.5 %).
-- [ ] Deposit (pant): drinks in cans and bottles sold in Denmark need the Danish pant mark, and the pant is charged on
-  top of the price. Which drinks carry pant, and which pant class (A, B, C)?
+- [ ] Deposit (pant), only when drinks in cans or bottles are added (none on the site now, 2026-10-27): the price is
+  shown without pant ("salgspris … eksklusive eventuelt pant", price marking order BEK 1696/2017 § 2) and the pant
+  is charged on top: "+ pant 1 kr." under the price and a pant line in the cart (Robo → WooCommerce). When adding a
+  drink, the client notes its pant class from the Danish pant mark: A 1 kr. (glass and cans under 1 l), B 1.50 kr.
+  (plastic under 1 l), C 3 kr. (1–20 l).
 
 **Products and stock** (the client adds the products herself in WooCommerce, as agreed in the contract; we do not
 need a product list from her, 2026-10-27)
@@ -66,8 +69,6 @@ need a product list from her, 2026-10-27)
   the fair video. Best: in the shop by the shelves or the counter, landscape, daylight, the phone's main camera (not
   a screenshot from a video), looking at the camera.
 
-**Launch**
-- [ ] Launch date, and who manages the domain delicja.dk (DNS) and the website on it now.
 
 **Payment gateway (Flatpay / Frisbii Pay)**
 - [ ] Ask Flatpay to activate online payments (Frisbii Pay) for the website delicja.dk. The client has asked Flatpay
@@ -78,6 +79,10 @@ need a product list from her, 2026-10-27)
 **Language versions**
 - [ ] Buy the WPML licence, plan **Multilingual CMS**, in the name of Delicja ApS, and give us access to the account. https://app.wpml.org/purchase
   Check how many automatic translation credits the plan includes; more cost extra.
+  2026-10-27: her Visa payment fails. Next: the error message or a screenshot; try "Use a different payment method"
+  (PayPal) at checkout; check in the bank app that online payments abroad are allowed and approve with MitID. If it
+  still fails: we buy it in an account with Delicja ApS's details (name, address, CVR, her e-mail), pay with our
+  card and invoice her.
 
 **Order of work for the language versions**
 1. Client → Matej: main language (done: **Danish**, 2026-10-26) + WPML account (still open).
@@ -123,6 +128,11 @@ need a product list from her, 2026-10-27)
   touch and we will arrange it together." (Matej, 2026-10-27), so the checkout could say the same when no shipping
   method fits the address. Put the same rules on the Delivery & returns page with the client's texts. The site texts already
   show these prices (announcement bar, homepage feature and FAQ, delivery panel on About us and Contact).
+- [ ] Pant (deposit), when the client adds drinks in cans or bottles: a pant class per product (A 1 kr., B 1.50 kr.,
+  C 3 kr.), "+ pant …" under the price, a pant line in the cart, order and invoice; the price itself stays without
+  pant (BEK 1696/2017 § 2). Matej styles the "+ pant" label. No alcohol is sold online (client, 2026-10-27).
+- [ ] Pickup orders not collected within 3 days: cancel them (releases the card reservation); WooCommerce does not do
+  this by itself, so the shop does it by hand or a small scheduled task.
 - [ ] Pickup in the shop: when the order is ready, the customer gets an e-mail and an SMS or WhatsApp message
   (Matej, 2026-10-26). E-mail: an order status like "Ready for pickup" with its own customer e-mail, sent when the
   shop sets it. SMS/WhatsApp: decide whether the shop sends it by hand from its phone or an SMS service sends it
