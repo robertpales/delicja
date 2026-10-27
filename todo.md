@@ -133,13 +133,11 @@ need a product list from her, 2026-10-27)
   the form, so they can only opt in later in Account details.
 
 **Statistics**
-- [ ] Microsoft Clarity (Matej sent Robo the project, 2026-10-27). Complianz's wizard takes only one statistics tool
-  and Google Analytics is set there, so Clarity needs the manual Clarity Consent Mode snippet
-  (https://complianz.io/manual-clarity-consent-mode/), only on delicja.dk like GA (`inc/analytics.php`). In Clarity:
-  Settings → Setup → cookies off by default.
+- [ ] Clarity dashboard (project z4by01ybij): Masking stays "Balanced"; after the first recordings check that the
+  checkout fields are masked. Optional: IP blocking for the shop and our own IPs, link to Google Analytics.
 - [ ] After launch: check Google Analytics Realtime on delicja.dk (GA4 property "Delicja ApS", G-X3VJVFR9B7, set up
   in Complianz → Statistics; on the test site only with `?dl-analytics=1`). Run the Complianz cookie scan so the
-  cookie policy lists the `_ga` cookies. Decide on shop events (product views, cart, purchases): the official
+  cookie policy lists the `_ga` and Clarity (`_clck`, `_clsk`) cookies. Decide on shop events (product views, cart, purchases): the official
   "Google Analytics for WooCommerce" plugin. Search Console is Robo's (SEO).
 
 **Deploy**

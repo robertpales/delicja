@@ -23,6 +23,11 @@ through Novamira, so they are not in git.
   pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
   released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
   e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- Microsoft Clarity (project z4by01ybij): loads only after the visitor allows statistics, with Consent Mode v2;
+  cookies erased when the consent is revoked; only on delicja.dk (test site with `?dl-analytics=1`).
+- Google Analytics did not load after consent: Complianz renamed the held-back gtag.js tag a second time
+  (`data-cmplz-data-cmplz-src`). Fixed; checked in a browser: nothing before consent or after Deny, GA and Clarity
+  after Accept (`inc/analytics.php`).
 - SEO check of Matej's changes: kept the meta, share images, `noindex` on cart/checkout/account/summary, open shop
   pages in Coming soon mode, the full cache clear on product changes, 404 and Information page. Changed: front page
   description without Polish words (pierogi explained), About us description from the new lead, meta title and
