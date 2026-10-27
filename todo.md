@@ -53,7 +53,8 @@ need a product list from her, 2026-10-27)
   incl. moms, weight or volume, category, photo, ingredients with allergens, nutrition, producer or importer, country
   of origin where required, and storage (keep chilled, frozen, or cool and dry),
   allergens it contains and may contain, vegetarian/vegan if stated. The product page shows them as icons.
-  The test products have allergens filled in from their ingredient lists (to be checked); storage is still empty.
+  The products now on the site are real and stay (Matej, 2026-10-27); their allergens are filled in from the
+  ingredient lists (to be checked), storage is still empty.
 
 **Online presence** (Google, local search, AI answers)
 - [ ] Manager access to the Google Business Profile, so opening hours, photos and the website link match the site.
@@ -196,8 +197,8 @@ Prices, stock and images are shared.
 - [ ] Order e-mails to the client's address `shop@delicja.dk` (an alias of `info@delicja.dk`, set up by the client
   2026-10-26; now `web@digistudio.sk` for testing). Check the sender address of the customer e-mails and that mail
   from the site is delivered (SPF/DKIM for delicja.dk).
-- [ ] Before launch: delete the test products and the test categories the client does not use (she adds the real
-  products herself, in Danish, as agreed in the contract).
+- [ ] Do not delete the products now on the site: they are real (Matej, 2026-10-27). The client adds the rest
+  herself, in Danish, as agreed in the contract.
 - [ ] Delete old backups (`delicja_backup_*` options).
 - [ ] Rich Results Test on the front page and a product.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
