@@ -29,9 +29,10 @@ add_action( 'pre_get_posts', function ( $query ) {
 	}
 } );
 
-// On the ORDER BY itself: the Store API (live search) sorts by date, so the search relevance order is not used there.
+// On the ORDER BY itself, for both searches: the Store API (live search) uses its own query var "search" (name and
+// SKU) and sorts by date, so WordPress's search order is not used there.
 add_filter( 'posts_orderby', function ( $orderby, $query ) {
-	$search = trim( (string) $query->get( 's' ) );
+	$search = trim( (string) ( $query->get( 's' ) ?: $query->get( 'search' ) ) );
 	if ( '' === $search || ! in_array( 'product', (array) $query->get( 'post_type' ), true ) ) {
 		return $orderby;
 	}
