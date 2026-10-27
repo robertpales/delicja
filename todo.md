@@ -41,11 +41,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Product information shown before purchase (EU 1169/2011): ingredients with allergens highlighted, net quantity,
   storage conditions, nutrition table, producer or importer (name and address), country of origin where required.
   Best source: supplier data sheets.
-- [ ] Deposit (pant), only when drinks in cans or bottles are added (none on the site now, 2026-10-27): the price is
-  shown without pant ("salgspris … eksklusive eventuelt pant", price marking order BEK 1696/2017 § 2) and the pant
-  is charged on top: "+ pant 1 kr." under the price and a pant line in the cart (Robo → WooCommerce). When adding a
-  drink, the client notes its pant class from the Danish pant mark: A 1 kr. (glass and cans under 1 l), B 1.50 kr.
-  (plastic under 1 l), C 3 kr. (1–20 l).
+- [ ] Pant: when she adds a drink in a can or bottle, she picks its pant class in *Product data → General → Pant*
+  (several products at once: Products → Bulk edit → Pant), from the Danish pant mark on the pack: A 1 kr. (glass and
+  cans under 1 l), B 1.50 kr. (plastic under 1 l), C 3 kr. (from 1 l). The shop then shows "+ pant" under the price
+  and adds the pant in the cart (2026-10-27). No drinks on the site yet.
 
 **Products and stock** (the client adds the products herself in WooCommerce, as agreed in the contract; we do not
 need a product list from her, 2026-10-27)
@@ -128,9 +127,6 @@ need a product list from her, 2026-10-27)
   touch and we will arrange it together." (Matej, 2026-10-27), so the checkout could say the same when no shipping
   method fits the address. Put the same rules on the Delivery & returns page with the client's texts. The site texts already
   show these prices (announcement bar, homepage feature and FAQ, delivery panel on About us and Contact).
-- [ ] Pant (deposit), when the client adds drinks in cans or bottles: a pant class per product (A 1 kr., B 1.50 kr.,
-  C 3 kr.), "+ pant …" under the price, a pant line in the cart, order and invoice; the price itself stays without
-  pant (BEK 1696/2017 § 2). Matej styles the "+ pant" label. No alcohol is sold online (client, 2026-10-27).
 - [ ] Pickup orders not collected within 3 days: cancel them (releases the card reservation); WooCommerce does not do
   this by itself, so the shop does it by hand or a small scheduled task.
 - [ ] Pickup in the shop: when the order is ready, the customer gets an e-mail and an SMS or WhatsApp message

@@ -16,6 +16,9 @@ through Novamira, so they are not in git.
 - Client's answers (via Matej): no alcohol online; launch as soon as the site is finished (no fixed date); we manage
   the domain delicja.dk and have access; the client sends the legal texts herself; the products now on the site are
   real and stay. Proposed pickup deadline: 3 days.
+- Pant (Danish deposit) for drinks in cans and bottles: a "Pant" select on the product (A 1 kr., B 1,50 kr., C 3 kr.;
+  also in bulk edit). The price stays without pant, "+ pant …" shows under it, and the cart adds one "Pant" line
+  (with moms, outside the free-delivery subtotal) that goes into the order, e-mails and invoice.
 - My account: login and registration in one card instead of two side by side. A switch "Log in / Register" on top
   shows one form at a time, and "Continue with Google" is there only once, under both. After a failed registration
   the register form stays open.

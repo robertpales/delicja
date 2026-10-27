@@ -151,6 +151,7 @@ matches. Delete it and it must disappear.
 | Sets stock to 0 | Card button says "Sold out" and is disabled |
 | Picks Origin, Storage, Diet, Allergens, May contain on the product's Attributes tab | Icons on the product page (Product facts) |
 | Keeps the nutrition table in the description (rows Energy … Salt) | Nutrition tiles with icons and % of the reference intake |
+| Picks a pant class (A, B, C) in *Product data → General → Pant* | "+ pant 1,00 kr." under the price (small, grey), the pant per item in the cart, one "Pant" line in the totals, order and invoice; the price itself stays without pant (`inc/pant.php`) |
 | Changes a category's order or image | Category tiles on the homepage follow |
 | Edits a menu (*Appearance → Menus*) | Header and footer menus follow |
 
