@@ -133,8 +133,6 @@ need a product list from her, 2026-10-27)
   the form, so they can only opt in later in Account details.
 
 **Statistics**
-- [ ] Clarity dashboard (project z4by01ybij): Masking stays "Balanced"; after the first recordings check that the
-  checkout fields are masked. Optional: IP blocking for the shop and our own IPs, link to Google Analytics.
 - [ ] After launch: check Google Analytics Realtime on delicja.dk (GA4 property "Delicja ApS", G-X3VJVFR9B7, set up
   in Complianz → Statistics; on the test site only with `?dl-analytics=1`). Run the Complianz cookie scan so the
   cookie policy lists the `_ga` and Clarity (`_clck`, `_clsk`) cookies. Decide on shop events (product views, cart, purchases): the official
