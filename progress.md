@@ -19,6 +19,13 @@ through Novamira, so they are not in git.
 - Register form: two checkboxes instead of the long privacy text: "I have read the privacy policy" (required) and
   "Send me e-mails about deals and new products" (optional). Both are saved with the date; customers can change the
   e-mail consent in Account details. The newsletter tool itself is Robo's.
+- About us → How it started: the new Instagram video, Elżbieta showing the shop a year after opening, instead of the
+  fair video (made playable on iPhones, with a poster from the video); caption and the "Watch the reel on Instagram"
+  link changed to it. *(database)*
+- Delivery texts: "Live even further away? Get in touch and we will arrange it together." in the "Not in Herning?"
+  panel (About us, Contact) and in the homepage delivery FAQ (with e-mail and phone). *(database)*
+- No sharper photo of Elżbieta for the About us opening (the video frames are blurry or mid-word); asked the client
+  for one (`todo.md`).
 
 ## 2026-10-26
 

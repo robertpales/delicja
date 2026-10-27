@@ -56,6 +56,9 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] May we show their Google reviews on the site (real reviews only)?
 - [ ] More real photos: the shop inside, shelves, the counter, people. People in photos must agree to it (GDPR);
   confirm this for the photos already used (Elżbieta, the customer at the counter).
+- [ ] A sharp photo of Elżbieta for the About us opening (asked by Matej, 2026-10-27): now it is a blurry frame from
+  the fair video. Best: in the shop by the shelves or the counter, landscape, daylight, the phone's main camera (not
+  a screenshot from a video), looking at the camera.
 
 **Launch**
 - [ ] Launch date, and who manages the domain delicja.dk (DNS) and the website on it now.
@@ -107,7 +110,9 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   WooCommerce zones work by postcode, not distance: either postcode lists for the 15 km and 40 km rings around
   the shop or a distance-based shipping plugin. We make the postcode lists ourselves (distance from Bethaniagade 5);
   the client does not need to check them (Matej, 2026-10-26). Jutland = postcodes 6000–9990 (Funen 5000–5999 and
-  the islands are not Jutland). Put the same rules on the Delivery & returns page with the client's texts. The site texts already
+  the islands are not Jutland). Outside Jutland only by arrangement: the site says "Live even further away? Get in
+  touch and we will arrange it together." (Matej, 2026-10-27), so the checkout could say the same when no shipping
+  method fits the address. Put the same rules on the Delivery & returns page with the client's texts. The site texts already
   show these prices (announcement bar, homepage feature and FAQ, delivery panel on About us and Contact).
 - [ ] Pickup in the shop: when the order is ready, the customer gets an e-mail and an SMS or WhatsApp message
   (Matej, 2026-10-26). E-mail: an order status like "Ready for pickup" with its own customer e-mail, sent when the

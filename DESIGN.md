@@ -108,7 +108,8 @@ the closed day with `is-closed` (muted). If the hours change, change all four pl
 
 ### Delivery panel (`site.css` → `=== Delivery panel ===`)
 "Not in Herning?": a red panel (paper grain) with a white heading, one line about delivery, a light "Shop online"
-button and the opened delivery box running off its bottom edge (classes `dl-online`, `dl-online-text`,
+button and the opened delivery box running off its bottom edge. The text ends with "Live even further away? Get in
+touch and we will arrange it together." (also in the homepage delivery FAQ, with e-mail and phone) (classes `dl-online`, `dl-online-text`,
 `dl-online-box`). The same panel on Contact and at the end of About us ("Visit us"), under the text and the shop
 window photo.
 
@@ -282,6 +283,9 @@ zoom. The related product cards do the same.
   The openings of About us and Contact are built the same way: same title size and spacing, and from 782 px the text
   starts at the same height (top-aligned with the same top space), not centred against pictures of different height.
   The About opening photo is cropped 5:4.
+  "How it started" has the shop's own Instagram video next to the text: Elżbieta showing the shop a year after
+  opening (`delicja-video-shop-tour-2026.mp4`, H.264 720×1280 for Safari, poster from the video; "Watch the reel on
+  Instagram" links to that post).
   "How it started" sits on a linen band (`dlsurface`) across the full width with soft waves at the top and bottom,
   so the page flows from white into linen and back. On phones its three moments are a small timeline in a white
   card (icons in linen circles joined by a dashed red line) and the buttons are full width; from 600 px the moments
