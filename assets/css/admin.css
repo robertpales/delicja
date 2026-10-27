@@ -1,0 +1,11 @@
+/* === Orders === */
+/* wp-admin has no Elementor globals, so the colours are WordPress admin colours. */
+.order-status.status-ready-pickup {
+    background: #c8d7e1;
+    color: #2e4453;
+}
+
+.wc-action-button-ready-pickup::after {
+    content: "\f174" !important;
+    font-family: dashicons !important;
+}
