@@ -112,22 +112,12 @@ need a product list from her, 2026-10-27)
 ## Robo
 
 **WooCommerce**
-- [ ] Tax rate: remove the city limit (Herning) so the 25 % moms applies to all of Denmark.
-- [ ] Pickup location: add the street address (Bethaniagade 5).
-- [ ] Delivery methods and prices from the client (2026-10-26). Now the zone "Denmark" has only free shipping on.
-  - Herning: 49 kr., free from 799 kr.
-  - Up to 15 km from the shop: 79 kr., free from 999 kr.
-  - 15–40 km from the shop: 129 kr., free from 1,299 kr.
-  - Rest of Jutland: 219 kr. flat (no free threshold); time arranged with the customer.
-  - Deliveries on Wednesdays and Fridays, Herning and up to 40 km between 15:00 and 17:00.
-  - Pickup in the shop (Bethaniagade 5): free, ready about two hours after the order, subject to availability.
-  WooCommerce zones work by postcode, not distance: either postcode lists for the 15 km and 40 km rings around
-  the shop or a distance-based shipping plugin. We make the postcode lists ourselves (distance from Bethaniagade 5);
-  the client does not need to check them (Matej, 2026-10-26). Jutland = postcodes 6000–9990 (Funen 5000–5999 and
-  the islands are not Jutland). Outside Jutland only by arrangement: the site says "Live even further away? Get in
-  touch and we will arrange it together." (Matej, 2026-10-27), so the checkout could say the same when no shipping
-  method fits the address. Put the same rules on the Delivery & returns page with the client's texts. The site texts already
-  show these prices (announcement bar, homepage feature and FAQ, delivery panel on About us and Contact).
+- [ ] Delivery & returns page: the same delivery rules as in the checkout (zones below), with the client's texts.
+  Zones (2026-10-27, by road distance from Bethaniagade 5 to the town centre, OSRM ≈ Google Maps): Herning 7400;
+  up to 15 km 7451, 7430, 6933 Kibæk (15.8 km, counted in); 15–40 km 7480, 7441, 7490, 6920, 7470, 7330, 7280,
+  7442, 7550, 6973, 7540, 7361, 7270, 6971, 7500, 8600 Silkeborg, 7362 Hampen, 8653 Them (40.4 km, counted in);
+  rest of Jutland 6000–9990; ferry islands (6720, 7884, 8305, 8592, 8789, 8799, 9940) and the rest of Denmark only
+  pickup. If the client adds or moves a town, change the zone's postcodes.
 - [ ] Pickup orders not collected within 3 days: cancel them (releases the card reservation); WooCommerce does not do
   this by itself, so the shop does it by hand or a small scheduled task.
 - [ ] Pickup in the shop: when the order is ready, the customer gets an e-mail and an SMS or WhatsApp message

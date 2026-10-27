@@ -12,6 +12,13 @@ through Novamira, so they are not in git.
 
 ## 2026-10-27
 
+**Robo**
+- Shipping by the client's prices: zones by postcode and road distance from the shop (Herning 49 kr., up to 15 km
+  79 kr., 15–40 km 129 kr., rest of Jutland 219 kr.; free from 799 / 999 / 1,299 kr.), pickup in the shop in every
+  zone, the old "free shipping for all of Denmark" removed. With free delivery the paid one is hidden; outside the
+  delivery area only pickup and a note to get in touch (`inc/shipping.php`). *(database: zones)*
+- Checked: 25 % moms applies to all of Denmark (no city limit).
+
 **Matej**
 - Google Analytics 4 (property "Delicja ApS", G-X3VJVFR9B7) set up in Complianz → Statistics: it starts only after
   the visitor allows statistics in the cookie banner (nothing is loaded from Google before), and it collects only on
