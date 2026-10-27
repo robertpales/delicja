@@ -170,6 +170,9 @@ Prices, stock and images are shared.
 - [ ] Do not delete the products now on the site: they are real (Matej, 2026-10-27). The client adds the rest
   herself, in Danish, as agreed in the contract.
 - [ ] Delete old backups (`delicja_backup_*` options).
+- [ ] After the move to delicja.dk: check that WP Fastest Cache → Exclude still has the three WooCommerce cookies
+  and that `.htaccess` has them in "Start WPFC Exclude" (`inc/cache.php`); repeat the guest test (a second visitor
+  must not see the first one's cart or address).
 - [ ] Rich Results Test on the front page and a product.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
   Google-Extended) allowed; check `/llms.txt` and the sitemap there. The test site stays `noindex`.
