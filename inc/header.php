@@ -7,6 +7,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// The site has one light look. Phone browsers with a forced dark mode (Samsung Internet, Chrome's dark theme for
+// websites) darken pages that do not say so; "only light" asks them to keep the colours (site.css sets the same).
+add_action( 'wp_head', function () {
+	echo '<meta name="color-scheme" content="only light">' . "\n";
+}, 1 );
+
 // Product search: the core search block in WooCommerce's product-search variation (adds post_type=product).
 add_shortcode( 'dl_product_search', function () {
 	return do_blocks( '<!-- wp:search {"label":"Search products","showLabel":false,"placeholder":"Search for sausages, sweets…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"product"},"namespace":"woocommerce/product-search"} /-->' );

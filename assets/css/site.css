@@ -4,6 +4,7 @@
 
 /* === Base === */
 :root {
+    color-scheme: only light;
     --dl-space-10: 0.25rem;
     --dl-space-20: 0.5rem;
     --dl-space-30: 0.75rem;
