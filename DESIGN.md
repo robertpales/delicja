@@ -21,10 +21,11 @@ behind text.
 
 ### Logo (`assets/images/logo/`)
 Built from the shop's original wordmark SVG; do not redraw the lettering.
-- `delicja-logo.svg`: round badge (footer). At least 96 px.
+- `delicja-logo.svg`: round badge (no longer in the footer; kept for print and social media). At least 96 px.
 - `delicja-icon.svg`: the "D" of the script logo in white on a red rounded square (`primary`). Browser tab and
   phone home screen icon: exported as a 512 px PNG and set as the Site Icon (Settings → General / Customizer → Site
-  Identity), which makes the 32–270 px sizes. The round badge is too detailed at 16 px.
+  Identity), which makes the 32–270 px sizes. The round badge is too detailed at 16 px. The same icon (SVG, media
+  498) is the logo in the footer, 80 px.
 - `delicja-logo-wordmark.svg`: script + "POLSKI SKLEP" (header; also the Site Logo in Site Settings).
 
 ### Colours → Elementor Global Colors (*Site Settings → Global Colors*)
@@ -224,7 +225,7 @@ zoom. The related product cards do the same.
 9. "Questions and answers" (FAQ accordion) and a "More questions?" box [TODO final answers].
 10. "Follow Delicja" with the Instagram link and two real photos as Instagram posts that link to Instagram (hidden
     below 782 px).
-11. Footer (Theme Builder): round logo, short text, payment icons (Dankort, Visa, Mastercard, Apple Pay, Google Pay; no
+11. Footer (Theme Builder): the "D" icon (red rounded square, 80 px) as the logo, short text, payment icons (Dankort, Visa, Mastercard, Apple Pay, Google Pay; no
     MobilePay, the client's choice), menus Shop and Information, contact,
     copyright line, company name + CVR (required by Danish law), opening hours, and the link to the shop's food
     inspection reports on findsmiley.dk (`https://www.findsmiley.dk/1475269`; required for a food webshop). The link is
