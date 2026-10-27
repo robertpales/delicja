@@ -551,6 +551,10 @@ body .wp-block-button__link:focus,
     transition: none;
 }
 
+.dl-header-search .wp-block-search__input::-webkit-search-cancel-button {
+    display: none;
+}
+
 .dl-header-search .wp-block-search__input::placeholder {
     color: var(--e-global-color-accent);
 }
