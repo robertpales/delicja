@@ -27,6 +27,9 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Shop information**
+- [ ] Pickup orders: how many days does the customer have to collect (the card reservation lasts about 7 days; after
+  the deadline the order is cancelled and the reservation released)? Payment is charged only at handover
+  (2026-10-27, see Robo → Payment gateway).
 - [ ] Who packs and handles the online orders in the shop? (The orders e-mail is `shop@delicja.dk`, 2026-10-26.)
 
 **Food rules** (required for selling food online in Denmark)
@@ -145,7 +148,25 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 **Payment gateway (Frisbii Pay)**, when the client has done their part
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks. The client wants **Dankort, Visa/Mastercard,
   Apple Pay and Google Pay, no MobilePay** (2026-10-26). The footer icons and the homepage texts already show these.
-- [ ] Test payments on test.delicja.dk.
+- [ ] **Reserve at checkout, charge at handover** (client's question, 2026-10-27; Forbrugerombudsmanden: the card may be
+  charged only when the goods are handed to a carrier or to the customer, also for click-and-collect). Frisbii Pay
+  1.8.19 does this. Settings in *WooCommerce → Settings → Payments → Frisbii Pay*:
+  - **Instant Settle: nothing selected.** Now "physical products" is selected on the test site, so orders are charged
+    right away; this must be turned off.
+  - Auto-settle: leave on ("Disable auto-settle" unticked): the plugin charges when the order status changes to
+    Completed (`OrderFlow/OrderCapture.php`).
+  - Status Frisbii Pay Authorised → **Processing**, Settled → **Completed** (now On hold / Processing; with
+    "Settled = Processing" an order would be charged as soon as it is processing).
+  - Flow: order → reserved, status Processing → the shop marks it **Completed** when the customer collects it or
+    our driver delivers it (admin or the WooCommerce app; bulk "Mark complete" after a delivery round) → charged.
+    Something missing: lower the order lines before Completed (only less than reserved can be charged). Cancelled →
+    the plugin voids the reservation (required by the guidelines, 4.3).
+  - An authorisation is normally valid about 7 days (Frisbii docs): Wednesday/Friday deliveries fit; pickup orders
+    need a pickup deadline (client decides, e.g. 3 days), then cancel.
+  - Ask Frisbii/Flatpay: Dankort, Apple Pay and Google Pay reservations work the same (card payments underneath)?
+    After a lower capture, is the rest of the reservation released at once?
+  - The terms must say: "the amount is reserved when you order and charged when you receive or collect the goods".
+- [ ] Test payments on test.delicja.dk (test cards: order → Authorised; Completed → Settled; partial; cancel).
 - [ ] Turn off cash on delivery.
 
 **Language versions (WPML)**, when Matej says the client has chosen the main language and given access to the WPML account
