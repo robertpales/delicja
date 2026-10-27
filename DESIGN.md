@@ -274,7 +274,7 @@ zoom. The related product cards do the same.
   Account details, to change it later). Lost password and the account pages (menu as a linen side list, the current page white)
   use the same style. Logged in, the welcome is
   only the heading and the account pages get the full width.
-- **Deals** (`/tilbud/`, page built in Elementor, `assets/css/pages/tilbud.css`): "Deals" with a handwritten "while
+- **Deals** (`/deals/`, page built in Elementor, `assets/css/pages/deals.css`): "Deals" with a handwritten "while
   they last", a lead and all products on sale (Loop Grid, product card); with no sale a note and "See the whole
   shop" (`[dl_no_deals]`).
 - **Legal pages:** title + page content (Page template). Legal texts [TODO].
@@ -323,7 +323,7 @@ zoom. The related product cards do the same.
 
 ## Known differences from the block theme
 - Weekly deals: the carousel arrows are hidden while nothing is on sale.
-- Deals and Contact link to `/tilbud/` and `/kontakt/` (the block theme linked to pages that did not exist).
+- Deals and Contact link to `/deals/` and `/kontakt/` (the block theme linked to pages that did not exist).
 - Quantity +/− signs in the mini cart use the site font.
 - In the cart's "New in store" list one image can be a few pixels larger in the block theme (a WordPress image
   sizing quirk there).

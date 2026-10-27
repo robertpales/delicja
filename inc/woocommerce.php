@@ -107,12 +107,21 @@ add_filter( 'body_class', function ( $classes ) {
 } );
 
 /**
- * The Deals page (slug "tilbud"): products on sale. 0 when there is no such page.
+ * The Deals page (English slug "deals"): products on sale. 0 when there is no such page.
  */
 function delicja_deals_page_id(): int {
-	$page = get_page_by_path( 'tilbud' );
+	$page = get_page_by_path( 'deals' );
 
-	return $page ? (int) $page->ID : 0;
+	return $page ? delicja_english_id( (int) $page->ID ) : 0;
+}
+
+/**
+ * True for the Deals page or one of its translations; $id defaults to the current page.
+ */
+function delicja_is_deals_page( int $id = 0 ): bool {
+	$id = $id ?: ( is_page() ? get_queried_object_id() : 0 );
+
+	return $id && delicja_deals_page_id() === delicja_english_id( $id );
 }
 
 // The Deals menu item shows only while at least one product is on sale.
@@ -122,7 +131,7 @@ add_filter( 'wp_nav_menu_objects', function ( $items ) {
 		return $items;
 	}
 
-	return array_filter( $items, fn ( $item ) => ! ( 'page' === $item->object && $deals === (int) $item->object_id ) );
+	return array_filter( $items, fn ( $item ) => ! ( 'page' === $item->object && delicja_is_deals_page( (int) $item->object_id ) ) );
 } );
 
 // Pages are cached (WP Fastest Cache): when sales start or end, or a product is saved, clear the cache so the

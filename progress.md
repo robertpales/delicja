@@ -23,6 +23,8 @@ through Novamira, so they are not in git.
   pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
   released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
   e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- Deals page slug is now `deals` (also Delivery & returns: `delivery-and-returns`). The page CSS, the Deals menu
+  item and its noindex no longer depend on the Danish slug; page CSS uses the English slug (`deals.css`).
 - Privacy fix: a cached page showed a guest's name, address, e-mail, phone and cart to every visitor (the mini cart
   block prints them into the page and WP Fastest Cache stored it). Now visitors with a WooCommerce session get no
   cached pages and create none (WPFC Exclude cookies *(database, .htaccess)* and `DONOTCACHEPAGE`), and the addresses

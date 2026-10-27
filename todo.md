@@ -177,7 +177,7 @@ Prices, stock and images are shared.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
   Google-Extended) allowed; check `/llms.txt` and the sitemap there. The test site stays `noindex`.
 - [ ] Pages still marked "Indhold mangler" (om-os, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
-  Kontakt and Deals (`/tilbud/`) are done (Matej, 2026-10-23).
+  Kontakt and Deals (`/deals/`) are done (Matej, 2026-10-23).
 
 **SEO with the main language** (when the Danish version is made)
 - [ ] Meta titles and descriptions in Danish for all pages, categories and products; the English ones set on
