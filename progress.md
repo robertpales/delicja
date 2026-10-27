@@ -13,6 +13,8 @@ through Novamira, so they are not in git.
 ## 2026-10-27
 
 **Matej**
+- Share image with the shop front (1200 × 630, media 504) prepared for link previews; setting it in Rank Math is Robo's.
+  *(database: media)*
 - Footer logo: the red rounded square with the "D" (as in the browser tab) instead of the round badge, a bit smaller
   (80 px instead of 112). *(database: footer; size in git)*
 - Google Analytics 4 (property "Delicja ApS", G-X3VJVFR9B7) set up in Complianz → Statistics: it starts only after

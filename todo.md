@@ -247,6 +247,10 @@ Prices, stock and images are shared.
   `openingHoursSpecification` to the store schema.
 - [ ] About us lead shortened (2026-10-24): "A Polish deli in the centre of Herning, where you can taste home."
   The page's meta description or excerpt may still use the old, longer text.
+- [ ] Share image of the front page (link previews in WhatsApp, Messenger, Facebook): Matej wants the shop front
+  instead of the window photo (`delicja-about-shop-window.webp`), 2026-10-27. Prepared in the media library: media
+  504, `delicja-share-shop-front.jpg`, 1200 × 630. Set it in Rank Math (front page → Social, Facebook and Twitter
+  image). WhatsApp caches previews: test with a new link, e.g. `https://test.delicja.dk/?v=2`.
 - [ ] Homepage hero picture changed (apples, farm milk; now `delicja-hero-table-apples-2.webp`, alt text updated).
   Rank Math's schema on the front page still lists the old picture `delicja-hero-table.webp` as its ImageObject
   (200 × 200), and the front page share image may be old too.
