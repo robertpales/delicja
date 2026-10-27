@@ -381,9 +381,12 @@ add_shortcode( 'dl_search_empty', function () {
 		return '';
 	}
 
-	return '<div class="dl-search-empty"><p>No products were found matching your selection.</p>'
-		. do_blocks( '<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","buttonText":"Search","query":{"post_type":"product"}} /-->' )
-		. '</div>';
+	// The search field in the header still holds the query; the category tiles follow under this (template "Product
+	// search results", shown only when nothing is found).
+	return '<div class="dl-empty dl-shop-empty dl-search-empty"><p>'
+		/* translators: %s: search query */
+		. sprintf( esc_html__( 'No products match “%s”. Try another word, or browse the categories below.', 'delicja' ), esc_html( get_search_query() ) )
+		. '</p><a class="dl-shop-empty-button" href="' . esc_url( wc_get_page_permalink( 'shop' ) ) . '">' . esc_html__( 'See the whole shop', 'delicja' ) . '</a></div>';
 } );
 
 // Empty shop, category or tag page: a short note and a way back to all products.

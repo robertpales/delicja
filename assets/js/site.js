@@ -350,3 +350,124 @@ delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.d
 	chapters.forEach((chapter) => observer.observe(chapter));
 })();
 
+
+/* === Live search === */
+// Results under the header search field while typing (WooCommerce Store API, read-only, no login). Texts and the
+// endpoint come from inc/search.php (window.dlSearch). Enter without a chosen result opens the full results page.
+(() => {
+	const input = document.querySelector('.dl-header-search input[name="s"]');
+	const settings = window.dlSearch;
+	if (!input || !settings) {
+		return;
+	}
+	const form = input.form;
+	const panel = document.createElement('div');
+	panel.className = 'dl-live';
+	panel.id = 'dl-live';
+	panel.hidden = true;
+	form.append(panel);
+
+	input.setAttribute('role', 'combobox');
+	input.setAttribute('aria-autocomplete', 'list');
+	input.setAttribute('aria-expanded', 'false');
+	input.setAttribute('aria-controls', panel.id);
+	input.setAttribute('autocomplete', 'off');
+
+	let timer = 0;
+	let request = null;
+	let active = -1;
+
+	const escape = (text) => text.replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
+	const highlight = (name, query) => {
+		const safe = escape(name);
+		const words = query.trim().split(/\s+/).filter((word) => word.length > 1).map((word) => escape(word).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+		return words.length ? safe.replace(new RegExp(`(${words.join('|')})`, 'gi'), '<mark>$1</mark>') : safe;
+	};
+	const options = () => [...panel.querySelectorAll('.dl-live-item, .dl-live-all')];
+
+	const close = () => {
+		panel.hidden = true;
+		input.setAttribute('aria-expanded', 'false');
+		input.removeAttribute('aria-activedescendant');
+		active = -1;
+	};
+
+	const select = (index) => {
+		const list = options();
+		list.forEach((option) => option.classList.remove('is-active'));
+		active = list.length ? (index + list.length) % list.length : -1;
+		if (active >= 0) {
+			list[active].classList.add('is-active');
+			input.setAttribute('aria-activedescendant', list[active].id);
+		}
+	};
+
+	const render = (query, products, total) => {
+		const url = `${form.action}?${new URLSearchParams({ s: query, post_type: 'product' })}`;
+		if (!products.length) {
+			panel.innerHTML = `<p class="dl-live-empty">${escape(settings.empty)}</p>`;
+		} else {
+			panel.innerHTML = `<ul class="dl-live-list" role="listbox" aria-label="${escape(settings.label)}">${products.map((product, index) => `
+				<li role="presentation"><a class="dl-live-item" id="dl-live-${index}" role="option" href="${escape(product.permalink)}">
+					<img class="dl-live-image" src="${escape(product.images[0]?.thumbnail || settings.placeholder)}" alt="" width="48" height="48" loading="lazy">
+					<span class="dl-live-name">${highlight(product.name, query)}</span>
+					<span class="dl-live-price">${product.price_html}</span>
+				</a></li>`).join('')}</ul>
+				<a class="dl-live-all" id="dl-live-all" role="option" href="${escape(url)}">${escape(settings.all.replace('%d', total))}</a>`;
+		}
+		panel.hidden = false;
+		input.setAttribute('aria-expanded', 'true');
+		active = -1;
+	};
+
+	const search = () => {
+		const query = input.value.trim();
+		if (query.length < 2) {
+			close();
+			return;
+		}
+		request?.abort();
+		request = new AbortController();
+		fetch(`${settings.endpoint}?${new URLSearchParams({ search: query, per_page: 6 })}`, { signal: request.signal })
+			.then((response) => Promise.all([response.json(), Number(response.headers.get('X-WP-Total')) || 0]))
+			.then(([products, total]) => {
+				if (input.value.trim() === query && Array.isArray(products)) {
+					render(query, products, total || products.length);
+				}
+			})
+			.catch(() => {});
+	};
+
+	input.addEventListener('input', () => {
+		clearTimeout(timer);
+		timer = setTimeout(search, 250);
+	});
+
+	input.addEventListener('focus', () => {
+		if (panel.innerHTML && input.value.trim().length > 1) {
+			panel.hidden = false;
+			input.setAttribute('aria-expanded', 'true');
+		}
+	});
+
+	input.addEventListener('keydown', (event) => {
+		if (panel.hidden) {
+			return;
+		}
+		if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+			event.preventDefault();
+			select(active + (event.key === 'ArrowDown' ? 1 : -1));
+		} else if (event.key === 'Enter' && active >= 0) {
+			event.preventDefault();
+			options()[active].click();
+		} else if (event.key === 'Escape') {
+			close();
+		}
+	});
+
+	document.addEventListener('click', (event) => {
+		if (!form.contains(event.target)) {
+			close();
+		}
+	});
+})();
