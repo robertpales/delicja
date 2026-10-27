@@ -10,6 +10,13 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-27
+
+**Matej**
+- My account: login and registration in one card instead of two side by side. A switch "Log in / Register" on top
+  shows one form at a time, and "Continue with Google" is there only once, under both. After a failed registration
+  the register form stays open.
+
 ## 2026-10-26
 
 **Matej**

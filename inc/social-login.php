@@ -2,8 +2,9 @@
 /**
  * Social login (Nextend Social Login, free version): "Continue with Google" buttons in WooCommerce's forms.
  * The free plugin only adds them to wp-login.php; its WooCommerce placement is a Pro feature, so the buttons are
- * placed here with its shortcode. Providers (Google now, Facebook later) and their keys are set in
- * Settings → Nextend Social Login; every enabled provider shows up here by itself. Styles in site.css (=== Social login ===).
+ * placed here with its shortcode (on My account once per card, see inc/account.php). Providers (Google now, Facebook
+ * later) and their keys are set in Settings → Nextend Social Login; every enabled provider shows up here by itself.
+ * Styles in site.css (=== Social login ===).
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -29,13 +30,18 @@ function delicja_social_login_buttons( string $context, string $label ): string 
 
 // The Pro version places the buttons itself; then this file does nothing.
 if ( ! class_exists( 'NextendSocialLoginPRO' ) ) {
-	// My account: under the login form and under the registration form.
-	add_action( 'woocommerce_login_form_end', function () {
-		echo delicja_social_login_buttons( 'login', 'or' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	// My account: once under both forms when login and registration share one card (inc/account.php), otherwise
+	// under the login form.
+	add_action( 'woocommerce_after_customer_login_form', function () {
+		if ( delicja_account_registration() ) {
+			echo delicja_social_login_buttons( 'account', 'or' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
 	} );
 
-	add_action( 'woocommerce_register_form_end', function () {
-		echo delicja_social_login_buttons( 'register', 'or' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	add_action( 'woocommerce_login_form_end', function () {
+		if ( ! delicja_account_registration() ) {
+			echo delicja_social_login_buttons( 'login', 'or' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
 	} );
 
 	// Checkout: guests can log in with one click before filling in the address.

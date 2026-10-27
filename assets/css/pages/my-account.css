@@ -115,9 +115,7 @@
 }
 
 .dl-account-box #customer_login {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-    gap: var(--dl-space-50);
+    display: block;
 }
 
 .dl-account-box #customer_login::before,
@@ -131,7 +129,7 @@
     width: auto;
 }
 
-.dl-account-box .woocommerce :is(form.login, form.register, form.lost_reset_password, form.woocommerce-ResetPassword) {
+.dl-account-box :is(.woocommerce:has(> #customer_login), .woocommerce > form.login, form.lost_reset_password, form.woocommerce-ResetPassword) {
     position: relative;
     margin: 0;
     padding: var(--dl-space-60) var(--dl-space-50) var(--dl-space-50);
@@ -140,7 +138,7 @@
     background-color: var(--e-global-color-dlsurface);
 }
 
-.dl-account-box .woocommerce :is(form.login, form.register, form.lost_reset_password, form.woocommerce-ResetPassword)::before {
+.dl-account-box :is(.woocommerce:has(> #customer_login), .woocommerce > form.login, form.lost_reset_password, form.woocommerce-ResetPassword)::before {
     content: "";
     position: absolute;
     top: -0.7rem;
@@ -152,6 +150,92 @@
     background-color: color-mix(in srgb, var(--e-global-color-primary) 22%, transparent);
     -webkit-mask: url("../../images/hand/tape.svg") center / 100% 100% no-repeat;
     mask: url("../../images/hand/tape.svg") center / 100% 100% no-repeat;
+}
+
+.dl-account-box .woocommerce:has(> #customer_login) {
+    max-width: 30rem;
+    margin-inline: auto;
+}
+
+.dl-account-box .woocommerce:has(> #customer_login) > .woocommerce-notices-wrapper:has(*) {
+    margin-block-end: var(--dl-space-40);
+}
+
+.dl-account-box #customer_login :is(form.login, form.register) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+.dl-account-box .woocommerce #customer_login h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.dl-account-box .woocommerce:has(#dl-auth-login:checked) #customer_login > .u-column2,
+.dl-account-box .woocommerce:has(#dl-auth-register:checked) #customer_login > .u-column1 {
+    display: none;
+}
+
+.dl-auth-switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--dl-space-10);
+    margin-block-end: var(--dl-space-50);
+    padding: var(--dl-space-10);
+    border-radius: var(--dl-radius-pill);
+    background-color: color-mix(in srgb, var(--e-global-color-dlborder) 70%, transparent);
+}
+
+.dl-auth-radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dl-account-box .woocommerce .dl-auth-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    margin: 0;
+    padding: var(--dl-space-10) var(--dl-space-40);
+    border-radius: var(--dl-radius-pill);
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: var(--e-global-typography-dlsmallb-line-height);
+    letter-spacing: var(--e-global-typography-dlsmallb-letter-spacing);
+    cursor: pointer;
+    transition:
+        background-color var(--dl-transition),
+        color var(--dl-transition),
+        box-shadow var(--dl-transition);
+}
+
+.dl-account-box .woocommerce .dl-auth-option:hover {
+    color: var(--e-global-color-text);
+}
+
+.dl-account-box .woocommerce .dl-auth-radio:checked + .dl-auth-option {
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-text);
+    box-shadow: var(--dl-shadow-card);
+}
+
+.dl-account-box .woocommerce .dl-auth-radio:focus-visible + .dl-auth-option {
+    outline: 2px solid var(--e-global-color-text);
+    outline-offset: 2px;
 }
 
 .dl-account-box .woocommerce form legend {
@@ -369,7 +453,7 @@
         display: none;
     }
 
-    .dl-account-box .woocommerce :is(form.login, form.register, form.lost_reset_password, form.woocommerce-ResetPassword) {
+    .dl-account-box :is(.woocommerce:has(> #customer_login), .woocommerce > form.login, form.lost_reset_password, form.woocommerce-ResetPassword) {
         padding: var(--dl-space-50) var(--dl-space-40) var(--dl-space-40);
     }
 

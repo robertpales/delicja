@@ -260,9 +260,11 @@ zoom. The related product cards do the same.
 - **Checkout:** WooCommerce's Checkout widget with a small header (logo and cart icon) and no footer. Payment,
   shipping and tax logic belong to Robo.
 - **My account** (page built in Elementor, `assets/css/pages/my-account.css`): "Hello" with a handwritten
-  "witamy!", a short line and a polaroid of Elżbieta ("Elżbieta says hi!") next to the login form, which sits on a
-  linen card with a strip of tape. The register form (when Robo enables customer accounts), lost password and the
-  account pages (menu as a linen side list, the current page white) use the same style. Logged in, the welcome is
+  "witamy!", a short line and a polaroid of Elżbieta ("Elżbieta says hi!") next to one linen card with a strip of
+  tape (max. 30rem, centred in its column). With customer accounts on, the card has a switch "Log in / Register" on
+  top (two radio buttons, no JavaScript; `inc/account.php`) that shows one form at a time, and one "Continue with
+  Google" under both forms. Lost password and the account pages (menu as a linen side list, the current page white)
+  use the same style. Logged in, the welcome is
   only the heading and the account pages get the full width.
 - **Deals** (`/tilbud/`, page built in Elementor, `assets/css/pages/tilbud.css`): "Deals" with a handwritten "while
   they last", a lead and all products on sale (Loop Grid, product card); with no sale a note and "See the whole
