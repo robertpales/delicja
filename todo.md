@@ -15,7 +15,7 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   delivery, payment, the 14-day right of withdrawal and its exceptions (perishable food, opened hygiene products),
   the 2-year right to complain (reklamationsret) and the complaint body (Nævnenes Hus). The EU ODR link is no longer
   needed (the platform closed on 20 July 2025).
-- [ ] Delivery and returns → page `levering-og-returnering`.
+- [ ] Delivery and returns → page `delivery-and-returns`.
 - [ ] Privacy policy → page `privacy-policy`. It must also cover the e-mails about deals and new products (customers
   can sign up for them when they create an account, 2026-10-27), and the statistics tools Google Analytics and
   Microsoft Clarity (only with the visitor's consent in the cookie banner).
@@ -107,16 +107,23 @@ need a product list from her, 2026-10-27)
 - [ ] Tell Robo when the client has given access to the WPML account (main language chosen: Danish, 2026-10-26).
 - [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
 - [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.
-- [ ] Put the client's texts on the legal pages; set the terms page in WooCommerce; remove the sample page `refund_returns`.
-  Privacy Policy still shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery &
-  returns say "[TODO] Indhold mangler". The pages already have their design (template Information page).
+- [ ] Legal and shop information pages (Terms and conditions, Privacy policy, Delivery & returns, Cookies): put the
+  client's texts on them when she sends them (Robo, 2026-10-27: Matej may edit these pages). Privacy Policy still
+  shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery & returns say
+  "[TODO] Indhold mangler". The pages already have their design (template Information page). The terms page is
+  already set in WooCommerce and the sample page `refund_returns` is deleted.
+  - Delivery & returns must say the same as the checkout: Herning 49 kr. (free from 799 kr.), up to 15 km 79 kr.
+    (free from 999 kr.), 15–40 km 129 kr. (free from 1,299 kr.), deliveries Wednesday and Friday 15:00–17:00; rest
+    of Jutland 219 kr., time agreed with the customer; further away by arrangement. Pickup in the shop free, ready in
+    about two hours, collect within 3 days the shop is open after the "ready" e-mail, otherwise the order is
+    cancelled; the card is charged at pickup or delivery. Towns in each zone: Robo's list below (Robo → WooCommerce).
+  - Meta title and description of these pages are set (Robo, SEO); if a text changes a lot, tell Robo.
 ---
 
 ## Robo
 
 **WooCommerce**
-- [ ] Delivery & returns page: the same delivery rules as in the checkout (zones below), with the client's texts.
-  Zones (2026-10-27, by road distance from Bethaniagade 5 to the town centre, OSRM ≈ Google Maps): Herning 7400;
+- [ ] Delivery zones (the Delivery & returns page itself is Matej's, see above). Zones (2026-10-27, by road distance from Bethaniagade 5 to the town centre, OSRM ≈ Google Maps): Herning 7400;
   up to 15 km 7451, 7430, 6933 Kibæk (15.8 km, counted in); 15–40 km 7480, 7441, 7490, 6920, 7470, 7330, 7280,
   7442, 7550, 6973, 7540, 7361, 7270, 6971, 7500, 8600 Silkeborg, 7362 Hampen, 8653 Them (40.4 km, counted in);
   rest of Jutland 6000–9990; ferry islands (6720, 7884, 8305, 8592, 8789, 8799, 9940) and the rest of Denmark only
