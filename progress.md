@@ -23,6 +23,9 @@ through Novamira, so they are not in git.
   pickup. Reminder after the second day; after the third the order is cancelled automatically (the card reservation is
   released, the customer gets the cancelled e-mail with the reason). Pickup orders not marked ready within a day: one
   e-mail to the shop. Checked with test orders (`inc/pickup.php`).
+- WhatsApp message "ready for pickup" from the shop's own WhatsApp (free, no plugin): a button in the order list and
+  in the order opens WhatsApp with the message and collect-by date filled in; the link is also added as an order note,
+  so it can be used from the WooCommerce mobile app.
 - Search results in the shop layout: the same product cards, grid and sorting as the categories (before: plain cards
   in three columns); nothing found → a short note, "See the whole shop" and the category tiles. *(database: template
   "Product search results")*

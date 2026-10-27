@@ -10,6 +10,9 @@
  *   line saying why.
  * - A pickup order still not marked ready a day after it was placed: one e-mail to the shop, because the card
  *   reservation is only valid about 7 days.
+ * - WhatsApp: the shop sends the "ready" message itself from its WhatsApp (free, no API). A button in the order
+ *   list and in the order opens WhatsApp with the message filled in; the same link is added as an order note when
+ *   the order is marked ready, so it is also in the WooCommerce mobile app.
  * A check runs every hour (Action Scheduler, delicja_pickup_check). Public holidays are not taken into account.
  * E-mail classes in inc/pickup/emails.php, templates in woocommerce/emails/, admin styles in assets/css/admin.css.
  */
@@ -99,6 +102,51 @@ function delicja_pickup_deadline_text( WC_Order $order ): string {
 	return $days ? wp_date( 'l j F, H:i', $days[2]->getTimestamp() ) : '';
 }
 
+/**
+ * Customer's phone in international format without "+", e.g. "4551430321"; empty when the order has no phone.
+ */
+function delicja_order_phone_international( WC_Order $order ): string {
+	$phone   = trim( $order->get_billing_phone() ?: $order->get_shipping_phone() );
+	$digits  = preg_replace( '/\D/', '', $phone );
+	$country = $order->get_billing_country() ?: 'DK';
+	$code    = preg_replace( '/\D/', '', (string) WC()->countries->get_country_calling_code( $country ) );
+
+	if ( '' === $digits ) {
+		return '';
+	}
+	if ( str_starts_with( $phone, '+' ) ) {
+		return $digits;
+	}
+	if ( str_starts_with( $digits, '00' ) ) {
+		return substr( $digits, 2 );
+	}
+	if ( 'DK' === $country && 10 === strlen( $digits ) && str_starts_with( $digits, '45' ) ) {
+		return $digits;
+	}
+
+	return $code . ltrim( $digits, '0' );
+}
+
+/**
+ * wa.me link that opens WhatsApp with the "ready for pickup" message to the customer; empty without a phone.
+ */
+function delicja_whatsapp_url( WC_Order $order ): string {
+	$phone = delicja_order_phone_international( $order );
+	if ( ! $phone ) {
+		return '';
+	}
+	$deadline = delicja_pickup_deadline_text( $order );
+	/* translators: 1: customer's first name, 2: order number */
+	$text = sprintf( __( 'Hi %1$s, your Delicja order #%2$s is ready for pickup at Bethaniagade 5, Herning.', 'delicja' ), $order->get_billing_first_name(), $order->get_order_number() );
+	if ( $deadline ) {
+		/* translators: %s: date and time, e.g. "Tuesday 28 October, 17:00" */
+		$text .= ' ' . sprintf( __( 'Please collect it by %s.', 'delicja' ), $deadline );
+	}
+	$text .= ' ' . __( 'See you soon!', 'delicja' );
+
+	return 'https://wa.me/' . $phone . '?text=' . rawurlencode( $text );
+}
+
 // Order status "Ready for pickup" (wc-ready-pickup).
 add_action( 'init', function () {
 	register_post_status(
@@ -147,6 +195,13 @@ add_filter( 'woocommerce_admin_order_actions', function ( $actions, $order ) {
 			'action' => 'ready-pickup',
 		];
 	}
+	if ( $order->has_status( 'ready-pickup' ) && delicja_is_pickup_order( $order ) && delicja_whatsapp_url( $order ) ) {
+		$actions['whatsapp'] = [
+			'url'    => delicja_whatsapp_url( $order ),
+			'name'   => __( 'Send WhatsApp message', 'delicja' ),
+			'action' => 'whatsapp',
+		];
+	}
 	if ( $order->has_status( 'ready-pickup' ) ) {
 		$actions['complete'] = [
 			'url'    => $url( 'completed' ),
@@ -163,6 +218,22 @@ add_action( 'admin_enqueue_scripts', function () {
 	wp_enqueue_style( 'delicja-admin', get_stylesheet_directory_uri() . $file, [], filemtime( get_stylesheet_directory() . $file ) );
 } );
 
+// WhatsApp links open in a new tab, so the order list stays open.
+add_action( 'admin_footer', function () {
+	echo "<script>document.querySelectorAll('.wc-action-button-whatsapp, .dl-whatsapp').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });</script>";
+} );
+
+// WhatsApp button in the order, under the billing address.
+add_action( 'woocommerce_admin_order_data_after_billing_address', function ( $order ) {
+	if ( ! $order->has_status( 'ready-pickup' ) || ! delicja_is_pickup_order( $order ) ) {
+		return;
+	}
+	$url = delicja_whatsapp_url( $order );
+	if ( $url ) {
+		printf( '<p><a class="button dl-whatsapp" href="%s">%s</a></p>', esc_url( $url ), esc_html__( 'Send WhatsApp message', 'delicja' ) );
+	}
+} );
+
 // Marked ready: remember when, so the deadline and the reminder count from then (the e-mail is sent by its class).
 add_action( 'woocommerce_order_status_ready-pickup', function ( $order_id, $order ) {
 	if ( ! delicja_is_pickup_order( $order ) ) {
@@ -173,6 +244,13 @@ add_action( 'woocommerce_order_status_ready-pickup', function ( $order_id, $orde
 	$order->update_meta_data( '_delicja_ready_at', time() );
 	$order->delete_meta_data( '_delicja_pickup_reminded' );
 	$order->save_meta_data();
+
+	$url = delicja_whatsapp_url( $order );
+	$order->add_order_note(
+		$url
+			? sprintf( '%s <a href="%s" target="_blank" rel="noopener">%s</a>', esc_html__( 'Tell the customer on WhatsApp:', 'delicja' ), esc_url( $url ), esc_html( $url ) )
+			: __( 'No phone number in the order, so no WhatsApp message can be sent.', 'delicja' )
+	);
 }, 5, 2 );
 
 // E-mails: "Ready for pickup" and the reminder (WooCommerce → Settings → Emails).
