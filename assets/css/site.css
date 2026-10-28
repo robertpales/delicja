@@ -3229,6 +3229,53 @@ table.wc-block-cart-items td {
     text-underline-offset: 0.15em;
 }
 
+.dl-info-content .wp-block-table {
+    margin: var(--dl-space-40) 0 var(--dl-space-50);
+    overflow-x: auto;
+}
+
+.dl-info-content table {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.dl-info-content .wp-block-table :is(thead, tbody, tfoot) {
+    border: 0;
+}
+
+.dl-info-content .wp-block-table :is(th, td) {
+    padding: var(--dl-space-20) var(--dl-space-30);
+    border: 0;
+    border-bottom: 1px solid var(--e-global-color-dlborder);
+    background: none;
+    text-align: left;
+    vertical-align: top;
+}
+
+.dl-info-content .wp-block-table thead th {
+    border-bottom-color: var(--e-global-color-text);
+}
+
+.dl-info-content .wp-block-table :is(th, td):first-child {
+    padding-inline-start: 0;
+}
+
+.dl-info-content .wp-block-table td:nth-child(2) {
+    white-space: nowrap;
+}
+
+.dl-info-content th {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlsmallb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmallb-font-size);
+    font-weight: var(--e-global-typography-dlsmallb-font-weight);
+    line-height: var(--e-global-typography-dlsmallb-line-height);
+    letter-spacing: var(--e-global-typography-dlsmallb-letter-spacing);
+}
+
 .dl-info-body > .dl-info-aside {
     --gap: var(--dl-space-30);
     --row-gap: var(--dl-space-30);

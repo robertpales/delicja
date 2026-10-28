@@ -277,7 +277,8 @@ zoom. The related product cards do the same.
 - **Deals** (`/deals/`, page built in Elementor, `assets/css/pages/deals.css`): "Deals" with a handwritten "while
   they last", a lead and all products on sale (Loop Grid, product card); with no sale a note and "See the whole
   shop" (`[dl_no_deals]`).
-- **Legal pages:** title + page content (Page template). Legal texts [TODO].
+- **Legal pages:** title + page content (template Information page), the client's own texts. Terms and conditions:
+  the client's Danish text (2026-10-28); Privacy policy and Delivery & returns [TODO].
 - **About us:** page built in Elementor, CSS in `assets/css/pages/about.css`. All two-column parts (opening, How it
   started, the chapters, Visit us) use the same grid: two equal columns with the same gap (`--dl-about-columns`),
   so the texts and pictures line up on the same edges all the way down. The four chapters of "It all starts
@@ -318,7 +319,8 @@ zoom. The related product cards do the same.
   page", and the crate (see Crate).
 - **Information pages** (template Information page): "Good to know", the page title in Anton, the text in a readable
   column (headings h2/h3 smaller than the title) and a linen side card with the Information menu (Appearance → Menus,
-  "Footer – Information"; the current page white) and "Questions? Call … or write …".
+  "Footer – Information"; the current page white) and "Questions? Call … or write …". Tables in the text (block
+  editor table, e.g. delivery prices in the terms) are plain: thin lines, a dark line under the header, no stripes.
 - **Notices** ("added to your cart", errors) use WooCommerce's block notice banners.
 
 ## Known differences from the block theme

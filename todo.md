@@ -11,10 +11,12 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 ## Client (Matej asks, then sends it to Robo)
 
 **Page texts** (needed before launch; the payment provider checks these pages)
-- [ ] Terms and conditions (Handelsbetingelser) → page `terms-and-conditions`. They must cover prices incl. moms,
-  delivery, payment, the 14-day right of withdrawal and its exceptions (perishable food, opened hygiene products),
-  the 2-year right to complain (reklamationsret) and the complaint body (Nævnenes Hus). The EU ODR link is no longer
-  needed (the platform closed on 20 July 2025).
+- [ ] Terms and conditions: received in Danish and on the page (2026-10-28). Open points for the client (her text, we
+  do not change it): the file says "Udkast til gennemgang" (draft), is it final? It does not mention pant (charged on
+  top of the price for drinks in cans and bottles), the 2-year right to complain (reklamationsret) is only "efter
+  købelovens regler", and for goods without an exception (e.g. cosmetics) it does not say how to use the 14-day
+  right of withdrawal. Two new rules from it are not on the site yet: minimum 499 kr. for delivery, and delivery
+  orders at least 24 hours before the delivery day (see Robo → WooCommerce and Matej).
 - [ ] Delivery and returns → page `delivery-and-returns`.
 - [ ] Privacy policy → page `privacy-policy`. It must also cover the e-mails about deals and new products (customers
   can sign up for them when they create an account, 2026-10-27), and the statistics tools Google Analytics and
@@ -107,6 +109,8 @@ need a product list from her, 2026-10-27)
 - [ ] Tell Robo when the client has given access to the WPML account (main language chosen: Danish, 2026-10-26).
 - [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
 - [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.
+- [ ] Delivery texts on the site (homepage FAQ, the "Not in Herning?" panel, Delivery & returns) once the client
+  confirms the terms: minimum 499 kr. for delivery, delivery orders at least 24 hours before the delivery day.
 - [ ] Legal and shop information pages (Terms and conditions, Privacy policy, Delivery & returns, Cookies): put the
   client's texts on them when she sends them (Robo, 2026-10-27: Matej may edit these pages). Privacy Policy still
   shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery & returns say
@@ -122,6 +126,8 @@ need a product list from her, 2026-10-27)
 ## Robo
 
 **WooCommerce**
+- [ ] From the client's terms (2026-10-28): minimum order 499 kr. for delivery (pickup has no minimum?), and delivery
+  orders at least 24 hours before the delivery day (Wednesday or Friday). Checkout and shipping should follow this.
 - [ ] Delivery zones (the Delivery & returns page itself is Matej's, see above). Zones (2026-10-27, by road distance from Bethaniagade 5 to the town centre, OSRM ≈ Google Maps): Herning 7400;
   up to 15 km 7451, 7430, 6933 Kibæk (15.8 km, counted in); 15–40 km 7480, 7441, 7490, 6920, 7470, 7330, 7280,
   7442, 7550, 6973, 7540, 7361, 7270, 6971, 7500, 8600 Silkeborg, 7362 Hampen, 8653 Them (40.4 km, counted in);
@@ -184,7 +190,8 @@ Prices, stock and images are shared.
 - [ ] Rich Results Test on the front page and a product.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
   Google-Extended) allowed; check `/llms.txt` and the sitemap there. The test site stays `noindex`.
-- [ ] Pages still marked "Indhold mangler" (om-os, terms, delivery): fill in or remove `om-os` (About us is `/about/`).
+- [ ] Pages still marked "Indhold mangler" (om-os, delivery): fill in or remove `om-os` (About us is `/about/`). Terms
+  done (2026-10-28).
   Kontakt and Deals (`/deals/`) are done (Matej, 2026-10-23).
 
 **SEO with the main language** (when the Danish version is made)

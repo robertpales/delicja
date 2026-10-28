@@ -10,6 +10,14 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-28
+
+**Matej**
+- Terms and conditions: the client's Danish text (Handelsbetingelser, 9 sections with the delivery price table) on the
+  page, word for word, with mail and phone links; tables on information pages get a plain style (thin lines, no
+  stripes, prices on one line on phones). Open points for the client and Robo in `todo.md`. *(database: page; table
+  style in git)*
+
 ## 2026-10-27
 
 **Robo**
