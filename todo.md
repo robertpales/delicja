@@ -21,9 +21,9 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Privacy policy → page `privacy-policy`. Matej asked for a draft (2026-10-29): English draft written from what
   the site really collects (orders, accounts, Google login, payments, order messages, e-mails about deals, statistics,
   the services that get data), in Claude Docs "Delicja – Privacy policy (draft)"
-  (https://claude.ai/artifact/Qa78P55WvtoL3JVzPJkXRL, Matej shares it or sends it as .docx). The client checks it,
-  answers its open questions (inactive accounts, newsletter service, accounting, courier, WhatsApp/SMS) and confirms;
-  she is the data controller. Then it goes on the page in Danish (Matej).
+  (https://claude.ai/artifact/Qa78P55WvtoL3JVzPJkXRL); Matej sends it to the client as a PDF to confirm (she is the
+  data controller). Then it goes on the page in Danish (Matej). Still to decide later and add to it: after how many
+  years inactive accounts are deleted, the newsletter service, a courier if one delivers some orders.
 - [ ] Terms and Delivery & returns: the client's responsibility (she is the seller); she gets them from a lawyer or a
   template service if needed. (Terms received 2026-10-28.)
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
