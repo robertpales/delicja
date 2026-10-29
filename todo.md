@@ -18,22 +18,20 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   right of withdrawal. Two new rules from it are not on the site yet: minimum 499 kr. for delivery, and delivery
   orders at least 24 hours before the delivery day (see Robo → WooCommerce and Matej).
 - [ ] Delivery and returns → page `delivery-and-returns`.
-- [ ] Privacy policy → page `privacy-policy`. It must also cover the e-mails about deals and new products (customers
-  can sign up for them when they create an account, 2026-10-27), and the statistics tools Google Analytics and
-  Microsoft Clarity (only with the visitor's consent in the cookie banner).
-- [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts:
-  the terms and the privacy policy are the client's responsibility (she is the seller and the data controller). We
-  can give her the technical facts the privacy policy needs (what the site collects, which services, cookies).
-  (2026-10-27: the client will send all three texts; terms received 2026-10-28.)
+- [ ] Privacy policy → page `privacy-policy`. Matej asked for a draft (2026-10-29): English draft written from what
+  the site really collects (orders, accounts, Google login, payments, order messages, e-mails about deals, statistics,
+  the services that get data), in Claude Docs "Delicja – Privacy policy (draft)"
+  (https://claude.ai/artifact/Qa78P55WvtoL3JVzPJkXRL, Matej shares it or sends it as .docx). The client checks it,
+  answers its open questions (inactive accounts, newsletter service, accounting, courier, WhatsApp/SMS) and confirms;
+  she is the data controller. Then it goes on the page in Danish (Matej).
+- [ ] Terms and Delivery & returns: the client's responsibility (she is the seller); she gets them from a lawyer or a
+  template service if needed. (Terms received 2026-10-28.)
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
   the About us story.
 - [ ] Homepage hero picture: confirm the short product stories in it (e.g. the doughnut "filled with rose jam").
   (Apples and fresh milk: the shop sells them, 2026-10-26.)
 - [ ] Customer accounts: should customers be able to create an account, and log in with Google or Facebook? (Robo
   switches it on.)
-
-**Shop information**
-- [ ] Who packs and handles the online orders in the shop? (The orders e-mail is `shop@delicja.dk`, 2026-10-26.)
 
 **Food rules** (required for selling food online in Denmark)
 - [ ] Fødevarestyrelsen: is online sale and delivery part of the shop's food registration? (The link to the shop's
@@ -49,14 +47,14 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 
 **Products and stock** (the client adds the products herself in WooCommerce, as agreed in the contract; we do not
 need a product list from her, 2026-10-27)
-- [ ] Stock: the shop and the webshop sell from the same shelves. Is stock kept up to date by hand in WooCommerce or
-  synced with the cash register? Otherwise the webshop sells products that are already gone.
-- [ ] Products sold by weight (cheese, cold cuts from the counter): online they need a fixed pack size and price.
+- [ ] Later (Matej, 2026-10-29: leave it for now): products sold by weight (cheese, cold cuts from the counter);
+  online they need a fixed pack size and price, or something we add for them later.
 - [ ] Language of the products (client asks if she may write them in Polish, 2026-10-29): the food information
   (ingredients, allergens, nutrition, storage) must be in Danish on a Danish shop, and WPML's automatic translation
   ("Translate everything") only starts from the main language, Danish. Product names may stay Polish. If she writes in
   Polish, every product must be sent to translation by hand and the Danish allergens checked. Easiest for her: copy
-  the Danish label (sticker) on the pack. Robo decides the WPML setup.
+  the Danish label (sticker) on the pack. Robo decides the WPML setup. Matej, 2026-10-29: the Danish product
+  information is solved later with an AI (LLM) plugin.
 - [ ] When she adds a product, in the main language (Danish), from the pack or the supplier's data sheet: name, price
   incl. moms, weight or volume, category, photo, ingredients with allergens, nutrition, producer or importer, country
   of origin where required, and storage (keep chilled, frozen, or cool and dry),
@@ -146,6 +144,19 @@ need a product list from her, 2026-10-27)
   every e-mail needs an unsubscribe link. Maybe the same checkbox at checkout. Customers who sign up with Google skip
   the form, so they can only opt in later in Account details.
 
+**Cookies and privacy** (found while writing the privacy policy draft, 2026-10-29)
+- [ ] Cookies before consent: on test.delicja.dk, before the visitor answers the cookie banner, the site already sets
+  `sbjs_*` (WooCommerce order attribution) and `tk_ai` (Jetpack WooCommerce Analytics); after Accept also Jetpack
+  Stats (`stats.wp.com`, `tk_*`), on the test site too. Danish rules: only necessary cookies before consent. Either
+  turn off Order attribution (WooCommerce → Settings → Advanced → Features) and the Jetpack modules Stats and
+  WooCommerce Analytics (Google Analytics and Clarity already cover statistics), or make them wait for consent (e.g.
+  the WP Consent API plugin, which Complianz and WooCommerce support; check). The privacy policy draft lists them as
+  "only with consent"; if they are turned off, tell Matej so he removes them from it.
+- [ ] Complianz wizard says the site uses Google reCAPTCHA and Google Maps; it does not (none found), so the cookie
+  policy lists services that are not there. Its company e-mail is `info@`, the terms use `shop@delicja.dk`.
+- [ ] WooCommerce → Settings → Accounts & Privacy → Personal data retention is empty: set it when the client answers
+  the privacy policy draft (inactive accounts after how many years).
+
 **Statistics**
 - [ ] After launch: check Google Analytics Realtime on delicja.dk (GA4 property "Delicja ApS", G-X3VJVFR9B7, set up
   in Complianz → Statistics; on the test site only with `?dl-analytics=1`). Run the Complianz cookie scan so the
@@ -162,6 +173,8 @@ need a product list from her, 2026-10-27)
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks. The client wants **Dankort, Visa/Mastercard,
   Apple Pay and Google Pay, no MobilePay** (2026-10-26). The footer icons and the homepage texts already show these.
 - [ ] Test payments on test.delicja.dk (test cards: order → Authorised; Completed → Settled; partial; cancel).
+  Stock is the shop's matter (Matej, 2026-10-29): when an ordered product is missing, they refund it or call the
+  customer, so check that the shop can charge less than the reserved amount or refund one item.
 
 **Language versions (WPML)**, when Matej says the client has chosen the main language and given access to the WPML account
 

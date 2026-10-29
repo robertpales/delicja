@@ -15,6 +15,11 @@ through Novamira, so they are not in git.
 **Matej**
 - Client confirmed the pickup deadline: 3 days to collect (as the site already does). Waiting for Frisbii/Flatpay,
   the WPML payment (her bank) and Fødevarestyrelsen.
+- Privacy policy: English draft for the client, written from what the site really collects and which services get
+  data (Claude Docs, link in `todo.md`). Checking it showed cookies set before consent (WooCommerce order
+  attribution, Jetpack); added to Robo's list with two Complianz fixes.
+- Decided: stock and missing products are the shop's matter (refund or call the customer); products sold by weight
+  later; the orders e-mail is all we need for order handling; Danish product information later with an AI plugin.
 
 ## 2026-10-28
 
