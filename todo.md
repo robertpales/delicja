@@ -64,7 +64,7 @@ need a product list from her, 2026-10-27)
 
 **Online presence** (Google, local search, AI answers)
 - [ ] Manager access to the Google Business Profile, so opening hours, photos and the website link match the site.
-- [ ] Other profiles to link besides Instagram @delicja.dk (Facebook, TikTok, …).
+- [ ] Other profiles to link besides Instagram @delicja.dk and TikTok @delicja.herning (Facebook, …).
 - [ ] May we show their Google reviews on the site (real reviews only)?
 - [ ] More real photos: the shop inside, shelves, the counter, people. People in photos must agree to it (GDPR);
   confirm this for the photos already used (Elżbieta, the customer at the counter).
@@ -143,6 +143,11 @@ need a product list from her, 2026-10-27)
   (`inc/account.php`). Choose how the client sends the e-mails (newsletter tool) and sync or export these customers;
   every e-mail needs an unsubscribe link. Maybe the same checkbox at checkout. Customers who sign up with Google skip
   the form, so they can only opt in later in Account details.
+
+**SEO**
+- [ ] TikTok profile https://www.tiktok.com/@delicja.herning (the shop's, its bio names Bethaniagade 5 and the
+  Instagram; in the footer next to Instagram since 2026-10-29): add it to the schema `sameAs` (`inc/schema.php`, next
+  to Instagram) and to Rank Math's social profiles.
 
 **Cookies and privacy** (found while writing the privacy policy draft, 2026-10-29)
 - [ ] Cookies before consent: on test.delicja.dk, before the visitor answers the cookie banner, the site already sets

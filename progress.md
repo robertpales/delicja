@@ -20,6 +20,13 @@ through Novamira, so they are not in git.
   attribution, Jetpack); added to Robo's list with two Complianz fixes.
 - Decided: stock and missing products are the shop's matter (refund or call the customer); products sold by weight
   later; the orders e-mail is all we need for order handling; Danish product information later with an AI plugin.
+- Hero table: the pierogi now look like real boiled pierogi (pale, pinched edges, a little golden onion and thyme)
+  instead of dark fried pastries, also in the "cut in half" hover state; only the plate was changed, the rest of the
+  photo is the same. Their story says "Boiled and topped with golden fried onion". *(database)*
+- New category pictures in the same cut-out style: Ready meals (the same pierogi), Meat (smoked ham tied with twine,
+  slices and kiełbasa on a board), Pantry (homemade preserves in jars with paper caps, and noodles). *(database)*
+- TikTok @delicja.herning: a small icon next to Instagram in the footer; each footer icon now has its own shape.
+  *(database: link; icon in git)*
 
 ## 2026-10-28
 
