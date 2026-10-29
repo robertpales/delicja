@@ -21,8 +21,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 - [ ] Privacy policy → page `privacy-policy`. It must also cover the e-mails about deals and new products (customers
   can sign up for them when they create an account, 2026-10-27), and the statistics tools Google Analytics and
   Microsoft Clarity (only with the visitor's consent in the cookie banner).
-- [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts.
-  (2026-10-27: the client will send all three texts; we wait for them.)
+- [ ] If the client has no texts: they get them from a lawyer or a template service. We do not write legal texts:
+  the terms and the privacy policy are the client's responsibility (she is the seller and the data controller). We
+  can give her the technical facts the privacy policy needs (what the site collects, which services, cookies).
+  (2026-10-27: the client will send all three texts; terms received 2026-10-28.)
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
   the About us story.
 - [ ] Homepage hero picture: confirm the short product stories in it (e.g. the doughnut "filled with rose jam").
@@ -85,7 +87,7 @@ need a product list from her, 2026-10-27)
   2026-10-27: her Visa payment fails. Next: the error message or a screenshot; try "Use a different payment method"
   (PayPal) at checkout; check in the bank app that online payments abroad are allowed and approve with MitID. If it
   still fails: we buy it in an account with Delicja ApS's details (name, address, CVR, her e-mail), pay with our
-  card and invoice her.
+  card and invoice her. 2026-10-29: she has written to her bank; she pays herself (no invoice through us, VAT).
 
 **Order of work for the language versions**
 1. Client → Matej: main language (done: **Danish**, 2026-10-26) + WPML account (still open).
