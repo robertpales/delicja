@@ -82,7 +82,8 @@ notes (`dl-hand-note`, global font *Handwritten*) with a drawn arrow. Use them s
 One styled photo of a Polish table on linen with red folk embroidery: three red apples with leaves, kabanosy and a
 knife on a wooden board (the knife lies on the free board between the apples and the kabanosy, never on the food), an
 unbranded farm-style glass bottle of milk (paper cap tied with twine) with a glass, a glazed doughnut on a porcelain
-plate, a jar of dill pickles with dill, fried pierogi on an enamel plate (`delicja-hero-table-apples-2.webp`). No
+plate, a jar of dill pickles with dill, boiled pierogi on an enamel plate (pale dough with fine pinched edges, a
+little golden fried onion and thyme on top, no bacon or sauce; `delicja-hero-table-pierogi.webp`). No
 bread (Delicja does not sell it) and no brand labels. It sits at the bottom right of the red panel and runs off its
 bottom edge. Nothing moves on its own. Elementor **Hotspot** widget (`dl-hero-scene`): one invisible hotspot over
 each product (`_id` paczek, milk, apples, kabanosy, pickles, pierogi; position in Elementor, size in `home.css`); the
@@ -91,7 +92,7 @@ tooltip is the product's story: name in bold, one short sentence (editable in El
 the table dims a little, the story shows, and the product changes: the doughnut gets a bite, the glass of milk is
 half drunk, a wedge is cut out of the front apple (the wedge lies on the board beside it), the jar is opened, a
 dumpling is cut in half, a kabanos is snapped. The changed state is a second, aligned photo (hidden Image widget
-`dl-hero-scene-after`, `delicja-hero-table-apples-4-after.webp`) shown only around that product. **Versions to
+`dl-hero-scene-after`, `delicja-hero-table-pierogi-after.webp`) shown only around that product. **Versions to
 compare** until one is chosen: `/?hero=stories` (story only), `/?hero=bites` (change only), `/` both. A new photo
 must be re-generated together with its "after" photo, at the same size and alignment. `inc/hero.php` loads the table
 photo without lazy loading; it stays the first image in the hero, so Elementor gives it the high fetch priority.
@@ -176,7 +177,9 @@ category name in red, the product count (`[dl_cat_count]`, nothing when empty) a
 at the bottom; all tiles are light, the tile under the mouse turns red; no tile is red on its own, it would look
 selected). Category images are cut-outs on a
 transparent background that look like real photos: daylight, natural textures, no labels, no glossy render look
-(`delicja-category-<slug>-cutout.webp`, 800 px).
+(`delicja-category-<slug>-cutout.webp`, 800 px). Ready meals: boiled pierogi like the hero; Meat: smoked ham
+tied with twine, slices and a ring of kiełbasa on a board; Pantry: homemade preserves in jars with kraft-paper caps
+and nests of noodles (`…-pierogi-`, `…-ham-`, `…-jars-cutout.webp`).
 The front page (11), About us (118), Contact (67), Deals (65) and My account (37) are pages built in Elementor
 (template *Elementor Full Width*).
 
