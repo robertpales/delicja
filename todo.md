@@ -33,11 +33,6 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Shop information**
-- [ ] Pickup orders: collect within **3 days** (Matej's proposal, 2026-10-27; the client confirms). On the site it is
-  3 days the shop is open, counted from the "Ready for pickup" e-mail (Robo, 2026-10-27). Ready in about two
-  hours; a reminder after 2 days; not collected after 3 days → the order is cancelled, the card reservation (valid
-  about 7 days) released and the goods go back on the shelf. Payment is charged only at handover (see Robo →
-  Payment gateway). Then the Delivery & returns text and the FAQ say the same.
 - [ ] Who packs and handles the online orders in the shop? (The orders e-mail is `shop@delicja.dk`, 2026-10-26.)
 
 **Food rules** (required for selling food online in Denmark)
@@ -57,6 +52,11 @@ need a product list from her, 2026-10-27)
 - [ ] Stock: the shop and the webshop sell from the same shelves. Is stock kept up to date by hand in WooCommerce or
   synced with the cash register? Otherwise the webshop sells products that are already gone.
 - [ ] Products sold by weight (cheese, cold cuts from the counter): online they need a fixed pack size and price.
+- [ ] Language of the products (client asks if she may write them in Polish, 2026-10-29): the food information
+  (ingredients, allergens, nutrition, storage) must be in Danish on a Danish shop, and WPML's automatic translation
+  ("Translate everything") only starts from the main language, Danish. Product names may stay Polish. If she writes in
+  Polish, every product must be sent to translation by hand and the Danish allergens checked. Easiest for her: copy
+  the Danish label (sticker) on the pack. Robo decides the WPML setup.
 - [ ] When she adds a product, in the main language (Danish), from the pack or the supplier's data sheet: name, price
   incl. moms, weight or volume, category, photo, ingredients with allergens, nutrition, producer or importer, country
   of origin where required, and storage (keep chilled, frozen, or cool and dry),

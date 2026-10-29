@@ -10,6 +10,12 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-29
+
+**Matej**
+- Client confirmed the pickup deadline: 3 days to collect (as the site already does). Waiting for Frisbii/Flatpay,
+  the WPML payment (her bank) and Fødevarestyrelsen.
+
 ## 2026-10-28
 
 **Matej**
