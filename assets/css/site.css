@@ -793,7 +793,14 @@ body .wp-block-button__link:focus,
 }
 
 .dl-header-nav .elementor-nav-menu--main .sub-menu:has(.dl-menu-thumb) {
-    width: 39rem;
+    grid-template-columns: repeat(3, minmax(12rem, max-content));
+    width: max-content;
+}
+
+@media (max-width: 781px) {
+    .dl-header-nav .elementor-nav-menu--main .sub-menu:has(.dl-menu-thumb) {
+        grid-template-columns: repeat(2, minmax(12rem, max-content));
+    }
 }
 
 .dl-header-nav .elementor-nav-menu--main .sub-menu .elementor-sub-item,
