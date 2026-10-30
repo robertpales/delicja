@@ -93,6 +93,7 @@ function dl_schema_config() {
 		'geo'        => [ 56.137038, 8.973008 ],
 		'same_as'    => [
 			'https://www.instagram.com/delicja.dk/',
+			'https://www.tiktok.com/@delicja.herning',
 		],
 		'additional_type' => [
 			'https://en.wikipedia.org/wiki/Grocery_store',

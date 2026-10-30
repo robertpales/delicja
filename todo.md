@@ -101,6 +101,8 @@ need a product list from her, 2026-10-27)
 - [ ] Delivery texts on the site (homepage FAQ, the "Not in Herning?" panel, Delivery & returns): minimum 499 kr. for
   delivery, delivery orders at least 24 hours before the delivery day (the client confirmed her terms are final,
   2026-10-29).
+- [ ] Privacy policy draft: remove WooCommerce order attribution (`sbjs_*`) and Jetpack WooCommerce Analytics
+  (`tk_*`), they are turned off (Robo, 2026-10-30). Jetpack Stats stays, "only with consent".
 - [ ] Legal and shop information pages (Terms and conditions, Privacy policy, Delivery & returns, Cookies): put the
   client's texts on them when she sends them (Robo, 2026-10-27: Matej may edit these pages). Terms and Privacy policy
   done (2026-10-28, 2026-10-30); Delivery & returns still says "[TODO] Indhold mangler". The pages already have their design (template Information page). The terms page is
@@ -133,21 +135,9 @@ need a product list from her, 2026-10-27)
   every e-mail needs an unsubscribe link. Maybe the same checkbox at checkout. Customers who sign up with Google skip
   the form, so they can only opt in later in Account details.
 
-**SEO**
-- [ ] TikTok profile https://www.tiktok.com/@delicja.herning (the shop's, its bio names Bethaniagade 5 and the
-  Instagram; in the footer next to Instagram since 2026-10-29): add it to the schema `sameAs` (`inc/schema.php`, next
-  to Instagram) and to Rank Math's social profiles.
-
 **Cookies and privacy** (found while writing the privacy policy draft, 2026-10-29)
-- [ ] Cookies before consent: on test.delicja.dk, before the visitor answers the cookie banner, the site already sets
-  `sbjs_*` (WooCommerce order attribution) and `tk_ai` (Jetpack WooCommerce Analytics); after Accept also Jetpack
-  Stats (`stats.wp.com`, `tk_*`), on the test site too. Danish rules: only necessary cookies before consent. Either
-  turn off Order attribution (WooCommerce → Settings → Advanced → Features) and the Jetpack modules Stats and
-  WooCommerce Analytics (Google Analytics and Clarity already cover statistics), or make them wait for consent (e.g.
-  the WP Consent API plugin, which Complianz and WooCommerce support; check). The privacy policy draft lists them as
-  "only with consent"; if they are turned off, tell Matej so he removes them from it.
-- [ ] Complianz wizard says the site uses Google reCAPTCHA and Google Maps; it does not (none found), so the cookie
-  policy lists services that are not there. Its company e-mail is `info@`, the terms use `shop@delicja.dk`.
+- [ ] Complianz: the banner text still says "to show maps and social media content" (there are no maps); change it to
+  social media only, then run a new cookie scan and finish the wizard so the cookie policy is rebuilt.
 - [ ] WooCommerce → Settings → Accounts & Privacy → Personal data retention is empty: set it when the client answers
   the privacy policy draft (inactive accounts after how many years).
 

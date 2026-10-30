@@ -46,6 +46,10 @@ through Novamira, so they are not in git.
 - Home page: a little space between the text and the button in the two promo banners.
 - Header: the Shop submenu is as wide as its longest category ("Fruit & vegetables" no longer runs out of its box) and has two columns on narrow windows, so it is never cut off.
 - UX audit: the top info bar needs a call to action ("Shop now").
+- Cookies: nothing is set before consent any more. WooCommerce order attribution and Jetpack WooCommerce Analytics
+  turned off, Jetpack Stats kept (Complianz starts it only after Accept). Complianz no longer lists Google reCAPTCHA
+  and Google Maps, company e-mail shop@delicja.dk. *(database)*
+- TikTok @delicja.herning in the schema `sameAs` and in Rank Math's social profiles. *(partly database)*
 - UX audit: category texts with internal links (P1), Shop submenu overflow, category tiles in two rows and the category chips above Customer favourites.
 
 ## 2026-10-29
