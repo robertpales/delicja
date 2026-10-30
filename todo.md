@@ -136,8 +136,6 @@ need a product list from her, 2026-10-27)
   the form, so they can only opt in later in Account details.
 
 **Cookies and privacy** (found while writing the privacy policy draft, 2026-10-29)
-- [ ] Complianz: the banner text still says "to show maps and social media content" (there are no maps); change it to
-  social media only, then run a new cookie scan and finish the wizard so the cookie policy is rebuilt.
 - [ ] WooCommerce → Settings → Accounts & Privacy → Personal data retention is empty: set it when the client answers
   the privacy policy draft (inactive accounts after how many years).
 
