@@ -20,6 +20,8 @@ through Novamira, so they are not in git.
   (WPML) have not answered yet.
 - Product page: − and + around the quantity, like in the cart, so several items are added with a few taps.
 - Phone menu on product pages: the magnifier of the product photo no longer shows through the open menu.
+- Privacy policy follows Robo's cookie fix: WooCommerce order attribution and WooCommerce Analytics removed (turned
+  off), Jetpack Stats stays (only with consent). *(database)*
 - Dairy category picture like the client's reference, in our cut-out style: a glass jug of milk tied with twine, a
   glass of milk, twaróg with a wooden spoon and sour cream on burlap; no white halo when the tile turns red. *(database)*
 
