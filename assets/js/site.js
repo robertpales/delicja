@@ -416,6 +416,8 @@ delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.d
 /* === Live search === */
 // Results under the header search field while typing (WooCommerce Store API, read-only, no login). Texts and the
 // endpoint come from inc/search.php (window.dlSearch). Enter without a chosen result opens the full results page.
+// Matching categories and information pages (window.dlSearch.links, matched as in delicja_search_link_matches())
+// come first.
 (() => {
 	const input = document.querySelector('.dl-header-search input[name="s"]');
 	const settings = window.dlSearch;
@@ -446,6 +448,14 @@ delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.d
 		return words.length ? safe.replace(new RegExp(`(${words.join('|')})`, 'gi'), '<mark>$1</mark>') : safe;
 	};
 	const options = () => [...panel.querySelectorAll('.dl-live-item, .dl-live-all')];
+	const normalize = (text) => text.toLowerCase().replace(/ø/g, 'o').replace(/ł/g, 'l').replace(/æ/g, 'ae').replace(/ß/g, 'ss')
+		.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+	const quote = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	const links = (query) => {
+		const search = normalize(query);
+		return (settings.links || []).filter((link) => link.terms.some((term, i) => (search.length >= (i ? 3 : 2) && new RegExp(`(^|\\s)${quote(search)}`).test(term))
+			|| (term.length >= 3 && new RegExp(`(^|\\s)${quote(term)}(\\s|$)`).test(search))));
+	};
 
 	const close = () => {
 		panel.hidden = true;
@@ -466,10 +476,16 @@ delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.d
 
 	const render = (query, products, total) => {
 		const url = `${form.action}?${new URLSearchParams({ s: query, post_type: 'product' })}`;
+		const found = links(query);
+		const pages = found.length ? `<ul class="dl-live-list dl-live-links" role="listbox" aria-label="${escape(settings.linksLabel)}">${found.map((link, index) => `
+				<li role="presentation"><a class="dl-live-item dl-live-link" id="dl-live-link-${index}" role="option" href="${escape(link.url)}">
+					<span class="dl-live-type">${escape(link.type)}</span>
+					<span class="dl-live-name">${highlight(link.name, query)}</span>
+				</a></li>`).join('')}</ul>` : '';
 		if (!products.length) {
-			panel.innerHTML = `<p class="dl-live-empty">${escape(settings.empty)}</p>`;
+			panel.innerHTML = pages || `<p class="dl-live-empty">${escape(settings.empty)}</p>`;
 		} else {
-			panel.innerHTML = `<ul class="dl-live-list" role="listbox" aria-label="${escape(settings.label)}">${products.map((product, index) => `
+			panel.innerHTML = pages + `<ul class="dl-live-list" role="listbox" aria-label="${escape(settings.label)}">${products.map((product, index) => `
 				<li role="presentation"><a class="dl-live-item" id="dl-live-${index}" role="option" href="${escape(product.permalink)}">
 					<img class="dl-live-image" src="${escape(product.images[0]?.thumbnail || settings.placeholder)}" alt="" width="48" height="48" loading="lazy">
 					<span class="dl-live-name">${highlight(product.name, query)}</span>

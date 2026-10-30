@@ -383,9 +383,15 @@ add_shortcode( 'dl_search_empty', function () {
 
 	// The search field in the header still holds the query; the category tiles follow under this (template "Product
 	// search results", shown only when nothing is found).
-	return '<div class="dl-empty dl-shop-empty dl-search-empty"><p>'
+	// With a matching category or page above ([dl_search_links]), the note points there.
+	$text = delicja_search_link_matches( get_search_query( false ) )
 		/* translators: %s: search query */
-		. sprintf( esc_html__( 'No products match “%s”. Try another word, or browse the categories below.', 'delicja' ), esc_html( get_search_query() ) )
+		? __( 'No product names match “%s”. The category or page above may have what you are looking for.', 'delicja' )
+		/* translators: %s: search query */
+		: __( 'No products match “%s”. Try another word, or browse the categories below.', 'delicja' );
+
+	return '<div class="dl-empty dl-shop-empty dl-search-empty"><p>'
+		. sprintf( esc_html( $text ), esc_html( get_search_query() ) )
 		. '</p><a class="dl-shop-empty-button" href="' . esc_url( wc_get_page_permalink( 'shop' ) ) . '">' . esc_html__( 'See the whole shop', 'delicja' ) . '</a></div>';
 } );
 

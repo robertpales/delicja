@@ -2197,6 +2197,63 @@ table.wc-block-cart-items td {
     display: none;
 }
 
+.dl-search-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dl-space-30);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dl-search-link {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: var(--dl-space-30);
+    align-items: baseline;
+    padding: var(--dl-space-30) var(--dl-space-50);
+    border: 1px solid var(--e-global-color-primary);
+    border-radius: var(--dl-radius-md);
+    background-color: var(--e-global-color-dlwhite);
+    color: var(--e-global-color-text);
+    text-decoration: none;
+    transition: background-color var(--dl-transition);
+}
+
+.dl-search-link:hover,
+.dl-search-link:focus-visible {
+    background-color: var(--e-global-color-dltint);
+}
+
+.dl-search-link-type {
+    grid-column: 1 / -1;
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dleyeb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dleyeb-font-size);
+    font-weight: var(--e-global-typography-dleyeb-font-weight);
+    line-height: var(--e-global-typography-dleyeb-line-height);
+    letter-spacing: var(--e-global-typography-dleyeb-letter-spacing);
+    text-transform: uppercase;
+}
+
+.dl-search-link-name {
+    font-family: var(--e-global-typography-dlpname-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlpname-font-size);
+    font-weight: var(--e-global-typography-dlpname-font-weight);
+    line-height: var(--e-global-typography-dlpname-line-height);
+}
+
+.dl-search-link-name::after {
+    content: " →";
+}
+
+.dl-search-link-info {
+    color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+}
+
 /* === Live search === */
 .dl-header-search .wp-block-search {
     position: relative;
@@ -2255,6 +2312,22 @@ table.wc-block-cart-items td {
     font-size: var(--e-global-typography-dlsmall-font-size);
     font-weight: var(--e-global-typography-dlpname-font-weight);
     line-height: var(--e-global-typography-dlsmall-line-height);
+}
+
+.dl-live-links {
+    border-bottom: 1px solid var(--e-global-color-dlborder);
+}
+
+.dl-live-type {
+    flex: none;
+    min-width: 4.5rem;
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dleyeb-font-family), sans-serif;
+    font-size: var(--e-global-typography-dleyeb-font-size);
+    font-weight: var(--e-global-typography-dleyeb-font-weight);
+    line-height: var(--e-global-typography-dleyeb-line-height);
+    letter-spacing: var(--e-global-typography-dleyeb-letter-spacing);
+    text-transform: uppercase;
 }
 
 .dl-live-name mark {
