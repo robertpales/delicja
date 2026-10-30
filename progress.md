@@ -32,6 +32,12 @@ through Novamira, so they are not in git.
 - Free delivery bar ("Add 754 kr. more for free delivery in Herning") in the mini cart, above the cart's checkout
   button and, for delivery, in the checkout summary. Before the postcode is known it counts to Herning's 799 kr.;
   after that to the customer's zone (999 or 1 299 kr.), and it is hidden for pickup and zones without free delivery.
+- Search finds categories and information pages too: "sweets" shows the Sweets category, "delivery", "levering" or
+  "dostawa" the Delivery and returns page, "opening hours" the Contact page. They show above the products on the
+  results page (new `[dl_search_links]` in the template "Product search results") and first in the live search.
+  *(partly database)*
+- Live search: product names in the text colour again (the kit's link colour turned them red).
+- UX audit: fixed findings removed.
 - Cart: the remove × (the original sign, now in the site font) is centred in its circle. Checkout header: the cart icon has the same size as in the main
   header, so the count no longer covers it.
 
