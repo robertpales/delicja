@@ -43,6 +43,8 @@ through Novamira, so they are not in git.
 - Cart and checkout: prices and totals in the site font (Elementor's widgets set Roboto).
 - UX audit: more findings removed; the benefits block on the home page should move under the hero or the categories.
 - UX audit: priorities adjusted (contact box, price, benefits block, sticky header to P1); product page findings added (hand-picked "Goes well with" products, contact box, more prominent price, related products styled like the cards on the home page and in categories, nutrition moved to the long description with a "Read more" link).
+- Home page: a little space between the text and the button in the two promo banners.
+- UX audit: category texts with internal links (P1), Shop submenu overflow, category tiles in two rows and the category chips above Customer favourites.
 
 ## 2026-10-29
 

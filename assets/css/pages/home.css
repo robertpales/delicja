@@ -674,6 +674,10 @@
     --row-gap: 0px;
 }
 
+.dl-promo-text > .dl-buttons {
+    margin-block-start: var(--dl-space-40);
+}
+
 @media (max-width: 781px) {
     .dl-promos > .dl-promo {
         flex-basis: auto;
