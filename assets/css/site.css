@@ -2197,6 +2197,10 @@ table.wc-block-cart-items td {
     display: none;
 }
 
+.dl-search-links-widget:not(:has(.dl-search-links)) {
+    display: none;
+}
+
 .dl-search-links ul {
     display: flex;
     flex-wrap: wrap;
