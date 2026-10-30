@@ -3967,6 +3967,7 @@ table.wc-block-cart-items td {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
+    padding-bottom: 0.35em;
     font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: 1.25rem;
     line-height: 1;
