@@ -931,6 +931,10 @@ html:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
     overflow: hidden;
 }
 
+.dl-header:has(.dl-header-nav .elementor-menu-toggle.elementor-active) {
+    z-index: 100000;
+}
+
 .dl-header-bar .dl-header-address {
     grid-area: address;
     display: none;
