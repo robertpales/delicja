@@ -29,6 +29,9 @@ through Novamira, so they are not in git.
 - Checkout starts with "Pickup in the shop" or "Delivery to your door". Pickup needs no address; the address fields
   appear only for delivery, and the delivery price shows as soon as the postcode is entered. Clear messages when
   nothing is chosen or the postcode is outside the delivery area.
+- Free delivery bar ("Add 754 kr. more for free delivery in Herning") in the mini cart, above the cart's checkout
+  button and, for delivery, in the checkout summary. Before the postcode is known it counts to Herning's 799 kr.;
+  after that to the customer's zone (999 or 1 299 kr.), and it is hidden for pickup and zones without free delivery.
 - Cart: the remove × (the original sign, now in the site font) is centred in its circle. Checkout header: the cart icon has the same size as in the main
   header, so the count no longer covers it.
 
