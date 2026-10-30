@@ -2309,6 +2309,65 @@ table.wc-block-cart-items td {
     color: var(--e-global-color-accent);
 }
 
+/* === Quantity === */
+.dl-cart .quantity input.qty::-webkit-inner-spin-button,
+.dl-cart .quantity input.qty::-webkit-outer-spin-button,
+.dl-product-cart .quantity input.qty::-webkit-inner-spin-button,
+.dl-product-cart .quantity input.qty::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+.dl-cart .quantity .dl-qty-button,
+.dl-product-cart .quantity .dl-qty-button {
+    position: relative;
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--e-global-color-dltint);
+    color: var(--e-global-color-primary);
+    cursor: pointer;
+    transition:
+        background-color var(--dl-transition),
+        color var(--dl-transition);
+}
+
+.dl-cart .quantity .dl-qty-button:hover,
+.dl-cart .quantity .dl-qty-button:focus,
+.dl-product-cart .quantity .dl-qty-button:hover,
+.dl-product-cart .quantity .dl-qty-button:focus {
+    background-color: var(--e-global-color-primary);
+    color: var(--e-global-color-dlwhite);
+}
+
+.dl-cart .quantity .dl-qty-button::before,
+.dl-cart .quantity .dl-qty-plus::after,
+.dl-product-cart .quantity .dl-qty-button::before,
+.dl-product-cart .quantity .dl-qty-plus::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.75rem;
+    height: 2px;
+    border-radius: 1px;
+    background-color: currentColor;
+    transform: translate(-50%, -50%);
+}
+
+.dl-cart .quantity .dl-qty-plus::after,
+.dl-product-cart .quantity .dl-qty-plus::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.dl-cart .quantity:has(input.qty:is([type="hidden"], [readonly])) .dl-qty-button,
+.dl-product-cart .quantity:has(input.qty:is([type="hidden"], [readonly])) .dl-qty-button {
+    display: none;
+}
+
 /* === Product page === */
 .dl-product {
     --padding-top: 0px;
@@ -2379,23 +2438,42 @@ table.wc-block-cart-items td {
 }
 
 .woocommerce div.product .dl-product-cart form.cart div.quantity {
-    display: flex;
+    display: inline-flex;
     float: none;
-    margin: 0 4px 0 0;
+    align-items: center;
+    gap: var(--dl-space-10);
+    margin: 0 var(--dl-space-20) 0 0;
+    padding: var(--dl-space-10);
+    border: 1px solid var(--e-global-color-dlborder);
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-dlwhite);
+    transition: border-color var(--dl-transition);
+}
+
+.woocommerce div.product .dl-product-cart form.cart div.quantity:focus-within {
+    border-color: var(--e-global-color-text);
+}
+
+.woocommerce div.product .dl-product-cart form.cart div.quantity:has(input.qty[type="hidden"]) {
+    display: none;
 }
 
 .woocommerce div.product .dl-product-cart form.cart div.quantity .qty {
-    box-sizing: content-box;
-    width: 3.631em;
+    box-sizing: border-box;
+    width: 2.5rem;
     height: auto;
-    margin: 0 0.5em 0 0;
-    padding: 0 5px;
-    border: revert;
-    border-radius: revert;
-    background-color: revert;
-    color: revert;
-    font-size: var(--e-global-typography-dlsmall-font-size);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--e-global-color-text);
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: 700;
     line-height: normal;
+    text-align: center;
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .woocommerce div.product .dl-product-cart form.cart .single_add_to_cart_button {

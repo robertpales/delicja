@@ -1,7 +1,8 @@
 <?php
 /**
  * Cart page (Elementor template "Cart" with the Cart widget, set to update the cart automatically):
- * - − and + buttons around each quantity field (site.js, === Cart ===, changes the number; the widget then updates),
+ * - − and + buttons around each quantity field (site.js, === Cart ===, changes the number; the widget then updates);
+ *   the product page gets the same buttons, so several items are added with a few taps (site.css, === Quantity ===),
  * - a handwritten thank-you under the checkout button,
  * - while the store is in WooCommerce's "Coming soon" mode, a short note that online ordering opens soon,
  * - WooCommerce's empty cart message as plain text (hidden by site.css; the template has its own empty cart).
@@ -19,13 +20,13 @@ function delicja_store_closed(): bool {
 }
 
 add_action( 'woocommerce_before_quantity_input_field', function () {
-	if ( is_cart() ) {
+	if ( is_cart() || is_product() ) {
 		echo '<button type="button" class="dl-qty-button dl-qty-minus" aria-label="Remove one"></button>';
 	}
 } );
 
 add_action( 'woocommerce_after_quantity_input_field', function () {
-	if ( is_cart() ) {
+	if ( is_cart() || is_product() ) {
 		echo '<button type="button" class="dl-qty-button dl-qty-plus" aria-label="Add one more"></button>';
 	}
 } );

@@ -144,8 +144,8 @@
 })();
 
 /* === Cart === */
-// − and + next to the quantity fields on the cart page (inc/cart.php). They change the number as typing would; the
-// Elementor Cart widget then updates the cart by itself. 0 removes the product.
+// − and + next to the quantity fields on the cart page and the product page (inc/cart.php). They change the number as
+// typing would; on the cart page the Elementor Cart widget then updates the cart by itself, and 0 removes the product.
 document.addEventListener('click', (event) => {
 	const button = event.target.closest('.dl-qty-button');
 	const input = button?.parentElement.querySelector('input.qty');
