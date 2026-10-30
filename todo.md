@@ -11,21 +11,10 @@ What is still to be done on Delicja, split by who does it. Finished items move t
 ## Client (Matej asks, then sends it to Robo)
 
 **Page texts** (needed before launch; the payment provider checks these pages)
-- [ ] Terms and conditions: received in Danish and on the page (2026-10-28). Open points for the client (her text, we
-  do not change it): the file says "Udkast til gennemgang" (draft), is it final? It does not mention pant (charged on
-  top of the price for drinks in cans and bottles), the 2-year right to complain (reklamationsret) is only "efter
-  købelovens regler", and for goods without an exception (e.g. cosmetics) it does not say how to use the 14-day
-  right of withdrawal. Two new rules from it are not on the site yet: minimum 499 kr. for delivery, and delivery
-  orders at least 24 hours before the delivery day (see Robo → WooCommerce and Matej).
-- [ ] Delivery and returns → page `delivery-and-returns`.
-- [ ] Privacy policy → page `privacy-policy`. Matej asked for a draft (2026-10-29): English draft written from what
-  the site really collects (orders, accounts, Google login, payments, order messages, e-mails about deals, statistics,
-  the services that get data), in Claude Docs "Delicja – Privacy policy (draft)"
-  (https://claude.ai/artifact/Qa78P55WvtoL3JVzPJkXRL); Matej sends it to the client as a PDF to confirm (she is the
-  data controller). Then it goes on the page in Danish (Matej). Still to decide later and add to it: after how many
-  years inactive accounts are deleted, the newsletter service, a courier if one delivers some orders.
-- [ ] Terms and Delivery & returns: the client's responsibility (she is the seller); she gets them from a lawyer or a
-  template service if needed. (Terms received 2026-10-28.)
+- [ ] Delivery and returns → page `delivery-and-returns`. (Terms and conditions and the privacy policy are final and
+  on their pages, 2026-10-30.)
+- [ ] Privacy policy, to decide later and then add to it: after how many years inactive customer accounts are deleted,
+  the newsletter service, a courier if one delivers some orders.
 - [ ] Confirm or correct the texts we wrote on the site: the four promises and the FAQ answers on the homepage,
   the About us story.
 - [ ] Homepage hero picture: confirm the short product stories in it (e.g. the doughnut "filled with rose jam").
@@ -34,9 +23,8 @@ What is still to be done on Delicja, split by who does it. Finished items move t
   switches it on.)
 
 **Food rules** (required for selling food online in Denmark)
-- [ ] Fødevarestyrelsen: is online sale and delivery part of the shop's food registration? (The link to the shop's
-  inspection reports on findsmiley.dk is in the footer, 2026-10-26.) The client has asked Fødevarestyrelsen and waits
-  for their answer (2026-10-27).
+- [ ] Fødevarestyrelsen answered (2026-10-29): no problem, the client only adds online sale to the shop's existing food
+  registration. To do before launch. (The link to the shop's inspection reports on findsmiley.dk is in the footer.)
 - [ ] Product information shown before purchase (EU 1169/2011): ingredients with allergens highlighted, net quantity,
   storage conditions, nutrition table, producer or importer (name and address), country of origin where required.
   Best source: supplier data sheets.
@@ -75,7 +63,8 @@ need a product list from her, 2026-10-27)
 
 **Payment gateway (Flatpay / Frisbii Pay)**
 - [ ] Ask Flatpay to activate online payments (Frisbii Pay) for the website delicja.dk. The client has asked Flatpay
-  for online payments and the API key and waits for their reply (2026-10-27).
+  for online payments and the API key and waits for their reply (2026-10-27; no answer yet on 2026-10-29, she contacts
+  them again).
 - [ ] Invite `pales.robo@gmail.com` as a user in the Frisbii (Billwerk+) admin. If that is not possible: send the Live Private Key and a test key or test account.
 - [ ] Accounting: which system (e-conomic, Dinero, Billy, …)? Should orders go there automatically?
 
@@ -109,12 +98,12 @@ need a product list from her, 2026-10-27)
 - [ ] Tell Robo when the client has given access to the WPML account (main language chosen: Danish, 2026-10-26).
 - [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
 - [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.
-- [ ] Delivery texts on the site (homepage FAQ, the "Not in Herning?" panel, Delivery & returns) once the client
-  confirms the terms: minimum 499 kr. for delivery, delivery orders at least 24 hours before the delivery day.
+- [ ] Delivery texts on the site (homepage FAQ, the "Not in Herning?" panel, Delivery & returns): minimum 499 kr. for
+  delivery, delivery orders at least 24 hours before the delivery day (the client confirmed her terms are final,
+  2026-10-29).
 - [ ] Legal and shop information pages (Terms and conditions, Privacy policy, Delivery & returns, Cookies): put the
-  client's texts on them when she sends them (Robo, 2026-10-27: Matej may edit these pages). Privacy Policy still
-  shows WordPress's sample text ("Suggested text: …", comments, Gravatar); Terms and Delivery & returns say
-  "[TODO] Indhold mangler". The pages already have their design (template Information page). The terms page is
+  client's texts on them when she sends them (Robo, 2026-10-27: Matej may edit these pages). Terms and Privacy policy
+  done (2026-10-28, 2026-10-30); Delivery & returns still says "[TODO] Indhold mangler". The pages already have their design (template Information page). The terms page is
   already set in WooCommerce and the sample page `refund_returns` is deleted.
   - Delivery & returns must say the same as the checkout: Herning 49 kr. (free from 799 kr.), up to 15 km 79 kr.
     (free from 999 kr.), 15–40 km 129 kr. (free from 1,299 kr.), deliveries Wednesday and Friday 15:00–17:00; rest
