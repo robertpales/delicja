@@ -22,6 +22,14 @@ through Novamira, so they are not in git.
 - Dairy category picture like the client's reference, in our cut-out style: a glass jug of milk tied with twine, a
   glass of milk, twaróg with a wooden spoon and sour cream on burlap; no white halo when the tile turns red. *(database)*
 
+**Robo**
+- UX audit of the test site (`docs/ux-audit-2026-10-30.md`).
+- Cart: a Delivery row before the total (pickup free, delivery from 49 kr., free in Herning from 799 kr.), prices
+  taken from the shipping zones.
+- Checkout starts with "Pickup in the shop" or "Delivery to your door". Pickup needs no address; the address fields
+  appear only for delivery, and the delivery price shows as soon as the postcode is entered. Clear messages when
+  nothing is chosen or the postcode is outside the delivery area.
+
 ## 2026-10-29
 
 **Matej**
