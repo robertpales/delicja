@@ -285,10 +285,10 @@ function delicja_free_shipping_bar(): string {
 	);
 }
 
-// Cart page: above the order summary (the Cart widget refreshes it with the totals).
-add_action( 'woocommerce_before_cart_totals', function () {
+// Cart page: right above the checkout button (the Cart widget refreshes it with the totals).
+add_action( 'woocommerce_proceed_to_checkout', function () {
 	echo delicja_free_shipping_bar(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-} );
+}, 6 );
 
 // Checkout: in the order summary under the delivery, only for delivery to a postcode (updates with the summary).
 add_action( 'woocommerce_review_order_after_shipping', function () {
