@@ -2210,7 +2210,7 @@ table.wc-block-cart-items td {
     list-style: none;
 }
 
-.dl-search-link {
+.dl-search-links .dl-search-link {
     display: grid;
     grid-template-columns: auto auto;
     column-gap: var(--dl-space-30);
@@ -2285,7 +2285,7 @@ table.wc-block-cart-items td {
     list-style: none;
 }
 
-.dl-live-item {
+.dl-live .dl-live-item {
     display: flex;
     align-items: center;
     gap: var(--dl-space-30);
