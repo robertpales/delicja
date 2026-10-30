@@ -40,6 +40,8 @@ through Novamira, so they are not in git.
 - UX audit: fixed findings removed.
 - Cart: the remove × (the original sign, now in the site font) is centred in its circle. Checkout header: the cart icon has the same size as in the main
   header, so the count no longer covers it.
+- Cart and checkout: prices and totals in the site font (Elementor's widgets set Roboto).
+- UX audit: more findings removed; the benefits block on the home page should move under the hero or the categories.
 
 ## 2026-10-29
 
