@@ -3961,7 +3961,7 @@ table.wc-block-cart-items td {
     object-fit: contain;
 }
 
-.elementor-widget-woocommerce-cart .product-remove a.remove {
+.elementor-element.elementor-widget-woocommerce-cart .woocommerce table.cart .product-remove a.remove {
     display: grid;
     place-items: center;
     width: 2rem;
@@ -3972,8 +3972,9 @@ table.wc-block-cart-items td {
     text-decoration: none;
 }
 
-.elementor-widget-woocommerce-cart .product-remove a.remove::before,
-.elementor-widget-woocommerce-cart .product-remove a.remove::after {
+.elementor-element.elementor-widget-woocommerce-cart .woocommerce table.cart .product-remove a.remove::before,
+.elementor-element.elementor-widget-woocommerce-cart .woocommerce table.cart .product-remove a.remove::after {
+    display: block;
     content: "";
     grid-area: 1 / 1;
     width: 0.875rem;
@@ -3983,7 +3984,7 @@ table.wc-block-cart-items td {
     transform: rotate(45deg);
 }
 
-.elementor-widget-woocommerce-cart .product-remove a.remove::after {
+.elementor-element.elementor-widget-woocommerce-cart .woocommerce table.cart .product-remove a.remove::after {
     transform: rotate(-45deg);
 }
 
