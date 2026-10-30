@@ -29,7 +29,7 @@ through Novamira, so they are not in git.
 - Checkout starts with "Pickup in the shop" or "Delivery to your door". Pickup needs no address; the address fields
   appear only for delivery, and the delivery price shows as soon as the postcode is entered. Clear messages when
   nothing is chosen or the postcode is outside the delivery area.
-- Cart: the remove cross is centred in its circle. Checkout header: the cart icon has the same size as in the main
+- Cart: the remove × (the original sign, now in the site font) is centred in its circle. Checkout header: the cart icon has the same size as in the main
   header, so the count no longer covers it.
 
 ## 2026-10-29
