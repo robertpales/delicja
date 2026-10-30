@@ -23,6 +23,36 @@ through Novamira, so they are not in git.
 - Dairy category picture like the client's reference, in our cut-out style: a glass jug of milk tied with twine, a
   glass of milk, twaróg with a wooden spoon and sour cream on burlap; no white halo when the tile turns red. *(database)*
 
+**Robo**
+- UX audit of the test site (`docs/ux-audit-2026-10-30.md`).
+- Cart: a Delivery row before the total (pickup free, delivery from 49 kr., free in Herning from 799 kr.), prices
+  taken from the shipping zones.
+- Checkout starts with "Pickup in the shop" or "Delivery to your door". Pickup needs no address; the address fields
+  appear only for delivery, and the delivery price shows as soon as the postcode is entered. Clear messages when
+  nothing is chosen or the postcode is outside the delivery area.
+- Free delivery bar ("Add 754 kr. more for free delivery in Herning") in the mini cart, above the cart's checkout
+  button and, for delivery, in the checkout summary. Before the postcode is known it counts to Herning's 799 kr.;
+  after that to the customer's zone (999 or 1 299 kr.), and it is hidden for pickup and zones without free delivery.
+- Search finds categories and information pages too: "sweets" shows the Sweets category, "delivery", "levering" or
+  "dostawa" the Delivery and returns page, "opening hours" the Contact page. They show above the products on the
+  results page (new `[dl_search_links]` in the template "Product search results") and first in the live search.
+  *(partly database)*
+- Live search: product names in the text colour again (the kit's link colour turned them red).
+- UX audit: fixed findings removed.
+- Cart: the remove × (the original sign, now in the site font) is centred in its circle. Checkout header: the cart icon has the same size as in the main
+  header, so the count no longer covers it.
+- Cart and checkout: prices and totals in the site font (Elementor's widgets set Roboto).
+- UX audit: more findings removed; the benefits block on the home page should move under the hero or the categories.
+- UX audit: priorities adjusted (contact box, price, benefits block, sticky header to P1); product page findings added (hand-picked "Goes well with" products, contact box, more prominent price, related products styled like the cards on the home page and in categories, nutrition moved to the long description with a "Read more" link).
+- Home page: a little space between the text and the button in the two promo banners.
+- Header: the Shop submenu is as wide as its longest category ("Fruit & vegetables" no longer runs out of its box) and has two columns on narrow windows, so it is never cut off.
+- UX audit: the top info bar needs a call to action ("Shop now").
+- Cookies: nothing is set before consent any more. WooCommerce order attribution and Jetpack WooCommerce Analytics
+  turned off, Jetpack Stats kept (Complianz starts it only after Accept). Complianz no longer lists Google reCAPTCHA
+  and Google Maps, company e-mail shop@delicja.dk. *(database)*
+- TikTok @delicja.herning in the schema `sameAs` and in Rank Math's social profiles. *(partly database)*
+- UX audit: category texts with internal links (P1), Shop submenu overflow, category tiles in two rows and the category chips above Customer favourites.
+
 ## 2026-10-29
 
 **Matej**

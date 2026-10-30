@@ -162,6 +162,68 @@ document.addEventListener('click', (event) => {
 	input.dispatchEvent(new Event('change', { bubbles: true }));
 });
 
+/* === Checkout === */
+// For delivery the price depends only on the postcode (inc/shipping.php), but WooCommerce updates the order summary
+// only once the whole address is filled in. A changed postcode asks for the update at once; WooCommerce listens for it
+// as a jQuery event.
+document.addEventListener('change', (event) => {
+	if (event.target.id === 'billing_postcode' && document.querySelector('input[name="dl_fulfilment"][value="delivery"]:checked')) {
+		window.jQuery?.(document.body).trigger('update_checkout');
+	}
+});
+
+/* === Free delivery === */
+// Mini cart drawer: the bar "Add 230 kr. more for free delivery" above the subtotal (inc/shipping.php draws the same bar
+// in the cart and the checkout). WooCommerce redraws the drawer, so the bar is put back and recounted whenever the
+// footer appears or its subtotal changes.
+(() => {
+	const settings = window.dlFreeShipping;
+	if (!settings) {
+		return;
+	}
+
+	const api = (document.querySelector('link[rel="https://api.w.org/"]')?.href || '/wp-json/') + 'wc/store/v1/cart';
+	let subtotal = null;
+	let timer = 0;
+
+	const money = (amount, totals) => {
+		const [whole, fraction] = amount.toFixed(totals.currency_minor_unit).split('.');
+		const grouped = whole.replace(/\B(?=(\d{3})+(?!\d))/g, totals.currency_thousand_separator);
+		const number = fraction ? grouped + totals.currency_decimal_separator + fraction : grouped;
+		return `<span class="amount">${totals.currency_prefix}${number}${totals.currency_suffix}</span>`;
+	};
+
+	const draw = async (footer) => {
+		const response = await fetch(api, { credentials: 'same-origin' });
+		const totals = (await response.json()).totals;
+		const unit = 10 ** totals.currency_minor_unit;
+		let total = (Number(totals.total_items) + Number(totals.total_items_tax)) / unit;
+		if (!settings.ignoreDiscounts) {
+			total -= (Number(totals.total_discount) + Number(totals.total_discount_tax)) / unit;
+		}
+
+		const remaining = Math.max(0, settings.threshold - total);
+		const percent = Math.min(100, Math.round((total / settings.threshold) * 100));
+		const bar = footer.querySelector('.dl-free-shipping') || document.createElement('div');
+		bar.className = 'dl-free-shipping' + (remaining > 0 ? '' : ' is-free');
+		bar.innerHTML = `<div class="dl-free-shipping-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-label="${settings.label}"><div class="dl-free-shipping-fill" style="--dl-progress: ${percent}%"></div></div>`
+			+ `<p class="dl-free-shipping-text">${remaining > 0 ? settings.missing.replace('%s', money(remaining, totals)) : settings.reached}</p>`;
+		footer.prepend(bar);
+	};
+
+	new MutationObserver(() => {
+		const footer = document.querySelector('.wc-block-mini-cart__footer');
+		const value = footer?.querySelector('.wc-block-mini-cart__footer-subtotal .wc-block-components-totals-item__value')?.textContent;
+		if (!footer || (footer.querySelector('.dl-free-shipping') && value === subtotal)) {
+			return;
+		}
+
+		subtotal = value;
+		clearTimeout(timer);
+		timer = setTimeout(() => draw(footer), 150);
+	}).observe(document.body, { childList: true, subtree: true, characterData: true });
+})();
+
 /* === Dropdowns === */
 // The language list in the header (inc/header.php) and the sorting in the shop bar (inc/woocommerce.php) are
 // <details>: close them on a click elsewhere or with Escape.
@@ -354,6 +416,8 @@ delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.d
 /* === Live search === */
 // Results under the header search field while typing (WooCommerce Store API, read-only, no login). Texts and the
 // endpoint come from inc/search.php (window.dlSearch). Enter without a chosen result opens the full results page.
+// Matching categories and information pages (window.dlSearch.links, matched as in delicja_search_link_matches())
+// come first.
 (() => {
 	const input = document.querySelector('.dl-header-search input[name="s"]');
 	const settings = window.dlSearch;
@@ -384,6 +448,14 @@ delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.d
 		return words.length ? safe.replace(new RegExp(`(${words.join('|')})`, 'gi'), '<mark>$1</mark>') : safe;
 	};
 	const options = () => [...panel.querySelectorAll('.dl-live-item, .dl-live-all')];
+	const normalize = (text) => text.toLowerCase().replace(/ø/g, 'o').replace(/ł/g, 'l').replace(/æ/g, 'ae').replace(/ß/g, 'ss')
+		.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+	const quote = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	const links = (query) => {
+		const search = normalize(query);
+		return (settings.links || []).filter((link) => link.terms.some((term, i) => (search.length >= (i ? 3 : 2) && new RegExp(`(^|\\s)${quote(search)}`).test(term))
+			|| (term.length >= 3 && new RegExp(`(^|\\s)${quote(term)}(\\s|$)`).test(search))));
+	};
 
 	const close = () => {
 		panel.hidden = true;
@@ -404,10 +476,16 @@ delicjaReveal(document.querySelector('.dl-contact-art'), '.dl-contact-shop', '.d
 
 	const render = (query, products, total) => {
 		const url = `${form.action}?${new URLSearchParams({ s: query, post_type: 'product' })}`;
+		const found = links(query);
+		const pages = found.length ? `<ul class="dl-live-list dl-live-links" role="listbox" aria-label="${escape(settings.linksLabel)}">${found.map((link, index) => `
+				<li role="presentation"><a class="dl-live-item dl-live-link" id="dl-live-link-${index}" role="option" href="${escape(link.url)}">
+					<span class="dl-live-type">${escape(link.type)}</span>
+					<span class="dl-live-name">${highlight(link.name, query)}</span>
+				</a></li>`).join('')}</ul>` : '';
 		if (!products.length) {
-			panel.innerHTML = `<p class="dl-live-empty">${escape(settings.empty)}</p>`;
+			panel.innerHTML = pages || `<p class="dl-live-empty">${escape(settings.empty)}</p>`;
 		} else {
-			panel.innerHTML = `<ul class="dl-live-list" role="listbox" aria-label="${escape(settings.label)}">${products.map((product, index) => `
+			panel.innerHTML = pages + `<ul class="dl-live-list" role="listbox" aria-label="${escape(settings.label)}">${products.map((product, index) => `
 				<li role="presentation"><a class="dl-live-item" id="dl-live-${index}" role="option" href="${escape(product.permalink)}">
 					<img class="dl-live-image" src="${escape(product.images[0]?.thumbnail || settings.placeholder)}" alt="" width="48" height="48" loading="lazy">
 					<span class="dl-live-name">${highlight(product.name, query)}</span>

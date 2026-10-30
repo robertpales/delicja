@@ -6,6 +6,10 @@
  * Product searches (results page and live search) look in the name and the short description only: the long
  * description holds the ingredient lists, which made unrelated products show up first. Names where a word starts
  * with the search ("kie" → Kiełbasa) come before names that only contain it ("ruskie").
+ * Categories and information pages that match the search are shown above the products, on the results page
+ * ([dl_search_links] in the template) and in the live search: a category by its name, a page by its name or by the
+ * words people type when they look for delivery, returns, contact and the like (delicja_search_links()). Styles in
+ * site.css (=== Search ===).
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -18,6 +22,8 @@ add_action( 'wp_enqueue_scripts', function () {
 		/* translators: %d: number of products found */
 		'all'         => __( 'See all results (%d)', 'delicja' ),
 		'empty'       => __( 'No products found. Try another word.', 'delicja' ),
+		'linksLabel'  => __( 'Categories and pages', 'delicja' ),
+		'links'       => array_map( fn( $link ) => array_intersect_key( $link, array_flip( [ 'type', 'name', 'url', 'terms' ] ) ), delicja_search_links() ),
 	];
 
 	wp_add_inline_script( 'delicja', 'window.dlSearch = ' . wp_json_encode( $settings ) . ';', 'before' );
@@ -44,3 +50,111 @@ add_filter( 'posts_orderby', function ( $orderby, $query ) {
 
 	return "(CASE {$start} ELSE 1 END)" . ( $orderby ? ', ' . $orderby : '' );
 }, 10, 2 );
+
+/**
+ * Lower case without accents, so "Kiełbasa" and "kielbasa", "Åbningstider" and "abningstider" match.
+ */
+function delicja_search_normalize( string $text ): string {
+	return trim( mb_strtolower( remove_accents( $text ) ) );
+}
+
+/**
+ * Shop categories and information pages the search points to: type label, name, URL, number of products (categories)
+ * and the words they are found by, normalized. Page words in English, Danish and Polish.
+ */
+function delicja_search_links(): array {
+	static $links = null;
+	if ( null !== $links ) {
+		return $links;
+	}
+
+	$links = [];
+	$terms = get_terms( [
+		'taxonomy'   => 'product_cat',
+		'hide_empty' => true,
+		'exclude'    => [ (int) get_option( 'default_product_cat' ) ],
+	] );
+	foreach ( is_array( $terms ) ? $terms : [] as $term ) {
+		$links[] = [
+			'type'  => __( 'Category', 'delicja' ),
+			'name'  => $term->name,
+			'url'   => get_term_link( $term ),
+			'count' => (int) $term->count,
+			'terms' => [ delicja_search_normalize( $term->name ) ],
+		];
+	}
+
+	$pages = [
+		'delivery-and-returns' => [ 'delivery', 'deliver', 'shipping', 'ship', 'free delivery', 'returns', 'return', 'refund', 'pickup', 'pick up', 'collect', 'levering', 'fragt', 'retur', 'returnering', 'afhentning', 'dostawa', 'wysyłka', 'zwrot', 'odbiór' ],
+		'contact'              => [ 'contact', 'phone', 'call', 'email', 'e-mail', 'opening hours', 'hours', 'open', 'address', 'directions', 'kontakt', 'telefon', 'åbningstider', 'adresse', 'godziny otwarcia', 'adres' ],
+		'about'                => [ 'about', 'story', 'who we are', 'om os', 'o nas' ],
+		'terms-and-conditions' => [ 'terms', 'conditions', 'payment', 'pay', 'withdrawal', 'complaint', 'handelsbetingelser', 'betaling', 'fortrydelsesret', 'reklamation', 'regulamin', 'płatność', 'reklamacja' ],
+		'privacy-policy'       => [ 'privacy', 'cookies', 'gdpr', 'personal data', 'privatlivspolitik', 'persondata', 'prywatność' ],
+	];
+	foreach ( $pages as $slug => $words ) {
+		$page = get_page_by_path( $slug );
+		if ( ! $page || 'publish' !== $page->post_status ) {
+			continue;
+		}
+		$name    = get_the_title( $page );
+		$links[] = [
+			'type'  => __( 'Page', 'delicja' ),
+			'name'  => $name,
+			'url'   => get_permalink( $page ),
+			'count' => 0,
+			'terms' => array_map( 'delicja_search_normalize', array_merge( [ $name ], $words ) ),
+		];
+	}
+
+	return $links;
+}
+
+/**
+ * Links whose words match the search: a word of the link starts with the search (from 2 letters for a category name,
+ * 3 for the rest), or the search contains one of the link's words.
+ */
+function delicja_search_link_matches( string $search ): array {
+	$search = delicja_search_normalize( $search );
+	if ( mb_strlen( $search ) < 2 ) {
+		return [];
+	}
+
+	return array_values( array_filter( delicja_search_links(), function ( $link ) use ( $search ) {
+		foreach ( $link['terms'] as $i => $term ) {
+			$min = 0 === $i ? 2 : 3;
+			if ( mb_strlen( $search ) >= $min && preg_match( '/(^|\s)' . preg_quote( $search, '/' ) . '/u', $term ) ) {
+				return true;
+			}
+			if ( mb_strlen( $term ) >= 3 && preg_match( '/(^|\s)' . preg_quote( $term, '/' ) . '(\s|$)/u', $search ) ) {
+				return true;
+			}
+		}
+		return false;
+	} ) );
+}
+
+// Results page: the matching categories and pages above the products.
+add_shortcode( 'dl_search_links', function () {
+	$links = is_search() ? delicja_search_link_matches( get_search_query( false ) ) : [];
+	if ( ! $links ) {
+		return '';
+	}
+
+	$html = '';
+	foreach ( $links as $link ) {
+		$info = $link['count']
+			/* translators: %d: number of products in the category */
+			? sprintf( _n( '%d product', '%d products', $link['count'], 'delicja' ), $link['count'] )
+			: '';
+		$html .= sprintf(
+			'<li><a class="dl-search-link" href="%1$s"><span class="dl-search-link-type">%2$s</span><span class="dl-search-link-name">%3$s</span>%4$s</a></li>',
+			esc_url( $link['url'] ),
+			esc_html( $link['type'] ),
+			esc_html( $link['name'] ),
+			$info ? '<span class="dl-search-link-info">' . esc_html( $info ) . '</span>' : ''
+		);
+	}
+
+	return '<nav class="dl-search-links" aria-label="' . esc_attr__( 'Categories and pages', 'delicja' ) . '"><ul>' . $html . '</ul></nav>';
+} );
+
