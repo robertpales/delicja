@@ -3833,11 +3833,20 @@ table.wc-block-cart-items td {
 }
 
 .elementor-widget-woocommerce-cart .dl-cart-shipping td {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: var(--dl-space-10);
+    font-family: var(--e-global-typography-text-font-family), sans-serif;
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+    letter-spacing: var(--e-global-typography-text-letter-spacing);
     text-align: end;
+}
+
+.elementor-widget-woocommerce-cart .dl-cart-shipping td > * {
+    display: block;
+}
+
+.elementor-widget-woocommerce-cart .dl-cart-shipping td > * + * {
+    margin-block-start: var(--dl-space-10);
 }
 
 .elementor-widget-woocommerce-cart .dl-cart-shipping small {
