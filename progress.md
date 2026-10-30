@@ -14,7 +14,8 @@ through Novamira, so they are not in git.
 
 **Matej**
 - Client confirmed the privacy policy and that her terms and conditions are final. The privacy policy is on its page
-  in Danish (her approved text, translated), in the same style as the terms. *(database)*
+  in Danish (her approved text, translated), in the same style as the terms. On phones its wide tables show one card
+  per row with the column names (`inc/tables.php`). *(database: text)*
 - Fødevarestyrelsen answered: the client only adds online sale to the shop's food registration. Flatpay and her bank
   (WPML) have not answered yet.
 - Product page: − and + around the quantity, like in the cart, so several items are added with a few taps.
