@@ -42,7 +42,7 @@ through Novamira, so they are not in git.
   header, so the count no longer covers it.
 - Cart and checkout: prices and totals in the site font (Elementor's widgets set Roboto).
 - UX audit: more findings removed; the benefits block on the home page should move under the hero or the categories.
-- UX audit: product page findings added (hand-picked "Goes well with" products, contact box, more prominent price, related products styled like the cards on the home page and in categories).
+- UX audit: product page findings added (hand-picked "Goes well with" products, contact box, more prominent price, related products styled like the cards on the home page and in categories, nutrition moved to the long description with a "Read more" link).
 
 ## 2026-10-29
 
