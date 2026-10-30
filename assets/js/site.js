@@ -172,6 +172,58 @@ document.addEventListener('change', (event) => {
 	}
 });
 
+/* === Free delivery === */
+// Mini cart drawer: the bar "Add 230 kr. more for free delivery" above the subtotal (inc/shipping.php draws the same bar
+// in the cart and the checkout). WooCommerce redraws the drawer, so the bar is put back and recounted whenever the
+// footer appears or its subtotal changes.
+(() => {
+	const settings = window.dlFreeShipping;
+	if (!settings) {
+		return;
+	}
+
+	const api = (document.querySelector('link[rel="https://api.w.org/"]')?.href || '/wp-json/') + 'wc/store/v1/cart';
+	let subtotal = null;
+	let timer = 0;
+
+	const money = (amount, totals) => {
+		const [whole, fraction] = amount.toFixed(totals.currency_minor_unit).split('.');
+		const grouped = whole.replace(/\B(?=(\d{3})+(?!\d))/g, totals.currency_thousand_separator);
+		const number = fraction ? grouped + totals.currency_decimal_separator + fraction : grouped;
+		return `<span class="amount">${totals.currency_prefix}${number}${totals.currency_suffix}</span>`;
+	};
+
+	const draw = async (footer) => {
+		const response = await fetch(api, { credentials: 'same-origin' });
+		const totals = (await response.json()).totals;
+		const unit = 10 ** totals.currency_minor_unit;
+		let total = (Number(totals.total_items) + Number(totals.total_items_tax)) / unit;
+		if (!settings.ignoreDiscounts) {
+			total -= (Number(totals.total_discount) + Number(totals.total_discount_tax)) / unit;
+		}
+
+		const remaining = Math.max(0, settings.threshold - total);
+		const percent = Math.min(100, Math.round((total / settings.threshold) * 100));
+		const bar = footer.querySelector('.dl-free-shipping') || document.createElement('div');
+		bar.className = 'dl-free-shipping' + (remaining > 0 ? '' : ' is-free');
+		bar.innerHTML = `<div class="dl-free-shipping-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-label="${settings.label}"><div class="dl-free-shipping-fill" style="--dl-progress: ${percent}%"></div></div>`
+			+ `<p class="dl-free-shipping-text">${remaining > 0 ? settings.missing.replace('%s', money(remaining, totals)) : settings.reached}</p>`;
+		footer.prepend(bar);
+	};
+
+	new MutationObserver(() => {
+		const footer = document.querySelector('.wc-block-mini-cart__footer');
+		const value = footer?.querySelector('.wc-block-mini-cart__footer-subtotal .wc-block-components-totals-item__value')?.textContent;
+		if (!footer || (footer.querySelector('.dl-free-shipping') && value === subtotal)) {
+			return;
+		}
+
+		subtotal = value;
+		clearTimeout(timer);
+		timer = setTimeout(() => draw(footer), 150);
+	}).observe(document.body, { childList: true, subtree: true, characterData: true });
+})();
+
 /* === Dropdowns === */
 // The language list in the header (inc/header.php) and the sorting in the shop bar (inc/woocommerce.php) are
 // <details>: close them on a click elsewhere or with Escape.

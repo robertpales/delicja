@@ -10,6 +10,9 @@
  *   session). Only the rates of that choice are offered, so pickup works without an address; the address fields are
  *   shown and required only for delivery (hidden by site.css). Without a choice, or for an address we do not deliver
  *   to, the order summary says what to do instead of WooCommerce's "no shipping options".
+ * - a bar "Add 230 kr. more for free delivery" in the cart, the mini cart (site.js, === Free delivery ===) and, for
+ *   delivery, in the checkout summary: the threshold of the customer's zone once the postcode is known, otherwise
+ *   Herning's (the lowest).
  * Styles in site.css (=== Cart and checkout widgets ===).
  */
 
@@ -211,3 +214,113 @@ add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors )
 	$errors->remove( 'shipping' );
 	$errors->add( 'shipping', '' === $fulfilment ? esc_html__( 'Choose pickup in the shop or delivery.', 'delicja' ) : delicja_no_shipping_text() );
 }, 10, 2 );
+
+/**
+ * Free delivery method for the customer: of the zone of their postcode once they have entered one, otherwise the one
+ * with the lowest threshold (Herning). Null when that zone has no free delivery from an amount. The second value is
+ * true when the zone is the customer's own.
+ */
+function delicja_free_shipping_method(): array {
+	$own     = WC()->customer && '' !== WC()->customer->get_shipping_postcode();
+	$methods = [];
+	if ( $own ) {
+		$packages = WC()->cart ? WC()->cart->get_shipping_packages() : [];
+		$zone     = $packages ? WC_Shipping_Zones::get_zone_matching_package( $packages[0] ) : null;
+		$methods  = $zone ? $zone->get_shipping_methods( true ) : [];
+	} else {
+		foreach ( WC_Shipping_Zones::get_zones() as $zone ) {
+			$methods = array_merge( $methods, array_filter( $zone['shipping_methods'], fn( $method ) => $method->is_enabled() ) );
+		}
+	}
+
+	$free = array_filter( $methods, fn( $method ) => 'free_shipping' === $method->id && in_array( $method->get_option( 'requires' ), [ 'min_amount', 'either' ], true ) );
+	usort( $free, fn( $a, $b ) => (float) $a->get_option( 'min_amount' ) <=> (float) $b->get_option( 'min_amount' ) );
+
+	return [ $free[0] ?? null, $own ];
+}
+
+/**
+ * Amount the free delivery threshold is compared with, as WooCommerce's free shipping method counts it.
+ */
+function delicja_free_shipping_total( WC_Shipping_Method $method ): float {
+	$cart  = WC()->cart;
+	$total = $cart->get_displayed_subtotal();
+	if ( 'yes' !== $method->get_option( 'ignore_discounts' ) ) {
+		$total -= $cart->get_discount_total() + ( $cart->display_prices_including_tax() ? $cart->get_discount_tax() : 0 );
+	}
+
+	return round( $total, wc_get_price_decimals() );
+}
+
+/**
+ * Bar "Add 230 kr. more for free delivery", or that free delivery is reached; empty without free delivery.
+ */
+function delicja_free_shipping_bar(): string {
+	[ $method, $own ] = delicja_free_shipping_method();
+	if ( ! $method || ! WC()->cart->needs_shipping() ) {
+		return '';
+	}
+
+	$threshold = (float) $method->get_option( 'min_amount' );
+	$total     = delicja_free_shipping_total( $method );
+	$remaining = max( 0, $threshold - $total );
+	$percent   = $threshold > 0 ? min( 100, round( $total / $threshold * 100 ) ) : 100;
+
+	if ( $remaining > 0 ) {
+		$text = $own
+			/* translators: %s: amount still missing */
+			? sprintf( __( 'Add %s more for free delivery.', 'delicja' ), wc_price( $remaining ) )
+			/* translators: %s: amount still missing */
+			: sprintf( __( 'Add %s more for free delivery in Herning.', 'delicja' ), wc_price( $remaining ) );
+	} else {
+		$text = $own ? __( 'Your order has free delivery.', 'delicja' ) : __( 'Your order has free delivery in Herning.', 'delicja' );
+	}
+
+	return sprintf(
+		'<div class="dl-free-shipping%1$s"><div class="dl-free-shipping-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="%2$d" aria-label="%3$s"><div class="dl-free-shipping-fill" style="--dl-progress: %2$d%%"></div></div><p class="dl-free-shipping-text">%4$s</p></div>',
+		$remaining > 0 ? '' : ' is-free',
+		$percent,
+		esc_attr__( 'Free delivery', 'delicja' ),
+		wp_kses_post( $text )
+	);
+}
+
+// Cart page: above the order summary (the Cart widget refreshes it with the totals).
+add_action( 'woocommerce_before_cart_totals', function () {
+	echo delicja_free_shipping_bar(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+} );
+
+// Checkout: in the order summary under the delivery, only for delivery to a postcode (updates with the summary).
+add_action( 'woocommerce_review_order_after_shipping', function () {
+	if ( 'delivery' !== delicja_fulfilment() || '' === WC()->customer->get_shipping_postcode() ) {
+		return;
+	}
+
+	$bar = delicja_free_shipping_bar();
+	if ( $bar ) {
+		echo '<tr class="dl-free-shipping-row"><td colspan="2">' . $bar . '</td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+} );
+
+// Mini cart: the same bar, drawn by site.js (=== Free delivery ===) from the cart totals of the Store API.
+add_action( 'wp_enqueue_scripts', function () {
+	if ( ! function_exists( 'WC' ) || ! WC()->cart ) {
+		return;
+	}
+
+	[ $method, $own ] = delicja_free_shipping_method();
+	if ( ! $method ) {
+		return;
+	}
+
+	$settings = [
+		'threshold'       => (float) $method->get_option( 'min_amount' ),
+		'ignoreDiscounts' => 'yes' === $method->get_option( 'ignore_discounts' ),
+		'label'           => __( 'Free delivery', 'delicja' ),
+		/* translators: %s: amount still missing */
+		'missing'         => $own ? __( 'Add %s more for free delivery.', 'delicja' ) : __( 'Add %s more for free delivery in Herning.', 'delicja' ),
+		'reached'         => $own ? __( 'Your order has free delivery.', 'delicja' ) : __( 'Your order has free delivery in Herning.', 'delicja' ),
+	];
+
+	wp_add_inline_script( 'delicja', 'window.dlFreeShipping = ' . wp_json_encode( $settings ) . ';', 'before' );
+}, 30 );

@@ -3835,6 +3835,52 @@ table.wc-block-cart-items td {
     white-space: normal;
 }
 
+.dl-free-shipping {
+    display: grid;
+    gap: var(--dl-space-20);
+    margin: 0 0 var(--dl-space-40);
+}
+
+.dl-free-shipping-track {
+    overflow: hidden;
+    height: 0.5rem;
+    border-radius: var(--dl-radius-pill);
+    background-color: var(--e-global-color-dltint);
+}
+
+.dl-free-shipping-fill {
+    width: var(--dl-progress);
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--e-global-color-primary);
+    transition: width var(--dl-transition);
+}
+
+.dl-free-shipping-text {
+    margin: 0;
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
+    font-size: var(--e-global-typography-dlsmall-font-size);
+    line-height: var(--e-global-typography-dlsmall-line-height);
+    letter-spacing: var(--e-global-typography-dlsmall-letter-spacing);
+}
+
+.dl-free-shipping-text .amount {
+    font-weight: 700;
+}
+
+.dl-free-shipping.is-free .dl-free-shipping-text {
+    font-weight: 700;
+}
+
+.woocommerce-checkout-review-order-table .dl-free-shipping-row td {
+    padding-top: 0;
+}
+
+.woocommerce-checkout-review-order-table .dl-free-shipping-row .dl-free-shipping {
+    margin: 0;
+}
+
 .elementor-widget-woocommerce-cart .dl-cart-shipping td {
     font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
