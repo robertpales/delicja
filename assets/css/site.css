@@ -3929,7 +3929,7 @@ table.wc-block-cart-items td {
 }
 
 .elementor-widget-woocommerce-checkout-page form.checkout:has(.dl-fulfilment):not(:has(input[name="dl_fulfilment"][value="delivery"]:checked)) :is(#billing_country_field, #billing_address_1_field, #billing_address_2_field, #billing_postcode_field, #billing_city_field, .woocommerce-shipping-fields) {
-    display: none;
+    display: none !important;
 }
 
 .elementor-widget-woocommerce-cart .product-name a {

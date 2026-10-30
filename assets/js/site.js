@@ -162,6 +162,16 @@ document.addEventListener('click', (event) => {
 	input.dispatchEvent(new Event('change', { bubbles: true }));
 });
 
+/* === Checkout === */
+// For delivery the price depends only on the postcode (inc/shipping.php), but WooCommerce updates the order summary
+// only once the whole address is filled in. A changed postcode asks for the update at once; WooCommerce listens for it
+// as a jQuery event.
+document.addEventListener('change', (event) => {
+	if (event.target.id === 'billing_postcode' && document.querySelector('input[name="dl_fulfilment"][value="delivery"]:checked')) {
+		window.jQuery?.(document.body).trigger('update_checkout');
+	}
+});
+
 /* === Dropdowns === */
 // The language list in the header (inc/header.php) and the sorting in the shop bar (inc/woocommerce.php) are
 // <details>: close them on a click elsewhere or with Escape.
