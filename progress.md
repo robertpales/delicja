@@ -10,6 +10,12 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-30
+
+**Matej**
+- Dairy category picture like the client's reference, in our cut-out style: a glass jug of milk tied with twine, a
+  glass of milk, twaróg with a wooden spoon and sour cream on burlap; no white halo when the tile turns red. *(database)*
+
 ## 2026-10-29
 
 **Matej**

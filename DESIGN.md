@@ -179,7 +179,9 @@ selected). Category images are cut-outs on a
 transparent background that look like real photos: daylight, natural textures, no labels, no glossy render look
 (`delicja-category-<slug>-cutout.webp`, 800 px). Ready meals: boiled pierogi like the hero; Meat: smoked ham
 tied with twine, slices and a ring of kiełbasa on a board; Pantry: homemade preserves in jars with kraft-paper caps
-and nests of noodles (`…-pierogi-`, `…-ham-`, `…-jars-cutout.webp`).
+and nests of noodles; Dairy: a glass jug of milk tied with twine, a glass of milk, twaróg with a wooden spoon and sour
+cream on burlap (`…-pierogi-`, `…-ham-`, `…-jars-`, `…-jug-cutout.webp`). Generated cut-outs keep no light halo at the
+edge (the tile turns red under the mouse).
 The front page (11), About us (118), Contact (67), Deals (65) and My account (37) are pages built in Elementor
 (template *Elementor Full Width*).
 
