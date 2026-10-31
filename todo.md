@@ -179,6 +179,9 @@ Prices, stock and images are shared.
 - [ ] Test: a product added in the main language gets the other two versions; an order in each language.
 
 **Before launch**
+- [ ] Delete the test customer Anna Nielsen (`test-kunde@example.com`, user meta `delicja_test_data`) with her 4 test
+  orders (#544–#547, order meta `_delicja_test_data`) and her saved test card. Made by Matej on 2026-10-31 to design
+  My account; no e-mails were sent.
 - [ ] Do not delete the products now on the site: they are real (Matej, 2026-10-27). The client adds the rest
   herself, in Danish, as agreed in the contract.
 - [ ] Delete old backups (`delicja_backup_*` options).

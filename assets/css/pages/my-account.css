@@ -1033,6 +1033,14 @@
         border: 0;
     }
 
+    .dl-account-box .woocommerce-MyAccount-content .wc-block-components-notice-banner.is-info .wc-forward {
+        display: block;
+        float: none;
+        margin: var(--dl-space-20) 0 0;
+        padding: 0;
+        text-align: left;
+    }
+
     .dl-dash-grid,
     .dl-account-box .woocommerce-MyAccount-content :is(.woocommerce-Addresses, .woocommerce-customer-details .col2-set) {
         grid-template-columns: minmax(0, 1fr);

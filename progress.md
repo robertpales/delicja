@@ -18,6 +18,12 @@ through Novamira, so they are not in git.
   and put together with soft shadows so it looks like one natural photo, not AI. The hover stories are gone. *(database)*
 - Category pictures from the same photos: Meat, Fish, Dairy, Pantry and Sweets (the fish bowl was cut off in her
   photo, its top edge was filled in). *(database)*
+- My account when logged in, all sections designed: the dashboard shows cards (latest order with its status, number of
+  orders, delivery address, e-mail and the deals e-mails setting); orders as a clean table with status labels (cards
+  on phones), the order page with a red "Your order is ready in the shop" box for ready pickups, addresses and saved
+  cards as cards, the password change in its own box; menu with icons (two columns on phones). Downloads removed (no
+  downloadable products). Test customer with 4 orders in different states to see it (`inc/account.php`,
+  `my-account.css`). *(database: test data)*
 - Hero calmer and more natural: three groups with room around them (dairy, preserves, smoked meats), the pierogi
   plate left out. *(database)*
 - Category tiles: the products are bigger and fill the tile (pictures 800 × 640 instead of square, less empty space
