@@ -10,6 +10,16 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-10-31
+
+**Matej**
+- Homepage hero as in the client's mockup: real Polish products from the manufacturers' photos she sent (milk jug,
+  twaróg and sour cream, preserves in jars, smoked ham and kiełbasa, plus the pierogi plate) on the red panel, cut out
+  and put together with soft shadows so it looks like one natural photo, not AI. The hover stories are gone. *(database)*
+- Category pictures from the same photos: Meat, Fish, Dairy, Pantry and Sweets (the fish bowl was cut off in her
+  photo, its top edge was filled in). *(database)*
+- Phone menu: the product photo's zoom icon no longer shows through it (2026-10-30).
+
 ## 2026-10-30
 
 **Matej**

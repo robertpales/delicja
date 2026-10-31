@@ -1,7 +1,7 @@
 <?php
 /**
- * Homepage hero: a table with Polish food (Hotspot widget with the picture delicja-hero-table-pierogi.webp; a story
- * and a change per product on hover from delicja-hero-table-pierogi-after.webp: home.css, Hero; site.js, Hero).
+ * Homepage hero: real Polish products on the red panel (Hotspot widget without hotspots, picture
+ * delicja-hero-products.webp; home.css, Hero).
  */
 
 defined( 'ABSPATH' ) || exit;
