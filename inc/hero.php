@@ -1,7 +1,7 @@
 <?php
 /**
  * Homepage hero: real Polish products on the red panel (Hotspot widget without hotspots, picture
- * delicja-hero-products.webp; home.css, Hero).
+ * delicja-hero-products-3.webp; home.css, Hero).
  */
 
 defined( 'ABSPATH' ) || exit;

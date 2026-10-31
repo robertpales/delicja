@@ -79,17 +79,16 @@ caption, slightly rotated), a hand-drawn red underline (`<span class="dl-scribbl
 notes (`dl-hand-note`, global font *Handwritten*) with a drawn arrow. Use them sparingly: one or two per section.
 
 ### Hero products (`home.css` → `=== Hero ===`)
-The client's choice (2026-10-31, her mockup): one picture of real Polish products on the red panel, made from the
-manufacturers' photos she sent (cut out, no AI products): a glass jug of milk tied with twine with twaróg, a glass of
-milk and sour cream; homemade preserves in jars with kraft-paper caps; smoked ham tied with twine, ham slices and
-kiełbasa; boiled pierogi on a plate (the only generated part, the same as the Ready meals tile; replace it when the
-client has a real photo). One light, soft shadows where products overlap and a soft contact shadow under each, so it
-reads as one scene, not stickers (`delicja-hero-products-2.webp`, 1400 × 1067, the same size and place as the old
-table photo). Sizes follow real life (the jars about 0.4 of the jug's height, the plate a little smaller than the jug)
-and every product stays inside the picture, so no hard edge shows where the picture ends (tablets). On phones the
-picture is wider than the text column (126 %) and the space above it small, so the products fill the width. It sits at the bottom right of the red panel and runs off its bottom edge. Nothing moves. It is still the
-Hotspot widget `dl-hero-scene`, now without hotspots; the old hover stories and "after" photo are gone (the code in
-`site.js` and `home.css` does nothing without them). `inc/hero.php` loads the picture without lazy loading.
+The client's choice (2026-10-31, her mockup), made calmer (Matej: "too crowded"): one picture of real Polish products
+on the red panel, from the manufacturers' photos she sent (cut out, no AI products), three groups with room around
+them: a glass jug of milk tied with twine with twaróg, a glass of milk and sour cream (left); homemade preserves in jars
+with kraft-paper caps (behind, right); smoked ham tied with twine, ham slices and kiełbasa (front). No pierogi (no real
+photo yet). One light, soft shadows where products overlap and a soft contact shadow under each group, so it reads as
+one scene, not stickers. Sizes follow real life (the jars about half the jug's height) and every product stays inside
+the picture, so no hard edge shows where the picture ends (`delicja-hero-products-3.webp`, 1400 × 1067, the same size
+and place as the old table photo). It sits at the bottom right of the red panel and runs off its bottom edge. Nothing
+moves. It is still the Hotspot widget `dl-hero-scene`, without hotspots. On phones the picture is wider than the text
+column (126 %) and the space above it small. `inc/hero.php` loads the picture without lazy loading.
 
 ### Photos, not drawings
 Product pictures in promo panels are real-looking photos (cut-outs on a transparent background, soft daylight from

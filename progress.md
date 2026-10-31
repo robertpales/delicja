@@ -18,6 +18,8 @@ through Novamira, so they are not in git.
   and put together with soft shadows so it looks like one natural photo, not AI. The hover stories are gone. *(database)*
 - Category pictures from the same photos: Meat, Fish, Dairy, Pantry and Sweets (the fish bowl was cut off in her
   photo, its top edge was filled in). *(database)*
+- Hero calmer and more natural: three groups with room around them (dairy, preserves, smoked meats), the pierogi
+  plate left out. *(database)*
 - Category tiles: the products are bigger and fill the tile (pictures 800 × 640 instead of square, less empty space
   above the products); also in the shop's category strip and the Shop menu. *(database)*
 - Category pictures all look the same size now (same visual weight, same base line), and the hero products have

@@ -89,7 +89,7 @@ need a product list from her, 2026-10-27)
 
 - [ ] Homepage hero: the client chose the picture of real products (2026-10-31), so the hover stories are gone. Remove
   the unused code: the `?hero=` switch and the reveal for the hero (`site.js`, Hero) and the hero masks (`home.css`).
-  Replace the generated pierogi in it and in the Ready meals tile when the client sends a real photo.
+  Replace the generated pierogi in the Ready meals tile when the client sends a real photo (the hero has none now).
 - [ ] Continue the design, but now unify and finish it rather than change it: give the site its final look,
   keep what is already done and avoid big changes.
   - [ ] Style the product page (template Single Product) in the site style.
