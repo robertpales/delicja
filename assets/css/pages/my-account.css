@@ -565,6 +565,17 @@
     color: var(--e-global-color-dlwhite);
 }
 
+.dl-account-box .woocommerce-MyAccount-content .wc-block-components-notice-banner.is-info {
+    margin: 0 0 var(--dl-space-40);
+    border: 1px solid var(--e-global-color-dlborder);
+    background-color: var(--e-global-color-dlsurface);
+    color: var(--e-global-color-text);
+}
+
+.dl-account-box .woocommerce-MyAccount-content .wc-block-components-notice-banner.is-info > svg {
+    background-color: var(--e-global-color-text);
+}
+
 /* === Status labels === */
 .dl-status,
 .dl-account-box .woocommerce-MyAccount-content mark.order-status {
@@ -1005,12 +1016,14 @@
     }
 
     .dl-account-box .woocommerce-MyAccount-navigation ul {
-        flex-direction: row;
-        overflow-x: auto;
-        scrollbar-width: none;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .dl-account-box .woocommerce-MyAccount-navigation ul li a {
+        gap: var(--dl-space-20);
+        padding: var(--dl-space-20);
+        font-size: var(--e-global-typography-dlsmall-font-size);
         white-space: nowrap;
     }
 
@@ -1052,13 +1065,24 @@
         background-color: var(--e-global-color-dlwhite);
     }
 
+    .dl-account-box .woocommerce-MyAccount-content table.shop_table_responsive tbody tr th {
+        display: block;
+        padding: 0 0 var(--dl-space-20);
+        border: 0;
+        background-color: transparent;
+        font-family: var(--e-global-typography-dlh4-font-family), sans-serif;
+        font-size: var(--e-global-typography-dlh4-font-size);
+        line-height: var(--e-global-typography-dlh4-line-height);
+    }
+
+    .dl-account-box .woocommerce-MyAccount-content table.shop_table_responsive tbody tr th::before {
+        display: none;
+    }
+
     .dl-account-box .woocommerce-MyAccount-content table.shop_table_responsive tbody tr td,
     .dl-account-box .woocommerce-MyAccount-content table.shop_table_responsive tbody tr:nth-child(2n) td,
     .dl-account-box .woocommerce-MyAccount-content table.shop_table_responsive tbody tr:hover td {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--dl-space-30);
+        display: block;
         padding: var(--dl-space-10) 0;
         border: 0;
         background-color: transparent;
@@ -1066,7 +1090,7 @@
     }
 
     .dl-account-box .woocommerce-MyAccount-content table.shop_table_responsive tbody tr td::before {
-        float: none;
+        float: left;
         color: var(--e-global-color-accent);
         font-family: var(--e-global-typography-dlsmall-font-family), sans-serif;
         font-size: var(--e-global-typography-dlsmall-font-size);
@@ -1074,7 +1098,6 @@
     }
 
     .dl-account-box .woocommerce-MyAccount-content table.shop_table_responsive tbody tr td:is(.woocommerce-orders-table__cell-order-actions, .payment-method-actions) {
-        justify-content: flex-end;
         padding-block-start: var(--dl-space-20);
     }
 

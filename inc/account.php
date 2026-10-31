@@ -168,6 +168,7 @@ add_action( 'woocommerce_account_dashboard', function () {
 			'address_2' => $customer->get_shipping_address_1() ? $customer->get_shipping_address_2() : $customer->get_billing_address_2(),
 			'postcode'  => $customer->get_shipping_postcode() ?: $customer->get_billing_postcode(),
 			'city'      => $customer->get_shipping_city() ?: $customer->get_billing_city(),
+			'country'   => $customer->get_shipping_country() ?: ( $customer->get_billing_country() ?: 'DK' ),
 		],
 		', '
 	);
