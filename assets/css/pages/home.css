@@ -357,14 +357,14 @@
 
     .dl-hero > .dl-hero-art {
         align-self: center;
-        width: min(32rem, 100%);
-        aspect-ratio: 1 / 0.8;
+        width: min(36rem, 100%);
+        aspect-ratio: 1 / 0.7;
     }
 
     .dl-hero .dl-hero-art > .elementor-widget.dl-hero-scene {
-        right: -8%;
+        right: -14%;
         bottom: calc(-1 * var(--dl-space-50));
-        width: 116%;
+        width: 126%;
     }
 }
 
