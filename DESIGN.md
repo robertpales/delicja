@@ -173,8 +173,9 @@ selected). Category images are cut-outs on a
 transparent background that look like real photos: daylight, natural textures, no labels, no glossy render look
 (`delicja-category-<slug>-cutout.webp`, 800 px). Meat, Fish, Dairy, Pantry and Sweets use the manufacturers'
 photos the client sent (2026-10-31); Ready meals (boiled pierogi like the hero), Snacks and Fruit & vegetables are
-still generated. All eight have the same visual weight (scaled by a mix of the product's area and its outline) and stand
-on the same line near the bottom of the 800 × 800 picture (`delicja-category-<slug>-tile.webp`). Cut-outs keep no light
+still generated. All eight have the same visual weight (scaled by a mix of the product's area and its outline), fill
+almost the whole width and stand on the same line at the bottom of an 800 × 640 picture, so the products fill the tile
+(`delicja-category-<slug>-tile-2.webp`). Cut-outs keep no light
 halo at the edge (the tile turns red under the mouse).
 The front page (11), About us (118), Contact (67), Deals (65) and My account (37) are pages built in Elementor
 (template *Elementor Full Width*).
