@@ -18,6 +18,10 @@ through Novamira, so they are not in git.
   and put together with soft shadows so it looks like one natural photo, not AI. The hover stories are gone. *(database)*
 - Category pictures from the same photos: Meat, Fish, Dairy, Pantry and Sweets (the fish bowl was cut off in her
   photo, its top edge was filled in). *(database)*
+- My account: "Order again" (puts an order's products in the cart, added to what is already there; on the dashboard,
+  in the orders list and on the order page), small product pictures in the orders, the big "Hello" only on the
+  dashboard (the other sections start with their own title), the order page starts with the number, status and date,
+  and WooCommerce's e-mail confirmation prompt in plain words ("Ordered from us before without an account?…").
 - My account when logged in, all sections designed: the dashboard shows cards (latest order with its status, number of
   orders, delivery address, e-mail and the deals e-mails setting); orders as a clean table with status labels (cards
   on phones), the order page with a red "Your order is ready in the shop" box for ready pickups, addresses and saved
