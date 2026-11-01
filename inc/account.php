@@ -213,12 +213,13 @@ add_filter( 'woocommerce_account_orders_columns', function ( $columns ) {
 } );
 
 add_action( 'woocommerce_my_account_my_orders_column_order-products', function ( $order ) {
-	echo delicja_order_thumbs( $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo delicja_order_thumbs( $order, 3 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 } );
 
+// Not on the order page itself: there the button is at the top (below).
 add_filter( 'woocommerce_my_account_my_orders_actions', function ( $actions, $order ) {
 	$url = delicja_order_again_url( $order );
-	if ( $url ) {
+	if ( $url && ! is_wc_endpoint_url( 'view-order' ) ) {
 		$actions['order-again'] = [
 			'url'        => $url,
 			'name'       => __( 'Order again', 'delicja' ),

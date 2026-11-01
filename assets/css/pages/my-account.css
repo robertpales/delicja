@@ -858,6 +858,19 @@
     white-space: nowrap;
 }
 
+.dl-account-box .woocommerce-MyAccount-content .woocommerce-orders-table__cell-order-products .dl-thumbs {
+    flex-wrap: nowrap;
+}
+
+.dl-account-box .woocommerce-MyAccount-content .woocommerce-orders-table__cell-order-products .dl-thumb {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.dl-account-box .woocommerce-MyAccount-content .woocommerce-orders-table__cell-order-date {
+    white-space: nowrap;
+}
+
 .dl-account-box .woocommerce-MyAccount-content .woocommerce-orders-table__cell-order-actions .button + .button {
     margin-inline-start: var(--dl-space-20);
 }
