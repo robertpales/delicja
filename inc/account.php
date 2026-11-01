@@ -11,8 +11,11 @@
  * My account → Account details. Using it (a newsletter tool) is Robo's.
  *
  * Logged in: the dashboard shows cards (latest order, orders, delivery address, details) instead of WooCommerce's two
- * sentences, the order lists show the status as a label, a pickup order that is ready says so on its page, and the
- * Downloads section is left out (the shop sells no downloads). Styles in my-account.css (=== Account pages ===).
+ * sentences; the big "Hello" of the page shows only there, the other sections start with their own title. Orders show
+ * the status as a label and small pictures of their products, and can be put in the cart again in one click ("Order
+ * again", added to what is already in the cart). A pickup order that is ready says so on its page. The Downloads
+ * section is left out (the shop sells no downloads). WooCommerce's e-mail confirmation prompt (it adds orders placed
+ * without an account) gets plain words. Styles in my-account.css (=== Account pages ===).
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -148,6 +151,156 @@ add_action( 'woocommerce_my_account_my_orders_column_order-status', function ( $
 	echo delicja_order_status_label( $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 } );
 
+/**
+ * Order statuses whose products can be put in the cart again.
+ */
+function delicja_order_again_statuses(): array {
+	return [ 'completed', 'processing', 'ready-pickup', 'on-hold', 'cancelled' ];
+}
+
+add_filter( 'woocommerce_valid_order_statuses_for_order_again', 'delicja_order_again_statuses' );
+
+// "Order again" adds the products to what is already in the cart instead of replacing it.
+add_filter( 'woocommerce_empty_cart_when_order_again', '__return_false' );
+
+/**
+ * Link that puts the order's products in the cart again; empty when the order cannot be repeated.
+ */
+function delicja_order_again_url( WC_Order $order ): string {
+	if ( ! $order->has_status( delicja_order_again_statuses() ) ) {
+		return '';
+	}
+
+	return wp_nonce_url( add_query_arg( 'order_again', $order->get_id(), wc_get_cart_url() ), 'woocommerce-order_again' );
+}
+
+/**
+ * Small pictures of the order's products (the first $max, then "+3").
+ */
+function delicja_order_thumbs( WC_Order $order, int $max = 4 ): string {
+	$items = array_values( array_filter( $order->get_items(), fn( $item ) => $item instanceof WC_Order_Item_Product && $item->get_product() ) );
+	if ( ! $items ) {
+		return '';
+	}
+
+	$html = '';
+	foreach ( array_slice( $items, 0, $max ) as $item ) {
+		$product = $item->get_product();
+		$html   .= sprintf(
+			'<span class="dl-thumb" title="%1$s">%2$s</span>',
+			esc_attr( $item->get_name() ),
+			$product->get_image( 'woocommerce_gallery_thumbnail', [ 'alt' => $item->get_name(), 'loading' => 'lazy' ] )
+		);
+	}
+	if ( count( $items ) > $max ) {
+		$html .= '<span class="dl-thumb dl-thumb--more">+' . ( count( $items ) - $max ) . '</span>';
+	}
+
+	return '<span class="dl-thumbs">' . $html . '</span>';
+}
+
+// Orders list: a Products column with the pictures after the order number, and "Order again" next to "View".
+add_filter( 'woocommerce_account_orders_columns', function ( $columns ) {
+	$new = [];
+	foreach ( $columns as $key => $label ) {
+		$new[ $key ] = $label;
+		if ( 'order-number' === $key ) {
+			$new['order-products'] = __( 'Products', 'delicja' );
+		}
+	}
+
+	return $new;
+} );
+
+add_action( 'woocommerce_my_account_my_orders_column_order-products', function ( $order ) {
+	echo delicja_order_thumbs( $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+} );
+
+add_filter( 'woocommerce_my_account_my_orders_actions', function ( $actions, $order ) {
+	$url = delicja_order_again_url( $order );
+	if ( $url ) {
+		$actions['order-again'] = [
+			'url'        => $url,
+			'name'       => __( 'Order again', 'delicja' ),
+			/* translators: %s: order number */
+			'aria-label' => sprintf( __( 'Put the products of order %s in the cart again', 'delicja' ), $order->get_order_number() ),
+		];
+	}
+
+	return $actions;
+}, 10, 2 );
+
+// Every section except the dashboard starts with its title (the page's big "Hello" shows only on the dashboard).
+add_action( 'woocommerce_account_content', function () {
+	$endpoint = WC()->query->get_current_endpoint();
+	if ( ! $endpoint || 'view-order' === $endpoint ) {
+		return;
+	}
+	$items = wc_get_account_menu_items();
+	$title = $items[ $endpoint ] ?? WC()->query->get_endpoint_title( $endpoint );
+	if ( $title ) {
+		echo '<h2 class="dl-account-section-title">' . esc_html( $title ) . '</h2>';
+	}
+}, 5 );
+
+// Order page: the order number with its status and date on top, then "Order again"; WooCommerce's sentence and its
+// "Order again" under the table are hidden (my-account.css, removed below).
+add_action( 'woocommerce_view_order', function ( $order_id ) {
+	$order = wc_get_order( $order_id );
+	if ( ! $order ) {
+		return;
+	}
+	$again = delicja_order_again_url( $order );
+	?>
+	<div class="dl-order-head">
+		<div class="dl-order-head-text">
+			<h2 class="dl-account-section-title">
+				<?php
+				/* translators: %s: order number */
+				printf( esc_html__( 'Order #%s', 'delicja' ), esc_html( $order->get_order_number() ) );
+				?>
+			</h2>
+			<p class="dl-order-head-meta">
+				<?php echo delicja_order_status_label( $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<span>
+					<?php
+					/* translators: %s: date */
+					printf( esc_html__( 'Ordered on %s', 'delicja' ), esc_html( wc_format_datetime( $order->get_date_created() ) ) );
+					?>
+				</span>
+			</p>
+		</div>
+		<?php if ( $again ) : ?>
+			<a class="button dl-order-again" href="<?php echo esc_url( $again ); ?>"><?php esc_html_e( 'Order again', 'delicja' ); ?></a>
+		<?php endif; ?>
+	</div>
+	<?php
+}, 1 );
+
+add_action( 'init', function () {
+	remove_action( 'woocommerce_order_details_after_order_table', 'woocommerce_order_again_button' );
+} );
+
+// Order page: a small picture before each product name.
+add_filter( 'woocommerce_order_item_name', function ( $name, $item ) {
+	if ( ! is_wc_endpoint_url( 'view-order' ) || ! $item instanceof WC_Order_Item_Product || ! $item->get_product() ) {
+		return $name;
+	}
+
+	return '<span class="dl-item-thumb">' . $item->get_product()->get_image( 'woocommerce_gallery_thumbnail', [ 'alt' => '', 'loading' => 'lazy' ] ) . '</span>' . $name;
+}, 10, 2 );
+
+// WooCommerce's prompt to confirm the e-mail address (it adds orders the customer placed without an account): plain words.
+add_filter( 'gettext_woocommerce', function ( $translation, $text ) {
+	$texts = [
+		'Confirm your email address to check for past orders and link them to your account.' => __( 'Ordered from us before without an account? Confirm your e-mail address and we will add those orders here.', 'delicja' ),
+		'Confirm your email address to check for past orders. A confirmation link was sent recently — please check your inbox.' => __( 'We have sent you a link. Open it from your inbox and your earlier orders will show here.', 'delicja' ),
+		'Confirm email address' => __( 'Confirm my e-mail', 'delicja' ),
+	];
+
+	return $texts[ $text ] ?? $translation;
+}, 10, 2 );
+
 // Dashboard: cards instead of WooCommerce's text (hidden by my-account.css when the cards are there).
 add_action( 'woocommerce_account_dashboard', function () {
 	$customer = new WC_Customer( get_current_user_id() );
@@ -175,15 +328,12 @@ add_action( 'woocommerce_account_dashboard', function () {
 	$marketing = (bool) get_user_meta( $customer->get_id(), 'delicja_marketing_consent', true );
 	?>
 	<div class="dl-dash">
-		<div class="dl-dash-head">
-			<p class="dl-dash-hello">
-				<?php
-				/* translators: %s: the customer's first name */
-				printf( esc_html__( 'Good to see you, %s!', 'delicja' ), esc_html( $name ) );
-				?>
-			</p>
-			<p class="dl-dash-lead"><?php esc_html_e( 'Follow your orders, change your addresses and your details here.', 'delicja' ); ?></p>
-		</div>
+		<p class="dl-dash-lead">
+			<?php
+			/* translators: %s: the customer's first name */
+			printf( esc_html__( '%s, here you can follow your orders and change your addresses and details.', 'delicja' ), esc_html( $name ) );
+			?>
+		</p>
 
 		<div class="dl-dash-grid">
 			<?php if ( $latest ) : ?>
@@ -208,7 +358,13 @@ add_action( 'woocommerce_account_dashboard', function () {
 						echo wp_kses_post( $latest->get_formatted_order_total() );
 						?>
 					</p>
-					<a class="button dl-dash-button" href="<?php echo esc_url( $latest->get_view_order_url() ); ?>"><?php esc_html_e( 'See the order', 'delicja' ); ?></a>
+					<?php echo delicja_order_thumbs( $latest, 6 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<div class="dl-dash-buttons">
+						<a class="button dl-dash-button" href="<?php echo esc_url( $latest->get_view_order_url() ); ?>"><?php esc_html_e( 'See the order', 'delicja' ); ?></a>
+						<?php if ( delicja_order_again_url( $latest ) ) : ?>
+							<a class="button dl-order-again" href="<?php echo esc_url( delicja_order_again_url( $latest ) ); ?>"><?php esc_html_e( 'Order again', 'delicja' ); ?></a>
+						<?php endif; ?>
+					</div>
 				</section>
 			<?php endif; ?>
 
