@@ -15,7 +15,7 @@
  *   delivery, in the checkout summary: the threshold of the customer's zone once the postcode is known, otherwise
  *   Herning's (the lowest).
  * - delivery needs an order of at least 499 kr. (pickup has no minimum), checked at checkout; the order summary
- *   and the cart show a bar towards it above the free delivery bar,
+ *   the cart and the mini cart show a bar towards it above the free delivery bar, and Place order is disabled,
  * - delivery in the zones with the Wednesday/Friday round goes on the first delivery day at least 24 hours away
  *   (15:00, the start of the round); the order summary shows the day, the order keeps it (_delicja_delivery_date)
  *   and the e-mails, the thank-you page and the order in wp-admin show it.
@@ -329,20 +329,22 @@ add_action( 'woocommerce_proceed_to_checkout', function () {
 	}
 }, 6 );
 
-// Mini cart: the same bar, drawn by site.js (=== Free delivery ===) from the cart totals of the Store API.
+// Mini cart: the same bars (minimum order for delivery, free delivery), drawn by site.js (=== Free delivery ===) from
+// the cart totals of the Store API.
 add_action( 'wp_enqueue_scripts', function () {
 	if ( ! function_exists( 'WC' ) || ! WC()->cart ) {
 		return;
 	}
 
 	[ $method, $own ] = delicja_free_shipping_method();
-	if ( ! $method ) {
-		return;
-	}
 
 	$settings = [
-		'threshold'       => (float) $method->get_option( 'min_amount' ),
-		'ignoreDiscounts' => 'yes' === $method->get_option( 'ignore_discounts' ),
+		'minimum'         => DELICJA_DELIVERY_MINIMUM,
+		'minimumLabel'    => __( 'Minimum order for delivery', 'delicja' ),
+		/* translators: 1: minimum order amount, 2: amount still missing */
+		'minimumText'     => __( 'For delivery the minimum order is %1$s: add %2$s more, or choose pickup in the shop.', 'delicja' ),
+		'threshold'       => $method ? (float) $method->get_option( 'min_amount' ) : 0,
+		'ignoreDiscounts' => $method && 'yes' === $method->get_option( 'ignore_discounts' ),
 		'label'           => __( 'Free delivery', 'delicja' ),
 		/* translators: %s: amount still missing */
 		'missing'         => $own ? __( 'Add %s more for free delivery.', 'delicja' ) : __( 'Add %s more for free delivery in Herning.', 'delicja' ),
@@ -443,6 +445,16 @@ add_action( 'woocommerce_review_order_after_shipping', function () {
 	if ( $bars ) {
 		echo '<tr class="dl-free-shipping-row"><td colspan="2"><div class="dl-delivery-bars">' . $bars . '</div></td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
+} );
+
+// Delivery below the minimum order: the Place order button is disabled (the bar above says why). It is redrawn with
+// every update of the order summary, so it comes back once the minimum is reached or pickup is chosen.
+add_filter( 'woocommerce_order_button_html', function ( $html ) {
+	if ( 'delivery' !== delicja_fulfilment() || ! WC()->cart || ! WC()->cart->needs_shipping() || delicja_delivery_missing() <= 0 ) {
+		return $html;
+	}
+
+	return preg_replace( '/<button\b/', '<button disabled aria-disabled="true"', $html, 1 );
 } );
 
 // No delivery below the minimum order.

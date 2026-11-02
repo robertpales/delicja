@@ -3892,6 +3892,12 @@ table.wc-block-cart-items td {
     background-color: var(--e-global-color-secondary);
 }
 
+.elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment #place_order:disabled {
+    background-color: var(--e-global-color-dlmuted);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.order-total th, .order-total td, .order-total .amount) {
     font-family: var(--e-global-typography-dlprice-font-family), sans-serif;
     font-size: var(--e-global-typography-dlprice-font-size);

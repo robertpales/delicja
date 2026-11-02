@@ -173,9 +173,10 @@ document.addEventListener('change', (event) => {
 });
 
 /* === Free delivery === */
-// Mini cart drawer: the bar "Add 230 kr. more for free delivery" above the subtotal (inc/shipping.php draws the same bar
-// in the cart and the checkout). WooCommerce redraws the drawer, so the bar is put back and recounted whenever the
-// footer appears or its subtotal changes.
+// Mini cart drawer: the bars "Add 359 kr. more for delivery" (minimum order, only while it is not reached) and "Add
+// 230 kr. more for free delivery" above the subtotal (inc/shipping.php draws the same bars in the cart and the
+// checkout). WooCommerce redraws the drawer, so the bars are put back and recounted whenever the footer appears or its
+// subtotal changes.
 (() => {
 	const settings = window.dlFreeShipping;
 	if (!settings) {
@@ -193,28 +194,40 @@ document.addEventListener('change', (event) => {
 		return `<span class="amount">${totals.currency_prefix}${number}${totals.currency_suffix}</span>`;
 	};
 
+	const bar = (percent, label, text, done) => `<div class="dl-free-shipping${done ? ' is-free' : ''}">`
+		+ `<div class="dl-free-shipping-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-label="${label}"><div class="dl-free-shipping-fill" style="--dl-progress: ${percent}%"></div></div>`
+		+ `<p class="dl-free-shipping-text">${text}</p></div>`;
+
 	const draw = async (footer) => {
 		const response = await fetch(api, { credentials: 'same-origin' });
 		const totals = (await response.json()).totals;
 		const unit = 10 ** totals.currency_minor_unit;
-		let total = (Number(totals.total_items) + Number(totals.total_items_tax)) / unit;
-		if (!settings.ignoreDiscounts) {
-			total -= (Number(totals.total_discount) + Number(totals.total_discount_tax)) / unit;
+		const items = (Number(totals.total_items) + Number(totals.total_items_tax)) / unit;
+		const goods = items - (Number(totals.total_discount) + Number(totals.total_discount_tax)) / unit;
+
+		let html = '';
+		if (settings.minimum && goods < settings.minimum) {
+			const percent = Math.min(100, Math.round((goods / settings.minimum) * 100));
+			const text = settings.minimumText.replace('%1$s', money(settings.minimum, totals)).replace('%2$s', money(settings.minimum - goods, totals));
+			html += bar(percent, settings.minimumLabel, text, false);
+		}
+		if (settings.threshold) {
+			const total = settings.ignoreDiscounts ? items : goods;
+			const remaining = Math.max(0, settings.threshold - total);
+			const percent = Math.min(100, Math.round((total / settings.threshold) * 100));
+			html += bar(percent, settings.label, remaining > 0 ? settings.missing.replace('%s', money(remaining, totals)) : settings.reached, remaining <= 0);
 		}
 
-		const remaining = Math.max(0, settings.threshold - total);
-		const percent = Math.min(100, Math.round((total / settings.threshold) * 100));
-		const bar = footer.querySelector('.dl-free-shipping') || document.createElement('div');
-		bar.className = 'dl-free-shipping' + (remaining > 0 ? '' : ' is-free');
-		bar.innerHTML = `<div class="dl-free-shipping-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-label="${settings.label}"><div class="dl-free-shipping-fill" style="--dl-progress: ${percent}%"></div></div>`
-			+ `<p class="dl-free-shipping-text">${remaining > 0 ? settings.missing.replace('%s', money(remaining, totals)) : settings.reached}</p>`;
-		footer.prepend(bar);
+		const box = footer.querySelector('.dl-delivery-bars') || document.createElement('div');
+		box.className = 'dl-delivery-bars';
+		box.innerHTML = html;
+		footer.prepend(box);
 	};
 
 	new MutationObserver(() => {
 		const footer = document.querySelector('.wc-block-mini-cart__footer');
 		const value = footer?.querySelector('.wc-block-mini-cart__footer-subtotal .wc-block-components-totals-item__value')?.textContent;
-		if (!footer || (footer.querySelector('.dl-free-shipping') && value === subtotal)) {
+		if (!footer || (footer.querySelector('.dl-delivery-bars') && value === subtotal)) {
 			return;
 		}
 
