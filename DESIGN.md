@@ -190,6 +190,19 @@ old price), full-width "Add to cart" button. After adding it turns into a steppe
 a little and tilted (left, every second card right), as if picked up from the shelf, with a soft shadow below; no
 zoom. The related product cards do the same.
 
+## Product names in three languages
+One rule for every product, so Polish customers recognise the pack and Danish and English ones understand it:
+brand, then the Polish product name as on the pack, then the flavour or what it is in the page's language, then the
+weight. Generic words are translated, Polish names are not. Examples: "Krakus Żurek, surdejssuppe" (Danish),
+"Krakus Żurek, sour rye soup" (English), "Krakus Żurek familijny" (Polish); "Twaróg, fed kvark 250 g"; "Olewnik
+Myśliwska, jægerpølse af skinke 180 g". The Polish version keeps the Polish name only.
+The owner writes the product in Danish; WPML translates it into English and Polish automatically when it is
+published (title, slug, descriptions, nutrition table; category and attributes are linked to their translations).
+The WPML glossary (*WPML → Translations → Glossary*) keeps Polish brands and product names untranslated (Krakus,
+Olewnik, Twaróg, Pierogi, Żurek, …) and fixes a few words (kvark → farmer's cheese, mælkesyregærede agurker →
+ogórki kiszone). A new brand or Polish product name goes into the glossary before the product is published.
+Product facts (`inc/product-facts.php`) read the nutrition table in all three languages.
+
 ## Homepage, section by section (front page, CSS in `assets/css/pages/home.css`)
 1. Announcement bar with a small delivery van icon, and header (Theme Builder): wordmark, product search ("Search for
    sausages, sweets…"), account and mini cart (WooCommerce hides the mini cart from visitors while the shop is in

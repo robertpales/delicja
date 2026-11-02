@@ -71,7 +71,8 @@ need a product list from her, 2026-10-27)
 
 **Language versions**
 - [ ] Before launch someone who reads English and Polish checks the English and Polish Terms and conditions and
-  Privacy policy (translated 2026-11-02 from the client's Danish texts). The client checks the Danish product names.
+  Privacy policy (translated 2026-11-02 from the client's Danish texts). The client checks the Danish product names (rule in DESIGN.md, Product names in three
+  languages).
 
 ---
 
@@ -150,12 +151,15 @@ Prices, stock and images are shared.
 Set up 2026-11-02 (see progress.md). Pages and templates are English originals with Danish and Polish translations
 (Terms and Privacy policy: Danish originals); a change on a page must be made in each language.
 
-- [ ] Glossary in WPML so Polish brand and product names are not translated.
+- [ ] Product slugs after the new product names (Matej, 2026-11-02; slugs not changed, they are Robo's): the Danish
+  slugs still follow the old automatic names (e.g. `twarog-fed-landhytteost-250-g`) and the English ones are the
+  Polish names. Decide whether to update them (with redirects) before launch.
 - [ ] Live search (`inc/search.php`): Store API results in the current language (check with WPML; add `lang` to the
   endpoint if needed).
 - [ ] `inc/schema.php`: language, URLs and breadcrumbs from the current language.
 - [ ] Rank Math per language: meta, `hreflang`, sitemaps. WooCommerce e-mails in the customer's language. Complianz banner in all languages.
-- [ ] Test: a product added in the main language gets the other two versions; an order in each language.
+- [ ] Test: an order in each language. (A product written in Danish gets its English and Polish versions
+  automatically, checked 2026-11-02.)
 
 **Before launch**
 - [ ] Delete the test customer Anna Nielsen (`test-kunde@example.com`, user meta `delicja_test_data`) with her 4 test

@@ -47,6 +47,16 @@ through Novamira, so they are not in git.
   Delivery & returns in three languages, homepage FAQ (14-day returns vs. Terms), Danish meta texts, live WPML key.
 
 **Matej**
+- Product names in three languages, one rule (brand, Polish name, flavour or what it is in the page's language,
+  weight): English names instead of the Polish ones, Danish names no longer half translated, Polish names kept;
+  image alt texts follow. WPML's record updated so it does not re-translate them. Backups
+  `delicja_backup_product_titles_20261102`, `delicja_backup_product_image_alts_20261102`. *(database)*
+- WPML glossary: Polish brands and product names stay untranslated, a few words fixed (kvark → farmer's cheese,
+  mælkesyregærede agurker → ogórki kiszone). *(database)*
+- Product facts work in every language: nutrition table read in Danish and Polish too, allergen and storage icons
+  for translated terms, all texts in Danish and Polish (`inc/product-facts.php`, theme translations).
+- Checked with a test product written in Danish: WPML translated its name, slug, descriptions, nutrition table,
+  category and attributes into English and Polish on publishing; then deleted.
 - New arrivals tile: instead of the AI crate, real packs from the shop's own product photos standing together
   (Paluszki, Łaciate milk, Krakus Żurek, kefir, Delicje, Kamis mustard), asked by the client. *(database)*
   Then moved higher, so the packs are less cut off at the bottom.
