@@ -26,7 +26,7 @@ if ( $reminder ) {
 echo esc_html__( 'The amount is reserved on your card and charged when you collect the order. If it is not collected by then, we cancel the order and release the reservation.', 'delicja' ) . "\n\n";
 echo esc_html__( 'Delicja, Bethaniagade 5, 7400 Herning', 'delicja' ) . "\n";
 echo esc_html( implode( "\n", delicja_opening_hours_lines() ) ) . "\n\n";
-echo esc_html__( 'Questions? Call +45 51 43 03 21 or write to info@delicja.dk.', 'delicja' ) . "\n\n";
+echo esc_html__( 'Questions? Call +45 51 43 03 21 or write to shop@delicja.dk.', 'delicja' ) . "\n\n";
 
 do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
 

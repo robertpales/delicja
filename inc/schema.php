@@ -80,7 +80,7 @@ function dl_schema_config() {
 		'vat_id'     => 'DK45266575',
 		'founding'   => '2024-12-10',
 		'phone'      => '+4551430321',
-		'email'      => 'info@delicja.dk',
+		'email'      => 'shop@delicja.dk',
 		'logo_id'    => 45,
 		'address'    => [
 			'streetAddress'   => 'Bethaniagade 5',

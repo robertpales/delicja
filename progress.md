@@ -31,6 +31,8 @@ through Novamira, so they are not in git.
 - Menus in Danish and Polish (Hovedmenu, Footer – Butik, Footer – Information; Polish Menu główne, Stopka – …); the
   English menus were renamed (Main menu, Footer – Shop, Footer – Information (EN)), slugs unchanged. Category links on
   the homepage point to the translated categories; tagline translated in String Translation. *(database)*
+- One contact e-mail everywhere: info@delicja.dk replaced by shop@delicja.dk (pages and templates in all languages,
+  SEO descriptions, Rank Math, schema, shipping note, pickup e-mails, theme translations). *(database + code)*
 - WPML 5 calls English `en-us`: page CSS (`delicja_english_id`) and the language switcher now handle it, so
   translated pages load the English page's CSS and English shows in the switcher.
 

@@ -144,7 +144,7 @@ function delicja_no_shipping_text(): string {
 	}
 
 	return sprintf(
-		'%s <a href="mailto:info@delicja.dk">info@delicja.dk</a> · <a href="tel:+4551430321">+45 51 43 03 21</a>',
+		'%s <a href="mailto:shop@delicja.dk">shop@delicja.dk</a> · <a href="tel:+4551430321">+45 51 43 03 21</a>',
 		esc_html__( 'We deliver in Jutland. Live even further away? Choose pickup, or get in touch and we will arrange it together:', 'delicja' )
 	);
 }

@@ -43,7 +43,7 @@ if ( $reminder ) {
 	<strong><?php esc_html_e( 'Delicja, Bethaniagade 5, 7400 Herning', 'delicja' ); ?></strong><br>
 	<?php echo implode( '<br>', array_map( 'esc_html', delicja_opening_hours_lines() ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </p>
-<p><?php esc_html_e( 'Questions? Call +45 51 43 03 21 or write to info@delicja.dk.', 'delicja' ); ?></p>
+<p><?php esc_html_e( 'Questions? Call +45 51 43 03 21 or write to shop@delicja.dk.', 'delicja' ); ?></p>
 <?php echo $email_improvements_enabled ? '</div>' : ''; ?>
 
 <?php

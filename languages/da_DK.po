@@ -340,8 +340,8 @@ msgstr "Beløbet er reserveret på dit kort og trækkes, når du henter ordren. 
 msgid "Delicja, Bethaniagade 5, 7400 Herning"
 msgstr "Delicja, Bethaniagade 5, 7400 Herning"
 
-msgid "Questions? Call +45 51 43 03 21 or write to info@delicja.dk."
-msgstr "Spørgsmål? Ring på +45 51 43 03 21, eller skriv til info@delicja.dk."
+msgid "Questions? Call +45 51 43 03 21 or write to shop@delicja.dk."
+msgstr "Spørgsmål? Ring på +45 51 43 03 21, eller skriv til shop@delicja.dk."
 
 msgid "Search products"
 msgstr "Søg efter varer"

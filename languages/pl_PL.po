@@ -344,8 +344,8 @@ msgstr "Kwota jest zablokowana na Twojej karcie i zostanie pobrana przy odbiorze
 msgid "Delicja, Bethaniagade 5, 7400 Herning"
 msgstr "Delicja, Bethaniagade 5, 7400 Herning"
 
-msgid "Questions? Call +45 51 43 03 21 or write to info@delicja.dk."
-msgstr "Pytania? Zadzwoń pod +45 51 43 03 21 lub napisz na info@delicja.dk."
+msgid "Questions? Call +45 51 43 03 21 or write to shop@delicja.dk."
+msgstr "Pytania? Zadzwoń pod +45 51 43 03 21 lub napisz na shop@delicja.dk."
 
 msgid "Search products"
 msgstr "Szukaj produktów"
