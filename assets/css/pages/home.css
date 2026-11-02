@@ -762,7 +762,7 @@
     max-width: none;
     margin: 0;
     pointer-events: none;
-    translate: 0 40%;
+    translate: 0 26%;
     transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -774,7 +774,7 @@
 }
 
 .dl-new .dl-new-tile:hover > .elementor-widget.dl-new-crate {
-    translate: 0 38%;
+    translate: 0 24%;
 }
 
 .dl-new-tile > .dl-buttons {
@@ -801,11 +801,11 @@
         right: -4%;
         left: auto;
         width: min(24rem, 52%);
-        translate: 0 30%;
+        translate: 0 18%;
     }
 
     .dl-new .dl-new-tile:hover > .elementor-widget.dl-new-crate {
-        translate: 0 28%;
+        translate: 0 16%;
     }
 }
 
@@ -818,11 +818,11 @@
         right: auto;
         left: -8%;
         width: 116%;
-        translate: 0 40%;
+        translate: 0 34%;
     }
 
     .dl-new .dl-new-tile:hover > .elementor-widget.dl-new-crate {
-        translate: 0 38%;
+        translate: 0 32%;
     }
 }
 
