@@ -14,7 +14,8 @@
  * - a bar "Add 230 kr. more for free delivery" in the cart, the mini cart (site.js, === Free delivery ===) and, for
  *   delivery, in the checkout summary: the threshold of the customer's zone once the postcode is known, otherwise
  *   Herning's (the lowest).
- * - delivery needs an order of at least 499 kr. (pickup has no minimum), checked at checkout,
+ * - delivery needs an order of at least 499 kr. (pickup has no minimum), checked at checkout; the order summary
+ *   shows a bar towards it above the free delivery bar,
  * - delivery in the zones with the Wednesday/Friday round goes on the first delivery day at least 24 hours away
  *   (15:00, the start of the round); the order summary shows the day, the order keeps it (_delicja_delivery_date)
  *   and the e-mails, the thank-you page and the order in wp-admin show it.
@@ -299,11 +300,18 @@ function delicja_free_shipping_bar(): string {
 		$text = $own ? __( 'Your order has free delivery.', 'delicja' ) : __( 'Your order has free delivery in Herning.', 'delicja' );
 	}
 
+	return delicja_progress_bar( $percent, $text, $remaining <= 0, __( 'Free delivery', 'delicja' ) );
+}
+
+/**
+ * Progress bar with a text under it (free delivery, minimum order for delivery); $done makes the text bold.
+ */
+function delicja_progress_bar( int $percent, string $text, bool $done, string $label ): string {
 	return sprintf(
 		'<div class="dl-free-shipping%1$s"><div class="dl-free-shipping-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="%2$d" aria-label="%3$s"><div class="dl-free-shipping-fill" style="--dl-progress: %2$d%%"></div></div><p class="dl-free-shipping-text">%4$s</p></div>',
-		$remaining > 0 ? '' : ' is-free',
+		$done ? ' is-free' : '',
 		$percent,
-		esc_attr__( 'Free delivery', 'delicja' ),
+		esc_attr( $label ),
 		wp_kses_post( $text )
 	);
 }
@@ -312,18 +320,6 @@ function delicja_free_shipping_bar(): string {
 add_action( 'woocommerce_proceed_to_checkout', function () {
 	echo delicja_free_shipping_bar(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }, 6 );
-
-// Checkout: in the order summary under the delivery, only for delivery to a postcode (updates with the summary).
-add_action( 'woocommerce_review_order_after_shipping', function () {
-	if ( 'delivery' !== delicja_fulfilment() || '' === WC()->customer->get_shipping_postcode() ) {
-		return;
-	}
-
-	$bar = delicja_free_shipping_bar();
-	if ( $bar ) {
-		echo '<tr class="dl-free-shipping-row"><td colspan="2">' . $bar . '</td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-} );
 
 // Mini cart: the same bar, drawn by site.js (=== Free delivery ===) from the cart totals of the Store API.
 add_action( 'wp_enqueue_scripts', function () {
@@ -402,18 +398,28 @@ function delicja_delivery_minimum_text(): string {
 	);
 }
 
-// Order summary: the minimum order note, otherwise the delivery day (updates with the summary).
+/**
+ * Bar towards the minimum order for delivery; empty when it is reached.
+ */
+function delicja_delivery_minimum_bar(): string {
+	$missing = delicja_delivery_missing();
+	if ( $missing <= 0 ) {
+		return '';
+	}
+
+	$percent = (int) min( 100, round( ( DELICJA_DELIVERY_MINIMUM - $missing ) / DELICJA_DELIVERY_MINIMUM * 100 ) );
+	return delicja_progress_bar( $percent, delicja_delivery_minimum_text(), false, __( 'Minimum order for delivery', 'delicja' ) );
+}
+
+// Order summary, for delivery (updates with the summary): the delivery day once the minimum is reached, then the bars
+// for the minimum order and free delivery (free delivery only with a postcode, it depends on the zone), one above
+// the other.
 add_action( 'woocommerce_review_order_after_shipping', function () {
 	if ( 'delivery' !== delicja_fulfilment() || ! WC()->cart->needs_shipping() ) {
 		return;
 	}
 
-	if ( delicja_delivery_missing() > 0 ) {
-		echo '<tr class="dl-delivery-minimum"><td colspan="2"><p class="dl-shipping-note">' . wp_kses_post( delicja_delivery_minimum_text() ) . '</p></td></tr>';
-		return;
-	}
-
-	$day = delicja_checkout_delivery_day();
+	$day = delicja_delivery_missing() > 0 ? null : delicja_checkout_delivery_day();
 	if ( $day ) {
 		printf(
 			'<tr class="dl-delivery-day"><th>%1$s</th><td data-title="%1$s">%2$s</td></tr>',
@@ -421,7 +427,15 @@ add_action( 'woocommerce_review_order_after_shipping', function () {
 			esc_html( delicja_format_delivery_day( $day->getTimestamp() ) )
 		);
 	}
-}, 5 );
+
+	$bars = delicja_delivery_minimum_bar();
+	if ( '' !== WC()->customer->get_shipping_postcode() ) {
+		$bars .= delicja_free_shipping_bar();
+	}
+	if ( $bars ) {
+		echo '<tr class="dl-free-shipping-row"><td colspan="2"><div class="dl-delivery-bars">' . $bars . '</div></td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+} );
 
 // No delivery below the minimum order.
 add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors ) {

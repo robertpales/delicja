@@ -367,3 +367,6 @@ msgstr "Leveringsdag"
 msgctxt "delivery day"
 msgid "l j F"
 msgstr "l \\d\\e\\n j. F"
+
+msgid "Minimum order for delivery"
+msgstr "Minimumsordre for levering"

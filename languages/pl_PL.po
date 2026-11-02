@@ -371,3 +371,6 @@ msgstr "Dzień dostawy"
 msgctxt "delivery day"
 msgid "l j F"
 msgstr "l, j F"
+
+msgid "Minimum order for delivery"
+msgstr "Minimalne zamówienie przy dostawie"

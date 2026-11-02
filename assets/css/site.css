@@ -3973,6 +3973,11 @@ table.wc-block-cart-items td {
     margin: 0;
 }
 
+.woocommerce-checkout-review-order-table .dl-delivery-bars {
+    display: grid;
+    gap: var(--dl-space-30);
+}
+
 .elementor-widget-woocommerce-cart .dl-cart-shipping td {
     font-family: var(--e-global-typography-text-font-family), sans-serif;
     font-size: var(--e-global-typography-text-font-size);
