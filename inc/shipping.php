@@ -88,7 +88,7 @@ add_action( 'woocommerce_cart_totals_before_order_total', function () {
 		wp_kses_post( __( 'Pickup in the shop: <strong>free</strong>', 'delicja' ) ),
 		wp_kses_post( sprintf( __( 'Delivery on Wednesday or Friday: from %1$s, free in Herning from %2$s', 'delicja' ), wc_price( $prices['from'] ), wc_price( $prices['free'] ) ) ),
 		/* translators: %s: minimum order amount */
-		wp_kses_post( sprintf( __( 'Delivery from an order of %s.', 'delicja' ), wc_price( DELICJA_DELIVERY_MINIMUM ) ) ),
+		wp_kses_post( sprintf( __( 'Minimum %s for delivery.', 'delicja' ), wc_price( DELICJA_DELIVERY_MINIMUM ) ) ),
 		esc_html__( 'You choose at checkout.', 'delicja' )
 	);
 } );
@@ -396,7 +396,7 @@ function delicja_format_delivery_day( int $timestamp ): string {
 function delicja_delivery_minimum_text(): string {
 	return sprintf(
 		/* translators: 1: minimum order amount, 2: amount still missing */
-		__( 'Delivery needs an order of at least %1$s. Add %2$s more, or choose pickup in the shop.', 'delicja' ),
+		__( 'For delivery the minimum order is %1$s: add %2$s more, or choose pickup in the shop.', 'delicja' ),
 		wc_price( DELICJA_DELIVERY_MINIMUM ),
 		wc_price( delicja_delivery_missing() )
 	);

@@ -352,14 +352,14 @@ msgstr "Søg efter pølser, slik…"
 msgid "Search"
 msgstr "Søg"
 
-msgid "Delivery from an order of %s."
-msgstr "Levering ved køb for mindst %s."
+msgid "Minimum %s for delivery."
+msgstr "Minimum %s for levering."
 
 msgid "minimum order %s"
 msgstr "minimumsordre %s"
 
-msgid "Delivery needs an order of at least %1$s. Add %2$s more, or choose pickup in the shop."
-msgstr "Levering kræver en ordre på mindst %1$s. Køb for %2$s mere, eller vælg afhentning i butikken."
+msgid "For delivery the minimum order is %1$s: add %2$s more, or choose pickup in the shop."
+msgstr "Levering kræver mindst %1$s: køb for %2$s mere, eller vælg afhentning i butikken."
 
 msgid "Delivery day"
 msgstr "Leveringsdag"
