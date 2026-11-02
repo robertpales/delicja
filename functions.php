@@ -63,7 +63,7 @@ function delicja_english_code(): string {
 	return 'en';
 }
 
-// Theme strings (text domain "delicja"): languages/delicja-da_DK.mo and delicja-pl_PL.mo; the .po files next to
+// Theme strings (text domain "delicja"): languages/da_DK.mo and pl_PL.mo (a theme folder uses the locale as the file name); the .po files next to
 // them are the source (edit the .po, then rebuild the .mo).
 add_action( 'after_setup_theme', function () {
 	load_child_theme_textdomain( 'delicja', get_stylesheet_directory() . '/languages' );

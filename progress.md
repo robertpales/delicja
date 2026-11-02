@@ -23,7 +23,7 @@ through Novamira, so they are not in git.
   kontakt, promocje. *(database)*
 - Terms and Privacy policy were Danish texts: now the Danish originals (handelsbetingelser, privatlivspolitik) with
   English and Polish translations. *(database)*
-- Theme strings translated: `languages/delicja-da_DK.po/.mo` and `delicja-pl_PL.po/.mo` (loaded in functions.php);
+- Theme strings translated: `languages/da_DK.po/.mo` and `pl_PL.po/.mo` (loaded in functions.php);
   the header search texts are translatable now.
 - WPML 5 calls English `en-us`: page CSS (`delicja_english_id`) and the language switcher now handle it, so
   translated pages load the English page's CSS and English shows in the switcher.
