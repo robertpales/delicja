@@ -25,6 +25,12 @@ through Novamira, so they are not in git.
   English and Polish translations. *(database)*
 - Theme strings translated: `languages/da_DK.po/.mo` and `pl_PL.po/.mo` (loaded in functions.php);
   the header search texts are translatable now.
+- Products, categories, attributes and tags translated automatically (WPML credits) into Danish and Polish; the
+  WooCommerce Multilingual setup wizard had to be finished first, until then WCML blocks products from automatic
+  translation. *(database)*
+- Menus in Danish and Polish (Hovedmenu, Footer – Butik, Footer – Information; Polish Menu główne, Stopka – …); the
+  English menus were renamed (Main menu, Footer – Shop, Footer – Information (EN)), slugs unchanged. Category links on
+  the homepage point to the translated categories; tagline translated in String Translation. *(database)*
 - WPML 5 calls English `en-us`: page CSS (`delicja_english_id`) and the language switcher now handle it, so
   translated pages load the English page's CSS and English shows in the switcher.
 
