@@ -3893,9 +3893,9 @@ table.wc-block-cart-items td {
 }
 
 .elementor-element.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment #place_order:disabled {
-    background-color: var(--e-global-color-dlmuted);
+    background-color: var(--e-global-color-accent);
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 1;
 }
 
 .elementor-element:is(.elementor-widget-woocommerce-cart, .elementor-widget-woocommerce-checkout-page) :is(.order-total th, .order-total td, .order-total .amount) {
