@@ -92,8 +92,9 @@ column (126 %) and the space above it small. `inc/hero.php` loads the picture wi
 
 ### Photos, not drawings
 Product pictures in promo panels are real-looking photos (cut-outs on a transparent background, soft daylight from
-the upper left) that run off the bottom edge of the panel: the New arrivals tile has a wooden crate of groceries
-(`delicja-new-crate-kielbasa.webp`), the "Not in Herning?" panel an opened delivery box
+the upper left) that run off the bottom edge of the panel: the New arrivals tile has real packs from the shop's own
+product photos standing together (Lajkonik Paluszki, Łaciate milk, Krakus Żurek, Łowicz kefir, Delicje, Kamis mustard;
+no red packs on the red tile; `delicja-new-arrivals-packs.webp`, 960 × 706, the same place as the old crate), the "Not in Herning?" panel an opened delivery box
 (`delicja-delivery-box-kielbasa.webp`). On hover they rise a little. Only products Delicja sells (no bread).
 
 ### Opening hours
@@ -217,8 +218,8 @@ zoom. The related product cards do the same.
    doughnuts, the shop window), a handwritten "Come say hi!", the story from About us, buttons Our story and Get
    directions.
 6. "Customer favourites" (live, featured products) with category chips.
-7. "New arrivals" (live, newest products) with a red promo tile as tall as the cards: paper grain and a wooden crate
-   of groceries at the bottom (see Photos, not drawings).
+7. "New arrivals" (live, newest products) with a red promo tile as tall as the cards: paper grain and real product
+   packs at the bottom (see Photos, not drawings).
    Below 600 px both product rows scroll sideways and get the same small scroll bar as the categories.
 8. Four promises (genuine Polish products, delivery, payment, family shop) [TODO confirm with the owner].
 9. "Questions and answers" (FAQ accordion) and a "More questions?" box [TODO final answers].

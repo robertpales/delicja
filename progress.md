@@ -10,6 +10,12 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-11-02
+
+**Matej**
+- New arrivals tile: instead of the AI crate, real packs from the shop's own product photos standing together
+  (Paluszki, Łaciate milk, Krakus Żurek, kefir, Delicje, Kamis mustard), asked by the client. *(database)*
+
 ## 2026-10-31
 
 **Matej**
