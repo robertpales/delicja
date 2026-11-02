@@ -355,3 +355,19 @@ msgstr "Szukaj kiełbasy, słodyczy…"
 
 msgid "Search"
 msgstr "Szukaj"
+
+msgid "Delivery from an order of %s."
+msgstr "Dostawa przy zamówieniu od %s."
+
+msgid "minimum order %s"
+msgstr "minimalne zamówienie %s"
+
+msgid "Delivery needs an order of at least %1$s. Add %2$s more, or choose pickup in the shop."
+msgstr "Dostawa wymaga zamówienia za co najmniej %1$s. Dodaj produkty za %2$s lub wybierz odbiór w sklepie."
+
+msgid "Delivery day"
+msgstr "Dzień dostawy"
+
+msgctxt "delivery day"
+msgid "l j F"
+msgstr "l, j F"

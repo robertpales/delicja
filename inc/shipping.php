@@ -3,6 +3,7 @@
  * Shipping. The zones are set in WooCommerce → Settings → Shipping (database), by postcode and road distance from
  * the shop (Bethaniagade 5): Herning 7400; up to 15 km; 15–40 km; rest of Jutland (6000–9990). Ferry islands and
  * the rest of Denmark have only pickup in the shop. Delivery costs are entered without moms (49 kr. = 39.20).
+ * When the client adds or moves a town, change the postcodes of its zone.
  * Here:
  * - the paid delivery is hidden when the order has free delivery,
  * - the cart shows what getting the order costs (pickup free, delivery from the lowest price), before the total,
@@ -13,10 +14,21 @@
  * - a bar "Add 230 kr. more for free delivery" in the cart, the mini cart (site.js, === Free delivery ===) and, for
  *   delivery, in the checkout summary: the threshold of the customer's zone once the postcode is known, otherwise
  *   Herning's (the lowest).
+ * - delivery needs an order of at least 499 kr. (pickup has no minimum), checked at checkout,
+ * - delivery in the zones with the Wednesday/Friday round goes on the first delivery day at least 24 hours away
+ *   (15:00, the start of the round); the order summary shows the day, the order keeps it (_delicja_delivery_date)
+ *   and the e-mails, the thank-you page and the order in wp-admin show it.
  * Styles in site.css (=== Cart and checkout widgets ===).
  */
 
 defined( 'ABSPATH' ) || exit;
+
+// Minimum order for delivery, with moms (the client's terms, 2026-10-28).
+const DELICJA_DELIVERY_MINIMUM = 499;
+
+// Shipping zones with the Wednesday/Friday delivery round (WooCommerce zone IDs): Herning, up to 15 km, 15–40 km.
+// Rest of Jutland has a time agreed with the customer.
+const DELICJA_ROUND_ZONES = [ 2, 3, 4 ];
 
 // Free delivery reached: only free delivery and pickup are offered, not the paid delivery of the same zone.
 add_filter( 'woocommerce_package_rates', function ( $rates ) {
@@ -71,10 +83,12 @@ add_action( 'woocommerce_cart_totals_before_order_total', function () {
 
 	$prices = delicja_delivery_prices();
 	printf(
-		'<tr class="dl-cart-shipping"><th>%1$s</th><td data-title="%1$s"><span>%2$s</span><span>%3$s</span><small>%4$s</small></td></tr>',
+		'<tr class="dl-cart-shipping"><th>%1$s</th><td data-title="%1$s"><span>%2$s</span><span>%3$s</span><small>%4$s %5$s</small></td></tr>',
 		esc_html__( 'Delivery', 'delicja' ),
 		wp_kses_post( __( 'Pickup in the shop: <strong>free</strong>', 'delicja' ) ),
 		wp_kses_post( sprintf( __( 'Delivery on Wednesday or Friday: from %1$s, free in Herning from %2$s', 'delicja' ), wc_price( $prices['from'] ), wc_price( $prices['free'] ) ) ),
+		/* translators: %s: minimum order amount */
+		wp_kses_post( sprintf( __( 'Delivery from an order of %s.', 'delicja' ), wc_price( DELICJA_DELIVERY_MINIMUM ) ) ),
 		esc_html__( 'You choose at checkout.', 'delicja' )
 	);
 } );
@@ -168,7 +182,9 @@ add_action( 'woocommerce_checkout_before_customer_details', function () {
 		],
 		'delivery' => [
 			__( 'Delivery to your door', 'delicja' ),
-			sprintf( __( 'In Jutland, Wednesday or Friday · from %1$s, free in Herning from %2$s', 'delicja' ), wc_price( $prices['from'] ), wc_price( $prices['free'] ) ),
+			sprintf( __( 'In Jutland, Wednesday or Friday · from %1$s, free in Herning from %2$s', 'delicja' ), wc_price( $prices['from'] ), wc_price( $prices['free'] ) )
+				/* translators: %s: minimum order amount */
+				. ' · ' . sprintf( __( 'minimum order %s', 'delicja' ), wc_price( DELICJA_DELIVERY_MINIMUM ) ),
 		],
 	];
 
@@ -243,9 +259,16 @@ function delicja_free_shipping_method(): array {
  * Amount the free delivery threshold is compared with, as WooCommerce's free shipping method counts it.
  */
 function delicja_free_shipping_total( WC_Shipping_Method $method ): float {
+	return delicja_cart_goods_total( 'yes' === $method->get_option( 'ignore_discounts' ) );
+}
+
+/**
+ * Value of the goods in the cart as the customer sees it (with moms), after discounts unless ignored.
+ */
+function delicja_cart_goods_total( bool $ignore_discounts = false ): float {
 	$cart  = WC()->cart;
 	$total = $cart->get_displayed_subtotal();
-	if ( 'yes' !== $method->get_option( 'ignore_discounts' ) ) {
+	if ( ! $ignore_discounts ) {
 		$total -= $cart->get_discount_total() + ( $cart->display_prices_including_tax() ? $cart->get_discount_tax() : 0 );
 	}
 
@@ -324,3 +347,127 @@ add_action( 'wp_enqueue_scripts', function () {
 
 	wp_add_inline_script( 'delicja', 'window.dlFreeShipping = ' . wp_json_encode( $settings ) . ';', 'before' );
 }, 30 );
+
+/* === Minimum order and delivery day === */
+
+/**
+ * Amount still missing to the minimum order for delivery (0 when reached).
+ */
+function delicja_delivery_missing(): float {
+	return max( 0, DELICJA_DELIVERY_MINIMUM - delicja_cart_goods_total() );
+}
+
+/**
+ * First delivery day (Wednesday or Friday, 15:00) at least 24 hours from now.
+ */
+function delicja_next_delivery_day( ?DateTimeImmutable $now = null ): DateTimeImmutable {
+	$now      = $now ?? new DateTimeImmutable( 'now', wp_timezone() );
+	$earliest = $now->modify( '+24 hours' );
+	for ( $days = 0; $days < 14; $days++ ) {
+		$day = $now->setTime( 15, 0 )->modify( "+{$days} days" );
+		if ( in_array( (int) $day->format( 'N' ), [ 3, 5 ], true ) && $day >= $earliest ) {
+			return $day;
+		}
+	}
+	return $earliest;
+}
+
+/**
+ * Delivery day of the current checkout: only for delivery to a postcode in a zone with the delivery round.
+ */
+function delicja_checkout_delivery_day(): ?DateTimeImmutable {
+	if ( 'delivery' !== delicja_fulfilment() || ! WC()->customer || '' === WC()->customer->get_shipping_postcode() ) {
+		return null;
+	}
+
+	$packages = WC()->cart->get_shipping_packages();
+	$zone     = $packages ? WC_Shipping_Zones::get_zone_matching_package( $packages[0] ) : null;
+	return $zone && in_array( (int) $zone->get_id(), DELICJA_ROUND_ZONES, true ) ? delicja_next_delivery_day() : null;
+}
+
+/**
+ * Delivery day for people: "Friday 6 November, 15:00–17:00" in the current language.
+ */
+function delicja_format_delivery_day( int $timestamp ): string {
+	/* translators: PHP date format of the delivery day, e.g. "Friday 6 November" */
+	return wp_date( _x( 'l j F', 'delivery day', 'delicja' ), $timestamp ) . ", 15:00\u{2013}17:00";
+}
+
+function delicja_delivery_minimum_text(): string {
+	return sprintf(
+		/* translators: 1: minimum order amount, 2: amount still missing */
+		__( 'Delivery needs an order of at least %1$s. Add %2$s more, or choose pickup in the shop.', 'delicja' ),
+		wc_price( DELICJA_DELIVERY_MINIMUM ),
+		wc_price( delicja_delivery_missing() )
+	);
+}
+
+// Order summary: the minimum order note, otherwise the delivery day (updates with the summary).
+add_action( 'woocommerce_review_order_after_shipping', function () {
+	if ( 'delivery' !== delicja_fulfilment() || ! WC()->cart->needs_shipping() ) {
+		return;
+	}
+
+	if ( delicja_delivery_missing() > 0 ) {
+		echo '<tr class="dl-delivery-minimum"><td colspan="2"><p class="dl-shipping-note">' . wp_kses_post( delicja_delivery_minimum_text() ) . '</p></td></tr>';
+		return;
+	}
+
+	$day = delicja_checkout_delivery_day();
+	if ( $day ) {
+		printf(
+			'<tr class="dl-delivery-day"><th>%1$s</th><td data-title="%1$s">%2$s</td></tr>',
+			esc_html__( 'Delivery day', 'delicja' ),
+			esc_html( delicja_format_delivery_day( $day->getTimestamp() ) )
+		);
+	}
+}, 5 );
+
+// No delivery below the minimum order.
+add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors ) {
+	if ( 'delivery' === delicja_fulfilment() && WC()->cart->needs_shipping() && delicja_delivery_missing() > 0 ) {
+		$errors->add( 'dl_delivery_minimum', delicja_delivery_minimum_text() );
+	}
+}, 20, 2 );
+
+// The order keeps its delivery day.
+add_action( 'woocommerce_checkout_create_order', function ( $order ) {
+	$day = delicja_checkout_delivery_day();
+	if ( $day ) {
+		$order->update_meta_data( '_delicja_delivery_date', $day->format( 'Y-m-d' ) );
+	}
+} );
+
+/**
+ * Timestamp of the order's delivery day at 15:00, or null.
+ */
+function delicja_order_delivery_day( $order ): ?int {
+	$date = $order instanceof WC_Order ? (string) $order->get_meta( '_delicja_delivery_date' ) : '';
+	$day  = $date ? DateTimeImmutable::createFromFormat( 'Y-m-d H:i', $date . ' 15:00', wp_timezone() ) : false;
+	return $day ? $day->getTimestamp() : null;
+}
+
+// E-mails, thank-you page and My account: a row "Delivery day" under the shipping.
+add_filter( 'woocommerce_get_order_item_totals', function ( $rows, $order ) {
+	$day = delicja_order_delivery_day( $order );
+	if ( ! $day ) {
+		return $rows;
+	}
+
+	$row = [
+		'dl_delivery_day' => [
+			'label' => esc_html__( 'Delivery day', 'delicja' ) . ':',
+			'value' => esc_html( delicja_format_delivery_day( $day ) ),
+		],
+	];
+	$at  = array_search( 'shipping', array_keys( $rows ), true );
+	return false === $at ? $rows + $row : array_slice( $rows, 0, $at + 1, true ) + $row + array_slice( $rows, $at + 1, null, true );
+}, 10, 2 );
+
+// wp-admin order: the delivery day under the shipping address.
+add_action( 'woocommerce_admin_order_data_after_shipping_address', function ( $order ) {
+	$day = delicja_order_delivery_day( $order );
+	if ( $day ) {
+		printf( '<p><strong>%s:</strong> %s</p>', esc_html__( 'Delivery day', 'delicja' ), esc_html( delicja_format_delivery_day( $day ) ) );
+	}
+} );

@@ -100,21 +100,14 @@ need a product list from her, 2026-10-27)
     (free from 999 kr.), 15–40 km 129 kr. (free from 1,299 kr.), deliveries Wednesday and Friday 15:00–17:00; rest
     of Jutland 219 kr., time agreed with the customer; further away by arrangement. Pickup in the shop free, ready in
     about two hours, collect within 3 days the shop is open after the "ready" e-mail, otherwise the order is
-    cancelled; the card is charged at pickup or delivery. Towns in each zone: Robo's list below (Robo → WooCommerce).
+    cancelled; the card is charged at pickup or delivery. Towns in each zone: WooCommerce → Settings → Shipping (zones by postcode). The checkout
+    takes orders for the first delivery day at least 24 hours away (Tuesday 15:00 for Wednesday, Thursday 15:00 for
+    Friday) and needs 499 kr. for delivery (Robo, 2026-11-02).
 ---
 
 ## Robo
 
 **WooCommerce**
-- [ ] From the client's terms (2026-10-28): minimum order 499 kr. for delivery (pickup has no minimum?), and delivery
-  orders at least 24 hours before the delivery day (Wednesday or Friday). Checkout and shipping should follow this.
-- [ ] Delivery zones (the Delivery & returns page itself is Matej's, see above). Zones (2026-10-27, by road distance from Bethaniagade 5 to the town centre, OSRM ≈ Google Maps): Herning 7400;
-  up to 15 km 7451, 7430, 6933 Kibæk (15.8 km, counted in); 15–40 km 7480, 7441, 7490, 6920, 7470, 7330, 7280,
-  7442, 7550, 6973, 7540, 7361, 7270, 6971, 7500, 8600 Silkeborg, 7362 Hampen, 8653 Them (40.4 km, counted in);
-  rest of Jutland 6000–9990; ferry islands (6720, 7884, 8305, 8592, 8789, 8799, 9940) and the rest of Denmark only
-  pickup. If the client adds or moves a town, change the zone's postcodes.
-- [ ] Pickup "ready" SMS/WhatsApp: the e-mail is done (`inc/pickup.php`); decide whether the shop also sends an SMS
-  by hand from its phone or an SMS service sends it automatically (extra cost); tell Matej which.
 - [ ] Live site: a real server cron (or a scheduled ping of `wp-cron.php` every 15 minutes) so the hourly pickup check
   also runs when visitors only get cached pages. Check what Simply offers.
 - [ ] Marketing e-mails (Matej, 2026-10-27): the register form has an optional, unticked checkbox "Send me e-mails

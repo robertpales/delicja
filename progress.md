@@ -33,6 +33,11 @@ through Novamira, so they are not in git.
   the homepage point to the translated categories; tagline translated in String Translation. *(database)*
 - One contact e-mail everywhere: info@delicja.dk replaced by shop@delicja.dk (pages and templates in all languages,
   SEO descriptions, Rank Math, schema, shipping note, pickup e-mails, theme translations). *(database + code)*
+- Checkout follows the client's delivery terms: delivery needs an order of at least 499 kr. (pickup has no minimum),
+  and Herning / up to 40 km deliveries go on the first Wednesday or Friday at least 24 hours away. The order summary,
+  e-mails, thank-you page and the order in wp-admin show the delivery day (`inc/shipping.php`, Danish and Polish texts).
+- Delivery zones checked against the client's list (postcodes, prices, free delivery limits): all correct. The pickup
+  SMS will not be done, the "ready" e-mail is enough.
 - WPML 5 calls English `en-us`: page CSS (`delicja_english_id`) and the language switcher now handle it, so
   translated pages load the English page's CSS and English shows in the switcher.
 - Checked: page, category and product slugs are translated (e.g. `przekaski`, `…-med-vanilje`); the privacy policy
