@@ -15,7 +15,7 @@
  *   delivery, in the checkout summary: the threshold of the customer's zone once the postcode is known, otherwise
  *   Herning's (the lowest).
  * - delivery needs an order of at least 499 kr. (pickup has no minimum), checked at checkout; the order summary
- *   shows a bar towards it above the free delivery bar,
+ *   and the cart show a bar towards it above the free delivery bar,
  * - delivery in the zones with the Wednesday/Friday round goes on the first delivery day at least 24 hours away
  *   (15:00, the start of the round); the order summary shows the day, the order keeps it (_delicja_delivery_date)
  *   and the e-mails, the thank-you page and the order in wp-admin show it.
@@ -316,9 +316,17 @@ function delicja_progress_bar( int $percent, string $text, bool $done, string $l
 	);
 }
 
-// Cart page: right above the checkout button (the Cart widget refreshes it with the totals).
+// Cart page: right above the checkout button, the minimum order bar for delivery above the free delivery bar (the
+// Cart widget refreshes them with the totals).
 add_action( 'woocommerce_proceed_to_checkout', function () {
-	echo delicja_free_shipping_bar(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	if ( ! WC()->cart->needs_shipping() ) {
+		return;
+	}
+
+	$bars = delicja_delivery_minimum_bar() . delicja_free_shipping_bar();
+	if ( $bars ) {
+		echo '<div class="dl-delivery-bars">' . $bars . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }, 6 );
 
 // Mini cart: the same bar, drawn by site.js (=== Free delivery ===) from the cart totals of the Store API.

@@ -3965,6 +3965,20 @@ table.wc-block-cart-items td {
     font-weight: 700;
 }
 
+.dl-delivery-bars {
+    display: grid;
+    gap: var(--dl-space-30);
+    margin: 0 0 var(--dl-space-40);
+}
+
+.dl-delivery-bars .dl-free-shipping {
+    margin: 0;
+}
+
+.woocommerce-checkout-review-order-table .dl-delivery-bars {
+    margin: 0;
+}
+
 .woocommerce-checkout-review-order-table .dl-free-shipping-row td {
     padding-top: 0;
 }
@@ -3973,10 +3987,6 @@ table.wc-block-cart-items td {
     margin: 0;
 }
 
-.woocommerce-checkout-review-order-table .dl-delivery-bars {
-    display: grid;
-    gap: var(--dl-space-30);
-}
 
 .elementor-widget-woocommerce-cart .dl-cart-shipping td {
     font-family: var(--e-global-typography-text-font-family), sans-serif;
