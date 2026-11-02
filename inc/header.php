@@ -15,7 +15,19 @@ add_action( 'wp_head', function () {
 
 // Product search: the core search block in WooCommerce's product-search variation (adds post_type=product).
 add_shortcode( 'dl_product_search', function () {
-	return do_blocks( '<!-- wp:search {"label":"Search products","showLabel":false,"placeholder":"Search for sausages, sweets…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"product"},"namespace":"woocommerce/product-search"} /-->' );
+	$attrs = [
+		'label'          => __( 'Search products', 'delicja' ),
+		'showLabel'      => false,
+		'placeholder'    => __( 'Search for sausages, sweets…', 'delicja' ),
+		'width'          => 100,
+		'widthUnit'      => '%',
+		'buttonText'     => __( 'Search', 'delicja' ),
+		'buttonPosition' => 'button-inside',
+		'buttonUseIcon'  => true,
+		'query'          => [ 'post_type' => 'product' ],
+		'namespace'      => 'woocommerce/product-search',
+	];
+	return do_blocks( '<!-- wp:search ' . wp_json_encode( $attrs, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . ' /-->' );
 } );
 
 // Account icon linking to My account.

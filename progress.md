@@ -17,6 +17,14 @@ through Novamira, so they are not in git.
   Danish; retagged to English in WPML (backup table `wp_icl_translations_bak_20261102`). *(database)*
 - Automatic translation (credits) only for products; pages, posts and Elementor templates are translated by hand. *(database)*
 - Homepage translated by hand into Danish (page 562, slug `forside`) and Polish (563, `strona-glowna`). *(database)*
+- All pages and Elementor templates translated by hand into Danish and Polish (header, footer, cart, checkout, 404,
+  product, archives, coming soon, information page); internal links point to the translated pages. Danish slugs:
+  butik, kurv, kasse, min-konto, om-os, kontakt, tilbud; Polish: sklep, koszyk, zamowienie, moje-konto, o-nas,
+  kontakt, promocje. *(database)*
+- Terms and Privacy policy were Danish texts: now the Danish originals (handelsbetingelser, privatlivspolitik) with
+  English and Polish translations. *(database)*
+- Theme strings translated: `languages/delicja-da_DK.po/.mo` and `delicja-pl_PL.po/.mo` (loaded in functions.php);
+  the header search texts are translatable now.
 - WPML 5 calls English `en-us`: page CSS (`delicja_english_id`) and the language switcher now handle it, so
   translated pages load the English page's CSS and English shows in the switcher.
 

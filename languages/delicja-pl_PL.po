@@ -1,0 +1,357 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delicja Child\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Log in or register"
+msgstr "Zaloguj się lub zarejestruj"
+
+msgid "Log in"
+msgstr "Zaloguj się"
+
+msgid "Register"
+msgstr "Zarejestruj się"
+
+msgid "Send me e-mails about deals and new products. I can unsubscribe at any time."
+msgstr "Wysyłajcie mi e-maile o promocjach i nowościach. Mogę się wypisać w każdej chwili."
+
+msgid "I have read the %s."
+msgstr "Przeczytałem %s."
+
+msgid "privacy policy"
+msgstr "politykę prywatności"
+
+msgid "I have read the privacy policy."
+msgstr "Przeczytałem politykę prywatności."
+
+msgid "Please confirm that you have read the privacy policy."
+msgstr "Potwierdź, że przeczytałeś politykę prywatności."
+
+msgid "Products"
+msgstr "Produkty"
+
+msgid "Order again"
+msgstr "Zamów ponownie"
+
+msgid "Put the products of order %s in the cart again"
+msgstr "Dodaj ponownie produkty z zamówienia %s do koszyka"
+
+msgid "Order #%s"
+msgstr "Zamówienie #%s"
+
+msgid "Ordered on %s"
+msgstr "Zamówiono %s"
+
+msgid "Ordered from us before without an account? Confirm your e-mail address and we will add those orders here."
+msgstr "Zamawiałeś u nas wcześniej bez konta? Potwierdź swój adres e-mail, a dodamy te zamówienia tutaj."
+
+msgid "We have sent you a link. Open it from your inbox and your earlier orders will show here."
+msgstr "Wysłaliśmy Ci link. Otwórz go ze skrzynki odbiorczej, a Twoje wcześniejsze zamówienia pojawią się tutaj."
+
+msgid "Confirm my e-mail"
+msgstr "Potwierdź mój e-mail"
+
+msgid "%s, here you can follow your orders and change your addresses and details."
+msgstr "%s, tutaj możesz śledzić swoje zamówienia i zmieniać adresy oraz dane."
+
+msgid "Latest order"
+msgstr "Ostatnie zamówienie"
+
+msgid "See the order"
+msgstr "Zobacz zamówienie"
+
+msgid "Orders"
+msgstr "Zamówienia"
+
+msgid "No orders yet"
+msgstr "Brak zamówień"
+
+msgid "All orders"
+msgstr "Wszystkie zamówienia"
+
+msgid "Delivery address"
+msgstr "Adres dostawy"
+
+msgid "Not added yet"
+msgstr "Jeszcze nie dodano"
+
+msgid "Change addresses"
+msgstr "Zmień adresy"
+
+msgid "Your details"
+msgstr "Twoje dane"
+
+msgid "E-mails about deals: on"
+msgstr "E-maile o promocjach: włączone"
+
+msgid "E-mails about deals: off"
+msgstr "E-maile o promocjach: wyłączone"
+
+msgid "Change details or password"
+msgstr "Zmień dane lub hasło"
+
+msgid "Back to the shop"
+msgstr "Wróć do sklepu"
+
+msgid "Your order is ready in the shop"
+msgstr "Twoje zamówienie czeka w sklepie"
+
+msgid "Collect it at Bethaniagade 5, 7400 Herning."
+msgstr "Odbierz je przy Bethaniagade 5, 7400 Herning."
+
+msgid "Please collect it by %s."
+msgstr "Odbierz je najpóźniej %s."
+
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] "%d produkt"
+msgstr[1] "%d produkty"
+msgstr[2] "%d produktów"
+
+msgid "%d order"
+msgid_plural "%d orders"
+msgstr[0] "%d zamówienie"
+msgstr[1] "%d zamówienia"
+msgstr[2] "%d zamówień"
+
+msgid "Language: %s"
+msgstr "Język: %s"
+
+msgid "A – glass bottles and cans under 1 l"
+msgstr "A – szklane butelki i puszki poniżej 1 l"
+
+msgid "B – plastic bottles under 1 l"
+msgstr "B – plastikowe butelki poniżej 1 l"
+
+msgid "C – bottles and cans from 1 l"
+msgstr "C – butelki i puszki od 1 l"
+
+msgid "No pant"
+msgstr "Bez kaucji"
+
+msgid "Pant"
+msgstr "Kaucja (pant)"
+
+msgid "Drinks in cans and bottles: the class from the Danish pant mark on the pack. The shop shows \"+ pant\" under the price and adds it in the cart."
+msgstr "Napoje w puszkach i butelkach: klasa z duńskiego znaku kaucji na opakowaniu. Sklep pokazuje „+ pant” pod ceną i dolicza kaucję w koszyku."
+
+msgid "— No change —"
+msgstr "— Bez zmian —"
+
+msgid "+ pant %s"
+msgstr "+ kaucja %s"
+
+msgid "%s each"
+msgstr "%s za szt."
+
+msgid "closed"
+msgstr "zamknięte"
+
+msgid "Hi %1$s, your Delicja order #%2$s is ready for pickup at Bethaniagade 5, Herning."
+msgstr "Cześć %1$s, Twoje zamówienie Delicja #%2$s jest gotowe do odbioru przy Bethaniagade 5, Herning."
+
+msgid "See you soon!"
+msgstr "Do zobaczenia!"
+
+msgid "Change status to ready for pickup"
+msgstr "Zmień status na gotowe do odbioru"
+
+msgid "Ready for pickup"
+msgstr "Gotowe do odbioru"
+
+msgid "Send WhatsApp message"
+msgstr "Wyślij wiadomość WhatsApp"
+
+msgid "This order is delivered, not collected in the shop: no \"Ready for pickup\" e-mail is sent and it is not cancelled automatically."
+msgstr "To zamówienie jest dostarczane, a nie odbierane w sklepie: e-mail „Gotowe do odbioru” nie zostanie wysłany i zamówienie nie zostanie anulowane automatycznie."
+
+msgid "Tell the customer on WhatsApp:"
+msgstr "Powiadom klienta przez WhatsApp:"
+
+msgid "No phone number in the order, so no WhatsApp message can be sent."
+msgstr "W zamówieniu nie ma numeru telefonu, więc nie można wysłać wiadomości WhatsApp."
+
+msgid "The order was not collected in time, so we have cancelled it and released the amount reserved on your card. You are welcome to order again."
+msgstr "Zamówienie nie zostało odebrane na czas, więc je anulowaliśmy i zwolniliśmy kwotę zablokowaną na Twojej karcie. Zapraszamy do ponownego zamówienia."
+
+msgid "Not collected within 3 opening days: cancelled automatically."
+msgstr "Nieodebrane w ciągu 3 dni otwarcia: anulowane automatycznie."
+
+msgid "Pickup reminder sent to the customer."
+msgstr "Przypomnienie o odbiorze wysłane do klienta."
+
+msgid "Pickup orders not ready yet"
+msgstr "Zamówienia do odbioru, które nie są jeszcze gotowe"
+
+msgid "These pickup orders were placed more than a day ago and are not marked \"Ready for pickup\" yet. The card reservation is valid about 7 days."
+msgstr "Te zamówienia do odbioru zostały złożone ponad dzień temu i nie są jeszcze oznaczone jako „Gotowe do odbioru”. Blokada na karcie jest ważna około 7 dni."
+
+msgctxt "Order status"
+msgid "Ready for pickup"
+msgstr "Gotowe do odbioru"
+
+msgid "See you in the shop!"
+msgstr "Do zobaczenia w sklepie!"
+
+msgid "Sent to the customer when a pickup order is marked \"Ready for pickup\", with the date to collect it by."
+msgstr "Wysyłany do klienta, gdy zamówienie do odbioru zostanie oznaczone jako „Gotowe do odbioru”, z datą, do kiedy trzeba je odebrać."
+
+msgid "Your order #{order_number} is ready for pickup"
+msgstr "Twoje zamówienie #{order_number} jest gotowe do odbioru"
+
+msgid "Your order is ready"
+msgstr "Twoje zamówienie jest gotowe"
+
+msgid "Pickup reminder"
+msgstr "Przypomnienie o odbiorze"
+
+msgid "Sent to the customer when a pickup order has not been collected after two of the three pickup days."
+msgstr "Wysyłany do klienta, gdy zamówienie do odbioru nie zostało odebrane po dwóch z trzech dni odbioru."
+
+msgid "Reminder: your order #{order_number} is waiting for you"
+msgstr "Przypomnienie: Twoje zamówienie #{order_number} czeka na Ciebie"
+
+msgid "Your order is still waiting"
+msgstr "Twoje zamówienie wciąż czeka"
+
+msgid "See all results (%d)"
+msgstr "Zobacz wszystkie wyniki (%d)"
+
+msgid "No products found. Try another word."
+msgstr "Nie znaleziono produktów. Spróbuj innego słowa."
+
+msgid "Categories and pages"
+msgstr "Kategorie i strony"
+
+msgid "Category"
+msgstr "Kategoria"
+
+msgid "Page"
+msgstr "Strona"
+
+msgid "%d product"
+msgid_plural "%d products"
+msgstr[0] "%d produkt"
+msgstr[1] "%d produkty"
+msgstr[2] "%d produktów"
+
+msgid "Delivery"
+msgstr "Dostawa"
+
+msgid "Pickup in the shop: <strong>free</strong>"
+msgstr "Odbiór w sklepie: <strong>za darmo</strong>"
+
+msgid "Delivery on Wednesday or Friday: from %1$s, free in Herning from %2$s"
+msgstr "Dostawa w środę lub piątek: od %1$s, za darmo w Herning od %2$s"
+
+msgid "You choose at checkout."
+msgstr "Wybierasz przy kasie."
+
+msgid "Choose pickup in the shop or delivery above."
+msgstr "Wybierz powyżej odbiór w sklepie lub dostawę."
+
+msgid "Enter your postcode to see the delivery price."
+msgstr "Wpisz kod pocztowy, aby zobaczyć cenę dostawy."
+
+msgid "We deliver in Jutland. Live even further away? Choose pickup, or get in touch and we will arrange it together:"
+msgstr "Dostarczamy na terenie Jutlandii. Mieszkasz jeszcze dalej? Wybierz odbiór albo skontaktuj się z nami, a wspólnie coś ustalimy:"
+
+msgid "Pickup in the shop"
+msgstr "Odbiór w sklepie"
+
+msgid "Free · Bethaniagade 5, Herning · ready in about 2 hours"
+msgstr "Za darmo · Bethaniagade 5, Herning · gotowe za ok. 2 godziny"
+
+msgid "Delivery to your door"
+msgstr "Dostawa pod drzwi"
+
+msgid "In Jutland, Wednesday or Friday · from %1$s, free in Herning from %2$s"
+msgstr "W Jutlandii, w środę lub piątek · od %1$s, za darmo w Herning od %2$s"
+
+msgid "How would you like to get your order?"
+msgstr "Jak chcesz otrzymać zamówienie?"
+
+msgid "Choose pickup in the shop or delivery."
+msgstr "Wybierz odbiór w sklepie lub dostawę."
+
+msgid "Add %s more for free delivery."
+msgstr "Dodaj produkty za %s, a dostawa będzie darmowa."
+
+msgid "Add %s more for free delivery in Herning."
+msgstr "Dodaj produkty za %s, a dostawa w Herning będzie darmowa."
+
+msgid "Your order has free delivery."
+msgstr "Twoje zamówienie ma darmową dostawę."
+
+msgid "Your order has free delivery in Herning."
+msgstr "Twoje zamówienie ma darmową dostawę w Herning."
+
+msgid "Free delivery"
+msgstr "Darmowa dostawa"
+
+msgid "Best match"
+msgstr "Najlepsze dopasowanie"
+
+msgid "Our picks"
+msgstr "Nasz wybór"
+
+msgid "Most popular"
+msgstr "Najpopularniejsze"
+
+msgid "Best rated"
+msgstr "Najlepiej oceniane"
+
+msgid "Newest"
+msgstr "Najnowsze"
+
+msgid "Price: low to high"
+msgstr "Cena: od najniższej"
+
+msgid "Price: high to low"
+msgstr "Cena: od najwyższej"
+
+msgid "Sort:"
+msgstr "Sortuj:"
+
+msgid "No product names match “%s”. The category or page above may have what you are looking for."
+msgstr "Żadna nazwa produktu nie pasuje do „%s”. Kategoria lub strona powyżej może zawierać to, czego szukasz."
+
+msgid "No products match “%s”. Try another word, or browse the categories below."
+msgstr "Żaden produkt nie pasuje do „%s”. Spróbuj innego słowa albo przejrzyj kategorie poniżej."
+
+msgid "See the whole shop"
+msgstr "Zobacz cały sklep"
+
+msgid "%s product"
+msgid_plural "%s products"
+msgstr[0] "%s produkt"
+msgstr[1] "%s produkty"
+msgstr[2] "%s produktów"
+
+msgid "Your order #%1$s is still waiting for you in the shop. Please collect it by %2$s."
+msgstr "Twoje zamówienie #%1$s wciąż czeka na Ciebie w sklepie. Odbierz je najpóźniej %2$s."
+
+msgid "Your order #%1$s is packed and waiting for you in the shop. Please collect it by %2$s."
+msgstr "Twoje zamówienie #%1$s jest spakowane i czeka na Ciebie w sklepie. Odbierz je najpóźniej %2$s."
+
+msgid "The amount is reserved on your card and charged when you collect the order. If it is not collected by then, we cancel the order and release the reservation."
+msgstr "Kwota jest zablokowana na Twojej karcie i zostanie pobrana przy odbiorze zamówienia. Jeśli nie zostanie odebrane do tego czasu, anulujemy zamówienie i zwolnimy blokadę."
+
+msgid "Delicja, Bethaniagade 5, 7400 Herning"
+msgstr "Delicja, Bethaniagade 5, 7400 Herning"
+
+msgid "Questions? Call +45 51 43 03 21 or write to info@delicja.dk."
+msgstr "Pytania? Zadzwoń pod +45 51 43 03 21 lub napisz na info@delicja.dk."
+
+msgid "Search products"
+msgstr "Szukaj produktów"
+
+msgid "Search for sausages, sweets…"
+msgstr "Szukaj kiełbasy, słodyczy…"
+
+msgid "Search"
+msgstr "Szukaj"

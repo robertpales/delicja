@@ -1,0 +1,353 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delicja Child\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Log in or register"
+msgstr "Log ind eller opret konto"
+
+msgid "Log in"
+msgstr "Log ind"
+
+msgid "Register"
+msgstr "Opret konto"
+
+msgid "Send me e-mails about deals and new products. I can unsubscribe at any time."
+msgstr "Send mig e-mails om tilbud og nye varer. Jeg kan til enhver tid afmelde mig."
+
+msgid "I have read the %s."
+msgstr "Jeg har læst %s."
+
+msgid "privacy policy"
+msgstr "privatlivspolitikken"
+
+msgid "I have read the privacy policy."
+msgstr "Jeg har læst privatlivspolitikken."
+
+msgid "Please confirm that you have read the privacy policy."
+msgstr "Bekræft venligst, at du har læst privatlivspolitikken."
+
+msgid "Products"
+msgstr "Varer"
+
+msgid "Order again"
+msgstr "Bestil igen"
+
+msgid "Put the products of order %s in the cart again"
+msgstr "Læg varerne fra ordre %s i kurven igen"
+
+msgid "Order #%s"
+msgstr "Ordre #%s"
+
+msgid "Ordered on %s"
+msgstr "Bestilt den %s"
+
+msgid "Ordered from us before without an account? Confirm your e-mail address and we will add those orders here."
+msgstr "Har du handlet hos os før uden konto? Bekræft din e-mailadresse, så tilføjer vi de ordrer her."
+
+msgid "We have sent you a link. Open it from your inbox and your earlier orders will show here."
+msgstr "Vi har sendt dig et link. Åbn det fra din indbakke, så vises dine tidligere ordrer her."
+
+msgid "Confirm my e-mail"
+msgstr "Bekræft min e-mail"
+
+msgid "%s, here you can follow your orders and change your addresses and details."
+msgstr "%s, her kan du følge dine ordrer og ændre dine adresser og oplysninger."
+
+msgid "Latest order"
+msgstr "Seneste ordre"
+
+msgid "See the order"
+msgstr "Se ordren"
+
+msgid "Orders"
+msgstr "Ordrer"
+
+msgid "No orders yet"
+msgstr "Ingen ordrer endnu"
+
+msgid "All orders"
+msgstr "Alle ordrer"
+
+msgid "Delivery address"
+msgstr "Leveringsadresse"
+
+msgid "Not added yet"
+msgstr "Ikke tilføjet endnu"
+
+msgid "Change addresses"
+msgstr "Skift adresser"
+
+msgid "Your details"
+msgstr "Dine oplysninger"
+
+msgid "E-mails about deals: on"
+msgstr "E-mails om tilbud: til"
+
+msgid "E-mails about deals: off"
+msgstr "E-mails om tilbud: fra"
+
+msgid "Change details or password"
+msgstr "Skift oplysninger eller adgangskode"
+
+msgid "Back to the shop"
+msgstr "Tilbage til butikken"
+
+msgid "Your order is ready in the shop"
+msgstr "Din ordre er klar i butikken"
+
+msgid "Collect it at Bethaniagade 5, 7400 Herning."
+msgstr "Hent den på Bethaniagade 5, 7400 Herning."
+
+msgid "Please collect it by %s."
+msgstr "Hent den senest %s."
+
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] "%d vare"
+msgstr[1] "%d varer"
+
+msgid "%d order"
+msgid_plural "%d orders"
+msgstr[0] "%d ordre"
+msgstr[1] "%d ordrer"
+
+msgid "Language: %s"
+msgstr "Sprog: %s"
+
+msgid "A – glass bottles and cans under 1 l"
+msgstr "A – glasflasker og dåser under 1 l"
+
+msgid "B – plastic bottles under 1 l"
+msgstr "B – plastflasker under 1 l"
+
+msgid "C – bottles and cans from 1 l"
+msgstr "C – flasker og dåser fra 1 l"
+
+msgid "No pant"
+msgstr "Ingen pant"
+
+msgid "Pant"
+msgstr "Pant"
+
+msgid "Drinks in cans and bottles: the class from the Danish pant mark on the pack. The shop shows \"+ pant\" under the price and adds it in the cart."
+msgstr "Drikkevarer på dåse og flaske: klassen fra pantmærket på emballagen. Butikken viser \"+ pant\" under prisen og lægger den til i kurven."
+
+msgid "— No change —"
+msgstr "— Ingen ændring —"
+
+msgid "+ pant %s"
+msgstr "+ pant %s"
+
+msgid "%s each"
+msgstr "%s pr. stk."
+
+msgid "closed"
+msgstr "lukket"
+
+msgid "Hi %1$s, your Delicja order #%2$s is ready for pickup at Bethaniagade 5, Herning."
+msgstr "Hej %1$s, din Delicja-ordre #%2$s er klar til afhentning på Bethaniagade 5, Herning."
+
+msgid "See you soon!"
+msgstr "Vi ses snart!"
+
+msgid "Change status to ready for pickup"
+msgstr "Skift status til klar til afhentning"
+
+msgid "Ready for pickup"
+msgstr "Klar til afhentning"
+
+msgid "Send WhatsApp message"
+msgstr "Send WhatsApp-besked"
+
+msgid "This order is delivered, not collected in the shop: no \"Ready for pickup\" e-mail is sent and it is not cancelled automatically."
+msgstr "Denne ordre leveres og afhentes ikke i butikken: der sendes ingen \"Klar til afhentning\"-e-mail, og den annulleres ikke automatisk."
+
+msgid "Tell the customer on WhatsApp:"
+msgstr "Giv kunden besked på WhatsApp:"
+
+msgid "No phone number in the order, so no WhatsApp message can be sent."
+msgstr "Der er intet telefonnummer i ordren, så der kan ikke sendes en WhatsApp-besked."
+
+msgid "The order was not collected in time, so we have cancelled it and released the amount reserved on your card. You are welcome to order again."
+msgstr "Ordren blev ikke hentet i tide, så vi har annulleret den og frigivet beløbet, der var reserveret på dit kort. Du er velkommen til at bestille igen."
+
+msgid "Not collected within 3 opening days: cancelled automatically."
+msgstr "Ikke hentet inden for 3 åbningsdage: annulleret automatisk."
+
+msgid "Pickup reminder sent to the customer."
+msgstr "Påmindelse om afhentning sendt til kunden."
+
+msgid "Pickup orders not ready yet"
+msgstr "Afhentningsordrer, der ikke er klar endnu"
+
+msgid "These pickup orders were placed more than a day ago and are not marked \"Ready for pickup\" yet. The card reservation is valid about 7 days."
+msgstr "Disse afhentningsordrer blev afgivet for mere end en dag siden og er endnu ikke markeret \"Klar til afhentning\". Kortreservationen gælder ca. 7 dage."
+
+msgctxt "Order status"
+msgid "Ready for pickup"
+msgstr "Klar til afhentning"
+
+msgid "See you in the shop!"
+msgstr "Vi ses i butikken!"
+
+msgid "Sent to the customer when a pickup order is marked \"Ready for pickup\", with the date to collect it by."
+msgstr "Sendes til kunden, når en afhentningsordre markeres \"Klar til afhentning\", med datoen for, hvornår den senest skal hentes."
+
+msgid "Your order #{order_number} is ready for pickup"
+msgstr "Din ordre #{order_number} er klar til afhentning"
+
+msgid "Your order is ready"
+msgstr "Din ordre er klar"
+
+msgid "Pickup reminder"
+msgstr "Påmindelse om afhentning"
+
+msgid "Sent to the customer when a pickup order has not been collected after two of the three pickup days."
+msgstr "Sendes til kunden, når en afhentningsordre ikke er hentet efter to af de tre afhentningsdage."
+
+msgid "Reminder: your order #{order_number} is waiting for you"
+msgstr "Påmindelse: din ordre #{order_number} venter på dig"
+
+msgid "Your order is still waiting"
+msgstr "Din ordre venter stadig"
+
+msgid "See all results (%d)"
+msgstr "Se alle resultater (%d)"
+
+msgid "No products found. Try another word."
+msgstr "Ingen varer fundet. Prøv et andet ord."
+
+msgid "Categories and pages"
+msgstr "Kategorier og sider"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Page"
+msgstr "Side"
+
+msgid "%d product"
+msgid_plural "%d products"
+msgstr[0] "%d vare"
+msgstr[1] "%d varer"
+
+msgid "Delivery"
+msgstr "Levering"
+
+msgid "Pickup in the shop: <strong>free</strong>"
+msgstr "Afhentning i butikken: <strong>gratis</strong>"
+
+msgid "Delivery on Wednesday or Friday: from %1$s, free in Herning from %2$s"
+msgstr "Levering onsdag eller fredag: fra %1$s, gratis i Herning fra %2$s"
+
+msgid "You choose at checkout."
+msgstr "Du vælger ved kassen."
+
+msgid "Choose pickup in the shop or delivery above."
+msgstr "Vælg afhentning i butikken eller levering ovenfor."
+
+msgid "Enter your postcode to see the delivery price."
+msgstr "Indtast dit postnummer for at se leveringsprisen."
+
+msgid "We deliver in Jutland. Live even further away? Choose pickup, or get in touch and we will arrange it together:"
+msgstr "Vi leverer i Jylland. Bor du endnu længere væk? Vælg afhentning, eller kontakt os, så finder vi en løsning sammen:"
+
+msgid "Pickup in the shop"
+msgstr "Afhentning i butikken"
+
+msgid "Free · Bethaniagade 5, Herning · ready in about 2 hours"
+msgstr "Gratis · Bethaniagade 5, Herning · klar om ca. 2 timer"
+
+msgid "Delivery to your door"
+msgstr "Levering til døren"
+
+msgid "In Jutland, Wednesday or Friday · from %1$s, free in Herning from %2$s"
+msgstr "I Jylland, onsdag eller fredag · fra %1$s, gratis i Herning fra %2$s"
+
+msgid "How would you like to get your order?"
+msgstr "Hvordan vil du have din ordre?"
+
+msgid "Choose pickup in the shop or delivery."
+msgstr "Vælg afhentning i butikken eller levering."
+
+msgid "Add %s more for free delivery."
+msgstr "Køb for %s mere, og få gratis levering."
+
+msgid "Add %s more for free delivery in Herning."
+msgstr "Køb for %s mere, og få gratis levering i Herning."
+
+msgid "Your order has free delivery."
+msgstr "Din ordre har gratis levering."
+
+msgid "Your order has free delivery in Herning."
+msgstr "Din ordre har gratis levering i Herning."
+
+msgid "Free delivery"
+msgstr "Gratis levering"
+
+msgid "Best match"
+msgstr "Bedste match"
+
+msgid "Our picks"
+msgstr "Vores udvalgte"
+
+msgid "Most popular"
+msgstr "Mest populære"
+
+msgid "Best rated"
+msgstr "Bedst bedømte"
+
+msgid "Newest"
+msgstr "Nyeste"
+
+msgid "Price: low to high"
+msgstr "Pris: lav til høj"
+
+msgid "Price: high to low"
+msgstr "Pris: høj til lav"
+
+msgid "Sort:"
+msgstr "Sortér:"
+
+msgid "No product names match “%s”. The category or page above may have what you are looking for."
+msgstr "Ingen varenavne matcher “%s”. Kategorien eller siden ovenfor har måske det, du leder efter."
+
+msgid "No products match “%s”. Try another word, or browse the categories below."
+msgstr "Ingen varer matcher “%s”. Prøv et andet ord, eller se kategorierne nedenfor."
+
+msgid "See the whole shop"
+msgstr "Se hele butikken"
+
+msgid "%s product"
+msgid_plural "%s products"
+msgstr[0] "%s vare"
+msgstr[1] "%s varer"
+
+msgid "Your order #%1$s is still waiting for you in the shop. Please collect it by %2$s."
+msgstr "Din ordre #%1$s venter stadig på dig i butikken. Hent den senest %2$s."
+
+msgid "Your order #%1$s is packed and waiting for you in the shop. Please collect it by %2$s."
+msgstr "Din ordre #%1$s er pakket og venter på dig i butikken. Hent den senest %2$s."
+
+msgid "The amount is reserved on your card and charged when you collect the order. If it is not collected by then, we cancel the order and release the reservation."
+msgstr "Beløbet er reserveret på dit kort og trækkes, når du henter ordren. Hvis den ikke er hentet inden da, annullerer vi ordren og frigiver reservationen."
+
+msgid "Delicja, Bethaniagade 5, 7400 Herning"
+msgstr "Delicja, Bethaniagade 5, 7400 Herning"
+
+msgid "Questions? Call +45 51 43 03 21 or write to info@delicja.dk."
+msgstr "Spørgsmål? Ring på +45 51 43 03 21, eller skriv til info@delicja.dk."
+
+msgid "Search products"
+msgstr "Søg efter varer"
+
+msgid "Search for sausages, sweets…"
+msgstr "Søg efter pølser, slik…"
+
+msgid "Search"
+msgstr "Søg"
