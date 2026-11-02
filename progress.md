@@ -35,6 +35,9 @@ through Novamira, so they are not in git.
   SEO descriptions, Rank Math, schema, shipping note, pickup e-mails, theme translations). *(database + code)*
 - WPML 5 calls English `en-us`: page CSS (`delicja_english_id`) and the language switcher now handle it, so
   translated pages load the English page's CSS and English shows in the switcher.
+- Checked: page, category and product slugs are translated (e.g. `przekaski`, `…-med-vanilje`); the privacy policy
+  no longer mentions `sbjs_*` / `tk_*`. The WPML tasks are ticked off in `todo.md`; new open points: glossary,
+  Delivery & returns in three languages, homepage FAQ (14-day returns vs. Terms), Danish meta texts, live WPML key.
 
 **Matej**
 - New arrivals tile: instead of the AI crate, real packs from the shop's own product photos standing together

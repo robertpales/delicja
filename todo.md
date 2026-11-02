@@ -40,8 +40,9 @@ need a product list from her, 2026-10-27)
 - [ ] Language of the products (client asks if she may write them in Polish, 2026-10-29): the food information
   (ingredients, allergens, nutrition, storage) must be in Danish on a Danish shop, and WPML's automatic translation
   ("Translate everything") only starts from the main language, Danish. Product names may stay Polish. If she writes in
-  Polish, every product must be sent to translation by hand and the Danish allergens checked. Easiest for her: copy
-  the Danish label (sticker) on the pack. Robo decides the WPML setup. Matej, 2026-10-29: the Danish product
+  Polish, every product must be sent to translation by hand and the Danish allergens checked. WPML is set up so
+  products written in Danish are translated into English and Polish automatically (2026-11-02). Easiest for her: copy
+  the Danish label (sticker) on the pack. Matej, 2026-10-29: the Danish product
   information is solved later with an AI (LLM) plugin.
 - [ ] When she adds a product, in the main language (Danish), from the pack or the supplier's data sheet: name, price
   incl. moms, weight or volume, category, photo, ingredients with allergens, nutrition, producer or importer, country
@@ -69,19 +70,8 @@ need a product list from her, 2026-10-27)
 - [ ] Accounting: which system (e-conomic, Dinero, Billy, …)? Should orders go there automatically?
 
 **Language versions**
-- [ ] Buy the WPML licence, plan **Multilingual CMS**, in the name of Delicja ApS, and give us access to the account. https://app.wpml.org/purchase
-  Check how many automatic translation credits the plan includes; more cost extra.
-  2026-10-27: her Visa payment fails. Next: the error message or a screenshot; try "Use a different payment method"
-  (PayPal) at checkout; check in the bank app that online payments abroad are allowed and approve with MitID. If it
-  still fails: we buy it in an account with Delicja ApS's details (name, address, CVR, her e-mail), pay with our
-  card and invoice her. 2026-10-29: she has written to her bank; she pays herself (no invoice through us, VAT).
-
-**Order of work for the language versions**
-1. Client → Matej: main language (done: **Danish**, 2026-10-26) + WPML account (still open).
-2. Matej → Robo: tells Robo that both are ready.
-3. Robo: installs and sets up WPML, then tells Matej.
-4. Matej: pages and templates in the main language.
-5. Matej: translates them into the other two languages from the final main-language version.
+- [ ] Before launch someone who reads English and Polish checks the English and Polish Terms and conditions and
+  Privacy policy (translated 2026-11-02 from the client's Danish texts). The client checks the Danish product names.
 
 ---
 
@@ -96,17 +86,15 @@ need a product list from her, 2026-10-27)
   - [ ] Related product cards (template Related product card) in the same style as all the other product cards on the site.
 - [ ] A short guide for the client on adding a product (which fields, allergens and storage icons, photo size,
   category), so every product page is complete.
-- [ ] Tell Robo when the client has given access to the WPML account (main language chosen: Danish, 2026-10-26).
-- [ ] After Robo has set up WPML: pages, Theme Builder templates and menus in the main language.
-- [ ] When the main-language version is final: translate it into the other two languages in the WPML translation editor.
+- [ ] Homepage FAQ says customers can return goods within 14 days, but the Terms say the right of withdrawal does not
+  apply to food. Make the FAQ match the Terms (all three languages).
 - [ ] Delivery texts on the site (homepage FAQ, the "Not in Herning?" panel, Delivery & returns): minimum 499 kr. for
   delivery, delivery orders at least 24 hours before the delivery day (the client confirmed her terms are final,
   2026-10-29).
-- [ ] Privacy policy draft: remove WooCommerce order attribution (`sbjs_*`) and Jetpack WooCommerce Analytics
-  (`tk_*`), they are turned off (Robo, 2026-10-30). Jetpack Stats stays, "only with consent".
 - [ ] Legal and shop information pages (Terms and conditions, Privacy policy, Delivery & returns, Cookies): put the
   client's texts on them when she sends them (Robo, 2026-10-27: Matej may edit these pages). Terms and Privacy policy
-  done (2026-10-28, 2026-10-30); Delivery & returns still says "[TODO] Indhold mangler". The pages already have their design (template Information page). The terms page is
+  done (2026-10-28, 2026-10-30); Delivery & returns still says "[TODO] Indhold mangler". It now exists in three
+  languages (English 71, Danish 761 "Levering og retur", Polish 744): write the Danish text and translate it. The pages already have their design (template Information page). The terms page is
   already set in WooCommerce and the sample page `refund_returns` is deleted.
   - Delivery & returns must say the same as the checkout: Herning 49 kr. (free from 799 kr.), up to 15 km 79 kr.
     (free from 999 kr.), 15–40 km 129 kr. (free from 1,299 kr.), deliveries Wednesday and Friday 15:00–17:00; rest
@@ -159,19 +147,17 @@ need a product list from her, 2026-10-27)
   Stock is the shop's matter (Matej, 2026-10-29): when an ordered product is missing, they refund it or call the
   customer, so check that the shop can charge less than the reserved amount or refund one item.
 
-**Language versions (WPML)**, when Matej says the client has chosen the main language and given access to the WPML account
+**Language versions (WPML)**
 
 Main language: **Danish** (the client's choice, 2026-10-26), no prefix; English `/en/`, Polish `/pl/`. Pages and
-templates are translated by hand (Matej). Products, categories and attributes are translated automatically when saved,
+templates are translated by hand (no credits). Products, categories and attributes are translated automatically when saved,
 including slugs and Rank Math meta title and description; the client only writes in the main language.
 Prices, stock and images are shared.
 
-- [ ] Switch the WordPress site language from `en_US` to the main language before installing (hard to change later).
-- [ ] Install WPML + WooCommerce Multilingual, languages DA / EN / PL, main language without a prefix.
-- [ ] Tell Matej that WPML is ready for the pages in the main language.
-- [ ] Automatic translation for products, categories and attributes; glossary so Polish brand and product names are not translated.
-- [ ] Translated slugs for pages, categories and products.
-- [ ] Code texts (`inc/*.php`, shortcodes, buttons) as translatable strings, translated in String Translation.
+Set up 2026-11-02 (see progress.md). Pages and templates are English originals with Danish and Polish translations
+(Terms and Privacy policy: Danish originals); a change on a page must be made in each language.
+
+- [ ] Glossary in WPML so Polish brand and product names are not translated.
 - [ ] Live search (`inc/search.php`): Store API results in the current language (check with WPML; add `lang` to the
   endpoint if needed).
 - [ ] `inc/schema.php`: language, URLs and breadcrumbs from the current language.
@@ -191,13 +177,15 @@ Prices, stock and images are shared.
 - [ ] Rich Results Test on the front page and a product.
 - [ ] robots.txt on delicja.dk: search engines and AI search crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot,
   Google-Extended) allowed; check `/llms.txt` and the sitemap there. The test site stays `noindex`.
-- [ ] Pages still marked "Indhold mangler" (om-os, delivery): fill in or remove `om-os` (About us is `/about/`). Terms
-  done (2026-10-28).
-  Kontakt and Deals (`/deals/`) are done (Matej, 2026-10-23).
+- [ ] Page still marked "Indhold mangler": Delivery & returns (Matej, see above).
+- [ ] Mail forwarding info@delicja.dk → shop@delicja.dk in Simply.com (the site only shows shop@ since 2026-11-02).
+- [ ] WPML on delicja.dk: register the production site key (`afd199d9ee`, site `https://delicja.dk` on wpml.org),
+  delete the development key of test.delicja.dk and move its remaining automatic-translation words to the live site.
 
-**SEO with the main language** (when the Danish version is made)
-- [ ] Meta titles and descriptions in Danish for all pages, categories and products; the English ones set on
-  2026-10-27 (front page, About us, Shop, Contact, Deals) become the `/en/` version. llms.txt in Danish.
+**SEO with the main language**
+- [ ] Meta titles and descriptions in Danish: the front page (Forside) is done; Om os, Kontakt and Tilbud still have
+  the English texts on their Danish versions, Butik has none; Polish versions the same. Categories and products are
+  translated automatically. llms.txt in Danish.
 - [ ] Share image of the front page (link previews in WhatsApp, Messenger, Facebook): Matej wants the shop front
   instead of the window photo (`delicja-about-shop-window.webp`), 2026-10-27. Prepared in the media library: media
   504, `delicja-share-shop-front.jpg`, 1200 × 630. Set it in Rank Math (front page → Social, Facebook and Twitter
