@@ -15,6 +15,7 @@ through Novamira, so they are not in git.
 **Matej**
 - New arrivals tile: instead of the AI crate, real packs from the shop's own product photos standing together
   (Paluszki, Łaciate milk, Krakus Żurek, kefir, Delicje, Kamis mustard), asked by the client. *(database)*
+  Then moved higher, so the packs are less cut off at the bottom.
 
 ## 2026-10-31
 

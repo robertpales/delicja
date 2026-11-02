@@ -818,11 +818,11 @@
         right: auto;
         left: -8%;
         width: 116%;
-        translate: 0 34%;
+        translate: 0 37%;
     }
 
     .dl-new .dl-new-tile:hover > .elementor-widget.dl-new-crate {
-        translate: 0 32%;
+        translate: 0 35%;
     }
 }
 
