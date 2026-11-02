@@ -370,3 +370,52 @@ msgstr "l \\d\\e\\n j. F"
 
 msgid "Minimum order for delivery"
 msgstr "Minimumsordre for levering"
+
+msgid "Energy"
+msgstr "Energi"
+
+msgid "Fat"
+msgstr "Fedt"
+
+msgid "Saturated fat"
+msgstr "Mættet fedt"
+
+msgid "Carbohydrate"
+msgstr "Kulhydrat"
+
+msgid "Sugars"
+msgstr "Sukkerarter"
+
+msgid "Fibre"
+msgstr "Kostfibre"
+
+msgid "Protein"
+msgstr "Protein"
+
+msgid "Salt"
+msgstr "Salt"
+
+#. translators: %s: country, e.g. "Poland"
+#, php-format
+msgid "From %s"
+msgstr "Fra %s"
+
+msgid "Contains"
+msgstr "Indeholder"
+
+msgid "May contain"
+msgstr "Kan indeholde"
+
+#. translators: %s: "100 g" or "100 ml"
+#, php-format
+msgid "Nutrition per %s"
+msgstr "Næringsindhold pr. %s"
+
+msgid "Share of the reference intake of an average adult (8400 kJ / 2000 kcal)."
+msgstr "Andel af referenceindtaget for en gennemsnitlig voksen (8400 kJ / 2000 kcal)."
+
+msgid "Show the full nutrition table"
+msgstr "Vis hele næringsdeklarationen"
+
+msgid "Product facts"
+msgstr "Om varen"

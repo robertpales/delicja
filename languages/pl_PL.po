@@ -374,3 +374,52 @@ msgstr "l, j F"
 
 msgid "Minimum order for delivery"
 msgstr "Minimalne zamówienie przy dostawie"
+
+msgid "Energy"
+msgstr "Energia"
+
+msgid "Fat"
+msgstr "Tłuszcz"
+
+msgid "Saturated fat"
+msgstr "Tłuszcze nasycone"
+
+msgid "Carbohydrate"
+msgstr "Węglowodany"
+
+msgid "Sugars"
+msgstr "Cukry"
+
+msgid "Fibre"
+msgstr "Błonnik"
+
+msgid "Protein"
+msgstr "Białko"
+
+msgid "Salt"
+msgstr "Sól"
+
+#. translators: %s: country, e.g. "Poland"
+#, php-format
+msgid "From %s"
+msgstr "Pochodzenie: %s"
+
+msgid "Contains"
+msgstr "Zawiera"
+
+msgid "May contain"
+msgstr "Może zawierać"
+
+#. translators: %s: "100 g" or "100 ml"
+#, php-format
+msgid "Nutrition per %s"
+msgstr "Wartość odżywcza w %s"
+
+msgid "Share of the reference intake of an average adult (8400 kJ / 2000 kcal)."
+msgstr "Procent referencyjnej wartości spożycia dla przeciętnej osoby dorosłej (8400 kJ / 2000 kcal)."
+
+msgid "Show the full nutrition table"
+msgstr "Pokaż pełną tabelę wartości odżywczych"
+
+msgid "Product facts"
+msgstr "Informacje o produkcie"
