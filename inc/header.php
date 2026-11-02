@@ -36,7 +36,8 @@ add_shortcode( 'dl_lang_switch', function () {
 	if ( is_array( $languages ) && $languages ) {
 		$default = apply_filters( 'wpml_default_language', null );
 		uksort( $languages, fn( $a, $b ) => ( $b === $default ) <=> ( $a === $default ) );
-		foreach ( $languages as $code => $language ) {
+		foreach ( $languages as $wpml_code => $language ) {
+			$code = 'en-us' === $wpml_code ? 'en' : $wpml_code; // WPML 5 English is "en-us".
 			if ( empty( $names[ $code ] ) ) {
 				continue;
 			}

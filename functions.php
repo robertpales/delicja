@@ -49,7 +49,18 @@ add_action( 'wp_enqueue_scripts', function () {
  * its slug uses the English slug.
  */
 function delicja_english_id( int $id ): int {
-	return (int) apply_filters( 'wpml_object_id', $id, get_post_type( $id ) ?: 'page', true, 'en' );
+	return (int) apply_filters( 'wpml_object_id', $id, get_post_type( $id ) ?: 'page', true, delicja_english_code() );
+}
+
+/**
+ * WPML code of English: WPML 5 uses "en-us" (URL /en/), older setups "en".
+ */
+function delicja_english_code(): string {
+	$languages = apply_filters( 'wpml_active_languages', null, [ 'skip_missing' => 0 ] );
+	if ( is_array( $languages ) && ! isset( $languages['en'] ) && isset( $languages['en-us'] ) ) {
+		return 'en-us';
+	}
+	return 'en';
 }
 
 // Custom PHP from inc/ (one file per area).

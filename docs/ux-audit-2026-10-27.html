@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>UX audit &ndash; test&period;delicja&period;dk &lpar;2026-10-27&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 id="ux-audit--testdelicjadk-2026-10-27">UX audit – <a href="http://test.delicja.dk">test.delicja.dk</a> (2026-10-27)</h1>
+<p><strong>Predpoklady:</strong> WooCommerce + Hello Elementor (nie Shoptet, zásady a riešenia viazané na Shoptet vynechané). Audit
+živo v prehliadači (Chromium, desktop 1440 × 900 a emulácia iPhone 13, 390 px). Prejdené: homepage, Shop, kategória
+Pantry, detail produktu, Deals, Contact, About, Delivery &amp; returns, vyhľadávanie (bežný dotaz, preklep, nezmysel),
+stránka 404, prázdny aj plný košík a pokladňa. <strong>Nič sa neobjednalo ani neodoslalo</strong>, do košíka sa pridal produkt
+na testovacom webe (analytika tam nebeží). Sortiment: poľské potraviny, 47 jednoduchých produktov bez variantov,
+všetky skladom, žiadny v zľave, bez hodnotení. O nákupe rozhoduje: čo to je (názvy sú po poľsky), balenie
+a cena, doprava alebo vyzdvihnutie a kedy.</p>
+<p><strong>Vynechané, lebo je to v <code>todo.md</code>:</strong> právne texty a stránka Delivery &amp; returns, štýl detailu produktu
+a súvisiacich produktov, prepínač <code>?hero=</code>, údaje o produktoch (alergény, skladovanie, pôvod), recenzie Google
+a fotky ľudí, platobná brána a spôsoby platby, zákaznícke účty a prihlásenie cez Google, jazykové verzie (WPML,
+prepínač EN), <code>om-os</code>, obrázok na zdieľanie, cache po nasadení.</p>
+<hr>
+<h2 id="1-nálezy">1) Nálezy</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Zásada</th>
+<th>Nález (dôkaz)</th>
+<th>Priorita</th>
+<th>Riešenie</th>
+<th>Argument pre klienta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CH-001, CH-003</td>
+<td>Pokladňa je jedna stránka: najprv celé fakturačné údaje, až potom (v tabuľke „Your Order“ dole) doprava. Bez PSČ tam doprava nie je vôbec, objaví sa až po jeho vyplnení. Kto si chce tovar vyzdvihnúť v obchode, musí aj tak vyplniť povinnú ulicu, PSČ a mesto.</td>
+<td>P1</td>
+<td>kód: výber „Doručenie / Vyzdvihnutie v obchode“ úplne hore; pri vyzdvihnutí skryť adresné polia (ulica, PSČ, mesto nepovinné/skryté).</td>
+<td>Zákazník najprv chce vedieť, ako a za koľko tovar dostane; vyplňovanie adresy pri vyzdvihnutí je zbytočná práca, pri ktorej ľudia odchádzajú.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>VY-004, VY-007</td>
+<td>Hľadanie podľa druhu tovaru nefunguje: „sausage“, „dairy“, „pølse“ a „delivery“ vracajú 0 výsledkov (názvy produktov sú po poľsky). Pole pritom ponúka „Search for sausages, sweets…“. Dotaz „dairy“ neukáže ani kategóriu Dairy. Preklep bez diakritiky funguje („zurek“ → Żurek, „ogorki“ → Ogórki), kód produktu (DLC-047) tiež.</td>
+<td>P1</td>
+<td>kód (Robo, <code>inc/search.php</code>): hľadať aj v názvoch kategórií a štítkov; pri zhode s kategóriou ju ukázať nad produktmi (aj v našepkávači). Obsah: produktom pridať štítky v angličtine/dánčine (pølse, sausage…).</td>
+<td>Dánsky alebo anglicky hovoriaci zákazník nepozná poľský názov „kiełbasa“. Keď hľadanie vráti „nič“, usúdi, že obchod tovar nemá.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>KO-004</td>
+<td>V košíku je len „Subtotal“ a „Total“ bez dopravy, žiadna zmienka o cene dopravy ani o bezplatnom vyzdvihnutí. Cena dopravy sa ukáže až v pokladni po zadaní PSČ.</td>
+<td>P1</td>
+<td>kód: v súhrne košíka riadok „Delivery from 49 kr. · Pickup in the shop free“ (alebo kalkulačka podľa PSČ).</td>
+<td>Doprava až v poslednom kroku je najčastejší dôvod, prečo ľudia nákup nedokončia.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>KO-002</td>
+<td>Doprava zdarma (Herning od 799 kr., do 15 km od 999, 15–40 km od 1 299) je len v hornej lište („Free delivery in Herning from 799 kr.“). V košíku chýba ukazovateľ, koľko ešte zostáva.</td>
+<td>P1</td>
+<td>kód: ukazovateľ „Ešte za X kr. a doprava je zdarma“. Kým zákazník nezadal PSČ, prah pre Herning; po zadaní prah jeho zóny.</td>
+<td>Ukazovateľ zvyšuje hodnotu objednávky. Bez neho zákazník prah nevidí práve tam, kde rozhoduje o množstve.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>CH-005</td>
+<td>Vyzdvihnutie v pokladni: „Pickup in the shop (Bethaniagade 5, ready in about 2 hours)“. Chýba otváracia doba a lehota na vyzdvihnutie (3 dni, inak sa objednávka zruší).</td>
+<td>P1</td>
+<td>kód: pod možnosť vyzdvihnutia dať otváraciu dobu a lehotu (texty sú hotové v <code>inc/pickup.php</code>).</td>
+<td>Zákazník musí pred objednaním vedieť, či to stihne vyzdvihnúť, napríklad že je v pondelok zatvorené.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>MO-003</td>
+<td>Cookie lišta pri prvej návšteve zaberie na mobile <strong>48 % okna</strong> (322 z 664 px). Na desktope je 24 %, ale tlačidlo „Cookie settings“ ostáva fixne vľavo dole a prekrýva obsah (na detaile nadpis „Related products“, na Contact roh kariet).</td>
+<td>P1</td>
+<td>nastavenie Complianz + CSS: nižšia lišta na mobile (text a tlačidlá vedľa seba, „Preferences“ ako odkaz); „Cookie settings“ ako odkaz v pätičke namiesto plávajúceho tlačidla.</td>
+<td>Polovica obrazovky pri prvom kontakte je zakrytá; plávajúce tlačidlo zakrýva obsah na každej stránke.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>VK-012</td>
+<td>Ceny na kartách aj na detaile sú len za kus, hoci balenia sú rôzne (400 g, 860 g, 700 ml, 80 g). Jednotková cena (kr./kg, kr./l) chýba.</td>
+<td>P1 (povinné zo zákona)</td>
+<td>kód: jednotková cena z hmotnosti/objemu produktu na kartách aj na detaile. Klientka pri produkte vyplní obsah balenia (súvisí s úlohou Client → Products).</td>
+<td>Pri balených potravinách je jednotková cena v EÚ povinná aj online (smernica 98/6/ES, v DK <em>enhedspris</em>); zároveň uľahčuje porovnanie.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>VK-002</td>
+<td>Výpis kategórie je predvolene zoradený „Our picks“ (ručne). Ponuka obsahuje aj Most popular, Newest a cenu.</td>
+<td>P1 – po spustení</td>
+<td>nastavenie: keď budú objednávky (asi mesiac po spustení), prepnúť predvolené radenie na „Most popular“. Dovtedy je ručný výber v poriadku.</td>
+<td>Najpredávanejšie navrchu predávajú viac než ručné poradie, ktoré sa časom neaktualizuje.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>HN-002, HN-004</td>
+<td>Na desktope je v menu len „Shop ▾“, About us a Contact. 8 kategórií je schovaných v rozbaľovacej ponuke, hoci by sa do lišty zmestili. (Na mobile sú kategórie v menu hneď, to je v poriadku.)</td>
+<td>P2</td>
+<td>Elementor (Matej): kategórie priamo v lište, About/Contact vpravo.</td>
+<td>Kto svoj druh tovaru nevidí, usúdi, že ho obchod nemá.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>HN-006</td>
+<td>Podponuka „Shop“ sa otvorí za 4 ms po nabehnutí myšou, bez oneskorenia.</td>
+<td>P2</td>
+<td>CSS: oneskorenie 300 ms pri otváraní aj zatváraní.</td>
+<td>Pri prechode myšou cez menu sa ponuka otvára omylom a zakrýva stránku.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>HN-011</td>
+<td>Hlavička na mobile má 214 px (32 % okna) a pri posúvaní hore sa nevráti; košík a hľadanie sú dostupné len navrchu stránky.</td>
+<td>P2</td>
+<td>CSS/JS: po posunutí nadol nízka lišta (logo, hľadanie, košík, menu), ktorá sa zobrazí pri posune nahor.</td>
+<td>Na dlhom výpise je cesta ku košíku a hľadaniu ďaleko.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>HN-001</td>
+<td>Telefón nie je v hlavičke (desktop ukazuje len adresu „Bethaniagade 5, Herning“) ani v mobilnom menu, je až v pätičke a na Contact.</td>
+<td>P2</td>
+<td>Elementor: klikací <code>tel:</code> +45 51 43 03 21 do hornej lišty alebo vedľa adresy a do mobilného menu.</td>
+<td>Pri potravinách sa ľudia pýtajú (dostupnosť, doručenie); telefón musí byť poruke.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>VY-003</td>
+<td>Našepkávač (od 2 znakov) ukazuje produkty s fotkou a cenou, ale nie kategórie.</td>
+<td>P2</td>
+<td>kód: nad produktmi zodpovedajúce kategórie (súvisí s nálezom 2).</td>
+<td>Kategória ukáže celý sortiment naraz, nie len 6 produktov.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>KO-010, DU-002</td>
+<td>V košíku nie je nič o vrátení, kontakt ani výhody (štyri sľuby sú len na homepage).</td>
+<td>P2</td>
+<td>Elementor/kód: pod súhrn košíka krátko: vyzdvihnutie zdarma, doručenie Herning st/pi, telefón. Bez odkazov.</td>
+<td>Odpovedá na obavy tesne pred objednaním.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>KO-006</td>
+<td>Pole „Coupon code“ s tlačidlom „Apply coupon“ je v košíku na mobile rozbalené a výrazné.</td>
+<td>P2</td>
+<td>Ak obchod kupóny nepoužíva: vypnúť ich vo WooCommerce (Settings → General → Enable the use of coupon codes). Inak zbaliť pod odkaz „Have a code?“.</td>
+<td>Výrazné prázdne pole posiela zákazníka hľadať kód mimo webu.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>CH-004</td>
+<td>Doprava: „Delivery – Wednesday or Friday, 15:00–17:00“, bez konkrétneho dátumu.</td>
+<td>P2</td>
+<td>kód: najbližší termín „Wednesday 4 November, 15:00–17:00“ podľa uzávierky.</td>
+<td>Konkrétny dátum dáva istotu, že tovar príde.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>CH-013</td>
+<td>Telefón v pokladni je nepovinný a bez vysvetlenia. Pri vyzdvihnutí ho pritom obchod potrebuje na správu cez WhatsApp.</td>
+<td>P2</td>
+<td>kód: pod pole „For a message when your order is ready, or for the driver.“ Môže ostať nepovinný.</td>
+<td>Keď ľudia vedia prečo, telefón vyplnia; bez neho obchod nemá ako dať vedieť.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>CH-011</td>
+<td>PSČ (<code>billing_postcode</code>) má <code>type=text</code> bez <code>inputmode=numeric</code>, na mobile sa otvorí písmenová klávesnica. Ostatné polia sú v poriadku (tel, e-mail, autocomplete, 16 px).</td>
+<td>P2</td>
+<td>kód: <code>inputmode=&quot;numeric&quot;</code> pre PSČ pri krajine Denmark.</td>
+<td>Drobnosť, ktorá na mobile zrýchli vyplnenie.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>MO-004</td>
+<td>Dotykové plochy pod 24 px na mobile: odkazy v pätičke (22 px), textové odkazy v hero „Visit us in Herning“ a „See all“ (19 px), drobčeková navigácia (18 px). Tlačidlá −/+ v košíku majú 32 px (prejde, ideál 44).</td>
+<td>P2</td>
+<td>CSS: väčší riadok/padding odkazov v pätičke a navigácii, min. 24 px, hlavné prvky 44 px.</td>
+<td>Malé plochy sa ťažko trafia a ľahko sa ťukne vedľa.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>MO-006</td>
+<td>Pole množstva v košíku má písmo 14 px; iPhone pri ťuknutí stránku priblíži.</td>
+<td>P2</td>
+<td>CSS: 16 px vo všetkých poliach.</td>
+<td>Nechcené priblíženie ruší a zákazník musí stránku vracať.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>DU-007</td>
+<td>Čo web sľubuje, nesedí: (a) About us odkazuje na kategóriu <strong>Bakery</strong> a pätička píše „Meat, dairy, bakery…“, ale <code>/bakery/</code> je prázdna („Nothing here yet“). (b) Contact: „We deliver all over Jutland on Wednesdays and Fridays“, pokladňa pritom pre zvyšok Jutska ponúka „Delivery – time agreed with you“. (c) Cookie lišta píše, že súhlas je „to show maps and social media content“, ale súhlasom sa spúšťa aj štatistika (Google Analytics, Clarity).</td>
+<td>P2</td>
+<td>(a) odstrániť odkaz a slovo „bakery“, kým kategória nemá produkty, alebo ju naplniť; (b) upraviť text na Contact; (c) doplniť text lišty v Complianz o štatistiku.</td>
+<td>Každý nesplnený sľub znižuje dôveru; text lišty musí zodpovedať tomu, na čo sa súhlas dáva.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>TX-002</td>
+<td>Predvolené texty WooCommerce v pokladni: „Returning customer? Click here to login“, „Have a coupon? Click here to enter your coupon code“.</td>
+<td>P3</td>
+<td>preložiteľné reťazce: „Log in“, „Add a discount code“.</td>
+<td>Odkaz má hovoriť, čo sa stane, nie „click here“.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Splnené:</strong></p>
+<ul>
+<li><em>Homepage:</em> jasné sdelenie, čo obchod predáva (HP-001), dlaždice kategórií s počtom produktov (HP-003), žiadne vyskakovacie okno okrem cookie lišty (HP-006).</li>
+<li><em>Navigácia:</em> na mobile kategórie hneď v menu, položky 60 px (HN-005); zvýraznená aktuálna sekcia (HN-007); drobčeky aj na mobile (HN-008); pätička s dopravou, podmienkami a kontaktmi (HN-013).</li>
+<li><em>Výpis:</em> začiatok výpisu na mobile vidno bez posúvania (VK-001); do košíka priamo z karty, tlačidlo sa zmení na „1 in cart“ s −/+ a „View cart“ (VK-008, KO-001).</li>
+<li><em>Košík:</em> −/+ prepočíta hneď (KO-007).</li>
+<li><em>Pokladňa:</em> nákup bez registrácie (CH-002); celková cena v súhrne (CH-009); v pokladni bez menu a hľadania (CH-010).</li>
+<li><em>Kontakt:</em> telefón, e-mail, otváracia doba, CVR a <code>tel:</code>/<code>mailto:</code> hneď na stránke (DU-004).</li>
+<li><em>Texty:</em> 404, prázdne hľadanie aj prázdny košík povedia, čo sa stalo, a ponúknu cestu ďalej (TX-005, VY-005).</li>
+<li><em>Mobil a prístupnosť:</em>
+<ul>
+<li>bez vodorovného posúvania okrem Contact (MO-002, pozri technické chyby);</li>
+<li>kontrast textu na plnom pozadí prešiel na všetkých meraných stránkach (PR-002);</li>
+<li>ikonové tlačidlá majú aria-label (PR-005);</li>
+<li>focus je viditeľný (PR-004), okrem poľa hľadania, kde obrys chýba (<code>outline: none</code>).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Netýka sa</strong> (podmienka nenastala): varianty (DP-004, VK-011), zľavy a urgencia (DP-012, DP-019, Deals je
+prázdne), nedostupné produkty (DP-018), filtre (VK-004/005, kategórie majú 3–10 produktov), carousel (HP-002),
+recenzie produktov (DP-007, DP-008), B2B, vyskakovacie okná s ponukou (MO-007).</p>
+<p><strong>Neposúdené:</strong></p>
+<ul>
+<li><em>Rýchlosť (RY-001 až RY-004):</em> denná kvóta PageSpeed API bola vyčerpaná a testovací web nemá dáta skutočných návštevníkov. Treba zmerať na <a href="http://delicja.dk">delicja.dk</a> po spustení (mobil, homepage, kategória, detail, košík).</li>
+<li><em>Chyby vo formulári (CH-012):</em> formulár sa neodosielal.</li>
+<li><em>Detail produktu (DP-xxx):</em> je v todo (Matej). Pri šablóne odporúčam zapracovať:
+<ul>
+<li>cenu dopravy a „Pickup in the shop free, ready in about 2 hours“ pri tlačidle (DP-002, DP-003);</li>
+<li>štyri sľuby pod nákupnou časťou (DP-016);</li>
+<li>jednotkovú cenu (nález 7);</li>
+<li>pole množstva 16 px (dnes 14 px).</li>
+</ul>
+</li>
+<li><em>Zákon o prístupnosti (PR-001):</em> Delicja ApS je pravdepodobne mikropodnik (pod 10 ľudí), takže prístupnosť je odporúčaná, nie povinná. Treba to overiť.</li>
+</ul>
+<hr>
+<h2 id="2-technické-chyby">2) Technické chyby</h2>
+<ol>
+<li><strong>Košík volá neexistujúcu adresu.</strong> Na <code>/cart/</code> (prázdnom aj plnom) ide požiadavka na
+<code>https://test.delicja.dk/cart/undefinedwc/store/v1/cart</code> → 404. Volá ju store mini košíka WooCommerce
+(<code>@woocommerce/stores/woocommerce/cart.js</code>, <code>refreshCartItems</code>): na stránke košíka mu chýba adresa REST API.
+Zákazník nič nevidí, ale v konzole je chyba a mini košík sa na tejto stránke neobnoví.</li>
+<li><strong>Contact na mobile pretečie o 9 px do strany</strong> (<code>scrollWidth</code> − <code>clientWidth</code> = 9 px pri 390 px). Príčinou je bublina
+jedného z bodov na fotke obchodu.</li>
+<li><strong>Prázdna kategória Bakery je verejná</strong> (<code>/bakery/</code>, 200, „Nothing here yet“) a vedie na ňu odkaz z About us (pozri nález 21a).</li>
+<li><strong>Pole hľadania v hlavičke nemá viditeľný focus</strong> (<code>outline: none</code>, bez náhrady); pri ovládaní klávesnicou nevidno, že je pole aktívne.</li>
+</ol>
+<hr>
+<h2 id="3-úlohy-text-na-skopírovanie">3) Úlohy (text na skopírovanie)</h2>
+<pre><code>Názov: [CH-001] Pokladňa: najprv doručenie alebo vyzdvihnutie, pri vyzdvihnutí bez adresy
+Popis: Nález: doprava sa ukáže až po vyplnení PSČ, v tabuľke pod formulárom; zákazník s vyzdvihnutím musí vyplniť
+ulicu, PSČ a mesto. Riešenie: voľba „Delivery / Pickup in the shop“ hore v pokladni, pri vyzdvihnutí skryť adresné
+polia. Zásada: CH-001, CH-003. Priorita: P1. Kto: Robo (kód), Matej (vzhľad).
+</code></pre>
+<pre><code>Názov: [VY-004] Hľadanie podľa druhu tovaru (sausage, dairy, pølse) a kategórie vo výsledkoch
+Popis: Nález: „sausage“, „dairy“, „pølse“ vracajú 0 výsledkov, hoci pole ponúka „Search for sausages, sweets…“.
+Riešenie: hľadať aj v kategóriách a štítkoch, zodpovedajúcu kategóriu ukázať nad produktmi a v našepkávači;
+produktom pridať štítky EN/DA. Zásada: VY-004, VY-007, VY-003. Priorita: P1. Kto: Robo; štítky klientka.
+</code></pre>
+<pre><code>Názov: [KO-004] Košík: cena dopravy a vyzdvihnutie zdarma v súhrne
+Popis: Nález: v košíku je len Subtotal a Total bez dopravy. Riešenie: riadok „Delivery from 49 kr. · Pickup in the
+shop free“ alebo kalkulačka podľa PSČ. Zásada: KO-004. Priorita: P1. Kto: Robo.
+</code></pre>
+<pre><code>Názov: [KO-002] Košík: ukazovateľ do dopravy zdarma
+Popis: Nález: prah (799 / 999 / 1 299 kr. podľa zóny) je len v hornej lište. Riešenie: „Ešte za X kr. a doprava je
+zdarma“, bez PSČ prah pre Herning. Zásada: KO-002. Priorita: P1. Kto: Robo, vzhľad Matej.
+</code></pre>
+<pre><code>Názov: [CH-005] Pokladňa: otváracia doba a lehota pri vyzdvihnutí
+Popis: Nález: pri „Pickup in the shop“ chýba otváracia doba a lehota 3 dni. Riešenie: doplniť pod možnosť
+(texty z inc/pickup.php). Zásada: CH-005. Priorita: P1. Kto: Robo.
+</code></pre>
+<pre><code>Názov: [MO-003] Nižšia cookie lišta na mobile, „Cookie settings“ do pätičky
+Popis: Nález: lišta zaberie 48 % okna na mobile; plávajúce „Cookie settings“ prekrýva obsah na desktope.
+Riešenie: kompaktná lišta v Complianz + CSS, odkaz na nastavenia v pätičke. Zásada: MO-003. Priorita: P1.
+Kto: Robo (Complianz), Matej (vzhľad).
+</code></pre>
+<pre><code>Názov: [VK-012] Jednotková cena (kr./kg, kr./l) na kartách a detaile
+Popis: Nález: ceny len za kus pri rôznych baleniach. Jednotková cena je pri balených potravinách povinná
+(98/6/ES). Riešenie: výpočet z obsahu balenia; klientka vypĺňa obsah pri produkte. Zásada: VK-012. Priorita: P1.
+Kto: Robo (kód), klientka (údaje).
+</code></pre>
+<pre><code>Názov: [VK-002] Po spustení predvolené radenie „Most popular“
+Popis: Nález: predvolené je „Our picks“. Riešenie: po prvých týždňoch predaja prepnúť. Zásada: VK-002.
+Priorita: P1 (po spustení). Kto: Robo.
+</code></pre>
+<pre><code>Názov: [HN-002] Desktop: kategórie priamo v hlavnom menu, oneskorenie podponuky
+Popis: Nález: 8 kategórií je schovaných pod „Shop ▾“; podponuka sa otvára bez oneskorenia (4 ms). Riešenie:
+kategórie v lište, About/Contact vpravo; oneskorenie 300 ms. Zásada: HN-002, HN-004, HN-006. Priorita: P2. Kto: Matej.
+</code></pre>
+<pre><code>Názov: [HN-011] Mobil: nízka hlavička, ktorá sa vráti pri posune nahor
+Popis: Nález: hlavička má 214 px (32 % okna) a pri posune nahor sa nevráti. Riešenie: kompaktná prichytená lišta
+(logo, hľadanie, košík, menu). Zásada: HN-011. Priorita: P2. Kto: Matej.
+</code></pre>
+<pre><code>Názov: [HN-001] Telefón v hlavičke a v mobilnom menu
+Popis: Nález: telefón je len v pätičke a na Contact. Riešenie: klikací tel: +45 51 43 03 21 vedľa adresy
+a v mobilnom menu. Zásada: HN-001. Priorita: P2. Kto: Matej.
+</code></pre>
+<pre><code>Názov: [KO-010] Košík: krátko doprava, vyzdvihnutie a kontakt pod súhrnom; kupón zbaliť
+Popis: Nález: v košíku nie je nič o doprave, vrátení ani kontakt; pole kupónu je rozbalené. Riešenie: krátky blok
+pod súhrnom bez odkazov; kupóny vypnúť, ak sa nepoužívajú, inak zbaliť pod odkaz. Zásada: KO-010, DU-002, KO-006.
+Priorita: P2. Kto: Matej, Robo (kupóny).
+</code></pre>
+<pre><code>Názov: [CH-004] Pokladňa: konkrétny dátum doručenia a dôvod pri telefóne, PSČ s číselnou klávesnicou
+Popis: Nález: „Wednesday or Friday“ bez dátumu; telefón bez vysvetlenia (potrebný pre WhatsApp pri vyzdvihnutí);
+PSČ otvára písmenovú klávesnicu. Riešenie: najbližší termín podľa uzávierky; text pod telefónom; inputmode numeric.
+Zásada: CH-004, CH-013, CH-011. Priorita: P2. Kto: Robo.
+</code></pre>
+<pre><code>Názov: [MO-004] Mobil: dotykové plochy min. 24 px, polia 16 px
+Popis: Nález: odkazy v pätičke 22 px, textové odkazy v hero 19 px, drobčeky 18 px; pole množstva v košíku 14 px.
+Riešenie: CSS (riadkovanie/padding, font-size 16 px v poliach). Zásada: MO-004, MO-006. Priorita: P2. Kto: Matej.
+</code></pre>
+<pre><code>Názov: [DU-007] Zosúladiť sľuby: Bakery, doručovanie v Jutsku, text cookie lišty
+Popis: Nález: About us odkazuje na prázdnu kategóriu Bakery, pätička píše „bakery“; Contact sľubuje doručenie po
+celom Jutsku st/pi, pokladňa ponúka termín po dohode; cookie lišta nespomína štatistiku. Riešenie: upraviť texty,
+odkaz na Bakery skryť, kým nemá produkty; doplniť text lišty v Complianz. Zásada: DU-007. Priorita: P2.
+Kto: Matej (texty), Robo (Complianz).
+</code></pre>
+<pre><code>Názov: [TX-002] Texty odkazov v pokladni bez „Click here“
+Popis: Nález: „Click here to login“, „Click here to enter your coupon code“. Riešenie: „Log in“, „Add a discount
+code“. Zásada: TX-002. Priorita: P3. Kto: Robo.
+</code></pre>
+<pre><code>Názov: [Chyba] Košík volá /cart/undefinedwc/store/v1/cart (404)
+Popis: Mini košík WooCommerce na stránke košíka nemá adresu REST API (cart.js, refreshCartItems). Opraviť
+nastavenie storu alebo mini košík na /cart/ nenačítať. Priorita: P2. Kto: Robo.
+</code></pre>
+<pre><code>Názov: [Chyba] Contact na mobile pretečie o 9 px
+Popis: Bublina bodu na fotke obchodu presahuje okno pri 390 px. Obmedziť šírku/pozíciu bubliny. Priorita: P2. Kto: Matej.
+</code></pre>
+<pre><code>Názov: [Chyba] Pole hľadania bez viditeľného focusu
+Popis: outline: none bez náhrady; doplniť viditeľný obrys alebo zvýraznenie rámčeka poľa pri :focus-visible.
+Zásada: PR-004. Priorita: P3. Kto: Matej.
+</code></pre>
+
+            
+            
+        </body>
+        </html>

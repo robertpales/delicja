@@ -12,6 +12,14 @@ through Novamira, so they are not in git.
 
 ## 2026-11-02
 
+**Robo**
+- WPML set up: Danish default (root URL), English /en/, Polish /pl/. All existing content was English but tagged as
+  Danish; retagged to English in WPML (backup table `wp_icl_translations_bak_20261102`). *(database)*
+- Automatic translation (credits) only for products; pages, posts and Elementor templates are translated by hand. *(database)*
+- Homepage translated by hand into Danish (page 562, slug `forside`) and Polish (563, `strona-glowna`). *(database)*
+- WPML 5 calls English `en-us`: page CSS (`delicja_english_id`) and the language switcher now handle it, so
+  translated pages load the English page's CSS and English shows in the switcher.
+
 **Matej**
 - New arrivals tile: instead of the AI crate, real packs from the shop's own product photos standing together
   (Paluszki, Łaciate milk, Krakus Żurek, kefir, Delicje, Kamis mustard), asked by the client. *(database)*
