@@ -141,6 +141,13 @@
 	if (document.cookie.includes('woocommerce_items_in_cart=')) {
 		sync();
 	}
+
+	// New cards were put on the page (the homepage category filter): give them their stepper too.
+	document.addEventListener('dl:cards', () => {
+		if (document.cookie.includes('woocommerce_items_in_cart=')) {
+			sync();
+		}
+	});
 })();
 
 /* === Cart === */
@@ -271,6 +278,96 @@ document.querySelectorAll('.dl-shop-cats .dl-cat-label a').forEach((link) => {
 		row.scrollLeft += box.left - row.getBoundingClientRect().left - (row.clientWidth - box.width) / 2;
 	}
 });
+
+/* === Category row === */
+// The homepage category tiles are one row that scrolls sideways (site.css, Categories). On a phone it is swiped; on a
+// computer two round arrows at its ends move it by a few tiles, and hide at the start and the end.
+document.querySelectorAll('.dl-cats-wrap').forEach((wrap) => {
+	const row = wrap.querySelector('.dl-cats:not(.dl-cats--all) .elementor-loop-container');
+	if (!row) {
+		return;
+	}
+
+	const icon = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+	const arrows = document.createElement('div');
+	arrows.className = 'dl-cats-arrows';
+	arrows.innerHTML = `<button type="button" class="dl-cats-arrow" data-step="-1" aria-label="Previous categories">${icon('M15 18l-6-6 6-6')}</button>`
+		+ `<button type="button" class="dl-cats-arrow" data-step="1" aria-label="More categories">${icon('M9 18l6-6-6-6')}</button>`;
+	wrap.append(arrows);
+	const [prev, next] = arrows.querySelectorAll('button');
+
+	const update = () => {
+		prev.disabled = row.scrollLeft < 4;
+		next.disabled = row.scrollLeft + row.clientWidth > row.scrollWidth - 4;
+	};
+	arrows.addEventListener('click', (event) => {
+		const button = event.target.closest('.dl-cats-arrow');
+		if (button) {
+			row.scrollBy({ left: Number(button.dataset.step) * row.clientWidth * 0.75 });
+		}
+	});
+	row.addEventListener('scroll', update, { passive: true });
+	window.addEventListener('resize', update);
+	update();
+});
+
+/* === Category filter === */
+// The category chips above "Customer favourites" on the homepage filter the products right there: a chip loads its
+// category page in the background and shows that page's product cards in place of the favourites; the first chip
+// (all products) brings the favourites back. Without JavaScript the chips stay plain links to the categories.
+(() => {
+	const chips = document.querySelector('.dl-section--favourites .dl-chips');
+	const grid = document.querySelector('.dl-section--favourites .dl-products--favourites .elementor-loop-container');
+	if (!chips || !grid) {
+		return;
+	}
+
+	const original = grid.innerHTML;
+	const pages = new Map();
+	const first = chips.querySelector('.dl-chip a');
+
+	const load = async (url) => {
+		if (!pages.has(url)) {
+			pages.set(url, fetch(url, { credentials: 'same-origin' })
+				.then((response) => (response.ok ? response.text() : Promise.reject(response)))
+				.then((html) => {
+					const page = new DOMParser().parseFromString(html, 'text/html');
+					return [...page.querySelectorAll('.dl-products--grid .elementor-loop-container > .e-loop-item')]
+						.map((item) => item.outerHTML).join('');
+				}));
+		}
+		return pages.get(url);
+	};
+
+	chips.addEventListener('click', async (event) => {
+		const link = event.target.closest('.dl-chip a');
+		if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.button) {
+			return;
+		}
+		event.preventDefault();
+
+		chips.querySelectorAll('.dl-chip').forEach((chip) => {
+			const active = chip.contains(link);
+			chip.classList.toggle('is-active', active);
+			chip.querySelector('a')?.toggleAttribute('aria-current', active);
+		});
+
+		grid.classList.add('is-loading');
+		try {
+			const items = link === first ? original : await load(link.href);
+			if (!items) {
+				throw new Error('No products');
+			}
+			grid.innerHTML = items;
+			grid.scrollLeft = 0;
+			document.dispatchEvent(new CustomEvent('dl:cards'));
+		} catch (error) {
+			// The category page could not be read: go there instead.
+			window.location.href = link.href;
+		}
+		grid.classList.remove('is-loading');
+	});
+})();
 
 /* === Picture reveal === */
 // A photo in an Elementor Hotspot widget (one hotspot per thing in the photo) and a hidden Image widget with the same

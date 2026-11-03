@@ -600,6 +600,15 @@
     }
 }
 
+.dl-products--favourites .elementor-loop-container {
+    transition: opacity var(--dl-transition);
+}
+
+.dl-products--favourites .elementor-loop-container.is-loading {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
 /* === Chips === */
 .dl-chips {
     --gap: var(--dl-space-20);
