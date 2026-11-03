@@ -293,7 +293,7 @@ document.querySelectorAll('.dl-cats-wrap').forEach((wrap) => {
 	arrows.className = 'dl-cats-arrows';
 	arrows.innerHTML = `<button type="button" class="dl-cats-arrow" data-step="-1" aria-label="Previous categories">${icon('M15 18l-6-6 6-6')}</button>`
 		+ `<button type="button" class="dl-cats-arrow" data-step="1" aria-label="More categories">${icon('M9 18l6-6-6-6')}</button>`;
-	wrap.append(arrows);
+	row.closest('.dl-cats').append(arrows);
 	const [prev, next] = arrows.querySelectorAll('button');
 
 	const update = () => {
