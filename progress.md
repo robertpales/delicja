@@ -12,6 +12,11 @@ through Novamira, so they are not in git.
 
 ## 2026-11-03
 
+**Matej**
+- Homepage: category tiles in one row on computers too, slid with two round arrows (phones keep swiping),
+  with the red progress line. The category chips above Customer favourites now filter the products right there
+  instead of opening the category page; "All products" brings the favourites back (`site.js`, `site.css`, `home.css`).
+
 **Robo**
 - Homepage FAQ "Can I return my order?" now matches the Terms in all three languages: no right of withdrawal for the
   food the law exempts, wrong or damaged goods by e-mail with the order number, no returns by post, any return in the
