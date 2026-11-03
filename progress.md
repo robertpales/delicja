@@ -16,6 +16,8 @@ through Novamira, so they are not in git.
 - Homepage FAQ "Can I return my order?" now matches the Terms in all three languages: no right of withdrawal for the
   food the law exempts, wrong or damaged goods by e-mail with the order number, no returns by post, any return in the
   shop; links to the e-mail and to the Terms in each language. *(database)*
+- Temporary accounts: a user with an expiry date can no longer log in after it, and an open session ends
+  (`inc/access.php`). The Flatpay account (Shop manager, created 2026-11-03) expires on 17 November. *(database: date)*
 
 ## 2026-11-02
 
