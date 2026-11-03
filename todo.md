@@ -87,8 +87,6 @@ need a product list from her, 2026-10-27)
   - [ ] Related product cards (template Related product card) in the same style as all the other product cards on the site.
 - [ ] A short guide for the client on adding a product (which fields, allergens and storage icons, photo size,
   category), so every product page is complete.
-- [ ] Homepage FAQ says customers can return goods within 14 days, but the Terms say the right of withdrawal does not
-  apply to food. Make the FAQ match the Terms (all three languages).
 - [ ] Delivery texts on the site (homepage FAQ, the "Not in Herning?" panel, Delivery & returns): minimum 499 kr. for
   delivery, delivery orders at least 24 hours before the delivery day (the client confirmed her terms are final,
   2026-10-29).
