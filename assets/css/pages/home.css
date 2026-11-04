@@ -492,6 +492,34 @@
     margin-block-end: var(--dl-space-50);
 }
 
+/* A slide is never wider than one card of the full row, also when only one or two products are on sale (then the
+   carousel does not start and a single slide would fill the whole width). Same counts as the widget: 4 / 3 / 2 / 1. */
+.dl-products--carousel .swiper-slide {
+    max-width: calc((100% - 3 * 16px) / 4);
+}
+
+@media (max-width: 1024px) {
+    .dl-products--carousel .swiper-slide {
+        max-width: calc((100% - 2 * 16px) / 3);
+    }
+}
+
+@media (max-width: 880px) {
+    .dl-products--carousel .swiper-slide {
+        max-width: calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 767px) {
+    .dl-products--carousel .swiper-slide {
+        max-width: none;
+    }
+}
+
+.dl-products--carousel .swiper:not(.swiper-initialized) .swiper-wrapper {
+    gap: 16px;
+}
+
 .dl-products--carousel .e-loop-nothing-found-message {
     display: none;
 }
