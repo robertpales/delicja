@@ -520,6 +520,12 @@
     gap: 16px;
 }
 
+/* No arrows while every product on sale fits in view. */
+.dl-products--carousel:has(.swiper:not(.swiper-initialized)) .elementor-swiper-button,
+.dl-products--carousel .elementor-swiper-button.swiper-button-lock {
+    display: none;
+}
+
 .dl-products--carousel .e-loop-nothing-found-message {
     display: none;
 }
