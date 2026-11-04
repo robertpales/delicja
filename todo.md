@@ -126,6 +126,16 @@ need a product list from her, 2026-10-27)
   cookie policy lists the `_ga` and Clarity (`_clck`, `_clsk`) cookies. Decide on shop events (product views, cart, purchases): the official
   "Google Analytics for WooCommerce" plugin. Search Console is Robo's (SEO).
 
+**Hosting: 508 Resource Limit Is Reached** (Matej, 2026-11-04; not changed by Matej, hosting is Robo's)
+- [ ] The site sometimes shows Simply.com's "508 Resource Limit Is Reached" (seen in the WooCommerce app at login,
+  2026-11-04 09:19): the plan's limit of concurrent PHP processes is reached. Simply.com: raise it by upgrading to a
+  plan with more PHP threads (Control Panel → Website: resource usage, also "restart PHP processes" as a quick fix).
+  Checked 2026-11-04 (host linux392.unoeuro.com, PHP 8.5, OPcache on, no object cache, WP-Cron on page loads,
+  Action Scheduler healthy: 0 overdue, 17 pending; 17 plugins; autoload 456 kB). Likely causes: bursts of uncached
+  PHP requests (the app's REST calls at login, wp-admin with WPML ATE and Heartbeat polling, WP-Cron). Decide:
+  plan upgrade (client pays), real server cron with DISABLE_WP_CRON (see WooCommerce above), object cache if Simply
+  offers Redis, Heartbeat throttling.
+
 **Deploy**
 - [ ] Page cache after a deploy (asked by Matej, 2026-10-24): `inc/deploy.php` clears WP Fastest Cache on the first
   request that reaches PHP, but cached pages are served without PHP, so the homepage kept the old `site.js?ver=…`
