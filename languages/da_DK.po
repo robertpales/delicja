@@ -419,3 +419,17 @@ msgstr "Vis hele næringsdeklarationen"
 
 msgid "Product facts"
 msgstr "Om varen"
+
+#. translators: %s: price of the bag, e.g. "5,00 kr."
+#, php-format
+msgid "Yes, please (+%s)"
+msgstr "Ja tak (+%s)"
+
+msgid "No, thank you"
+msgstr "Nej tak"
+
+msgid "Would you like a paper bag?"
+msgstr "Vil du have en papirpose?"
+
+msgid "Paper bag"
+msgstr "Papirpose"

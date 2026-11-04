@@ -4125,6 +4125,17 @@ table.wc-block-cart-items td {
     transition: border-color var(--dl-transition);
 }
 
+/* Paper bag question above the payment methods (inc/bag.php): the same choice cards, a little tighter. */
+.elementor-widget-woocommerce-checkout-page .dl-bag {
+    margin: var(--dl-space-40) 0;
+    padding: var(--dl-space-40);
+}
+
+.elementor-widget-woocommerce-checkout-page .dl-bag .dl-fulfilment-option {
+    align-items: center;
+    padding: var(--dl-space-30) var(--dl-space-40);
+}
+
 .elementor-widget-woocommerce-checkout-page .dl-fulfilment-option:hover {
     border-color: var(--e-global-color-text);
 }
@@ -4157,7 +4168,7 @@ table.wc-block-cart-items td {
     letter-spacing: var(--e-global-typography-dlsmall-letter-spacing);
 }
 
-.elementor-widget-woocommerce-checkout-page form.checkout:has(.dl-fulfilment):not(:has(input[name="dl_fulfilment"][value="delivery"]:checked)) :is(#billing_country_field, #billing_address_1_field, #billing_address_2_field, #billing_postcode_field, #billing_city_field, .woocommerce-shipping-fields) {
+.elementor-widget-woocommerce-checkout-page form.checkout:has(input[name="dl_fulfilment"]):not(:has(input[name="dl_fulfilment"][value="delivery"]:checked)) :is(#billing_country_field, #billing_address_1_field, #billing_address_2_field, #billing_postcode_field, #billing_city_field, .woocommerce-shipping-fields) {
     display: none !important;
 }
 

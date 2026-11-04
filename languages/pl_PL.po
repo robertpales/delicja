@@ -423,3 +423,17 @@ msgstr "Pokaż pełną tabelę wartości odżywczych"
 
 msgid "Product facts"
 msgstr "Informacje o produkcie"
+
+#. translators: %s: price of the bag, e.g. "5,00 kr."
+#, php-format
+msgid "Yes, please (+%s)"
+msgstr "Tak, poproszę (+%s)"
+
+msgid "No, thank you"
+msgstr "Nie, dziękuję"
+
+msgid "Would you like a paper bag?"
+msgstr "Czy chcesz papierową torbę?"
+
+msgid "Paper bag"
+msgstr "Torba papierowa"
