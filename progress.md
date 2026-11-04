@@ -13,6 +13,9 @@ through Novamira, so they are not in git.
 ## 2026-11-04
 
 **Matej**
+- Checkout: "Would you like a paper bag?" above the payment methods, Yes (+5 kr. incl. moms) or No (default);
+  yes adds a "Paper bag" line to the order, e-mails and invoice (`inc/bag.php`, Danish and Polish texts). Asked by the
+  client; price taken from her example, to confirm.
 - Three guide videos for the client with English subtitles and zooms (not in git): adding a product, orders in the
   WooCommerce phone app, orders on the computer. Recorded on the test site with a demo product and a demo order,
   both deleted afterwards. *(database)*
