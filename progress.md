@@ -16,6 +16,8 @@ through Novamira, so they are not in git.
 - Homepage: category tiles in one row on computers too, slid with two round arrows (phones keep swiping),
   with the red progress line. The category chips above Customer favourites now filter the products right there
   instead of opening the category page; "All products" brings the favourites back (`site.js`, `site.css`, `home.css`).
+- Weekly deals: one or two products on sale show as normal cards (4 / 3 / 2 / 1 per row like the carousel), not one
+  card across the whole width; the arrows show only when there are more deals than fit (`home.css`).
 
 **Robo**
 - Homepage FAQ "Can I return my order?" now matches the Terms in all three languages: no right of withdrawal for the
