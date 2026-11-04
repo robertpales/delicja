@@ -10,6 +10,13 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-11-04
+
+**Matej**
+- Three guide videos for the client with English subtitles and zooms (not in git): adding a product, orders in the
+  WooCommerce phone app, orders on the computer. Recorded on the test site with a demo product and a demo order,
+  both deleted afterwards. *(database)*
+
 ## 2026-11-03
 
 **Matej**
