@@ -437,3 +437,15 @@ msgstr "Czy chcesz papierową torbę?"
 
 msgid "Paper bag"
 msgstr "Torba papierowa"
+
+msgid "Country of origin"
+msgstr "Kraj pochodzenia"
+
+msgid "Storage"
+msgstr "Przechowywanie"
+
+msgid "Allergens"
+msgstr "Alergeny"
+
+msgid "Diet"
+msgstr "Dieta"

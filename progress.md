@@ -23,6 +23,14 @@ through Novamira, so they are not in git.
   the images, set on the DA/PL categories; backup `delicja_backup_cat_thumbs_20261105`), the Danish findsmiley badge in
   the Danish footer, a comma in the Kontakt heading ("Kig forbi,"), delivery "up to 40 km from 49 kr." (was 79 kr.)
   on Contact and About us in all three languages, like the FAQ. *(database)*
+- Robo's SEO points 1–5 from the audit, done with Robo's OK: Danish/Polish meta titles and descriptions on the
+  pages, meta descriptions for all 24 product categories (DA/PL/EN); hreflang tags on (WPML); brands for 35 products
+  (WooCommerce Brands, from the product name) so the product schema has `brand`; raster logo in the Organization
+  schema; attribute names in the schema in the page language; category sitemap on, empty blog-category sitemap off,
+  sitemap cache cleared; the /pl/ home chip linked to /pl/snacks/ now goes to /pl/przekaski/; robots.txt rules that
+  welcome search and AI crawlers (active once the site is public, Sitemap line added by `inc/seo.php`); llms.txt lists
+  the English and Polish pages and categories too. Backups `delicja_backup_rankmath_*`, `delicja_backup_wpml_seo_*`,
+  `delicja_backup_product_brand_*`, `delicja_backup_elementor_563_snacks_*` (20261105). *(database + code)*
 
 ## 2026-11-04
 

@@ -180,16 +180,14 @@ Set up 2026-11-02 (see progress.md). Pages and templates are English originals w
 
 **SEO audit 2026-11-05** (Matej ran the claude-seo audit on delicja.dk and test.delicja.dk; read-only, nothing
 changed; score old site about 34/100, new site about 64/100 with the staging noindex ignored)
-- [ ] Meta titles and descriptions in Danish/Polish on DA and PL pages (still English: Om os, Kontakt, Butik, Tilbud,
-  Privatlivspolitik, and the Polish counterparts); category pages without description (e.g. Færdigretter).
-- [ ] No `<link rel=canonical>` and no hreflang `<link>` tags in the head on any page (only the switcher links). Check
-  whether Rank Math leaves them out because of noindex; they must be there on delicja.dk.
-- [ ] Product schema: add `brand` and GTIN (`gtin13`) where known; Organization logo as PNG/WebP (SVG is not
-  supported by Google); localise `additionalProperty` names on Danish products; later shippingDetails and
-  hasMerchantReturnPolicy from the real terms.
-- [ ] Product sitemap still lists a deleted demo product (`/pl/krakus-zurek-zupa-na-zakwasie-500-ml/`, 404): refresh
-  the Rank Math sitemap cache. /pl/ home links to `/pl/snacks/` (untranslated slug next to `/pl/przekaski/`).
-- [ ] robots.txt: explicit rules for AI crawlers; llms.txt without /en/ and /pl/ pages and with thin product lines.
+- Items 1–5 of this audit were done on 2026-11-05 by Matej's Claude with Robo's OK (see progress.md). Left:
+- [ ] At launch, check that `<link rel=canonical>` is in the head (Rank Math leaves it out while the site is noindex;
+  hreflang is on now) and that robots.txt shows the AI-crawler rules and the Sitemap line (Rank Math uses its
+  robots.txt text only when the site is public).
+- [ ] Product schema: GTIN (`gtin13`) once the EAN codes are filled in (WooCommerce → product → GTIN field); later
+  shippingDetails and hasMerchantReturnPolicy from the real terms. Brands are set for products whose name starts with
+  a brand; pierogi, herring, twaróg and sauerkraut without a known producer have none.
+- [ ] llms.txt product lines are still thin ("Importeret fra Polen…") until the client's descriptions arrive.
 - [ ] Speed: TTFB 2–5 s on test, `cache-control: no-cache, no-store`, home HTML 368 kB, 23 scripts; one 503 (see 508
   above). Page cache, object cache, Lighthouse on mobile before launch.
 - [ ] Security headers missing (HSTS, CSP, X-Frame-Options, Referrer-Policy); `/wp-json/wp/v2/users` is public and

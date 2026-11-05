@@ -433,3 +433,15 @@ msgstr "Vil du have en papirpose?"
 
 msgid "Paper bag"
 msgstr "Papirpose"
+
+msgid "Country of origin"
+msgstr "Oprindelsesland"
+
+msgid "Storage"
+msgstr "Opbevaring"
+
+msgid "Allergens"
+msgstr "Allergener"
+
+msgid "Diet"
+msgstr "Kost"

@@ -22,8 +22,8 @@
  * - MerchantReturnPolicy: the returns page (levering-og-returnering) is still [TODO];
  *   perishable food usually has no right of withdrawal, so wait for the owner's terms.
  * - Product brand / countryOfOrigin: only output when the product has a WooCommerce brand
- *   (product_brand) or a "Country of origin" attribute. Products are third-party Polish brands,
- *   so Delicja is never used as the brand or manufacturer.
+ *   (product_brand, one set for all languages, taken from the start of the product name) or an
+ *   origin attribute. Products are third-party Polish brands, so Delicja is never the brand.
  * - gtin: only output when the product's GTIN field is filled in (none are yet).
  * - Wikipedia links (additionalType, sameAs): no article about Delicja exists.
  * - availableLanguage / knowsLanguage: languages spoken in the shop and on the phone unknown.
@@ -81,7 +81,8 @@ function dl_schema_config() {
 		'founding'   => '2024-12-10',
 		'phone'      => '+4551430321',
 		'email'      => 'shop@delicja.dk',
-		'logo_id'    => 45,
+		// Raster copy of the round logo (512 × 512 JPG): Google does not use SVG logos.
+		'logo_id'    => 354,
 		'address'    => [
 			'streetAddress'   => 'Bethaniagade 5',
 			'addressLocality' => 'Herning',
@@ -471,8 +472,17 @@ add_action( 'wp_head', function () {
 		if ( ! $values ) {
 			continue;
 		}
-		$props[] = [ '@type' => 'PropertyValue', 'name' => $label, 'value' => $values ];
-		if ( preg_match( '/country of origin|oprindelsesland|kraj pochodzenia/i', $label ) ) {
+		// Our attributes get names in the page language; others keep their own label.
+		$names   = [
+			'pa_origin'      => __( 'Country of origin', 'delicja' ),
+			'pa_storage'     => __( 'Storage', 'delicja' ),
+			'pa_allergens'   => __( 'Allergens', 'delicja' ),
+			'pa_may-contain' => __( 'May contain', 'delicja' ),
+			'pa_diet'        => __( 'Diet', 'delicja' ),
+		];
+		$name    = $names[ $attr->get_name() ] ?? $label;
+		$props[] = [ '@type' => 'PropertyValue', 'name' => $name, 'value' => $values ];
+		if ( 'pa_origin' === $attr->get_name() || preg_match( '/country of origin|oprindelsesland|kraj pochodzenia/i', $label ) ) {
 			$prod['countryOfOrigin'] = [ '@type' => 'Country', 'name' => $values ];
 		}
 	}
