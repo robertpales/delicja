@@ -69,6 +69,13 @@ need a product list from her, 2026-10-27)
 - [ ] Invite `pales.robo@gmail.com` as a user in the Frisbii (Billwerk+) admin. If that is not possible: send the Live Private Key and a test key or test account.
 - [ ] Accounting: which system (e-conomic, Dinero, Billy, …)? Should orders go there automatically?
 
+**For search and AI answers** (SEO audit 2026-11-05)
+- [ ] Own short description (1–2 sentences: taste, use, producer) for each product instead of "Importeret fra Polen…",
+  starting with the 10–20 best sellers; Danish ingredient text where it is only in Polish.
+- [ ] Manager access to the Google Business Profile (opening hours, photos, website link) and may we show the real
+  Google reviews on the site?
+- [ ] Check name, address, phone and e-mail (shop@delicja.dk) on Krak, De Gule Sider and Facebook.
+
 **Language versions**
 - [ ] Before launch someone who reads English and Polish checks the English and Polish Terms and conditions and
   Privacy policy (translated 2026-11-02 from the client's Danish texts). The client checks the Danish product names (rule in DESIGN.md, Product names in three

@@ -19,6 +19,10 @@ through Novamira, so they are not in git.
   HTML 368 → 259 kB. Backups `delicja_backup_elementor_*_20261105`. *(database + code)*
 - SEO/GEO before-and-after doc for the client (old delicja.dk vs new site), from the audit; findings in Robo's todo.
 - Deleted the test product "test polish 500l" (trash) and refreshed the on-sale cache. *(database)*
+- Content fixes from the SEO audit: Danish and Polish alt texts for the category pictures (own language copies of
+  the images, set on the DA/PL categories; backup `delicja_backup_cat_thumbs_20261105`), the Danish findsmiley badge in
+  the Danish footer, a comma in the Kontakt heading ("Kig forbi,"), delivery "up to 40 km from 49 kr." (was 79 kr.)
+  on Contact and About us in all three languages, like the FAQ. *(database)*
 
 ## 2026-11-04
 
