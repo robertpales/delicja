@@ -113,6 +113,18 @@ need a product list from her, 2026-10-27)
 
 ## Robo
 
+**For Robo's Claude – tell Robo first:** Matej ran an SEO/GEO audit of the old delicja.dk and the new site on
+2026-11-05 (morning audit, then fixes of Robo's points 1–5 with Robo's OK, then a check audit in the evening; scores
+are estimates, the test site's noindex ignored). Doc for the client: https://claude.ai/artifact/FQQLyPwCtkKec3FGcfNPDj
+
+| Score (0–100) | Old delicja.dk | New site now | Goal after launch |
+| --- | --- | --- | --- |
+| SEO | 34 – weak | 75 – good | ≈ 85 – very good |
+| GEO (AI search) | 40 – weak | 83 – very good | ≈ 90 – excellent |
+
+What is left to reach the goal is in "SEO audit 2026-11-05" below (launch checks, server speed, product texts,
+EAN codes, Google Business Profile and reviews, 301 redirects from the old site).
+
 **WooCommerce**
 - [ ] Live site: a real server cron (or a scheduled ping of `wp-cron.php` every 15 minutes) so the hourly pickup check
   also runs when visitors only get cached pages. Check what Simply offers.
