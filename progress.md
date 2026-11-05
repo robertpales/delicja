@@ -10,6 +10,16 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-11-05
+
+**Matej**
+- Faster pages: Elementor prints its CSS as files instead of ~107 kB inline on every page; product cards show the
+  300 px image size (with srcset) instead of the 1024 px original; category tiles 600 px instead of 800 px;
+  WordPress emoji script off (`inc/performance.php`). Homepage 3.6 → 2.0 MB on a computer, 3.2 → 1.5 MB on a phone,
+  HTML 368 → 259 kB. Backups `delicja_backup_elementor_*_20261105`. *(database + code)*
+- SEO/GEO before-and-after doc for the client (old delicja.dk vs new site), from the audit; findings in Robo's todo.
+- Deleted the test product "test polish 500l" (trash) and refreshed the on-sale cache. *(database)*
+
 ## 2026-11-04
 
 **Matej**
