@@ -171,6 +171,29 @@ Set up 2026-11-02 (see progress.md). Pages and templates are English originals w
 - [ ] Test: an order in each language. (A product written in Danish gets its English and Polish versions
   automatically, checked 2026-11-02.)
 
+**SEO audit 2026-11-05** (Matej ran the claude-seo audit on delicja.dk and test.delicja.dk; read-only, nothing
+changed; score old site about 34/100, new site about 64/100 with the staging noindex ignored)
+- [ ] Meta titles and descriptions in Danish/Polish on DA and PL pages (still English: Om os, Kontakt, Butik, Tilbud,
+  Privatlivspolitik, and the Polish counterparts); category pages without description (e.g. Færdigretter).
+- [ ] No `<link rel=canonical>` and no hreflang `<link>` tags in the head on any page (only the switcher links). Check
+  whether Rank Math leaves them out because of noindex; they must be there on delicja.dk.
+- [ ] Product schema: add `brand` and GTIN (`gtin13`) where known; Organization logo as PNG/WebP (SVG is not
+  supported by Google); localise `additionalProperty` names on Danish products; later shippingDetails and
+  hasMerchantReturnPolicy from the real terms.
+- [ ] Product sitemap still lists a deleted demo product (`/pl/krakus-zurek-zupa-na-zakwasie-500-ml/`, 404): refresh
+  the Rank Math sitemap cache. /pl/ home links to `/pl/snacks/` (untranslated slug next to `/pl/przekaski/`).
+- [ ] robots.txt: explicit rules for AI crawlers; llms.txt without /en/ and /pl/ pages and with thin product lines.
+- [ ] Speed: TTFB 2–5 s on test, `cache-control: no-cache, no-store`, home HTML 368 kB, 23 scripts; one 503 (see 508
+  above). Page cache, object cache, Lighthouse on mobile before launch.
+- [ ] Security headers missing (HSTS, CSP, X-Frame-Options, Referrer-Policy); `/wp-json/wp/v2/users` is public and
+  shows the admin user slug.
+- [ ] Old delicja.dk at launch: it has no products, but indexed demo pages with fake details (`/pl/contact-us/`
+  "221B Baker St, London", `/pl/our-story/`, `/pl/our-bread/`, `/pl/workshops/`, sample-page, global-styles,
+  posts-page, a demo post). Redirect map (301, no chains): `/da/` → `/`, `/pl/` → `/pl/`, `/en/` → `/en/`,
+  `/pl/shop/` and `/shop/` → shop, `/pl/contact-us/` → contact, `/pl/our-story/` → about, cart/checkout/my-account →
+  the new ones, the rest → home. E-mail: the old site shows info@delicja.dk, the new one shop@ (forwarding above).
+- [ ] Reviews: no review source anywhere; link the Google Business Profile (real reviews only).
+
 **Before launch**
 - [ ] Delete the test customer Anna Nielsen (`test-kunde@example.com`, user meta `delicja_test_data`) with her 4 test
   orders (#544–#547, order meta `_delicja_test_data`) and her saved test card. Made by Matej on 2026-10-31 to design
