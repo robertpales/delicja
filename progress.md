@@ -10,6 +10,14 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-11-12
+
+**Matej**
+- Product editor: new "Næringsindhold" tab with one field per value (kJ, kcal, fat, …, per 100 g or 100 ml), because
+  the editor has no table button and the owner could not add nutrition values. Product facts read it first, the old
+  table in the description still works; translations use the original's values. Tested on a draft product (bold
+  allergen in the ingredients, allergen attribute, nutrition tiles), then deleted it.
+
 ## 2026-11-05
 
 **Matej**
