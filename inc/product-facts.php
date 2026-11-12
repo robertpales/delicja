@@ -5,9 +5,11 @@
  * - net quantity from the product name ("Twaróg wiejski 250 g"),
  * - the global attributes Origin, Storage, Diet, Allergens and May contain (Products → Attributes; pick the terms
  *   on the product's Attributes tab),
- * - nutrition from the table in the product description (rows Energy, Fat, of which saturates, Carbohydrate,
- *   of which sugars, Fibre, Protein, Salt, in English, Danish or Polish as on EU labels), with the share of the
- *   reference intake of an average adult (EU 1169/2011, Annex XIII).
+ * - nutrition from the fields on the product's "Nutrition" tab (Product data box; the owner types the values from
+ *   the label, no table needed), or else from a table in the product description (rows Energy, Fat, of which
+ *   saturates, Carbohydrate, of which sugars, Fibre, Protein, Salt, in English, Danish or Polish as on EU labels),
+ *   with the share of the reference intake of an average adult (EU 1169/2011, Annex XIII). The fields are kept on
+ *   the product in the language it was written in; its translations read them from there.
  * Missing data shows nothing: no allergen icons never means "no allergens". The nutrition table itself moves from the
  * Description tab into Product facts (under "Show the full nutrition table"), so it is on the page once and complete
  * (kJ and kcal), as the EU rules ask for food sold online.
@@ -117,6 +119,137 @@ function delicja_nutrition( string $html ): array {
 }
 
 /**
+ * Fields of the Nutrition tab, in the order of an EU label: key => label. Values are typed as on the label ("0,5").
+ */
+function delicja_nutrition_fields(): array {
+	return [
+		'energy_kj'    => __( 'Energy (kJ)', 'delicja' ),
+		'energy'       => __( 'Energy (kcal)', 'delicja' ),
+		'fat'          => __( 'Fat', 'delicja' ),
+		'saturates'    => __( 'Saturated fat', 'delicja' ),
+		'carbohydrate' => __( 'Carbohydrate', 'delicja' ),
+		'sugars'       => __( 'Sugars', 'delicja' ),
+		'fibre'        => __( 'Fibre', 'delicja' ),
+		'protein'      => __( 'Protein', 'delicja' ),
+		'salt'         => __( 'Salt', 'delicja' ),
+	];
+}
+
+/**
+ * The Nutrition tab's values of a product: [ 'per' => '100 g'|'100 ml', key => value, ... ], or [] when none are
+ * filled in. A translation without its own values uses the values of the product it was translated from (WPML).
+ */
+function delicja_nutrition_meta( int $product_id ): array {
+	$data = get_post_meta( $product_id, '_dl_nutrition', true );
+	if ( ! is_array( $data ) || ! array_filter( array_diff_key( $data, [ 'per' => 1 ] ), 'strlen' ) ) {
+		$original = (int) apply_filters( 'wpml_original_element_id', null, $product_id, 'post_product' );
+		$data     = $original && $original !== $product_id ? get_post_meta( $original, '_dl_nutrition', true ) : [];
+	}
+	if ( ! is_array( $data ) || ! array_filter( array_diff_key( $data, [ 'per' => 1 ] ), 'strlen' ) ) {
+		return [];
+	}
+
+	return $data;
+}
+
+/**
+ * Nutrition rows ([key => [label, value text, number]], like delicja_nutrition()) and the full table from the
+ * Nutrition tab's values.
+ */
+function delicja_nutrition_from_meta( array $data ): array {
+	$fields = delicja_nutrition_fields();
+	$labels = [
+		'energy'       => __( 'Energy', 'delicja' ),
+		'fat'          => __( 'Fat', 'delicja' ),
+		'saturates'    => __( 'Saturated fat', 'delicja' ),
+		'carbohydrate' => __( 'Carbohydrate', 'delicja' ),
+		'sugars'       => __( 'Sugars', 'delicja' ),
+		'fibre'        => __( 'Fibre', 'delicja' ),
+		'protein'      => __( 'Protein', 'delicja' ),
+		'salt'         => __( 'Salt', 'delicja' ),
+	];
+	$number = fn ( string $v ) => preg_match( '/[\d.,]+/', $v, $m ) ? (float) str_replace( ',', '.', $m[0] ) : null;
+
+	$rows = [];
+	$table = '';
+	foreach ( array_keys( $fields ) as $key ) {
+		$value = trim( (string) ( $data[ $key ] ?? '' ) );
+		if ( 'energy_kj' === $key || ( '' === $value && 'energy' !== $key ) ) {
+			continue;
+		}
+		if ( 'energy' === $key ) {
+			$kj   = trim( (string) ( $data['energy_kj'] ?? '' ) );
+			$cell = implode( ' / ', array_filter( [ '' !== $kj ? $kj . ' kJ' : '', '' !== $value ? $value . ' kcal' : '' ] ) );
+			if ( '' === $cell ) {
+				continue;
+			}
+			if ( '' !== $value ) {
+				$rows['energy'] = [ $labels['energy'], $value . ' kcal', $number( $value ) ];
+			}
+		} else {
+			$cell         = $value . ' g';
+			$rows[ $key ] = [ $labels[ $key ], $cell, $number( $value ) ];
+		}
+		$table .= '<tr><td>' . esc_html( $labels[ $key ] ) . '</td><td>' . esc_html( $cell ) . '</td></tr>';
+	}
+
+	return [ $rows, $table ? '<table><tbody>' . $table . '</tbody></table>' : '' ];
+}
+
+/* === Nutrition tab in the product editor === */
+
+add_filter( 'woocommerce_product_data_tabs', function ( $tabs ) {
+	$tabs['dl_nutrition'] = [
+		'label'    => __( 'Nutrition', 'delicja' ),
+		'target'   => 'dl_nutrition_data',
+		'class'    => [],
+		'priority' => 65,
+	];
+
+	return $tabs;
+} );
+
+add_action( 'woocommerce_product_data_panels', function () {
+	global $post;
+	$data = get_post_meta( $post->ID, '_dl_nutrition', true );
+	$data = is_array( $data ) ? $data : [];
+
+	echo '<div id="dl_nutrition_data" class="panel woocommerce_options_panel hidden"><div class="options_group">';
+	echo '<p class="form-field">' . esc_html__( 'Copy the values from the label. Write numbers only, e.g. 0,5. Leave a field empty when it is not on the label. The shop shows them as icons in Product facts.', 'delicja' ) . '</p>';
+	woocommerce_wp_select( [
+		'id'      => 'dl_nutrition_per',
+		'label'   => __( 'Values per', 'delicja' ),
+		'value'   => $data['per'] ?? '100 g',
+		'options' => [ '100 g' => '100 g', '100 ml' => '100 ml' ],
+	] );
+	foreach ( delicja_nutrition_fields() as $key => $label ) {
+		woocommerce_wp_text_input( [
+			'id'                => 'dl_nutrition_' . $key,
+			'label'             => $label . ( str_starts_with( $key, 'energy' ) ? '' : ' (g)' ),
+			'value'             => $data[ $key ] ?? '',
+			'type'              => 'text',
+			'custom_attributes' => [ 'inputmode' => 'decimal' ],
+		] );
+	}
+	echo '</div></div>';
+} );
+
+add_action( 'woocommerce_admin_process_product_object', function ( WC_Product $product ) {
+	// phpcs:disable WordPress.Security.NonceVerification.Missing -- WooCommerce checked the nonce of the product form.
+	if ( ! isset( $_POST['dl_nutrition_per'] ) ) {
+		return;
+	}
+	$data = [ 'per' => '100 ml' === wp_unslash( $_POST['dl_nutrition_per'] ) ? '100 ml' : '100 g' ];
+	foreach ( array_keys( delicja_nutrition_fields() ) as $key ) {
+		$value = sanitize_text_field( wp_unslash( $_POST[ 'dl_nutrition_' . $key ] ?? '' ) );
+		// Numbers as on the label, with "<" for "less than": "0,5", "<0,1".
+		$data[ $key ] = trim( preg_replace( '/[^\d.,<\s]/', '', $value ) );
+	}
+	// phpcs:enable
+	$product->update_meta_data( '_dl_nutrition', $data );
+} );
+
+/**
  * Icon name of an attribute term: the slug of the term in the language it was created in (with WPML), so the
  * Danish "maelk" and the Polish "mleko" get the icon of the English "milk". Without a translation, its own slug.
  */
@@ -193,10 +326,17 @@ add_shortcode( 'dl_product_facts', function () {
 	}
 
 	// Nutrition per 100 g (or 100 ml), with the share of the reference intake.
-	$content   = $product->get_description();
-	$nutrition = delicja_nutrition( $content );
+	$content = $product->get_description();
+	$meta    = delicja_nutrition_meta( $product->get_id() );
+	if ( $meta ) {
+		[ $nutrition, $table ] = delicja_nutrition_from_meta( $meta );
+		$unit                  = $meta['per'] ?? '100 g';
+	} else {
+		$nutrition = delicja_nutrition( $content );
+		$unit      = preg_match( '/100\s*ml\b/i', $content ) ? '100 ml' : '100 g';
+		$table     = preg_match( '#<table.*?</table>#is', $content, $match ) ? wp_kses_post( $match[0] ) : '';
+	}
 	if ( $nutrition ) {
-		$unit  = preg_match( '/100\s*ml\b/i', $content ) ? '100 ml' : '100 g';
 		$tiles = '';
 		foreach ( $nutrition as $key => [ $label, $value, $number ] ) {
 			$share = isset( DELICJA_REFERENCE_INTAKE[ $key ] ) && null !== $number ? (int) round( $number / DELICJA_REFERENCE_INTAKE[ $key ] * 100 ) : null;
@@ -206,7 +346,6 @@ add_shortcode( 'dl_product_facts', function () {
 				. ( null !== $share ? '<span class="dl-nutrient-share" style="--dl-share: ' . min( 100, $share ) . '%"><span>' . $share . ' %</span></span>' : '' )
 				. '</li>';
 		}
-		$table = preg_match( '#<table.*?</table>#is', $content, $match ) ? wp_kses_post( $match[0] ) : '';
 		/* translators: %s: "100 g" or "100 ml" */
 		$title = sprintf( __( 'Nutrition per %s', 'delicja' ), $unit );
 		$html .= '<div class="dl-facts-nutrition"><h3 class="dl-facts-title">' . esc_html( $title ) . '</h3><ul class="dl-nutrients">' . $tiles . '</ul>'

@@ -449,3 +449,18 @@ msgstr "Alergeny"
 
 msgid "Diet"
 msgstr "Dieta"
+
+msgid "Energy (kJ)"
+msgstr "Wartość energetyczna (kJ)"
+
+msgid "Energy (kcal)"
+msgstr "Wartość energetyczna (kcal)"
+
+msgid "Nutrition"
+msgstr "Wartości odżywcze"
+
+msgid "Values per"
+msgstr "Wartości na"
+
+msgid "Copy the values from the label. Write numbers only, e.g. 0,5. Leave a field empty when it is not on the label. The shop shows them as icons in Product facts."
+msgstr "Przepisz wartości z etykiety. Tylko liczby, np. 0,5. Zostaw pole puste, jeśli nie ma go na etykiecie. Sklep pokaże je jako ikony w informacjach o produkcie."

@@ -1,0 +1,6 @@
+<wpml-config>
+	<custom-fields>
+		<!-- Nutrition tab (inc/product-facts.php): numbers from the label, the same in every language. -->
+		<custom-field action="copy">_dl_nutrition</custom-field>
+	</custom-fields>
+</wpml-config>

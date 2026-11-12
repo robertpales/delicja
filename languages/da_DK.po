@@ -445,3 +445,18 @@ msgstr "Allergener"
 
 msgid "Diet"
 msgstr "Kost"
+
+msgid "Energy (kJ)"
+msgstr "Energi (kJ)"
+
+msgid "Energy (kcal)"
+msgstr "Energi (kcal)"
+
+msgid "Nutrition"
+msgstr "Næringsindhold"
+
+msgid "Values per"
+msgstr "Værdier pr."
+
+msgid "Copy the values from the label. Write numbers only, e.g. 0,5. Leave a field empty when it is not on the label. The shop shows them as icons in Product facts."
+msgstr "Skriv værdierne fra etiketten. Kun tal, fx 0,5. Lad et felt stå tomt, hvis det ikke står på etiketten. Butikken viser dem som ikoner under varefakta."
