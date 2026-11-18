@@ -10,6 +10,12 @@ through Novamira, so they are not in git.
 
 ---
 
+## 2026-11-18
+
+**Robo**
+- Temporary accounts removed: `inc/access.php` deleted and the expiry date taken off the `flatpay` account, so every
+  existing account works without an end date. *(database: expiry date)*
+
 ## 2026-11-12
 
 **Matej**

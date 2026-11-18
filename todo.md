@@ -162,8 +162,8 @@ EAN codes, Google Business Profile and reviews, 301 redirects from the old site)
   (e.g. one request with a query string, or deleting the cache folder over SSH).
 
 **Payment gateway (Frisbii Pay)**, when the client has done their part
-- [ ] Delete the WordPress user `flatpay` (Shop manager, for Flatpay's setup check) when they are done; it stops
-  working on 17 November 2026 anyway (`inc/access.php`).
+- [ ] Delete the WordPress user `flatpay` (Shop manager, for Flatpay's setup check) when they are done; it has no
+  expiry (temporary accounts were dropped 2026-11-18).
 - [ ] Keys, payment methods, logos, order status mapping; check webhooks. The client wants **Dankort, Visa/Mastercard,
   Apple Pay and Google Pay, no MobilePay** (2026-10-26). The footer icons and the homepage texts already show these.
 - [ ] Test payments on test.delicja.dk (test cards: order → Authorised; Completed → Settled; partial; cancel).
